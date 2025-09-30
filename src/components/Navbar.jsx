@@ -264,188 +264,189 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-[#1E2E2B] text-white sticky top-0 z-50 shadow-lg shadow-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/images/logo.svg"
-                  alt="Martechbiz"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto"
-                  priority
-                />
-              </Link>
-            </div>
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="flex items-center justify-between h-16">
+    {/* Logo - Fixed */}
+    <div className="flex-shrink-0">
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/images/logo4.png"
+          alt="Martechbiz"
+          width={520}
+          height={180}
+          className="h-30 w-auto max-w-[250px] sm:max-w-[250px] lg:max-w-[300px]" // Changed this line
+          priority
+        />
+      </Link>
+    </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {/* Software Reviews Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('software')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
-                  <span>Software Reviews </span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'software' ? 'rotate-180' : ''}`} />
-                </Link>
-                
-                {activeDropdown === 'software' && (
-                  <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl py-4 px-6 text-gray-800 border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out">
-                    <div className="space-y-3">
-                      {softwareReviews.categories.map((category, index) => (
-                        <Link
-                          key={index}
-                          href={category.href}
-                          className="block text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
-                        >
-                          {category.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Blog & Research Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('blog')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
-                  <span>Blog & Research</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'blog' ? 'rotate-180' : ''}`} />
-                </Link>
-                
-                {activeDropdown === 'blog' && (
-                  <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-lg shadow-xl py-4 text-gray-800 flex border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out">
-                    <div className="w-1/2 px-4 border-r border-gray-200">
-                      {blogResearch.leftMenu.map((item, index) => (
-                        <div key={index} className="relative group">
-                          <Link
-                            href={item.href}
-                            className={`flex items-center justify-between py-2 px-2 rounded transition-all duration-200 ${
-                              hoveredBlogItem === index ? 'bg-gray-50 text-[#386861]' : 'text-gray-600 hover:text-[#386861] hover:bg-gray-50'
-                            }`}
-                            onMouseEnter={() => handleBlogItemHover(index)}
-                          >
-                            <span>{item.name}</span>
-                            <ChevronRight className="w-4 h-4" />
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="w-1/2 px-4">
-                      <div className="block">
-                        <h3 className="font-semibold text-gray-800 mb-3">
-                          {blogResearch.leftMenu[hoveredBlogItem]?.name}
-                        </h3>
-                        <div className="space-y-2">
-                          {blogResearch.leftMenu[hoveredBlogItem]?.content.map((contentItem, contentIndex) => (
-                            <Link
-                              key={contentIndex}
-                              href={contentItem.href}
-                              className="block text-sm text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
-                            >
-                              {contentItem.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* About Us Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('about')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
-                  <span>About Us</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
-                </Link>
-                
-                {activeDropdown === 'about' && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-4 px-6 text-gray-800 border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out">
-                    <div className="space-y-3">
-                      {aboutUs.map((item, index) => (
-                        <Link
-                          key={index}
-                          href={item.href}
-                          className="block text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Desktop Search Bar */}
-            <div className="hidden lg:block relative" ref={searchRef}>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-64 pl-4 pr-12 py-2 rounded-full bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#ffd800] focus:ring-opacity-50 transition-all duration-200"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                  onKeyPress={handleSearchKeyPress}
-                  onFocus={handleSearchFocus}
-                  onBlur={handleSearchBlur}
-                />
-                <button
-                  onClick={handleSearchIconClick}
-                  className="absolute right-2 top-1.5 bg-gradient-to-br from-[#ffd800] to-[#ffed4e] rounded-full p-1.5 cursor-pointer transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-yellow-400/50"
-                  aria-label="Search"
+    {/* Desktop Navigation */}
+    <div className="hidden lg:flex items-center space-x-8">
+      {/* Software Reviews Dropdown */}
+      <div 
+        className="relative"
+        onMouseEnter={() => handleDropdownEnter('software')}
+        onMouseLeave={handleDropdownLeave}
+      >
+        <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
+          <span>Software Reviews</span>
+          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'software' ? 'rotate-180' : ''}`} />
+        </Link>
+        
+        {activeDropdown === 'software' && (
+          <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl py-4 px-6 text-gray-800 border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out z-50">
+            <div className="space-y-3">
+              {softwareReviews.categories.map((category, index) => (
+                <Link
+                  key={index}
+                  href={category.href}
+                  className="block text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
                 >
-                  <Search className="w-4 h-4 text-[#1E2E2B]" />
-                </button>
-              </div>
-              
-              {showSearchResults && searchResults.length > 0 && (
-                <div 
-                  ref={searchResultsRef}
-                  className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl max-h-96 overflow-y-auto z-50 border border-gray-200 transition-all duration-300 ease-out ${
-                    showSearchResults ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-                  }`}
-                >
-                  {searchResults.map((result, index) => (
-                    <div
-                      key={index}
-                      onClick={() => handleSearchResultClick(result)}
-                      className={`block w-full text-left px-4 py-3 text-gray-800 hover:bg-gray-50 hover:text-[#ffd800] border-b border-gray-200 last:border-b-0 transition-all duration-200 cursor-pointer ${
-                        isTyping ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                      onMouseDown={(e) => e.preventDefault()} // Prevent blur on mousedown
-                    >
-                      <div className="font-medium">{result.name || result.title}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button
-                onClick={toggleMobileMenu}
-                className="text-white hover:text-[#ffd800] focus:outline-none focus:text-[#ffd800] transition-colors duration-200"
-              >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+                  {category.name}
+                </Link>
+              ))}
             </div>
           </div>
+        )}
+      </div>
+
+      {/* Blog & Research Dropdown */}
+      <div 
+        className="relative"
+        onMouseEnter={() => handleDropdownEnter('blog')}
+        onMouseLeave={handleDropdownLeave}
+      >
+        <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
+          <span>Blog & Research</span>
+          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'blog' ? 'rotate-180' : ''}`} />
+        </Link>
+        
+        {activeDropdown === 'blog' && (
+          <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-lg shadow-xl py-4 text-gray-800 flex border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out z-50">
+            <div className="w-1/2 px-4 border-r border-gray-200">
+              {blogResearch.leftMenu.map((item, index) => (
+                <div key={index} className="relative group">
+                  <Link
+                    href={item.href}
+                    className={`flex items-center justify-between py-2 px-2 rounded transition-all duration-200 ${
+                      hoveredBlogItem === index ? 'bg-gray-50 text-[#386861]' : 'text-gray-600 hover:text-[#386861] hover:bg-gray-50'
+                    }`}
+                    onMouseEnter={() => handleBlogItemHover(index)}
+                  >
+                    <span>{item.name}</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className="w-1/2 px-4">
+              <div className="block">
+                <h3 className="font-semibold text-gray-800 mb-3">
+                  {blogResearch.leftMenu[hoveredBlogItem]?.name}
+                </h3>
+                <div className="space-y-2">
+                  {blogResearch.leftMenu[hoveredBlogItem]?.content.map((contentItem, contentIndex) => (
+                    <Link
+                      key={contentIndex}
+                      href={contentItem.href}
+                      className="block text-sm text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
+                    >
+                      {contentItem.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* About Us Dropdown */}
+      <div 
+        className="relative"
+        onMouseEnter={() => handleDropdownEnter('about')}
+        onMouseLeave={handleDropdownLeave}
+      >
+        <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
+          <span>About Us</span>
+          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+        </Link>
+        
+        {activeDropdown === 'about' && (
+          <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-4 px-6 text-gray-800 border border-gray-200 opacity-100 translate-y-0 transition-all duration-200 ease-out z-50">
+            <div className="space-y-3">
+              {aboutUs.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="block text-gray-600 hover:text-[#386861] hover:bg-gray-50 px-2 py-1 rounded transition-all duration-200"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
+    {/* Desktop Search Bar */}
+    <div className="hidden lg:block relative" ref={searchRef}>
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search"
+          className="w-64 pl-4 pr-12 py-2 rounded-full bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#ffd800] focus:ring-opacity-50 transition-all duration-200"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onKeyPress={handleSearchKeyPress}
+          onFocus={handleSearchFocus}
+          onBlur={handleSearchBlur}
+        />
+        <button
+          onClick={handleSearchIconClick}
+          className="absolute right-2 top-1.5 bg-gradient-to-br from-[#ffd800] to-[#ffed4e] rounded-full p-1.5 cursor-pointer transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-yellow-400/50"
+          aria-label="Search"
+        >
+          <Search className="w-4 h-4 text-[#1E2E2B]" />
+        </button>
+      </div>
+      
+      {showSearchResults && searchResults.length > 0 && (
+        <div 
+          ref={searchResultsRef}
+          className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl max-h-96 overflow-y-auto z-50 border border-gray-200 transition-all duration-300 ease-out ${
+            showSearchResults ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+          }`}
+        >
+          {searchResults.map((result, index) => (
+            <div
+              key={index}
+              onClick={() => handleSearchResultClick(result)}
+              className={`block w-full text-left px-4 py-3 text-gray-800 hover:bg-gray-50 hover:text-[#ffd800] border-b border-gray-200 last:border-b-0 transition-all duration-200 cursor-pointer ${
+                isTyping ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              <div className="font-medium">{result.name || result.title}</div>
+            </div>
+          ))}
         </div>
+      )}
+    </div>
+
+    {/* Mobile menu button */}
+    <div className="lg:hidden">
+      <button
+        onClick={toggleMobileMenu}
+        className="text-white hover:text-[#ffd800] focus:outline-none focus:text-[#ffd800] transition-colors duration-200"
+      >
+        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+    </div>
+  </div>
+</div>
+
       </nav>
 
       {/* Mobile Navigation */}
@@ -454,7 +455,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
               <Image
-                src="/images/logo.png"
+                src="/images/logo1.png"
                 alt="Martechbiz"
                 width={120}
                 height={40}
