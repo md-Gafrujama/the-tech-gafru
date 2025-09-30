@@ -915,24 +915,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="max-w-6xl mx-auto px-4 py-12 pb-16">
-        <div className="rounded-3xl p-10 text-center text-white shadow-xl" style={{background: 'linear-gradient(to right, #0E1F1C, #386861)'}}>
-          <h2 className="text-3xl font-bold mb-3">Ready to get started?</h2>
-          <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
-            Our team is standing by to help you find the perfect solution for your business needs.
-          </p>
-          <button
-            onClick={() => {
-              setShowSalesForm(true);
-              setShowGeneralForm(false);
-            }}
-            className="inline-block bg-white text-[#0E1F1C] px-8 py-3 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg"
-          >
-            Get in Touch
-          </button>
-        </div>
-      </div>
+    
     </div>
   );
 }
