@@ -1,185 +1,386 @@
- "use client";
- import Head from 'next/head';
-import Link from "next/link";
-import Image from "next/image";
-import {
-  FaUser,
-  FaHeadphones,
-  FaBriefcase,
-  FaPen,
-  FaQuestionCircle,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+"use client";
+import { useState } from 'react';
 
- const contactOptions = [
+const contactOptions = [
   {
-    icon: <FaUser className="text-white" />,
-    title: "Client support",
+    title: "General inquiries",
     description: "Send us an email",
-    href: "/contact/client-support", // example path
+    href: "/contact/general",
   },
   {
-    icon: <FaHeadphones className="text-white" />,
-    title: "Contact sales",
-    description: "Find B2B solutions",
-    href: "/contact/sales",
-  },
-  {
-    icon: <FaBriefcase className="text-white" />,
     title: "Find a career",
     description: "Apply now",
     href: "/careers",
   },
   {
-    icon: <FaPen className="text-white" />,
-    title: "Editorial team",
-    description: "Meet the team",
-    href: "/about/editorial-team",
-  },
-  {
-    icon: <FaQuestionCircle className="text-white" />,
-    title: "General inquiries",
-    description: "Send us an email",
-    href: "/contact/general",
+    title: "Contact sales",
+    description: "Find B2B solutions",
+    href: "/contact/sales",
   },
 ];
-
 
 const locations = [
   {
-    name: "Australia",
-    email: "APAC.sales@technologyadvice.com",
-    image: "/images/australia.jpeg",
+    name: "United States",
+    address: "3343 Perimeter Hill Dr Suite 100",
+    city: "Nashville, TN 37211",
+    phone: "877-702-2082",
+    email: "contact@technologyadvice.com",
+    image: "https://images.unsplash.com/photo-1549930555-6edb2c4e37e2?w=600&h=400&fit=crop",
   },
   {
-    name: "Singapore",
-    email: "singapore.sales@technologyadvice.com",
-    image: "/images/singapore.jpeg",
-  },
-  {
-    name: "United Kingdom",
-    email: "EMEA.sales@technologyadvice.com",
-    image: "/images/uk.jpeg",
+    name: "India",
+    address: "Cyber City, DLF Phase 2",
+    city: "Gurugram, Haryana 122002",
+    phone: "+91 124-4567890",
+    email: "india.sales@technologyadvice.com",
+    image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
   },
 ];
 
+const features = [
+  {
+    icon: "⚡",
+    title: "Fast Response Time",
+    description: "Get answers to your queries within 24 hours on business days"
+  },
+  {
+    icon: "🌍",
+    title: "Global Support",
+    description: "Our team operates across multiple time zones to serve you better"
+  },
+  {
+    icon: "🔒",
+    title: "Secure Communication",
+    description: "Your data is protected with enterprise-grade security"
+  },
+  {
+    icon: "💼",
+    title: "Expert Team",
+    description: "Connect with industry professionals who understand your needs"
+  }
+];
+
+const stats = [
+  { number: "50K+", label: "Happy Clients" },
+  { number: "24/7", label: "Support Available" },
+  { number: "98%", label: "Satisfaction Rate" },
+  { number: "150+", label: "Team Members" }
+];
+
+const faqs = [
+  {
+    question: "What are your business hours?",
+    answer: "Our customer support team is available 24/7 to assist you with any queries or concerns."
+  },
+  {
+    question: "How quickly will I receive a response?",
+    answer: "We typically respond to all inquiries within 24 hours on business days. Urgent matters are prioritized."
+  },
+  {
+    question: "Do you offer support in multiple languages?",
+    answer: "Yes, we provide support in English, Hindi, and several other regional languages."
+  }
+];
+
 export default function ContactPage() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredLocation, setHoveredLocation] = useState(null);
+  const [expandedFaq, setExpandedFaq] = useState(null);
+
   return (
-    <>
-     <Head>
-        <title>Contact Us | YourCompanyName</title>
-        <meta
-          name="description"
-          content="Get in touch with our team for client support, sales, careers, or general inquiries. We're here to help!"
-        />
-        </Head>
-      {/* Top Section */}
- 
-      <div className="min-h-screen bg-white">
-        <div className="bg-[#0E1F1C] text-white py-16 px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-sm mb-2">
-              
-              <Link href="/" className=" hover:text-green-400">
-                🏠 Home
-              </Link>{" "}
-              &gt; <span className="font-semibold">Contact Us</span>
-            </p>
-            <h1 className="text-4xl font-bold mb-4">Contact us</h1>
-            <p className="max-w-2xl">
-              We’re here to help! Our experts are eager to help answer any
-              questions you may have. Please contact us below and our team will
-              reach out to you soon.
-            </p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-[#0E1F1C] to-[#1a3d36] text-white py-20 px-8 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-400 rounded-full blur-3xl"></div>
         </div>
-
-        {/* Help Options */}
-        <div className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-semibold mb-8">How can we help?</h2>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-             {contactOptions.map((item, index) => (
-  <Link
-    key={index}
-    href={item.href}
-    className="rounded-2xl p-8 transition-all duration-300 border border-transparent hover:border-green-600 hover:bg-[#f8fff5] hover:shadow-lg block"
-  >
-    <div className="flex items-start gap-5">
-      <div className="bg-[#386861] p-3 rounded-md">{item.icon}</div>
-      <div>
-        <h3 className="font-semibold text-xl text-gray-900 mb-1">
-          {item.title}
-        </h3>
-        <p className="text-sm text-gray-600 hover:text-green-700 transition-colors duration-300">
-          {item.description}
-        </p>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <p className="text-sm mb-3 flex items-center gap-2 text-green-200">
+            <a href="/" className="hover:text-green-300 transition-colors">
+              🏠 Home
+            </a>
+            <span className="text-green-300">&gt;</span>
+            <span className="font-semibold text-white">Contact Us</span>
+          </p>
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+            Contact us
+          </h1>
+          <p className="max-w-2xl text-lg text-gray-200 leading-relaxed">
+            We're here to help! Our experts are eager to help answer any
+            questions you may have. Please contact us below and our team will
+            reach out to you soon.
+          </p>
+        </div>
       </div>
-    </div>
-  </Link>
-))}
 
-          </div>
-        </div>
-        {/* United States Location */}
-         <div className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Our offices</h2>
-        <p className="text-lg text-gray-700 mb-6">United States locations</p>
-
-        <div className="rounded-2xl overflow-hidden shadow-md relative">
-          <Image
-            src="/images/Nashville.webp"
-            alt="Nashville office"
-            width={1200}
-            height={600}
-            className="w-full h-80 object-cover"
-          />
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex flex-col justify-start p-6 text-white">
-            <div className="bg-white/20 p-3 rounded-lg w-fit mb-4">
-              <FaMapMarkerAlt className="text-white text-xl" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-semibold mb-1">Nashville</h3>
-              <p>3343 Perimeter Hill Dr Suite 100</p>
-              <p>Nashville, TN 37211</p>
-              <p className="mt-2">Phone: 877-702-2082</p>
-            </div>
+      {/* Stats Section */}
+      <div className="max-w-6xl mx-auto px-4 py-12 -mt-8 relative z-10">
+        <div className="bg-white rounded-2xl shadow-2xl p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-[#386861] mb-2">{stat.number}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      </div>
- 
 
-      {/* Global Locations */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Global locations
-        </h2>
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          {locations.map((loc, index) => (
-            <div
+      {/* Help Options */}
+      <div className="max-w-6xl mx-auto px-4 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            How can we help?
+          </h2>
+          <p className="text-gray-600">
+            Choose the option that best fits your needs
+          </p>
+        </div>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto">
+          {contactOptions.map((item, index) => (
+            <a
               key={index}
-              className="rounded-2xl overflow-hidden relative shadow-md"
+              href={item.href}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className="rounded-2xl p-6 transition-all duration-300 border-2 border-gray-100 bg-white hover:shadow-xl block"
+              style={{
+                borderColor: hoveredCard === index ? '#386861' : '',
+                background: hoveredCard === index ? 'linear-gradient(to bottom right, #f0fdf4, white)' : '',
+                transform: hoveredCard === index ? 'translateY(-4px)' : ''
+              }}
             >
-              <Image
-                src={loc.image}
-                alt={loc.name}
-                width={400}
-                height={250}
-                className="w-full h-64 object-cover"
-              />
-              <div className="absolute top-0 left-0 w-full h-full bg-black/50 p-6 text-white flex flex-col justify-start">
-                <div className="bg-white/20 p-3 rounded-lg w-fit mb-4">
-                  <FaMapMarkerAlt className="text-white text-xl" />
+              <div className="flex items-center gap-4">
+                <div 
+                  className="p-4 rounded-xl shadow-md transition-transform duration-300 flex-shrink-0"
+                  style={{
+                    background: 'linear-gradient(to bottom right, #386861, #2d5248)',
+                    transform: hoveredCard === index ? 'scale(1.1)' : 'scale(1)'
+                  }}
+                >
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {index === 0 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                    {index === 1 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    )}
+                    {index === 2 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    )}
+                  </svg>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1">{loc.name}</h3>
-                  <p className="text-sm">{loc.email}</p>
+                <div className="text-left">
+                  <h3 className="font-bold text-lg text-gray-900 mb-1">
+                    {item.title}
+                  </h3>
+                  <p 
+                    className="text-sm transition-colors duration-300"
+                    style={{
+                      color: hoveredCard === index ? '#386861' : '#6b7280'
+                    }}
+                  >
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
-    </>
+
+      {/* Features Section */}
+      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Why Choose Us?
+            </h2>
+            <p className="text-gray-600">
+              We're committed to providing exceptional service
+            </p>
+          </div>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#386861]"
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Global Locations */}
+      <div className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Global locations
+            </h2>
+            <p className="text-gray-600">
+              Connect with us from anywhere in the world
+            </p>
+          </div>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto">
+            {locations.map((loc, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredLocation(index)}
+                onMouseLeave={() => setHoveredLocation(null)}
+                className="rounded-2xl overflow-hidden relative shadow-lg transition-all duration-300"
+                style={{
+                  transform: hoveredLocation === index ? 'translateY(-8px)' : 'translateY(0)',
+                  boxShadow: hoveredLocation === index ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)' : ''
+                }}
+              >
+                <div 
+                  className="w-full h-80 bg-cover bg-center transition-transform duration-500"
+                  style={{
+                    backgroundImage: `url(${loc.image})`,
+                    transform: hoveredLocation === index ? 'scale(1.1)' : 'scale(1)'
+                  }}
+                ></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/50 to-black/30 p-8 text-white flex flex-col justify-end">
+                  <div 
+                    className="p-3 rounded-xl w-fit mb-4 transition-colors duration-300"
+                    style={{
+                      backgroundColor: hoveredLocation === index ? '#386861' : 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(8px)'
+                    }}
+                  >
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  <div className="transform transition-all duration-300">
+                    <h3 className="text-2xl font-bold mb-3">{loc.name}</h3>
+                    <div className="space-y-2 text-gray-100">
+                      <p className="flex items-start gap-2">
+                        <svg className="w-4 h-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>
+                          {loc.address}<br />{loc.city}
+                        </span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span>{loc.phone}</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span 
+                          className="text-sm transition-colors"
+                          style={{
+                            color: hoveredLocation === index ? '#86efac' : ''
+                          }}
+                        >
+                          {loc.email}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600">
+              Find quick answers to common questions
+            </p>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+              >
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <svg 
+                    className="w-5 h-5 text-[#386861] transition-transform duration-300"
+                    style={{
+                      transform: expandedFaq === index ? 'rotate(180deg)' : 'rotate(0deg)'
+                    }}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {expandedFaq === index && (
+                  <div className="px-6 pb-6 text-gray-600">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter Section */}
+      <div className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] rounded-3xl p-12 text-center text-white shadow-xl">
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+              Subscribe to our newsletter and get the latest updates, industry insights, and exclusive offers delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-3 rounded-xl  focus:outline-white focus:ring-2 focus:ring-green-400"
+              />
+              <button className="px-8 py-3 bg-white text-[#0E1F1C] rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="rounded-3xl p-12 text-center text-white shadow-xl" style={{background: 'linear-gradient(to right, #0E1F1C, #386861)'}}>
+          <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
+          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+            Our team is standing by to help you find the perfect solution for your business needs.
+          </p>
+          <a
+            href="/contact/sales"
+            className="inline-block bg-white text-[#0E1F1C] px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
