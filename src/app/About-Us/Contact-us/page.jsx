@@ -94,6 +94,200 @@ const faqs = [
   }
 ];
 
+// Newsletter Signup Form Component
+const NewsletterForm = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState('');
+
+  // Email validation function
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Handle email change with validation
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    
+    if (value && !validateEmail(value)) {
+      setEmailError('Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  // Handle name change with validation
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    
+    if (value.length > 0 && value.length < 2) {
+      setNameError('Name must be at least 2 characters long');
+    } else {
+      setNameError('');
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate fields
+    let hasErrors = false;
+    
+    if (!name.trim()) {
+      setNameError('Name is required');
+      hasErrors = true;
+    } else if (name.trim().length < 2) {
+      setNameError('Name must be at least 2 characters long');
+      hasErrors = true;
+    }
+    
+    if (!email.trim()) {
+      setEmailError('Email is required');
+      hasErrors = true;
+    } else if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address');
+      hasErrors = true;
+    }
+    
+    if (hasErrors) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '2c1b7668-e873-404a-9759-f85af53e550b',
+          form_type: 'Newsletter Subscription',
+          name: name.trim(),
+          email: email.trim(),
+          source: 'Website Newsletter Signup'
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        setEmail('');
+        setName('');
+        setEmailError('');
+        setNameError('');
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Name Input */}
+      <div>
+        <input
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          placeholder="Enter your name"
+          className={`w-full px-5 py-4 rounded-xl border-2 transition-all duration-300 focus:outline-none bg-white/95 backdrop-blur-sm placeholder-gray-500 text-gray-900 font-medium ${
+            nameError 
+              ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+              : 'border-white/30 focus:border-white focus:ring-2 focus:ring-white/20 hover:border-white/50'
+          }`}
+        />
+        {nameError && (
+          <p className="mt-2 text-sm text-red-200 flex items-center">
+            <svg className="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            </svg>
+            {nameError}
+          </p>
+        )}
+      </div>
+
+      {/* Email Input */}
+      <div>
+        <input
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="Enter your email address"
+          className={`w-full px-5 py-4 rounded-xl border-2 transition-all duration-300 focus:outline-none bg-white/95 backdrop-blur-sm placeholder-gray-500 text-gray-900 font-medium ${
+            emailError 
+              ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
+              : 'border-white/30 focus:border-white focus:ring-2 focus:ring-white/20 hover:border-white/50'
+          }`}
+        />
+        {emailError && (
+          <p className="mt-2 text-sm text-red-200 flex items-center">
+            <svg className="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            </svg>
+            {emailError}
+          </p>
+        )}
+      </div>
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={isSubmitting || emailError || nameError}
+        className="w-full px-8 py-4 bg-white text-[#0E1F1C] rounded-xl font-bold text-lg hover:bg-green-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:hover:bg-white flex items-center justify-center space-x-2"
+      >
+        {isSubmitting ? (
+          <>
+            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0E1F1C]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>Subscribing...</span>
+          </>
+        ) : (
+          <>
+            <span>Subscribe Now</span>
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </>
+        )}
+      </button>
+
+      {/* Status Messages */}
+      {submitStatus === 'success' && (
+        <div className="bg-green-100/20 border border-green-300/30 text-green-100 px-4 py-3 rounded-xl backdrop-blur-sm flex items-center">
+          <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          <span className="font-medium">Success! Welcome to our newsletter family.</span>
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div className="bg-red-100/20 border border-red-300/30 text-red-100 px-4 py-3 rounded-xl backdrop-blur-sm flex items-center">
+          <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+          </svg>
+          <span className="font-medium">Oops! Something went wrong. Please try again.</span>
+        </div>
+      )}
+    </form>
+  );
+};
+
 // General Inquiries Form
 const GeneralInquiriesForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -893,29 +1087,67 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Newsletter Section */}
+      {/* Enhanced Newsletter Section with Better Form */}
       <div className="bg-white py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] rounded-3xl p-10 text-center text-white shadow-xl">
-            <h2 className="text-3xl font-bold mb-3">Stay Updated</h2>
-            <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
-              Subscribe to our newsletter and get the latest updates, industry insights, and exclusive offers delivered to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto text-white">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-5 py-3 rounded-xl focus:outline-white focus:ring-2 focus:ring-green-400 text-gray-900"
-              />
-              <button className="px-6 py-3 bg-white text-[#0E1F1C] rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg">
-                Subscribe
-              </button>
+          <div className="bg-gradient-to-br from-[#0E1F1C] via-[#1a3d36] to-[#386861] rounded-3xl p-10 text-center text-white shadow-2xl relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-green-400 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-teal-400 rounded-full blur-2xl"></div>
+            </div>
+            
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-2xl mb-4 backdrop-blur-sm">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+                  Stay Updated
+                </h2>
+                <p className="text-gray-200 text-lg max-w-2xl mx-auto leading-relaxed">
+                  Subscribe to our newsletter and get the latest updates, industry insights, and exclusive offers delivered straight to your inbox.
+                </p>
+              </div>
+
+              {/* Benefits */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm">
+                <div className="flex items-center justify-center space-x-2 text-green-200">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Weekly insights</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-green-200">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Exclusive offers</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-green-200">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>No spam ever</span>
+                </div>
+              </div>
+
+              {/* Newsletter Form */}
+              <div className="max-w-lg mx-auto">
+                <NewsletterForm />
+              </div>
+
+              {/* Trust indicators */}
+              <div className="mt-6 text-xs text-gray-300">
+                <p>Join 50,000+ professionals who trust us with their inbox</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    
     </div>
   );
 }
