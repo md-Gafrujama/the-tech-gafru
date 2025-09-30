@@ -24,8 +24,8 @@ export default function Footer() {
                 <Image 
                   src="/images/logo2.png" 
                   alt="Martechbiz Logo" 
-                  width={74} 
-                  height={194}
+                  width={80} 
+                  height={80}
                   className="object-contain"
                 />
                 <h3 className="font-bold text-4xl bg-gradient-to-r from-white via-gray-100 to-[#00d9a6] bg-clip-text text-transparent">
@@ -259,8 +259,8 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#00d9a6]/5 to-[#00f5b8]/5 border border-[#00d9a6]/20 backdrop-blur-sm">
           <p className="text-center text-base text-gray-300 leading-relaxed">
             We utilize advanced data collection technologies to enhance user experience and provide personalized MarTech services. 
-            For data privacy preferences and opt-out options, please visit: 
-            <Link href="/California-Do-not-shell-my-info" className="text-[#00d9a6] font-semibold ml-2 hover:text-[#00f5b8] hover:underline transition-all duration-300">
+            For data privacy preferences and opt-out options, please visit:{" "}
+            <Link href="/California-Do-not-shell-my-info" className="text-[#00d9a6] font-semibold hover:text-[#00f5b8] hover:underline transition-all duration-300">
               Do Not Sell My Data
             </Link>
           </p>

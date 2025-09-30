@@ -265,16 +265,16 @@ const Navbar = () => {
     <>
       <nav className="bg-[#1E2E2B] text-white sticky top-0 z-50 shadow-lg shadow-white/10">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div className="flex items-center justify-between h-26">
+  <div className="flex items-center justify-between h-22">
     {/* Logo - Fixed */}
     <div className="flex-shrink-0">
       <Link href="/" className="flex items-center">
         <Image
-          src="/images/logo3.png"
+          src="/images/logo6.png"
           alt="Martechbiz"
           width={520}
           height={180}
-          className="h-45 w-auto max-w-[250px] sm:max-w-[250px] lg:max-w-[300px]" // Changed this line
+          className="h-28 w-auto max-w-[250px] sm:max-w-[250px] lg:max-w-[300px]" // Changed this line
           priority
         />
       </Link>
