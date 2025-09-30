@@ -12,10 +12,6 @@ const cards = [
     image: "/images/bi-1.jpg",
     link: "/blog/Business-intelligence/Top-Business-Intelligence-Software",
   },
-<<<<<<< HEAD
-  
-=======
->>>>>>> fc75289b3f46f1c42a750e757e47137214cec763
   {
     title: "Best Power BI Alternatives: Top Tools for Data Analytics in 2025",
     description:
