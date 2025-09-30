@@ -5,17 +5,20 @@ const contactOptions = [
   {
     title: "General inquiries",
     description: "Send us an email",
-    href: "/contact/general",
+    href: "#",
+    type: "general",
   },
   {
     title: "Find a career",
     description: "Apply now",
-    href: "/careers",
+    href: "/About-Us/Careers",
+    type: "career",
   },
   {
     title: "Contact sales",
     description: "Find B2B solutions",
-    href: "/contact/sales",
+    href: "#",
+    type: "sales",
   },
 ];
 
@@ -91,10 +94,482 @@ const faqs = [
   }
 ];
 
+// General Inquiries Form
+const GeneralInquiriesForm = ({ onClose }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    subject: '',
+    priority: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '2c1b7668-e873-404a-9759-f85af53e550b',
+          form_type: 'General Inquiry',
+          ...formData
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '', email: '', phone: '', company: '', subject: '', priority: '', message: ''
+        });
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus('');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your full name"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Email Address *
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your email"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your phone number"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Company
+          </label>
+          <input
+            type="text"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your company name"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Subject *
+          </label>
+          <input
+            type="text"
+            name="subject"
+            required
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter subject"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Priority Level
+          </label>
+          <select
+            name="priority"
+            value={formData.priority}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all bg-white"
+          >
+            <option value="">Select priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Message *
+        </label>
+        <textarea
+          name="message"
+          required
+          value={formData.message}
+          onChange={handleChange}
+          rows={5}
+          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all resize-none"
+          placeholder="Enter your message..."
+        ></textarea>
+      </div>
+
+      {submitStatus === 'success' && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl">
+          Thank you! Your message has been sent successfully.
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl">
+          Sorry, there was an error sending your message. Please try again.
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-gradient-to-r from-[#0E1F1C] to-[#386861] text-white py-4 px-8 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+      >
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </button>
+    </form>
+  );
+};
+
+// Contact Sales Form
+const ContactSalesForm = ({ onClose }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    jobTitle: '',
+    companySize: '',
+    industry: '',
+    budget: '',
+    timeline: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '2c1b7668-e873-404a-9759-f85af53e550b',
+          form_type: 'Sales Inquiry',
+          ...formData
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '', email: '', phone: '', company: '', jobTitle: '', companySize: '', 
+          industry: '', budget: '', timeline: '', message: ''
+        });
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus('');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your full name"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Business Email *
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your business email"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Phone Number *
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            required
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your phone number"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Company Name *
+          </label>
+          <input
+            type="text"
+            name="company"
+            required
+            value={formData.company}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your company name"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Job Title
+          </label>
+          <input
+            type="text"
+            name="jobTitle"
+            value={formData.jobTitle}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all"
+            placeholder="Enter your job title"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Company Size
+          </label>
+          <select
+            name="companySize"
+            value={formData.companySize}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all bg-white"
+          >
+            <option value="">Select company size</option>
+            <option value="1-10">1-10 employees</option>
+            <option value="11-50">11-50 employees</option>
+            <option value="51-200">51-200 employees</option>
+            <option value="201-1000">201-1000 employees</option>
+            <option value="1000+">1000+ employees</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Industry
+          </label>
+          <select
+            name="industry"
+            value={formData.industry}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all bg-white"
+          >
+            <option value="">Select your industry</option>
+            <option value="Technology">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Finance">Finance</option>
+            <option value="Education">Education</option>
+            <option value="Retail">Retail</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Budget Range
+          </label>
+          <select
+            name="budget"
+            value={formData.budget}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all bg-white"
+          >
+            <option value="">Select budget range</option>
+            <option value="Under $10K">Under $10K</option>
+            <option value="$10K - $50K">$10K - $50K</option>
+            <option value="$50K - $100K">$50K - $100K</option>
+            <option value="$100K - $500K">$100K - $500K</option>
+            <option value="Over $500K">Over $500K</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Project Timeline
+        </label>
+        <select
+          name="timeline"
+          value={formData.timeline}
+          onChange={handleChange}
+          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all bg-white"
+        >
+          <option value="">Select timeline</option>
+          <option value="Immediate">Immediate (within 1 month)</option>
+          <option value="Short-term">Short-term (1-3 months)</option>
+          <option value="Medium-term">Medium-term (3-6 months)</option>
+          <option value="Long-term">Long-term (6+ months)</option>
+          <option value="Just exploring">Just exploring</option>
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Tell us about your project *
+        </label>
+        <textarea
+          name="message"
+          required
+          value={formData.message}
+          onChange={handleChange}
+          rows={5}
+          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#386861] focus:border-transparent transition-all resize-none"
+          placeholder="Describe your project requirements, goals, and any specific needs..."
+        ></textarea>
+      </div>
+
+      {submitStatus === 'success' && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl">
+          Thank you! Our sales team will contact you within 24 hours.
+        </div>
+      )}
+
+      {submitStatus === 'error' && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl">
+          Sorry, there was an error submitting your inquiry. Please try again.
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-gradient-to-r from-[#0E1F1C] to-[#386861] text-white py-4 px-8 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+      >
+        {isSubmitting ? 'Submitting...' : 'Request Demo & Pricing'}
+      </button>
+    </form>
+  );
+};
+
 export default function ContactPage() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [hoveredLocation, setHoveredLocation] = useState(null);
   const [expandedFaq, setExpandedFaq] = useState(null);
+  const [showGeneralForm, setShowGeneralForm] = useState(false);
+  const [showSalesForm, setShowSalesForm] = useState(false);
+
+  const handleOptionClick = (item) => {
+    if (item.type === 'career') {
+      // Navigate to careers page
+      window.location.href = item.href;
+    } else if (item.type === 'general') {
+      setShowGeneralForm(true);
+      setShowSalesForm(false);
+    } else if (item.type === 'sales') {
+      setShowSalesForm(true);
+      setShowGeneralForm(false);
+    }
+  };
+
+  const closeAllForms = () => {
+    setShowGeneralForm(false);
+    setShowSalesForm(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -152,12 +627,12 @@ export default function ContactPage() {
         </div>
         <div className="grid gap-6 grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto">
           {contactOptions.map((item, index) => (
-            <a
+            <button
               key={index}
-              href={item.href}
+              onClick={() => handleOptionClick(item)}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="rounded-2xl p-6 transition-all duration-300 border-2 border-gray-100 bg-white hover:shadow-xl block"
+              className="rounded-2xl p-6 transition-all duration-300 border-2 border-gray-100 bg-white hover:shadow-xl w-full text-left"
               style={{
                 borderColor: hoveredCard === index ? '#386861' : '',
                 background: hoveredCard === index ? 'linear-gradient(to bottom right, #f0fdf4, white)' : '',
@@ -198,10 +673,58 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-            </a>
+            </button>
           ))}
         </div>
       </div>
+
+      {/* General Inquiries Form - Main Page Display */}
+      {showGeneralForm && (
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200">
+            <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] text-white p-6 rounded-t-3xl">
+              <div className="flex justify-between items-center">
+                <h2 className="text-2xl font-bold">General Inquiries</h2>
+                <button
+                  onClick={closeAllForms}
+                  className="text-white hover:text-gray-200 transition-colors p-2"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <GeneralInquiriesForm onClose={closeAllForms} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contact Sales Form - Main Page Display */}
+      {showSalesForm && (
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200">
+            <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] text-white p-6 rounded-t-3xl">
+              <div className="flex justify-between items-center">
+                <h2 className="text-2xl font-bold">Contact Sales</h2>
+                <button
+                  onClick={closeAllForms}
+                  className="text-white hover:text-gray-200 transition-colors p-2"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <ContactSalesForm onClose={closeAllForms} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Features Section */}
       <div className="bg-gradient-to-b from-gray-50 to-white py-12">
@@ -382,7 +905,7 @@ export default function ContactPage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-5 py-3 rounded-xl focus:outline-white focus:ring-2 focus:ring-green-400"
+                className="flex-1 px-5 py-3 rounded-xl focus:outline-white focus:ring-2 focus:ring-green-400 text-gray-900"
               />
               <button className="px-6 py-3 bg-white text-[#0E1F1C] rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg">
                 Subscribe
@@ -399,12 +922,15 @@ export default function ContactPage() {
           <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
             Our team is standing by to help you find the perfect solution for your business needs.
           </p>
-          <a
-            href="/contact/sales"
+          <button
+            onClick={() => {
+              setShowSalesForm(true);
+              setShowGeneralForm(false);
+            }}
             className="inline-block bg-white text-[#0E1F1C] px-8 py-3 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       </div>
     </div>
