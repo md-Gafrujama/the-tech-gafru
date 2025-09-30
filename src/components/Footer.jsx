@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-8">
             <div>
               <h3 className="font-bold mb-6 text-4xl bg-gradient-to-r from-white via-gray-100 to-[#00d9a6] bg-clip-text text-transparent">
-                Technology Advice
+                Martechbiz
               </h3>
               <div className="w-20 h-1 bg-gradient-to-r from-[#00d9a6] via-[#00f5b8] to-transparent rounded-full"></div>
             </div>
