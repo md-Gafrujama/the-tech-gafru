@@ -76,6 +76,18 @@ const faqs = [
   {
     question: "Do you offer support in multiple languages?",
     answer: "Yes, we provide support in English, Hindi, and several other regional languages."
+  },
+  {
+    question: "How can I schedule a demo or consultation?",
+    answer: "You can schedule a demo by contacting our sales team through the 'Contact sales' option above or by calling our office directly. We'll arrange a convenient time for your consultation."
+  },
+  {
+    question: "What information should I include in my inquiry?",
+    answer: "Please provide your name, company details, contact information, and a brief description of your needs. The more details you share, the better we can assist you."
+  },
+  {
+    question: "Do you provide technical support for your products?",
+    answer: "Yes, we offer comprehensive technical support for all our products and services. Our expert team is ready to help you resolve any technical issues quickly."
   }
 ];
 
