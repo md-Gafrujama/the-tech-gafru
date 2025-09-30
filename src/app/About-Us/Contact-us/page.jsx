@@ -901,7 +901,7 @@ export default function ContactPage() {
             <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
               Subscribe to our newsletter and get the latest updates, industry insights, and exclusive offers delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto text-white">
               <input
                 type="email"
                 placeholder="Enter your email"
