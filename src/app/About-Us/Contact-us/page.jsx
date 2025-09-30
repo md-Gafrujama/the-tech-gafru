@@ -40,22 +40,18 @@ const locations = [
 
 const features = [
   {
-    icon: "⚡",
     title: "Fast Response Time",
     description: "Get answers to your queries within 24 hours on business days"
   },
   {
-    icon: "🌍",
     title: "Global Support",
     description: "Our team operates across multiple time zones to serve you better"
   },
   {
-    icon: "🔒",
     title: "Secure Communication",
     description: "Your data is protected with enterprise-grade security"
   },
   {
-    icon: "💼",
     title: "Expert Team",
     description: "Connect with industry professionals who understand your needs"
   }
@@ -91,7 +87,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#0E1F1C] to-[#1a3d36] text-white py-20 px-8 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#0E1F1C] to-[#1a3d36] text-white py-16 px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-400 rounded-full blur-3xl"></div>
@@ -99,12 +95,15 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto relative z-10">
           <p className="text-sm mb-3 flex items-center gap-2 text-green-200">
             <a href="/" className="hover:text-green-300 transition-colors">
-              🏠 Home
+              <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+              </svg>
+              Home
             </a>
             <span className="text-green-300">&gt;</span>
             <span className="font-semibold text-white">Contact Us</span>
           </p>
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
             Contact us
           </h1>
           <p className="max-w-2xl text-lg text-gray-200 leading-relaxed">
@@ -116,12 +115,12 @@ export default function ContactPage() {
       </div>
 
       {/* Stats Section */}
-      <div className="max-w-6xl mx-auto px-4 py-12 -mt-8 relative z-10">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-8 -mt-8 relative z-10">
+        <div className="bg-white rounded-2xl shadow-2xl p-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-[#386861] mb-2">{stat.number}</div>
+                <div className="text-3xl font-bold text-[#386861] mb-1">{stat.number}</div>
                 <div className="text-gray-600 text-sm">{stat.label}</div>
               </div>
             ))}
@@ -130,9 +129,9 @@ export default function ContactPage() {
       </div>
 
       {/* Help Options */}
-      <div className="max-w-6xl mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
             How can we help?
           </h2>
           <p className="text-gray-600">
@@ -193,23 +192,38 @@ export default function ContactPage() {
       </div>
 
       {/* Features Section */}
-      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="bg-gradient-to-b from-gray-50 to-white py-12">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Why Choose Us?
             </h2>
             <p className="text-gray-600">
               We're committed to providing exceptional service
             </p>
           </div>
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <div 
                 key={index}
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#386861]"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="mb-4">
+                  <svg className="w-10 h-10 text-[#386861]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {index === 0 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    )}
+                    {index === 1 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    )}
+                    {index === 2 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    )}
+                    {index === 3 && (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    )}
+                  </svg>
+                </div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-600">{feature.description}</p>
               </div>
@@ -219,10 +233,10 @@ export default function ContactPage() {
       </div>
 
       {/* Global Locations */}
-      <div className="bg-white py-20">
+      <div className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Global locations
             </h2>
             <p className="text-gray-600">
@@ -300,10 +314,10 @@ export default function ContactPage() {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="bg-gradient-to-b from-gray-50 to-white py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600">
@@ -318,11 +332,11 @@ export default function ContactPage() {
               >
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                  className="w-full p-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                 >
                   <span className="font-semibold text-gray-900">{faq.question}</span>
                   <svg 
-                    className="w-5 h-5 text-[#386861] transition-transform duration-300"
+                    className="w-5 h-5 text-[#386861] transition-transform duration-300 flex-shrink-0 ml-4"
                     style={{
                       transform: expandedFaq === index ? 'rotate(180deg)' : 'rotate(0deg)'
                     }}
@@ -334,7 +348,7 @@ export default function ContactPage() {
                   </svg>
                 </button>
                 {expandedFaq === index && (
-                  <div className="px-6 pb-6 text-gray-600">
+                  <div className="px-5 pb-5 text-gray-600">
                     {faq.answer}
                   </div>
                 )}
@@ -345,20 +359,20 @@ export default function ContactPage() {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-white py-20">
+      <div className="bg-white py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] rounded-3xl p-12 text-center text-white shadow-xl">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] rounded-3xl p-10 text-center text-white shadow-xl">
+            <h2 className="text-3xl font-bold mb-3">Stay Updated</h2>
+            <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
               Subscribe to our newsletter and get the latest updates, industry insights, and exclusive offers delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-xl  focus:outline-white focus:ring-2 focus:ring-green-400"
+                className="flex-1 px-5 py-3 rounded-xl focus:outline-white focus:ring-2 focus:ring-green-400"
               />
-              <button className="px-8 py-3 bg-white text-[#0E1F1C] rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg">
+              <button className="px-6 py-3 bg-white text-[#0E1F1C] rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg">
                 Subscribe
               </button>
             </div>
@@ -367,15 +381,15 @@ export default function ContactPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="rounded-3xl p-12 text-center text-white shadow-xl" style={{background: 'linear-gradient(to right, #0E1F1C, #386861)'}}>
-          <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 py-12 pb-16">
+        <div className="rounded-3xl p-10 text-center text-white shadow-xl" style={{background: 'linear-gradient(to right, #0E1F1C, #386861)'}}>
+          <h2 className="text-3xl font-bold mb-3">Ready to get started?</h2>
+          <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
             Our team is standing by to help you find the perfect solution for your business needs.
           </p>
           <a
             href="/contact/sales"
-            className="inline-block bg-white text-[#0E1F1C] px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg"
+            className="inline-block bg-white text-[#0E1F1C] px-8 py-3 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg"
           >
             Get in Touch
           </a>
