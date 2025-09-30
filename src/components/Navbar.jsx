@@ -271,7 +271,7 @@ const Navbar = () => {
               <Link href="/" className="flex items-center">
                 <Image
                   src="/images/logo.svg"
-                  alt="Technology Advice"
+                  alt="Martechbiz"
                   width={120}
                   height={40}
                   className="h-8 w-auto"
@@ -455,7 +455,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
               <Image
                 src="/images/logo.png"
-                alt="Technology Advice"
+                alt="Martechbiz"
                 width={120}
                 height={40}
                 className="h-8 w-auto"

@@ -38,7 +38,7 @@ export default function InformationTechnologyPage() {
   return (
     <> 
     <Head>
-  <title>Top Information Technology Software & Guides 2025 | Technology Advice</title>
+  <title>Top Information Technology Software & Guides 2025 | Martechbiz</title>
   <meta 
     name="description" 
     content="Discover the best HR tools and strategies in 2025. Explore comparisons, checklists, and software guides for payroll, compliance, recruiting, and more." 

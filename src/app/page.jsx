@@ -318,13 +318,13 @@
 //   return (
 //     <>
 //       <Head>
-//         <title>B2C Technology Advice From Industry Experts</title>
+//         <title>B2C Martechbiz From Industry Experts</title>
 //         <meta 
 //           name="description" 
 //           content="Get the latest B2B technology and software advice, trends, and guidance from experts who work with it every day." 
 //         />
 //         <meta name="viewport" content="width=device-width, initial-scale=1" />
-//         <meta property="og:title" content="B2B Technology Advice From Industry Experts" />
+//         <meta property="og:title" content="B2B Martechbiz From Industry Experts" />
 //         <meta 
 //           property="og:description" 
 //           content="Expert advice on B2B technology and software from professionals who use it daily." 
@@ -338,7 +338,7 @@
 //           {/* Text Content */}
 //           <div className="order-2 md:order-1">
 //             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-//               B2C Technology Advice <br className="hidden sm:block" />
+//               B2C Martechbiz <br className="hidden sm:block" />
 //               From <span className="text-[#8BC34A]">Experts Who Use It</span>
 //             </h1>
 //             <p className="text-base sm:text-lg mt-4 text-gray-300 max-w-xl">
@@ -1095,13 +1095,13 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>B2C Technology Advice From Industry Experts</title>
+        <title>B2C Martechbiz From Industry Experts</title>
         <meta 
           name="description" 
           content="Get the latest B2B technology and software advice, trends, and guidance from experts who work with it every day." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="B2B Technology Advice From Industry Experts" />
+        <meta property="og:title" content="B2B Martechbiz From Industry Experts" />
         <meta 
           property="og:description" 
           content="Expert advice on B2B technology and software from professionals who use it daily." 
@@ -1128,7 +1128,7 @@ export default function Page() {
             >
               <div className="space-y-6">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                  B2C Technology Advice{' '}
+                  B2C Martechbiz{' '}
                   <br className="hidden sm:block" />
                   From{' '}
                   <span className="bg-gradient-to-r from-[#8BC34A] to-[#6fa832] bg-clip-text text-transparent">

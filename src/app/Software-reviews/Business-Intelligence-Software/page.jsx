@@ -107,7 +107,7 @@ const [openIBMCognosPricing, setOpenIBMCognosPricing] = useState(false);
   return (
     <>
     <Head>
-  <title>Business Intelligence Software Guide 2025 | Technology Advice</title>
+  <title>Business Intelligence Software Guide 2025 | Martechbiz</title>
   <meta name="description" content="Explore the best business intelligence software tools of 2025. Compare top BI platforms, features, pricing, and implementation strategies for data-driven decision making." />  
 </Head>
 
@@ -131,7 +131,7 @@ const [openIBMCognosPricing, setOpenIBMCognosPricing] = useState(false);
           <div className="flex items-start gap-4 text-white/90 text-sm mb-8">
             <FaCheckCircle className="text-green-400 mt-1 text-xl" />
             <p className="leading-relaxed">
-              Technology Advice is able to offer our services for free because some vendors may pay us
+              Martechbiz is able to offer our services for free because some vendors may pay us
               for web traffic or other sales opportunities. Our mission is to help technology buyers make
               better purchasing decisions, so we provide you with information for all vendors — even those
               that don't pay us.

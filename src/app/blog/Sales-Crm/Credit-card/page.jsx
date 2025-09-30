@@ -950,7 +950,7 @@ export default function ProjectManagementPage() {
           content="https://technology-advice.vercel.app/software-reviews/project-management"
         />
         <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Technology Advice" />
+        <meta property="og:site_name" content="Martechbiz" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -1034,7 +1034,7 @@ export default function ProjectManagementPage() {
               <div className="text-sm sm:text-base lg:text-lg leading-relaxed text-white/90">
                 <p>
                   <span className="font-semibold text-white">
-                    Technology Advice
+                    Martechbiz
                   </span>{" "}
                   is able to offer our services for free because some vendors
                   may pay us for web traffic or other sales opportunities. Our

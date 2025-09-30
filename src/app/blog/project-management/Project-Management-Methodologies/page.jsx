@@ -252,7 +252,7 @@ export default function ProjectManagementGuide() {
         <div className="text-xs sm:text-sm lg:text-base leading-relaxed text-white/90">
           <p>
             <span className="font-semibold text-white">
-              Technology Advice
+              Martechbiz
             
             </span>{" "}
             is able to offer our services for free because some vendors

@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="relative z-10 py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-16 pb-16 border-b border-gray-700/30">
           
-          {/* Column 1 - Technology Advice */}
+          {/* Column 1 - Martechbiz */}
           <div className="flex flex-col space-y-8">
             <div>
               <h3 className="font-bold mb-6 text-4xl bg-gradient-to-r from-white via-gray-100 to-[#00d9a6] bg-clip-text text-transparent">

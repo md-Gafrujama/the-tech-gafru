@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Technology Advice",
+  title: "Martechbiz",
   description: "Get the latest tech advice and insights",
 };
 
