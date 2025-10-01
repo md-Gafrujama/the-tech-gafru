@@ -582,7 +582,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-gradient-to-br from-[#0d1424] to-[#1a2436] text-white p-8 rounded-3xl shadow-xl h-full min-h-[330px] flex flex-col justify-between relative overflow-hidden"
+                className="bg-gradient-to-br from-[#0E1F1C] to-[#0E1F1C] text-white p-8 rounded-3xl shadow-xl h-full min-h-[330px] flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Background accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-[#0E1F1C] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
