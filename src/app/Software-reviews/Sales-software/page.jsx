@@ -1847,7 +1847,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
                         <div className="px-4 pb-4 border-t border-gray-200">
                           <div className="pt-4 space-y-4">
                             <p className="text-gray-700">
-                              At TechnologyAdvice, we assess a wide range of
+                              At Martechbiz, we assess a wide range of
                               factors before selecting our top choices for a
                               given category. To make our selections, we rely on
                               our extensive research, product information,
@@ -1871,7 +1871,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
                             <p className="text-gray-700">
                               The selection process also assesses price plans,
                               hidden fees, customer reviews, and customer
-                              support. TechnologyAdvice writers will often take
+                              support. Martechbiz writers will often take
                               advantage of free trials and demos to get a
                               first-hand user experience of available software.
                               Finally, we curate a comprehensive list based on

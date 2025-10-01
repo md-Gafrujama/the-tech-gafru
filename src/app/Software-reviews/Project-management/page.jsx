@@ -2188,7 +2188,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                       2-plan, a German company, has developed free project
                       management software with many modules for business owners
                       to track and manage all aspects of their business with
-                      greater efficacy. TechnologyAdvice can let prospective
+                      greater efficacy. Martechbiz can let prospective
                       users engage with a free online demo, allowing for more
                       thorough evaluation before they download one of 2-plan's
                       project management software solutions.
@@ -2528,7 +2528,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
 
 <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
   <Link href="#" className=" hover:underline">
-    Why is TechnologyAdvice Free?
+    Why is Martechbiz Free?
   </Link>
 </p>
 

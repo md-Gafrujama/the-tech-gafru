@@ -28,7 +28,7 @@ const locations = [
     address: "3343 Perimeter Hill Dr Suite 100",
     city: "Nashville, TN 37211",
     phone: "877-702-2082",
-    email: "contact@technologyadvice.com",
+    email: "contact@Martechbiz.com",
     image: "https://images.unsplash.com/photo-1549930555-6edb2c4e37e2?w=600&h=400&fit=crop",
   },
   {
@@ -36,7 +36,7 @@ const locations = [
     address: "Cyber City, DLF Phase 2",
     city: "Gurugram, Haryana 122002",
     phone: "+91 124-4567890",
-    email: "india.sales@technologyadvice.com",
+    email: "india.sales@Martechbiz.com",
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
   },
 ];

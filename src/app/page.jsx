@@ -127,7 +127,7 @@
 //   {
 //     title: 'Answers with you in mind',
 //     description:
-//       'Our focus at TechnologyAdvice is to help technology buyers make better purchasing decisions. Our editorially independent analysis is driven by years of industry knowledge and extensive research instead of client-driven priorities.',
+//       'Our focus at Martechbiz is to help technology buyers make better purchasing decisions. Our editorially independent analysis is driven by years of industry knowledge and extensive research instead of client-driven priorities.',
 //   },
 // ];
 
@@ -905,7 +905,7 @@ const steps = [
   {
     title: 'Answers with you in mind',
     description:
-      'Our focus at TechnologyAdvice is to help technology buyers make better purchasing decisions. Our editorially independent analysis is driven by years of industry knowledge and extensive research instead of client-driven priorities.',
+      'Our focus at Martechbiz is to help technology buyers make better purchasing decisions. Our editorially independent analysis is driven by years of industry knowledge and extensive research instead of client-driven priorities.',
   },
 ];
 

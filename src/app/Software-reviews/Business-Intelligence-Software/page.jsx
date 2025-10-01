@@ -283,7 +283,7 @@ const [openIBMCognosPricing, setOpenIBMCognosPricing] = useState(false);
                 </div>
                 {openSection === 'methodology' && (
                   <div className="pt-6 text-sm text-gray-800 space-y-3">
-                    <p>At TechnologyAdvice, we assess a wide range of factors before selecting our top choices...</p>
+                    <p>At Martechbiz, we assess a wide range of factors before selecting our top choices...</p>
                   </div>
                 )}
               </div>

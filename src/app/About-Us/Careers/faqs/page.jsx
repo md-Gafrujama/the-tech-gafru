@@ -6,11 +6,11 @@ import React, { useState } from "react";
 export default function InterviewingFAQs() {
 const faqs = [
     {
-      question: "TechnologyAdvice does not engage with external staffing agencies.",
+      question: "Martechbiz does not engage with external staffing agencies.",
       answer: "Any candidates introduced by such firms will not be eligible for compensation.",
     },
     {
-      question: "What does working at TechnologyAdvice look like?",
+      question: "What does working at Martechbiz look like?",
       answer: `With employees across the globe, we take a remote-first approach. All of our jobs can be performed remotely unless otherwise noted in the job description.
 
 Whether you will work remotely all the time, sometimes, or never, we want to ensure you have the tools you need to be successful. We will ship the technology and equipment that you need to do your job.
@@ -20,7 +20,7 @@ We also want to ensure that you are fully integrated into the culture and compan
 New hires located within 50 miles of an office are requested to work from the office for their first week and for quarterly stakeholder meetings. If you are located in the US, we offer a Hybrid Work Policy allowing our team the choice to work 100% in the office, 100% remote, or a blend of the two unless otherwise noted.`,
     },
     {
-      question: "What does TechnologyAdvice do?",
+      question: "What does Martechbiz do?",
       answer: `We help people in need of new or optimized tech for their business get unbiased advice and data to make sound purchasing decisions.
 
 We also help technology companies connect with an exclusive audience of 100 million buyers to meet prospects on their terms and shorten the sales cycle.`,
@@ -57,11 +57,11 @@ Some stages may vary depending on the role.`,
       answer: `We have a DE&I committee, host regular events, training, and listening sessions. It's a continuous, evolving effort to ensure inclusivity across the company.`,
     },
     {
-      question: "Can I refer someone to TechnologyAdvice if I'm not an employee?",
-      answer: `Yes! We offer up to $1,000 USD for eligible referrals (or $200 in PH roles). To qualify, email careers@technologyadvice.com *before* the person applies, or have them list your name in the referral section.`,
+      question: "Can I refer someone to Martechbiz if I'm not an employee?",
+      answer: `Yes! We offer up to $1,000 USD for eligible referrals (or $200 in PH roles). To qualify, email careers@Martechbiz.com *before* the person applies, or have them list your name in the referral section.`,
     },
     {
-      question: "I was referred to TechnologyAdvice. What should I do?",
+      question: "I was referred to Martechbiz. What should I do?",
       answer: `Just list the person’s name in the “Did someone specifically refer you to apply?” section of your application.`,
     },
     {
@@ -85,12 +85,12 @@ return (<>
             </h1>
 
             <p className="text-lg mb-4">
-              We're TechnologyAdvice – the team behind a portfolio of leading B2B tech publications.
+              We're Martechbiz – the team behind a portfolio of leading B2B tech publications.
               If you're here, it's because all of our brands share a common mission – and a single team driving them forward.
             </p>
 
             <p className="text-lg mb-8">
-              At TechnologyAdvice, you'll work alongside a diverse group of passionate individuals who love growing as professionals and learning new things.
+              At Martechbiz, you'll work alongside a diverse group of passionate individuals who love growing as professionals and learning new things.
               No two days are exactly the same here, and you'll face opportunities to expand your skill set, step outside of your comfort zone,
               and contribute to the best group you'll ever work with.
             </p>

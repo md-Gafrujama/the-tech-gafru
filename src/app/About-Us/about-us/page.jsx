@@ -70,7 +70,7 @@ const values = [
     icon: <LucideGraduationCap className="text-[#386861]" size={28} />,
     title: "Crave knowledge",
     description:
-      "At TechnologyAdvice we strive to increase our knowledge, deepen our understanding, and invest in our personal and professional growth.",
+      "At Martechbiz we strive to increase our knowledge, deepen our understanding, and invest in our personal and professional growth.",
   },
   {
     icon: <LucideCalculator className="text-[#386861]" size={28} />,
@@ -89,23 +89,23 @@ const values = [
 const faqData = [
     
     {
-      question: "What does TechnologyAdvice do?",
+      question: "What does Martechbiz do?",
       answer:
-        "At TechnologyAdvice, we pride ourselves on helping B2B tech buyers manage the complexity and risk of the buying process. We are a trusted source of information for tech buyers, delivering advice and facilitating connections between our buyers and the world’s leading sellers of business technology. The information provided on our site is meant to assist in the vendor selection process, but should not replace your own decision making process, merely augment it. You should do your own diligence on vendors before making any purchasing or partnership decision.",
+        "At Martechbiz, we pride ourselves on helping B2B tech buyers manage the complexity and risk of the buying process. We are a trusted source of information for tech buyers, delivering advice and facilitating connections between our buyers and the world’s leading sellers of business technology. The information provided on our site is meant to assist in the vendor selection process, but should not replace your own decision making process, merely augment it. You should do your own diligence on vendors before making any purchasing or partnership decision.",
     },
     {
-      question: "How does TechnologyAdvice make money?",
+      question: "How does Martechbiz make money?",
       answer:
         "Our business makes money through online advertising. While we only feature companies on our site that we believe in, we do allow these companies to run ads on our site. These ads almost exclusively show up on our “best software” categories and vendor review pages. Advertisers will have some of the most prominent spots on this page, and typically have links back to landing pages on their sites, with UTM codes in the URL to help them track the ROI of their spend.",
     },
     {
       question:
-        "Where is TechnologyAdvice located?",
+        "Where is Martechbiz located?",
       answer:
-        "TechnologyAdvice is headquartered in Nashville, Tennessee, but our staff are located around the globe.",
+        "Martechbiz is headquartered in Nashville, Tennessee, but our staff are located around the globe.",
     },
     {
-      question: "How do you describe TechnologyAdvice culture?",
+      question: "How do you describe Martechbiz culture?",
       answer:
         "In our Culture Compass, we describe TA’s work environment as engaging, fast-paced, supportive, global, and committed to DE&I.",
     },
@@ -144,7 +144,7 @@ const AboutUsPage = () => {
                     {/* Heading and Subheading */}
                     <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight mt-6 mb-4 drop-shadow-lg max-w-xl animate-fade-in-up">
                         Learn More About <br />
-                        <span className="text-green-300">TechnologyAdvice</span>
+                        <span className="text-green-300">Martechbiz</span>
                     </h1>
                     <p className="text-gray-200 mt-4 text-lg sm:text-xl max-w-lg animate-fade-in-up delay-200">
                         Get to know TA’s purpose, core values, and culture.
@@ -164,20 +164,20 @@ const AboutUsPage = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 leading-tight">Our mission</h2>
 
                     <p className="text-xl sm:text-2xl font-medium text-center max-w-4xl mx-auto mb-12 leading-relaxed text-gray-800">
-                        TechnologyAdvice’s purpose is to create opportunities for our audiences, our customers,
+                        Martechbiz’s purpose is to create opportunities for our audiences, our customers,
                         our team members, and our communities.
                     </p>
 
                     <div className="space-y-8 text-gray-700 max-w-4xl mx-auto text-base sm:text-lg leading-relaxed">
                         <p>
-                            At TechnologyAdvice, we pride ourselves on helping B2B tech buyers manage the complexity
+                            At Martechbiz, we pride ourselves on helping B2B tech buyers manage the complexity
                             and risk of the buying process. We are a trusted source of information for tech buyers,
                             delivering advice and facilitating connections between our buyers and the world’s leading
                             sellers of business technology.
                         </p>
 
                         <p>
-                            Established in 2006 out of our founder’s dorm room, TechnologyAdvice continues to expand
+                            Established in 2006 out of our founder’s dorm room, Martechbiz continues to expand
                             as a business. Through acquisitions, we now own more than 20 media brands, including{" "}
                             <Link
                                 href="https://www.techrepublic.com"

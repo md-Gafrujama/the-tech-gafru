@@ -132,20 +132,20 @@ Committed to DE&I
 We recognize that diversity extends beyond the color of our skin to include ethnicities, gender identities, sexual orientations, abilities, cultural backgrounds, experiences, and skills. Our way of operating is to allow our teammates to show up as themselves every day. We ask our team to equally respect individual differences, and do their best to embrace and amplify the shining light of others. We protect one another by creating inclusive, safe spaces and holding a high standard of trust and respect for individual contributors as well as leaders. By doing this, we have created an environment where people feel valued, trusted, and connected.`,
     },
     {
-      title: "Is TechnologyAdvice the company for you?",
+      title: "Is Martechbiz the company for you?",
       content: `We have big goals ahead and need an extraordinary team to achieve them, so if you read this and get just as excited as we are, the opportunities are endless!`,
     },
   ];
 
   const testimonials = [
     {
-      text: `There are endless opportunities to explore and advance your career at TechnologyAdvice. The company invests a lot of training and time into it's team members and it's apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, TA is the right place for you.`,
+      text: `There are endless opportunities to explore and advance your career at Martechbiz. The company invests a lot of training and time into it's team members and it's apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, TA is the right place for you.`,
     },
     {
       text: `You will grow really fast at TA and learn a lot quickly. You will learn how to challenge yourself and stretch your capabilities. The organization is goal driven and focused. The team is fun and my colleagues are great to work with and people are friendly.`,
     },
     {
-      text: `I have never been a part of a company that is as positive as TechnologyAdvice. TA's management lives by the 5 core values, and this trickles down throughout the entire organization.`,
+      text: `I have never been a part of a company that is as positive as Martechbiz. TA's management lives by the 5 core values, and this trickles down throughout the entire organization.`,
     },
   ];
 
@@ -310,7 +310,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </svg>
       ),
       title: 'Crave Knowledge',
-      description: 'At TechnologyAdvice we continually increase our knowledge, deepen our understanding, & invest in our personal and professional growth.',
+      description: 'At Martechbiz we continually increase our knowledge, deepen our understanding, & invest in our personal and professional growth.',
     },
     {
       icon: (
@@ -434,12 +434,12 @@ We recognize that diversity extends beyond the color of our skin to include ethn
             </h1>
 
             <p className="text-lg mb-4 text-gray-200 leading-relaxed">
-              We're TechnologyAdvice – the team behind a portfolio of leading B2B tech publications.
+              We're Martechbiz – the team behind a portfolio of leading B2B tech publications.
               If you're here, it's because all of our brands share a common mission – and a single team driving them forward.
             </p>
 
             <p className="text-lg mb-8 text-gray-200 leading-relaxed">
-              At TechnologyAdvice, you'll work alongside a diverse group of passionate individuals who love growing as professionals and learning new things.
+              At Martechbiz, you'll work alongside a diverse group of passionate individuals who love growing as professionals and learning new things.
               No two days are exactly the same here, and you'll face opportunities to expand your skill set, step outside of your comfort zone,
               and contribute to the best group you'll ever work with.
             </p>
@@ -513,7 +513,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
 
         <div className="space-y-4 text-lg text-gray-700 mb-12 leading-relaxed">
           <p>
-            At TechnologyAdvice we believe our success starts with attracting, hiring, and developing amazing people for our team. In sharing who we are and how we work, we're giving you insight into our culture so you can make sure it's a match for you. Our Culture Compass was created to be remarkably explicit and transparent about our unique culture to give you the best opportunity to thrive in our environment and reach your full potential.
+            At Martechbiz we believe our success starts with attracting, hiring, and developing amazing people for our team. In sharing who we are and how we work, we're giving you insight into our culture so you can make sure it's a match for you. Our Culture Compass was created to be remarkably explicit and transparent about our unique culture to give you the best opportunity to thrive in our environment and reach your full potential.
           </p>
           <p>
             We want TA to be the place for you and hope our culture resonates with you! If not, that's okay. We believe in ensuring that everyone understands and aligns with our team's goals, fostering a collective sense of purpose that drives our actions and dedication.
@@ -892,7 +892,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                     answer: "We provide access to learning management systems, mentorship programs, leadership academies, book clubs, and opportunities to attend conferences and training programs."
                   },
                   {
-                    question: "What makes TechnologyAdvice's culture unique?",
+                    question: "What makes Martechbiz's culture unique?",
                     answer: "Our culture is built on five core values: Be Transparent, Challenge Mediocrity, Crave Knowledge, Make Calculated Decisions, and Value Each Other. We're committed to diversity, inclusion, and creating an environment where everyone can thrive."
                   }
                 ].map((faq, index) => (
@@ -1006,7 +1006,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-sm text-gray-400 mt-8"
           >
-            Questions? Contact our People Operations team at careers@technologyadvice.com
+            Questions? Contact our People Operations team at careers@Martechbiz.com
           </motion.p>
         </div>
       </motion.div>

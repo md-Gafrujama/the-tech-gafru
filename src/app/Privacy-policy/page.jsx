@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
     {
       icon: <FileText className="text-[#386861]" size={22} />,
       title: "Introduction",
-      content: `TechnologyAdvice ("we," "us," or "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our websites, including TechRepublic, eWeek, Datamation, Channel Insider, and other affiliated properties.
+      content: `Martechbiz ("we," "us," or "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our websites, including TechRepublic, eWeek, Datamation, Channel Insider, and other affiliated properties.
 
 This policy applies to all information collected through our services and any related services, sales, marketing, or events. Please read this privacy policy carefully to understand our views and practices regarding your personal data.`
     },
@@ -162,7 +162,7 @@ If we become aware that we have collected personal information from a child unde
     {
       icon: <Shield className="text-[#386861]" size={22} />,
       title: "International Data Transfers",
-      content: `TechnologyAdvice operates globally with team members and servers in multiple countries, including the United States, United Kingdom, Singapore, Australia, India, Germany, Canada, and the Philippines.
+      content: `Martechbiz operates globally with team members and servers in multiple countries, including the United States, United Kingdom, Singapore, Australia, India, Germany, Canada, and the Philippines.
 
 Your information may be transferred to, stored, and processed in countries other than your country of residence. These countries may have data protection laws that differ from the laws of your country.
 
@@ -260,7 +260,7 @@ We encourage you to review this privacy policy periodically to stay informed abo
               <div>
                 <h2 className="text-3xl font-bold mb-4">Your Privacy is Protected</h2>
                 <p className="text-gray-200 leading-relaxed text-base">
-                  At TechnologyAdvice, we are committed to transparency and protecting your personal information. 
+                  At Martechbiz, we are committed to transparency and protecting your personal information. 
                   This privacy policy outlines our practices regarding data collection, usage, and your rights as a user. 
                   We encourage you to read through this policy to understand how we handle your data.
                 </p>
@@ -347,11 +347,11 @@ We encourage you to review this privacy policy periodically to stay informed abo
                     please don't hesitate to contact us:
                   </p>
                   <div className="space-y-2 text-gray-700 text-[15px]">
-                    <p className="font-bold text-lg text-gray-900">TechnologyAdvice</p>
+                    <p className="font-bold text-lg text-gray-900">Martechbiz</p>
                     <p>3343 Perimeter Hill Dr Suite 100</p>
                     <p>Nashville, TN 37211</p>
                     <p>Phone: <a href="tel:8777022082" className="text-[#386861] hover:underline font-medium">877-702-2082</a></p>
-                    <p>Email: <a href="mailto:privacy@technologyadvice.com" className="text-[#386861] hover:underline font-medium">privacy@technologyadvice.com</a></p>
+                    <p>Email: <a href="mailto:privacy@Martechbiz.com" className="text-[#386861] hover:underline font-medium">privacy@Martechbiz.com</a></p>
                   </div>
                 </div>
               </div>
