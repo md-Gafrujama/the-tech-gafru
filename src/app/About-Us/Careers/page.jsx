@@ -429,7 +429,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
               <span className="font-semibold text-[#0E1F1C]">Careers</span>
             </nav>
 
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#0E1F1C] bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#ffffff] bg-clip-text text-transparent">
               Let's grow together
             </h1>
 

@@ -270,11 +270,11 @@ const Navbar = () => {
     <div className="flex-shrink-0">
       <Link href="/" className="flex items-center">
         <Image
-          src="/images/logo6.png"
+          src="/images/logo3.png"
           alt="Martechbiz"
           width={520}
           height={180}
-          className="h-28 w-auto max-w-[200px] sm:max-w-[250px] lg:max-w-[300px]" // Changed this line
+          className="h-35 w-auto max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] mt-6"
           priority
         />
       </Link>

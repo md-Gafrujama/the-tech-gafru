@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Home, MapPin ,Plus, Minus,LucideSearchCheck, LucideRocket, LucideGraduationCap, LucideCalculator, LucideAward} from "lucide-react";
+import { Home, MapPin ,Plus, Minus,LucideSearchCheck, LucideRocket, LucideGraduationCap, LucideCalculator, LucideAward, LucideArrowRight} from "lucide-react"; // Added LucideArrowRight for the button
 import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
+
+// Data definitions (kept same as original)
 const leaders = [
   {
     name: "Rob Bellenfant",
     title: "Founder and Chief Executive Officer",
-    image: "/iamges/rob.png",
+    image: "/images/rob.png", // Corrected path assumption
     linkedin: "https://www.linkedin.com/in/rob-bellenfant",
   },
   {
@@ -43,15 +45,12 @@ const leaders = [
   },
 ];
 
+// MODIFIED: Only India and U.S.A. locations with specific coordinates
 const locations = [
-  { name: "Canada", top: "30%", left: "18%" },
-  { name: "Nashville, TN", top: "37%", left: "26%" },
-  { name: "United Kingdom", top: "25%", left: "46%" },
-  { name: "Germany", top: "33%", left: "50%" },
-  { name: "India", top: "48%", left: "65%" },
-  { name: "Singapore", top: "60%", left: "72%" },
-  { name: "Australia", top: "73%", left: "78%" },
-  { name: "The Philippines", top: "50%", left: "82%" },
+  // These coordinates are approximate and might need fine-tuning based on your specific world map image.
+  // Using slightly adjusted 'top' and 'left' values for a more precise placement for India and USA.
+  { name: "India", top: "49%", left: "68.5%" }, 
+  { name: "U.S.A.", top: "37%", left: "22%" }, 
 ];
 
 const values = [
@@ -115,278 +114,260 @@ const faqData = [
   ];
   
 
-
-const AboutHero = () => { 
-    
+const AboutUsPage = () => { 
     const [openItems, setOpenItems] = useState(Array(faqData.length).fill(false));
 
-  const toggleItem = (index) => {
-    setOpenItems((prev) =>
-      prev.map((item, i) => (i === index ? !item : false))
+    const toggleItem = (index) => {
+        setOpenItems((prev) =>
+            prev.map((item, i) => (i === index ? !item : false))
+        );
+    };
+
+    return (
+        <div className="bg-gray-50 font-sans antialiased text-gray-900">
+            {/* Hero Section - Modified for Left Alignment and additional features */}
+            <section className="bg-[#0E1F1C] text-white px-6 md:px-12 lg:px-20 py-24 relative overflow-hidden">
+                {/* Background gradient/overlay for modern feel */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1a4a44] to-[#0E1F1C] opacity-90 z-0"></div>
+                
+                <div className="relative z-10 max-w-6xl"> {/* Removed mx-auto to left align */}
+                    {/* Breadcrumb */}
+                    <div className="flex items-center text-sm text-gray-300 mb-4 space-x-2">
+                        <Home size={16} className="text-green-300" />
+                        <Link href="/" className="hover:underline hover:text-green-200 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-gray-400">›</span>
+                        <span className="font-semibold text-white">About Us</span>
+                    </div>
+
+                    {/* Heading and Subheading */}
+                    <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight mt-6 mb-4 drop-shadow-lg max-w-xl animate-fade-in-up">
+                        Learn More About <br />
+                        <span className="text-green-300">TechnologyAdvice</span>
+                    </h1>
+                    <p className="text-gray-200 mt-4 text-lg sm:text-xl max-w-lg animate-fade-in-up delay-200">
+                        Get to know TA’s purpose, core values, and culture.
+                    </p>
+
+                    {/* Added Feature: Call to Action Button */}
+                    <Link href="#our-mission" className="mt-8 inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform hover:scale-105 animate-fade-in-up delay-400">
+                        Discover Our Story
+                        <LucideArrowRight className="ml-2 -mr-1 h-5 w-5" />
+                    </Link>
+                </div>
+            </section>
+
+            {/* Mission Section */}
+            <section id="our-mission" className="bg-white text-[#0f172a] px-6 md:px-12 lg:px-32 py-20 shadow-inner">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 leading-tight">Our mission</h2>
+
+                    <p className="text-xl sm:text-2xl font-medium text-center max-w-4xl mx-auto mb-12 leading-relaxed text-gray-800">
+                        TechnologyAdvice’s purpose is to create opportunities for our audiences, our customers,
+                        our team members, and our communities.
+                    </p>
+
+                    <div className="space-y-8 text-gray-700 max-w-4xl mx-auto text-base sm:text-lg leading-relaxed">
+                        <p>
+                            At TechnologyAdvice, we pride ourselves on helping B2B tech buyers manage the complexity
+                            and risk of the buying process. We are a trusted source of information for tech buyers,
+                            delivering advice and facilitating connections between our buyers and the world’s leading
+                            sellers of business technology.
+                        </p>
+
+                        <p>
+                            Established in 2006 out of our founder’s dorm room, TechnologyAdvice continues to expand
+                            as a business. Through acquisitions, we now own more than 20 media brands, including{" "}
+                            <Link
+                                href="https://www.techrepublic.com"
+                                className="text-[#386861] font-semibold hover:underline hover:text-green-700 transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                TechRepublic
+                            </Link>
+                            ,{" "}
+                            <Link
+                                href="https://www.eweek.com"
+                                className="text-[#386861] font-semibold hover:underline hover:text-green-700 transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                eWeek
+                            </Link>
+                            ,{" "}
+                            <Link
+                                href="https://www.datamation.com"
+                                className="text-[#386861] font-semibold hover:underline hover:text-green-700 transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Datamation
+                            </Link>
+                            , and{" "}
+                            <Link
+                                href="https://www.channelinsider.com"
+                                className="text-[#386861] font-semibold hover:underline hover:text-green-700 transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Channel Insider
+                            </Link>
+                            , and serve more than 600 clients per year. These critical acquisitions included global
+                            teams of dynamic technology and media professionals to enhance our presence in the US,
+                            the UK, Singapore, and Australia. We now have more than 300 global team members
+                            representing 12 languages.
+                        </p>
+
+                        <p>
+                            The tech-quotes has been named an Inc. 5000 America’s Fastest-Growing Private Company
+                            seven times, and was listed on the Inc. Best Workplaces list three times. The company is
+                            also a seven-time recipient of the Tennessean Top Workplaces Award.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            
+
+            {/* Locations Section - Redesigned */}
+            <section className="relative py-20 px-4 sm:px-8 lg:px-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900">Global Reach</h2>
+                <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+                    Proudly serving clients worldwide with key presences in India and U.S.A.
+                </p>
+
+                {/* Map Container */}
+                <div className="relative w-full max-w-5xl mx-auto h-[450px] md:h-[550px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-gray-100 flex items-center justify-center">
+                    {/* World Map Background */}
+                    <Image
+                        src="/images/world-map.png" // Ensure this image path is correct
+                        alt="World Map"
+                        fill
+                        className="object-contain opacity-80" // Use object-contain for better pin alignment
+                        priority
+                    />
+
+                    {/* Markers */}
+                    {locations.map((loc, idx) => (
+                        <div
+                            key={idx}
+                            className="absolute flex flex-col items-center group cursor-pointer"
+                            style={{ top: loc.top, left: loc.left, transform: "translate(-50%, -50%)" }}
+                        >
+                            {/* Pin Icon with animated pulse */}
+                            <div className="relative w-12 h-12 bg-green-600 border-4 border-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-125 transition-transform duration-300 ease-out z-10">
+                                <MapPin className="text-white" size={24} />
+                                {/* Pulsing effect */}
+                                <span className="absolute animate-ping-slow inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            </div>
+                            {/* Location Name Tag with hover effect */}
+                            <div className="mt-3 bg-white border border-green-300 text-green-800 font-semibold px-5 py-2 rounded-full text-base shadow-lg opacity-0 group-hover:opacity-100 transform group-hover:translate-y-2 transition-all duration-300 ease-out whitespace-nowrap z-20">
+                                {loc.name}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Headquarters Contact Info */}
+            <section className="px-4 sm:px-8 lg:px-32 py-12 bg-gray-50">
+                <div className="bg-gradient-to-r from-[#0c2e28] to-[#1e5c54] text-white text-center rounded-3xl p-10 sm:p-12 shadow-xl max-w-4xl mx-auto">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                        Headquartered in Nashville, Tennessee
+                    </h2>
+
+                    <p className="text-lg font-medium mb-1 opacity-90">
+                        3343 Perimeter Hill Dr Suite 100
+                    </p>
+                    <p className="text-lg font-medium mb-3 opacity-90">
+                        Nashville, TN 37211
+                    </p>
+                    <p className="text-lg font-medium">
+                        Phone:{" "}
+                        <a
+                            href="tel:8777022082"
+                            className="underline text-green-200 hover:text-green-50 transition-colors"
+                        >
+                            877–702–2082
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            {/* Core values */}
+            <section className="px-4 sm:px-8 lg:px-32 py-20 bg-white">
+                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900">Our Core Values</h2>
+
+                <div className="space-y-8 max-w-5xl mx-auto">
+                    {values.map((val, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 md:p-8 border border-gray-200 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                        >
+                            <div className="bg-green-100 rounded-full p-4 flex-shrink-0 flex items-center justify-center shadow-inner">
+                                {val.icon}
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-semibold mb-2 text-gray-900">{val.title}</h3>
+                                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{val.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="mt-20 px-4 sm:px-8 lg:px-32 py-16 bg-gray-50">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 leading-tight mb-12">
+                        Frequently Asked Questions
+                    </h2>
+
+                    <div className="space-y-4">
+                        {faqData.map((item, index) => (
+                            <div key={index} className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+                                <button
+                                    onClick={() => toggleItem(index)}
+                                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors duration-200"
+                                    aria-expanded={openItems[index]}
+                                    aria-controls={`faq-answer-${index}`}
+                                >
+                                    <h3 className="text-lg font-semibold text-gray-800 pr-4">
+                                        {item.question}
+                                    </h3>
+                                    <div className="w-10 h-10 bg-[#386861] hover:bg-green-700 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                        {openItems[index] ? (
+                                            <Minus className="w-6 h-6 text-white" />
+                                        ) : (
+                                            <Plus className="w-6 h-6 text-white" />
+                                        )}
+                                    </div>
+                                </button>
+
+                                {/* Answer with smooth transition */}
+                                <div
+                                    id={`faq-answer-${index}`}
+                                    role="region"
+                                    aria-labelledby={`faq-question-${index}`}
+                                    className={`grid transition-all duration-300 ease-in-out ${
+                                        openItems[index] ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                                    }`}
+                                >
+                                    <div className="overflow-hidden px-6 pb-6 pt-0">
+                                        <p className="text-gray-600 text-base leading-relaxed">
+                                            {item.answer}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
     );
-  };
-  return (<>
-  
-  
-    <section className="bg-[#0E1F1C] text-white px-6 md:px-12 lg:px-20 py-16">
-      {/* Breadcrumb */}
-      <div className="flex items-center text-sm text-gray-300 mb-2 space-x-2">
-        <Home size={16} />
-        <Link href="/" className="hover:underline">
-          Home
-        </Link>
-        <span>›</span>
-        <span className="font-semibold text-white">About Us</span>
-      </div>
-
-      {/* Heading and Subheading */}
-      <div className="max-w-3xl mb-10">
-        <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-          Learn More About <br />
-          <span className="text-white">TechnologyAdvice</span>
-        </h1>
-        <p className="text-gray-300 mt-4 text-lg">
-          Get to know TA’s purpose, core values, and culture.
-        </p>
-      </div>
-
-      {/* Image Section */}
-      {/* <div className="flex flex-col sm:flex-row gap-6">
-        <div className="relative w-full sm:w-1/2 h-72 sm:h-96 rounded-xl overflow-hidden">
-          <Image
-            src="/images/team1.png"
-            alt="Team Collaboration"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="relative w-full sm:w-1/2 h-72 sm:h-96 rounded-xl overflow-hidden">
-          <Image
-            src="/images/team2.png"
-            alt="Meeting Room"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div> */}
-    </section>
-    <section className="bg-white text-[#0f172a] px-6 md:px-12 lg:px-32 py-20">
-      {/* Title */}
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">Our mission</h2>
-
-      {/* Purpose Statement */}
-      <p className="text-xl sm:text-2xl font-medium text-center max-w-5xl mx-auto mb-10 leading-snug">
-        TechnologyAdvice’s purpose is to create opportunities for our audiences, our customers,
-        our team members, and our communities.
-      </p>
-
-      {/* Paragraphs */}
-      <div className="space-y-6 text-gray-700 max-w-5xl mx-auto text-base sm:text-lg leading-relaxed">
-        <p>
-          At TechnologyAdvice, we pride ourselves on helping B2B tech buyers manage the complexity
-          and risk of the buying process. We are a trusted source of information for tech buyers,
-          delivering advice and facilitating connections between our buyers and the world’s leading
-          sellers of business technology.
-        </p>
-
-        <p>
-          Established in 2006 out of our founder’s dorm room, TechnologyAdvice continues to expand
-          as a business. Through acquisitions, we now own more than 20 media brands, including{" "}
-          <Link
-            href="https://www.techrepublic.com"
-            className="text-[#386861] font-semibold hover:underline"
-            target="_blank"
-          >
-            TechRepublic
-          </Link>
-          ,{" "}
-          <Link
-            href="https://www.eweek.com"
-            className="text-[#386861]font-semibold hover:underline"
-            target="_blank"
-          >
-            eWeek
-          </Link>
-          ,{" "}
-          <Link
-            href="https://www.datamation.com"
-            className="text-[#386861] font-semibold hover:underline"
-            target="_blank"
-          >
-            Datamation
-          </Link>
-          , and{" "}
-          <Link
-            href="https://www.channelinsider.com"
-            className="text-[#386861] font-semibold hover:underline"
-            target="_blank"
-          >
-            Channel Insider
-          </Link>
-          , and serve more than 600 clients per year. These critical acquisitions included global
-          teams of dynamic technology and media professionals to enhance our presence in the US,
-          the UK, Singapore, and Australia. We now have more than 300 global team members
-          representing 12 languages.
-        </p>
-
-        <p>
-         The tech-quotes has been named an Inc. 5000 America’s Fastest-Growing Private Company
-          seven times, and was listed on the Inc. Best Workplaces list three times. The company is
-          also a seven-time recipient of the Tennessean Top Workplaces Award.
-        </p>
-      </div>
-    </section>
-   <section className="bg-white px-3 sm:px-8 lg:px-20 py-20">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-        Executive leadership
-      </h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {leaders.map((leader, index) => (
-          <div
-            key={index}
-            className="rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition duration-200 p-6 bg-gray-50 flex flex-col items-center text-center"
-          >
-            <div className="relative w-24 h-24">
-              <Image
-                src={leader.image}
-                alt={leader.name}
-                fill
-                className="rounded-full object-cover"
-              />
-              <Link
-                href={leader.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute -top-2 -right-2 bg-white border border-[#386861] text-[#386861] rounded-full p-2 hover:bg-green-50"
-              >
-                <FaLinkedinIn size={14} />
-              </Link>
-            </div>
-            <h3 className="text-lg font-semibold mt-4">{leader.name}</h3>
-            <p className="text-sm text-gray-600 mt-1">{leader.title}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-    <section className="relative py-20 px-4 sm:px-8 lg:px-32 bg-white overflow-hidden">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Locations</h2>
-
-      {/* Map Container */}
-      <div className="relative w-full h-[450px] md:h-[550px] lg:h-[600px]">
-        {/* World Map Background */}
-        <Image
-          src="/images/world-map.png"
-          alt="World Map"
-          fill
-          className="object-contain opacity-80"
-          priority
-        />
-
-        {/* Markers */}
-        {locations.map((loc, idx) => (
-          <div
-            key={idx}
-            className="absolute flex items-center gap-2"
-            style={{ top: loc.top, left: loc.left, transform: "translate(-50%, -50%)" }}
-          >
-            <div className="w-10 h-10 bg-green-100 border border-green-600 rounded-full flex items-center justify-center">
-              <MapPin className="text-green-600" size={20} />
-            </div>
-            <div className="bg-white border text-green-700 font-semibold px-3 py-1 rounded-full text-sm shadow">
-              {loc.name}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-     <section className="px-4 sm:px-8 lg:px-32 py-12">
-      <div className="bg-gradient-to-r from-[#0c2e28] to-[#0c2e28] text-white text-center rounded-3xl p-10 shadow-md">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-          Headquartered in Nashville, Tennessee
-        </h2>
-
-        <p className="text-lg font-medium mb-1">
-          3343 Perimeter Hill Dr Suite 100
-        </p>
-        <p className="text-lg font-medium mb-3">
-          Nashville, TN 37211
-        </p>
-        <p className="text-lg font-medium">
-          Phone:{" "}
-          <a
-            href="tel:8777022082"
-            className="underline text-blue-300 hover:text-blue-400 transition"
-          >
-            877–702–2082
-          </a>
-        </p>
-      </div>
-    </section>
-     <section className="px-4 sm:px-8 lg:px-32 py-16 bg-white">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">Core values</h2>
-
-      <div className="space-y-6">
-        {values.map((val, index) => (
-          <div
-            key={index}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 border rounded-2xl bg-gray-50 shadow-sm"
-          >
-            <div className="bg-white rounded-lg p-3 flex items-center justify-center">
-              {val.icon}
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-1">{val.title}</h3>
-              <p className="text-gray-700 text-sm sm:text-base">{val.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-     <section  className="mt-20 px-4 sm:px-8 lg:px-32 max-w-7xl mx-auto">
-      <div className="max-w-none">
-        {/* Main Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 leading-tight mb-10">
-          Project management software FAQs
-        </h2>
-
-        {/* FAQ Accordion */}
-        <div className="space-y-0 -mt-4 divide-y divide-gray-200 border border-gray-200 rounded-xl">
-          {faqData.map((item, index) => (
-            <div key={index}>
-              {/* Question */}
-              <button
-                onClick={() => toggleItem(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200"
-              >
-                <h3 className="text-lg font-semibold text-gray-800 pr-4">
-                  {item.question}
-                </h3>
-                <div className="w-9 h-9 bg-[#386861] hover:bg-green-700 rounded-md flex items-center justify-center">
-                  {openItems[index] ? (
-                    <Minus className="w-5 h-5 text-white" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-white" />
-                  )}
-                </div>
-              </button>
-
-              {/* Answer */}
-              {openItems[index] && (
-                <div className="px-6 pb-6 animate-in fade-in duration-200">
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    {item.answer}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    </>
-  );
 };
 
-export default AboutHero;
+export default AboutUsPage;
