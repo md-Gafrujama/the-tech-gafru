@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft, FaChevronDown, FaSearch, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CareersPage() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -21,7 +22,6 @@ export default function CareersPage() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    // Close other sections when clicking Culture
     setShowOpportunities(false);
     setShowFAQs(false);
   };
@@ -44,12 +44,14 @@ export default function CareersPage() {
     }
   };
 
-  // Define global colors
+  // Define modern color palette with your preferred #0E1F1C
   const GLOBAL_BG_COLOR = 'white';
   const TEXT_COLOR = '#0E1F1C';
-  const BUTTON_COLOR = '#ffd800';
-  const BENEFITS_BACKGROUND_COLOR = '#0e1f1c';
+  const PRIMARY_COLOR = '#0E1F1C';
+  const SECONDARY_COLOR = '#0E1F1C';
+  const BENEFITS_BACKGROUND_COLOR = '#0E1F1C';
   const BENEFITS_ITEM_BG_COLOR = '#1A2A28';
+  const CARD_BG = '#f8fafc';
 
   const sections = [
     {
@@ -135,17 +137,17 @@ We recognize that diversity extends beyond the color of our skin to include ethn
     },
   ];
 
- const testimonials = [
-  {
-    text: `There are endless opportunities to explore and advance your career at TechnologyAdvice. The company invests a lot of training and time into it's team members and it’s apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, TA is the right place for you.`,
-  },
-  {
-    text: `You will grow really fast at TA and learn a lot quickly. You will learn how to challenge yourself and stretch your capabilities. The organization is goal driven and focused. The team is fun and my colleagues are great to work with and people are friendly.`,
-  },
-  {
-    text: `I have never been a part of a company that is as positive as TechnologyAdvice. TA’s management lives by the 5 core values, and this trickles down throughout the entire organization.`,
-  },
-];
+  const testimonials = [
+    {
+      text: `There are endless opportunities to explore and advance your career at TechnologyAdvice. The company invests a lot of training and time into it's team members and it's apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, TA is the right place for you.`,
+    },
+    {
+      text: `You will grow really fast at TA and learn a lot quickly. You will learn how to challenge yourself and stretch your capabilities. The organization is goal driven and focused. The team is fun and my colleagues are great to work with and people are friendly.`,
+    },
+    {
+      text: `I have never been a part of a company that is as positive as TechnologyAdvice. TA's management lives by the 5 core values, and this trickles down throughout the entire organization.`,
+    },
+  ];
 
   const awards = [
     { src: '/images/award1.png', alt: 'Inc. 5000 6-Time Award Winner' },
@@ -156,7 +158,6 @@ We recognize that diversity extends beyond the color of our skin to include ethn
     { src: '/images/award6.png', alt: 'Inc. Best Workplaces 2021' },
     { src: '/images/award7.png', alt: 'Best Business Award' },
     { src: '/images/award8.png', alt: 'Top Workplaces Tennessee' },
-   
   ];
 
   const benefits = [
@@ -177,7 +178,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           />
         </svg>
       ),
-      title: 'Career development',
+      title: 'Career Development',
       description: 'Explore virtually endless career opportunities with development meetings, DE&I events, book clubs, Emerging Leaders and Leadership Academy, and more!',
     },
     {
@@ -197,7 +198,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           />
         </svg>
       ),
-      title: 'Health and wellness',
+      title: 'Health & Wellness',
       description: 'Enjoy comprehensive health, dental, and vision benefits, plus other great additionals like Headspace and fitness reimbursements.',
     },
     {
@@ -213,11 +214,11 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M12 18v-5.25m0 0a6.002 6.002 0 0 0 1.58-1.425 18.067 18.067 0 0 1 5.865 3.125M12 18a6.002 6.002 0 0 0-1.58-1.425 18.067 18.067 0 0 1-5.865 3.125M12 18V6A3.003 3.003 0 0 0 6 6h2.25c.51 0 .935.347 1.076.839A6 6 0 0 1 12 6M12 18h.375a3 3 0 0 0 2.26-5.435M12 18H11.625A3 3 0 0 1 9.365 12.565m-2.26-5.435A3 3 0 0 0 6 6c0-1.657 1.343-3 3-3h.75a3 3 0 0 1 3 3v.375c0 .621.504 1.125 1.125 1.125h1.5a3 3 0 0 1 3 3v.375h-.75A3.001 3.001 0 0 0 15 12c0 .621.504 1.125 1.125 1.125H18c1.657 0 3-1.343 3-3V6.75A.75.75 0 0 0 20.25 6H12"
+            d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.966 48.966 0 0 1 12 21.75c2.305 0 4.535-.295 6.735-.856m-1.72-1.033a48.96 48.96 0 0 0-10.618 0m10.618 0v.2c0 2.109-.969 3.993-2.564 5.25S12.378 24 12 24c-.378 0-2.07-.468-3.676-1.725S5.25 18.2 5.25 16.125v-.2M12 21.75c-2.305 0-4.535-.295-6.735-.856m0 0a48.805 48.805 0 0 1-1.378-3.695m1.378 3.695L7.5 21.493m-.491-11.347a60.436 60.436 0 0 1-.491-6.347m-1.996-.007a60.436 60.436 0 0 1-.491-6.347"
           />
         </svg>
       ),
-      title: 'Learning and development',
+      title: 'Learning & Development',
       description: 'Company-wide access to on-demand learning management systems and training.',
     },
     {
@@ -253,11 +254,11 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+            d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
           />
         </svg>
       ),
-      title: 'Team activities',
+      title: 'Team Activities',
       description: 'Company-wide hackathons, in-person, and virtual events.',
     },
     {
@@ -273,11 +274,11 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25H18.75A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h18.75A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
           />
         </svg>
       ),
-      title: 'Paid time off',
+      title: 'Paid Time Off',
       description: 'Enjoy work-life balance with generous paid time off.',
     },
   ];
@@ -285,38 +286,39 @@ We recognize that diversity extends beyond the color of our skin to include ethn
   const coreValues = [
     {
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#386861]">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4.5 16.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM19.5 16.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#0E1F1C]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
-      title: 'Be transparent',
+      title: 'Be Transparent',
       description: 'As stakeholders of TA, we deserve to have honest, open, & consistent information about our business. Every employee, no matter the level on the org chart, practices transparency about their work.',
     },
     {
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#386861]">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.375c.068.038.129.093.182.158l2.992 3.007a.75.75 0 1 1-1.06 1.06L14.474 16.7c-.069-.06-.12-.129-.158-.2l-1.33-2.217a.75.75 0 0 0-.203-.277 1.5 1.5 0 0 1-.722-.977L9.236 9.873A8.75 8.75 0 0 0 7.5 7.5c0-4.004 3.003-7.25 6.702-7.25C18.2 0.25 21 3.5 21 7.5c0 1.626-.54 3.076-1.5 4.25a.75.75 0 0 0 .203.277l1.33 2.217c.069.06.12.129.158.2l2.992 3.007a.75.75 0 1 1-1.06 1.06L18.41 14.533c-.068-.038-.129-.093-.182-.158l-1.33-2.217a.75.75 0 0 0-.203-.277 1.5 1.5 0 0 1-.722-.977L9.236 9.873Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#0E1F1C]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
         </svg>
       ),
-      title: 'Challenge mediocrity',
+      title: 'Challenge Mediocrity',
       description: 'We attack our goals with passion & a sense of urgency. We hold each other accountable & produce results above & beyond expectations.',
     },
     {
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#386861]">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.966 48.966 0 0 1 12 21.75c2.305 0 4.535-.295 6.735-.856m-1.72-1.033a48.96 48.96 0 0 0-10.618 0m10.618 0v.2c0 2.109-.969 3.993-2.564 5.25S12.378 24 12 24c-.378 0-2.07-.468-3.676-1.725S5.25 18.2 5.25 16.125v-.2M12 21.75c-2.305 0-4.535-.295-6.735-.856m0 0a48.805 48.805 0 0 1-1.378-3.695m1.378 3.695L7.5 21.493m-.491-11.347a60.436 60.436 0 0 1-.491-6.347m-1.996-.007a60.436 60.436 0 0 1-.491-6.347" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#0E1F1C]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
         </svg>
       ),
-      title: 'Crave knowledge',
+      title: 'Crave Knowledge',
       description: 'At TechnologyAdvice we continually increase our knowledge, deepen our understanding, & invest in our personal and professional growth.',
     },
     {
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#386861]">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25H18.75A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#0E1F1C]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
         </svg>
       ),
-      title: 'Make calculated decisions',
+      title: 'Make Calculated Decisions',
       description: 'We combine data with cross-team collaboration & balance diligence with speed to ensure prudent & tactical decisions that grow our business.',
     },
   ];
@@ -332,14 +334,14 @@ We recognize that diversity extends beyond the color of our skin to include ethn
       category: "Audience Development",
       jobs: [
         { title: "Cybersecurity Newsletter Writer", department: "Audience Development", location: "United States" },
-        { title: "Social Media Specialist", department: "Audience Development", location: "Philippines" },
-        { title: "Technology Content Strategist", department: "Audience Development", location: "Philippines" },
+        { title: "Social Media Specialist", department: "Audience Development", location: "India" },
+        { title: "Technology Content Strategist", department: "Audience Development", location: "India" },
       ],
     },
     {
       category: "Content",
       jobs: [
-        { title: "Staff Writer, Channel", department: "Content", location: "Philippines" },
+        { title: "Staff Writer, Channel", department: "Content", location: "India" },
       ],
     },
     {
@@ -371,17 +373,17 @@ We recognize that diversity extends beyond the color of our skin to include ethn
       category: "Client Success",
       jobs: [
         { title: "Client Success Coordinator", department: "Client Success", location: "United States" },
-        { title: "Client Success Manager", department: "Client Success", location: "United Kingdom" },
+        { title: "Client Success Manager", department: "Client Success", location: "United States" },
         { title: "Client Success Manager, Boston Area", department: "Client Success", location: "United States" },
-        { title: "Client Success Operations Coordinator", department: "Client Success", location: "Philippines" },
-        { title: "Client Success Coordinator", department: "Client Success", location: "Philippines" },
+        { title: "Client Success Operations Coordinator", department: "Client Success", location: "India" },
+        { title: "Client Success Coordinator", department: "Client Success", location: "India" },
       ],
     },
     {
       category: "Sales",
       jobs: [
-        { title: "Account Director", department: "Sales", location: "United Kingdom" },
-        { title: "Account Manager", department: "Sales", location: "Australia" },
+        { title: "Account Director", department: "Sales", location: "United States" },
+        { title: "Account Manager", department: "Sales", location: "India" },
         { title: "Newsletter Sales Account Executive", department: "Sales", location: "United States" },
       ],
     },
@@ -402,44 +404,76 @@ We recognize that diversity extends beyond the color of our skin to include ethn
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div className="bg-[#0E1F1C] min-h-screen text-white px-8 md:px-16 py-12">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+      {/* Hero Section - Enhanced with gradient and animations */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C] min-h-screen text-white px-8 md:px-16 py-12 overflow-hidden"
+      >
+        {/* Background geometric shapes for modern look */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-[#0E1F1C] opacity-10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 flex flex-col md:flex-row items-center">
+          <motion.div 
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:w-1/2 mb-8 md:mb-0"
+          >
             <nav className="text-sm mb-8">
               <span className="text-gray-400">🏠 Home &gt; </span>
-              <span className="font-semibold">Careers</span>
+              <span className="font-semibold text-[#0E1F1C]">Careers</span>
             </nav>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-[#0E1F1C] bg-clip-text text-transparent">
               Let's grow together
             </h1>
 
-            <p className="text-lg mb-4">
+            <p className="text-lg mb-4 text-gray-200 leading-relaxed">
               We're TechnologyAdvice – the team behind a portfolio of leading B2B tech publications.
               If you're here, it's because all of our brands share a common mission – and a single team driving them forward.
             </p>
 
-            <p className="text-lg mb-8">
+            <p className="text-lg mb-8 text-gray-200 leading-relaxed">
               At TechnologyAdvice, you'll work alongside a diverse group of passionate individuals who love growing as professionals and learning new things.
               No two days are exactly the same here, and you'll face opportunities to expand your skill set, step outside of your comfort zone,
               and contribute to the best group you'll ever work with.
             </p>
 
             <div className="mb-8">
-              <a href="#" className="font-semibold hover:text-[#386861]">
-                Subscribe to our Talent Community →
+              <a href="#" className="font-semibold text-[#FFF] hover:text-white transition-colors duration-300 inline-flex items-center group">
+                Subscribe to our Talent Community 
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
             </div>
-<a href="/About-Us/Careers/opportunities" className="inline-block">
-  <button className="bg-[#386861] text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition">
-    Apply Now
-  </button>
-</a>
-          </div>
 
-          <div className="md:w-1/2 flex justify-center">
-            <div className="rounded-xl overflow-hidden w-full max-w-md">
+            <motion.a 
+              href="https://quoreit.com/contact" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-10 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                Apply Now
+              </button>
+            </motion.a>
+          </motion.div>
+
+          <motion.div 
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="md:w-1/2 flex justify-center"
+          >
+            <div className="rounded-2xl overflow-hidden w-full max-w-md shadow-2xl transform hover:scale-105 transition-transform duration-300">
               <Image
                 src="/images/careers1.png"
                 alt="Team working together"
@@ -448,439 +482,535 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                 className="w-full h-auto"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
-       <div className="flex flex-wrap gap-8 mt-50 text-white font-semibold text-xl">
-  <a href="/About-Us/Careers" className="hover:underline">Culture</a>
-  <a href="/About-Us/Careers/opportunities" className="hover:underline">Opportunities</a>
-  <a href="/About-Us/Careers/faqs" className="hover:underline">FAQs</a>
-</div>
+        {/* Enhanced Navigation */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-wrap gap-8 mt-16 text-white font-semibold text-xl relative z-10"
+        >
+          <button onClick={scrollToCulture} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">Culture</button>
+          <button onClick={handleOpportunitiesClick} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">Opportunities</button>
+          <button onClick={handleFAQsClick} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">FAQs</button>
+        </motion.div>
+      </motion.div>
 
-      </div>
-
-      {/* Culture Compass Section */}
-      <div id="culture-compass" className="bg-white min-h-screen text-black max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Culture Compass</h2>
-
-        <p className="text-lg md:w-3/4 mb-4">
-          At TechnologyAdvice we believe our success starts with attracting, hiring, and developing amazing people for our team. In sharing who we are and how we work, we're giving you insight into our culture so you can make sure it's a match for you. Our Culture Compass was created to be remarkably explicit and transparent about our unique culture to give you the best opportunity to thrive in our environment and reach your full potential.
-        </p>
-
-        <p className="text-lg md:w-3/4 mb-8">
-          We want TA to be the place for you and hope our culture resonates with you! If not, that's okay. We believe in ensuring that everyone understands and aligns with our team's goals, fostering a collective sense of purpose that drives our actions and dedication.
-        </p>
-
-        {sections.map((section, index) => (
-          <div key={index} className="border-t py-4">
-            <div
-              onClick={() => toggleSection(index)}
-              className="flex justify-between items-center cursor-pointer"
-            >
-              <h3 className="text-lg font-semibold">{section.title}</h3>
-              <span className="text-[#386861] text-2xl">
-                {openIndex === index ? "-" : "+"}
-              </span>
-            </div>
-            {openIndex === index && (
-              <div className="mt-4 whitespace-pre-wrap">{section.content}</div>
-            )}
-          </div>
-        ))}
-      </div>
-{/* 
-testimonials */}
- <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold text-center text-gray-900 mb-12">
-          What our team members have to say
+      {/* Culture Compass Section - Enhanced with better styling */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        id="culture-compass" 
+        className="bg-white min-h-screen text-black max-w-6xl mx-auto px-4 py-16"
+      >
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+          Our Culture Compass
         </h2>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, idx) => (
-            <div
-              key={idx}
-              className="bg-[#0d1424] text-white p-6 rounded-2xl shadow-md h-full min-h-[330px] flex flex-col justify-between"
+
+        <div className="space-y-4 text-lg text-gray-700 mb-12 leading-relaxed">
+          <p>
+            At TechnologyAdvice we believe our success starts with attracting, hiring, and developing amazing people for our team. In sharing who we are and how we work, we're giving you insight into our culture so you can make sure it's a match for you. Our Culture Compass was created to be remarkably explicit and transparent about our unique culture to give you the best opportunity to thrive in our environment and reach your full potential.
+          </p>
+          <p>
+            We want TA to be the place for you and hope our culture resonates with you! If not, that's okay. We believe in ensuring that everyone understands and aligns with our team's goals, fostering a collective sense of purpose that drives our actions and dedication.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {sections.map((section, index) => (
+            <motion.div 
+              key={index} 
+              className="border-0 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              whileHover={{ y: -2 }}
             >
-              <div className="flex items-start gap-3 mb-4">
-                <FaQuoteLeft className="text-green-400 text-xl mt-1" />
-                <span className="h-full w-0.5 bg-green-400 mt-1" />
+              <div
+                onClick={() => toggleSection(index)}
+                className="flex justify-between items-center cursor-pointer p-8 bg-gradient-to-r from-gray-50 to-white hover:from-gray-100 hover:to-gray-50 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-[#0E1F1C] pr-4">{section.title}</h3>
+                <motion.div
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-[#0E1F1C] p-2 rounded-full bg-white shadow-md"
+                >
+                  <FaChevronDown size={20} />
+                </motion.div>
               </div>
-              <p className="text-md font-medium leading-relaxed">
-                {t.text}
-              </p>
-            </div>
+              
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-8 pt-0 whitespace-pre-wrap text-gray-700 leading-relaxed">
+                      {section.content}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
 
-     {/* Awards Section */}
-      <div className="py-16 px-4  max-w-6xl mx-auto sm:px-6 lg:px-8" style={{ color: TEXT_COLOR }}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
-            Awards
+      {/* Testimonials - Enhanced design */}
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 bg-gradient-to-br from-gray-50 to-white"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+            What our team members have to say
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {awards.map((award, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-sm flex items-center justify-center h-40">
-                <Image
-                  src={award.src}
-                  alt={award.alt}
-                  width={200}
-                  height={100}
-                  className="object-contain max-h-full"
-                />
-              </div>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-gradient-to-br from-[#0d1424] to-[#1a2436] text-white p-8 rounded-3xl shadow-xl h-full min-h-[330px] flex flex-col justify-between relative overflow-hidden"
+              >
+                {/* Background accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-[#0E1F1C] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
+                
+                <div className="flex items-start gap-3 mb-6">
+                  <div className="bg-[#0E1F1C] p-2 rounded-full">
+                    <FaQuoteLeft className="text-white text-lg" />
+                  </div>
+                </div>
+                <p className="text-md font-medium leading-relaxed relative z-10">
+                  {t.text}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </motion.section>
 
+      {/* Awards Section - Enhanced with modern grid */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8" 
+        style={{ color: TEXT_COLOR }}
+      >
+        <h2 className="text-5xl md:text-6xl font-bold mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+          Awards & Recognition
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {awards.map((award, index) => (
+            <motion.div 
+              key={index} 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center h-48 border border-gray-100"
+            >
+              <Image
+                src={award.src}
+                alt={award.alt}
+                width={200}
+                height={100}
+                className="object-contain max-h-full filter hover:brightness-110 transition-all duration-300"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
-{/* Benefits Section */}
-      <div className=" sm:px-6 lg:px-8  mx-auto px-4 py-16" style={{ backgroundColor: BENEFITS_BACKGROUND_COLOR, color: 'white' }}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl max-w-6xl mx-auto font-bold mb-12 text-white">
+      {/* Benefits Section - Enhanced with better cards */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative sm:px-6 lg:px-8 mx-auto px-4 py-20 overflow-hidden" 
+        style={{ backgroundColor: BENEFITS_BACKGROUND_COLOR, color: 'white' }}
+      >
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C]"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <h2 className="text-5xl md:text-6xl max-w-6xl mx-auto font-bold mb-16 text-white bg-gradient-to-r from-white to-[#0E1F1C] bg-clip-text text-transparent">
             Benefits of working on our team
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="p-6 rounded-lg shadow-sm"
-                style={{ backgroundColor: BENEFITS_ITEM_BG_COLOR }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="p-8 rounded-3xl shadow-xl backdrop-blur-sm border border-gray-700/30 hover:border-[#0E1F1C]/50 transition-all duration-300"
+                style={{ backgroundColor: `${BENEFITS_ITEM_BG_COLOR}CC` }}
               >
-                <div className="flex-shrink-0 p-3 rounded-md mb-4" style={{ backgroundColor: TEXT_COLOR }}>
+                <div className="flex-shrink-0 p-4 rounded-2xl mb-6 bg-gradient-to-br from-[#0E1F1C] to-[#0E1F1C]">
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-2xl font-bold mb-4 text-white">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </div>
+                <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-      {/* video section */}
-      <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#f6f8fc] rounded-2xl grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
-          {/* Left Side - Text */}
-          <div className="p-8 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-[#0d1424] mb-4">
-              We’d love to work with you
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed max-w-md">
-              No matter who you are or what stage of your career you find yourself, when you join the TechnologyAdvice team you begin an incredible adventure.
-            </p>
-          </div>
+      </motion.div>
 
-          {/* Right Side - Video */}
-         <div className="w-full h-full aspect-video">
-  <iframe
-    className="w-full h-full"
-    src="https://www.youtube.com/embed/2D4-ar_d5K4?list=PLFagkHjQLihMrfT0Czpl97H7XuxQ8Uf96"
-    title="TechnologyAdvice - Careers Video"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
-        </div>
-      </div>
-    </section>
-      {/* Core Values Section */}
-      <div className=" sm:px-6 lg:px-8 max-w-6xl mx-auto px-4 py-16" style={{ color: TEXT_COLOR }}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
-            Core values
-          </h2>
-          <div className="space-y-6">
-            {coreValues.map((value, index) => (
-              <div
-                key={index}
-                className="flex items-start bg-gray-50 p-6 rounded-lg shadow-sm"
-              >
-                <div className="flex-shrink-0 bg-white p-3 rounded-md mr-4">
-                  {value.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2" style={{ color: TEXT_COLOR }}>
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-700">{value.description}</p>
-                </div>
+      {/* Core Values Section - Enhanced with modern cards */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="sm:px-6 lg:px-8 max-w-6xl mx-auto px-4 py-20" 
+        style={{ color: TEXT_COLOR }}
+      >
+        <h2 className="text-5xl md:text-6xl font-bold mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+          Core Values
+        </h2>
+        <div className="space-y-6">
+          {coreValues.map((value, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ x: 10, scale: 1.02 }}
+              className="flex items-start bg-gradient-to-r from-white to-gray-50 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+            >
+              <div className="flex-shrink-0 bg-white p-4 rounded-2xl mr-6 shadow-md border border-gray-100">
+                {value.icon}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      
-
-      {/* Picture Yourself Section */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8" style={{ color: TEXT_COLOR }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
-            Picture yourself at TechnologyAdvice
-          </h2>
-          <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row gap-8 w-full">
-              <div className="relative w-full h-96 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/APAC1.jpeg"
-                  alt="Team members wearing crowns"
-                  layout="fill"
-                  objectFit="cover"
-                />
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-[#0E1F1C]">
+                  {value.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed text-lg">{value.description}</p>
               </div>
-              <div className="relative w-full h-96 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/APCA1.jpg"
-                  alt="Person skydiving"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
 
-     
-      {/* Jobs Available Section - Only shown when showOpportunities is true */}
-      {showOpportunities && (
-        <div id="opportunities-section" className="bg-white py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: GLOBAL_BG_COLOR, color: TEXT_COLOR }}>
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">
-              Jobs available
-            </h2>
+      {/* Enhanced Jobs Section */}
+      <AnimatePresence>
+        {showOpportunities && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            id="opportunities-section" 
+            className="bg-gradient-to-br from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8"
+          >
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-5xl md:text-6xl font-bold mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+                Jobs Available
+              </h2>
 
-            {/* Filters Section */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12 items-center justify-start">
-              {/* Location Filter */}
-              <div className="relative inline-block text-left w-full sm:w-auto">
-                <select
-                  value={selectedLocation}
-                  onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="appearance-none bg-white border border-gray-300 rounded-lg py-2 pl-10 pr-4 leading-tight focus:outline-none focus:border-blue-500 shadow-sm"
-                  style={{ color: TEXT_COLOR }}
+              {/* Enhanced Filters */}
+              <div className="flex flex-col lg:flex-row gap-6 mb-16 items-center justify-center">
+                {/* Location Filter */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative w-full lg:w-auto"
                 >
-                  <option value="">All Locations</option>
-                  {allLocations.map(location => (
-                    <option key={location} value={location}>{location}</option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a8.75 8.75 0 002.304-1.213 6.022 6.022 0 012.498-1.725 6.022 6.022 0 012.504-1.727 8.75 8.75 0 002.304-1.215 4.002 4.002 0 002.49-3.44c-.082-1.94-.97-3.614-2.618-4.944A10.05 10.05 0 0012 2.252c-2.34 0-4.526.702-6.235 1.875a10.05 10.05 0 00-2.618 4.943 4.002 4.002 0 002.49 3.44 8.75 8.75 0 002.304 1.215 6.022 6.022 0 012.504 1.727 6.022 6.022 0 012.498 1.725 8.75 8.75 0 00.07.04zm-.484 1.05zm2.25-14.82l-2.09-2.09c-.39-.39-1.023-.39-1.414 0l-2.09 2.09a1 1 0 000 1.414l2.09 2.09a1 1 0 001.414 0l2.09-2.09a1 1 0 000-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
+                                  <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <select
+                    value={selectedLocation}
+                    onChange={(e) => setSelectedLocation(e.target.value)}
+                    className="w-full lg:w-64 pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#0E1F1C] focus:outline-none bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700"
+                  >
+                    <option value="">All Locations</option>
+                    {allLocations.map(location => (
+                      <option key={location} value={location}>{location}</option>
+                    ))}
+                  </select>
+                </motion.div>
 
-              {/* Department Filter */}
-              <div className="relative inline-block text-left w-full sm:w-auto">
-                <select
-                  value={selectedDepartment}
-                  onChange={(e) => setSelectedDepartment(e.target.value)}
-                  className="appearance-none bg-white border border-gray-300 rounded-lg py-2 pl-10 pr-4 leading-tight focus:outline-none focus:border-blue-500 shadow-sm"
-                  style={{ color: TEXT_COLOR }}
+                {/* Department Filter */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative w-full lg:w-auto"
                 >
-                  <option value="">All Departments</option>
-                  {allDepartments.map(department => (
-                    <option key={department} value={department}>{department}</option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path fillRule="evenodd" d="M3.792 2.938A49.069 49.069 0 0112 2.25c2.73 0 5.436.142 8.108.407.3-.097.6-.147.9-.147H21.75a.75.75 0 01.75.75v3.626a.75.75 0 01-.65.748L20.25 11.375V15.75a.75.75 0 01-.75.75H15V21a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75v-4.5H9.75a.75.75 0 01-.75-.75v-4.375L3.392 8.363a.75.75 0 01-.65-.748V3.688a.75.75 0 01.75-.75h1.17c.3 0 .6.05.9.147zM6.559 6.723A45.013 45.013 0 0112 6.75c1.848 0 3.655.106 5.433.313V7.5L12 10.875 6.559 7.5V6.723zM15 11.375h4.5v3.625H15v-3.625z" clipRule="evenodd" />
-                  </svg>
-                </div>
+                  <FaBriefcase className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <select
+                    value={selectedDepartment}
+                    onChange={(e) => setSelectedDepartment(e.target.value)}
+                    className="w-full lg:w-64 pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#0E1F1C] focus:outline-none bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700"
+                  >
+                    <option value="">All Departments</option>
+                    {allDepartments.map(department => (
+                      <option key={department} value={department}>{department}</option>
+                    ))}
+                  </select>
+                </motion.div>
+
+                {/* Search Filter */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative w-full lg:w-auto"
+                >
+                  <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search jobs..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full lg:w-64 pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-[#0E1F1C] focus:outline-none bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700"
+                  />
+                </motion.div>
               </div>
 
-              {/* Search by Title */}
-              <div className="relative w-full sm:w-auto">
-                <input
-                  type="text"
-                  placeholder="Search by Title"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="border border-gray-300 rounded-lg py-2 pl-10 pr-4 leading-tight focus:outline-none focus:border-blue-500 w-full shadow-sm"
-                  style={{ color: TEXT_COLOR }}
-                />
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.694 4.693a1.5 1.5 0 11-2.121 2.121l-4.693-4.694A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Job Listings */}
-            {filteredJobCategories.length > 0 ? (
-              filteredJobCategories.map((categoryData, catIndex) => (
-                <div key={catIndex} className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: TEXT_COLOR }}>{categoryData.category}</h3>
-                  <div className="space-y-4">
-                    {categoryData.jobs.map((job, jobIndex) => (
-                      <div
-                        key={jobIndex}
-                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-gray-50 p-6 rounded-lg shadow-sm"
-                      >
-                        <p className="text-lg font-semibold text-green-700 mb-2 sm:mb-0">
-                          {job.title}
-                        </p>
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-sm text-gray-600">
-                          <span className="font-medium">{job.department}</span>
-                          <span className="font-medium">{job.location}</span>
+              {/* Job Listings */}
+              <div className="space-y-8">
+                {filteredJobCategories.length === 0 ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-16 bg-white rounded-3xl shadow-lg"
+                  >
+                    <div className="text-6xl mb-4">🔍</div>
+                    <h3 className="text-2xl font-bold text-gray-600 mb-2">No jobs found</h3>
+                    <p className="text-gray-500">Try adjusting your search criteria</p>
+                  </motion.div>
+                ) : (
+                  filteredJobCategories.map((category, categoryIndex) => (
+                    <motion.div
+                      key={category.category}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                      className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100"
+                    >
+                      <div className="bg-gradient-to-r from-[#0E1F1C] to-[#1a2f2c] text-white p-6">
+                        <h3 className="text-2xl font-bold">{category.category}</h3>
+                        <p className="text-gray-300">{category.jobs.length} position{category.jobs.length !== 1 ? 's' : ''} available</p>
+                      </div>
+                      <div className="p-6">
+                        <div className="space-y-4">
+                          {category.jobs.map((job, jobIndex) => (
+                            <motion.div
+                              key={`${job.title}-${jobIndex}`}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: jobIndex * 0.05 }}
+                              whileHover={{ x: 5, scale: 1.01 }}
+                              className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-100 hover:border-[#0E1F1C]/30 hover:shadow-md transition-all duration-300 group"
+                            >
+                              <div className="flex-1">
+                                <h4 className="text-xl font-bold text-[#0E1F1C] mb-2 group-hover:text-[#0E1F1C] transition-colors">
+                                  {job.title}
+                                </h4>
+                                <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600">
+                                  <span className="flex items-center gap-2">
+                                    <FaBriefcase className="text-[#0E1F1C]" />
+                                    {job.department}
+                                  </span>
+                                  <span className="flex items-center gap-2">
+                                    <FaMapMarkerAlt className="text-[#0E1F1C]" />
+                                    {job.location}
+                                  </span>
+                                </div>
+                              </div>
+                              <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="mt-4 sm:mt-0 sm:ml-6 bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                              >
+                                Apply Now
+                              </motion.button>
+                            </motion.div>
+                          ))}
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-gray-500 text-lg">No jobs found matching your criteria.</p>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Interviewing FAQs Section - Only shown when showFAQs is true */}
-      {showFAQs && (
-        <div id="faqs-section" className="py-16 px-4 sm:px-6 lg:px-8" style={{ color: TEXT_COLOR }}>
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">
-              Interviewing FAQs
-            </h2>
-
-            <div className="space-y-8">
-              {/* FAQ Items */}
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  TechnologyAdvice does not engage with external staffing agencies.
-                </h3>
-                <p className="text-gray-700">
-                  Any candidates introduced by such firms will not be eligible for compensation.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  What does working at TechnologyAdvice look like?
-                </h3>
-                <p className="text-gray-700">
-                  With employees across the globe, we take a remote-first approach. All of our jobs can be performed remotely unless otherwise noted in the job description.
-                </p>
-                <p className="text-gray-700 mt-2">
-                  Whether you will work remotely all the time, sometimes, or never, we want to ensure you have the tools you need to be successful. We will ship the technology and equipment that you need to do your job.
-                </p>
-                <p className="text-gray-700 mt-2">
-                  We also want to ensure that you are fully integrated into the culture and company, so you will have the opportunity to participate in virtual outings. If there is ever a chance for you to visit our headquarters in Nashville, TN, there will be catered lunch and a desk space waiting for you!
-                </p>
-                <p className="text-gray-700 mt-2">
-                  New hires located within 50 miles of an office are requested to work from the office for their first week and for quarterly stakeholder meetings. If you are located in the US, we offer a Hybrid Work Policy allowing our team the choice to work 100% in the office, 100% remote, or a blend of the two unless otherwise noted.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  What does TechnologyAdvice do?
-                </h3>
-                <p className="text-gray-700">
-                  Our 'what' can be broken down into two focuses.
-                  We help people who are in need of new or optimized tech (primarily software) for their business get unbiased advice and data that helps them make sound purchasing decisions.
-                  We help technology companies connect with an exclusive audience of 100 million buyers to ease the burden of prospecting blindly and meet buyers on their terms. We shorten the sales cycle by doing the initial vetting and qualifying of a prospect.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  I just submitted my application — what happens next?
-                </h3>
-                <p className="text-gray-700">
-                  We're so excited you're interested in working with us! After applying, you will receive a confirmation email from our applicant tracking system confirming your application has been received. We review every application that we receive but unfortunately are unable to respond to every applicant directly. We will reach out to qualified candidates with an update on the next step within 5 – 7 days. Typically, a member of our HR team will conduct a phone interview with qualified candidates.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  What are the steps in your hiring process?
-                </h3>
-                <p className="text-gray-700">
-                  Below is an overview of our standard hiring process and typical time commitment for each stage:
-                  Phone Interview, 20 – 30 minutes 
-                  Skills Assessment, approximately 2 hours (on task) 
-                  Hiring Manager Interview, 60 – 90 minutes 
-                  Test Drive, 3 – 4 hours 
-                  Certain stages in the hiring process may be adjusted depending on the position or hiring manager.
-                  What is a Test Drive?
-                  Just like you wouldn't buy a car without test driving it first, we want candidates and future employees to have the opportunity to test their potential new role and company! You'll get a taste of a typical day and meet some of the team members you could work alongside!
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  How long does your hiring process take?
-                </h3>
-                <p className="text-gray-700">
-                  It varies based on the position, but on average it takes around 2-3 weeks from when you apply to when an offer goes out. Our priority is always finding the right match rather than meeting a timeline. We want to ensure that not only are you a good fit for us but that we're also a good fit for you.
-                  Be sure to keep your recruiter in the loop regarding any additional opportunities you are exploring so our recruitment team can work to accommodate your timeline and availability.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  What should I wear to my interview?
-                </h3>
-                <p className="text-gray-700">
-                  Congrats on making it to the next stage! While we're a pretty casual bunch day-to-day, we believe interviews are a chance to put your best foot forward. Business casual is a safe bet, but if you're unsure, it's always better to be slightly overdressed than underdressed. When in doubt—dress to impress!
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  How do you foster diversity, equity, and inclusion?
-                </h3>
-                <p className="text-gray-700">
-                  We're so glad you asked! TechnologyAdvice launched its Diversity, Equity, and Inclusion committee in 2019 and regularly holds events, training, book clubs, and listening sessions to support our team and ensure we offer an inclusive workplace for all. DE&I is an ongoing and continuous effort. We're committed to growing, learning, and bettering ourselves, our communities, and our future.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  I know someone who would make a great fit for TechnologyAdvice, but am not a current employee. Can I make a referral?
-                </h3>
-                <p className="text-gray-700">
-                  We're so glad you'd like to recommend someone to work with us. We offer up to a $1,000 USD bonus for an eligible referral who is hired and completes 90 days of working with us in the US, UK, AU, and SG. For full-time roles that are based in the Philippines, you could be eligible for a $200 bonus. Please make note of our additional requirements below.
-                  To be eligible for a referral bonus, the candidate you refer cannot previously exist in our ATS or has been previously reached out to by our HR team. Internal team members must submit their referrals in our ATS.
-                  Additionally, you must either a) email careers@technologyadvice.com with your referral prior to the candidate applying, and/or b) the candidate MUST list your name in the "Did someone specifically refer you to apply?" section of the application. Only one referral bonus will be paid for each successful new hire, be sure they name you!
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  I was referred to TechnologyAdvice by a friend, colleague, pet sitter, etc.
-                </h3>
-                <p className="text-gray-700">
-                  That's great! Make sure that you list their name in the "Did someone specifically refer you to apply?" section of the application. Please only list one name. We may contact them for any further insight they may be able to provide.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  I want to work at TechnologyAdvice, but I don't see a role I'm qualified for/interested in.
-                </h3>
-                <p className="text-gray-700">
-                  We understand that waiting for the right role is really important. One way to stay up to date on open roles is our community newsletter! We will highlight open jobs, provide company updates, and even offer interviewing/career tips!
-                  You can also fill out our general application to tell us a bit more about yourself and what you're looking for in a position. We're a fast-growing company and we are always looking for talented folks to join and have hired a number of individuals through our general application.
-                  We'll reach out if we have a role that's a fit for you now or in the future.
-                </p>
+                    </motion.div>
+                  ))
+                )}
               </div>
             </div>
-          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Enhanced FAQ Section */}
+      <AnimatePresence>
+        {showFAQs && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            id="faqs-section" 
+            className="bg-white py-20 px-4 sm:px-6 lg:px-8"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
+                Frequently Asked Questions
+              </h2>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    question: "What is the application process like?",
+                    answer: "Our application process typically involves submitting your resume and cover letter, followed by initial screening interviews, technical assessments (if applicable), and final interviews with team members and leadership."
+                  },
+                  {
+                    question: "Do you offer remote work opportunities?",
+                    answer: "Yes! We're a remote-first organization with team members across four continents. We offer flexible work arrangements and support for remote collaboration."
+                  },
+                  {
+                    question: "What benefits do you offer?",
+                    answer: "We offer comprehensive health, dental, and vision benefits, generous PTO, professional development opportunities, fitness reimbursements, and many other perks designed to support your well-being and growth."
+                  },
+                  {
+                    question: "How do you support professional development?",
+                    answer: "We provide access to learning management systems, mentorship programs, leadership academies, book clubs, and opportunities to attend conferences and training programs."
+                  },
+                  {
+                    question: "What makes TechnologyAdvice's culture unique?",
+                    answer: "Our culture is built on five core values: Be Transparent, Challenge Mediocrity, Crave Knowledge, Make Calculated Decisions, and Value Each Other. We're committed to diversity, inclusion, and creating an environment where everyone can thrive."
+                  }
+                ].map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="bg-gradient-to-r from-gray-50 to-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      onClick={() => toggleSection(`faq-${index}`)}
+                      className="flex justify-between items-center cursor-pointer p-8 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 transition-all duration-300"
+                    >
+                      <h3 className="text-xl font-bold text-[#0E1F1C] pr-4">{faq.question}</h3>
+                      <motion.div
+                        animate={{ rotate: openIndex === `faq-${index}` ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-[#0E1F1C] p-2 rounded-full bg-white shadow-md"
+                      >
+                        <FaChevronDown size={20} />
+                      </motion.div>
+                    </motion.div>
+                    
+                    <AnimatePresence>
+                      {openIndex === `faq-${index}` && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="p-8 pt-0 text-gray-700 leading-relaxed text-lg">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Enhanced Call-to-Action Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      >
+        {/* Background decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#0E1F1C] opacity-10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
         </div>
-      )}
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-[#FFFF] bg-clip-text text-transparent"
+          >
+            Ready to Join Our Team?
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Take the next step in your career journey. We're looking for passionate individuals who share our values and want to make a real impact.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            <motion.a 
+              href="https://quoreit.com/contact" 
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform"
+            >
+              Browse Open Positions
+            </motion.a>
+            
+            <motion.button 
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-[#0E1F1C] text-[#FFF] px-12 py-4 rounded-full font-bold text-lg hover:bg-[#0E1F1C] hover:text-white transition-all duration-300 transform"
+            >
+              Join Talent Community
+            </motion.button>
+          </motion.div>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-sm text-gray-400 mt-8"
+          >
+            Questions? Contact our People Operations team at careers@technologyadvice.com
+          </motion.p>
+        </div>
+      </motion.div>
     </div>
-  );}
+  );
+}
+
