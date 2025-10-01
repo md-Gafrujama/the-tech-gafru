@@ -444,14 +444,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
               and contribute to the best group you'll ever work with.
             </p>
 
-            <div className="mb-8">
-              <a href="#" className="font-semibold text-[#FFF] hover:text-white transition-colors duration-300 inline-flex items-center group">
-                Subscribe to our Talent Community 
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
+           
 
             <motion.a 
               href="https://quoreit.com/contact" 
@@ -991,13 +984,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
               Browse Open Positions
             </motion.a>
             
-            <motion.button 
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-[#0E1F1C] text-[#FFF] px-12 py-4 rounded-full font-bold text-lg hover:bg-[#0E1F1C] hover:text-white transition-all duration-300 transform"
-            >
-              Join Talent Community
-            </motion.button>
+           
           </motion.div>
 
           <motion.p 
