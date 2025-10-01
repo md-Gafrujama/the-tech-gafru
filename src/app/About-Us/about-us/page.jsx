@@ -302,7 +302,7 @@ const AboutHero = () => {
       </div>
     </section>
      <section className="px-4 sm:px-8 lg:px-32 py-12">
-      <div className="bg-gradient-to-r from-[#141f3a] via-[#1e245c] to-[#165457] text-white text-center rounded-3xl p-10 shadow-md">
+      <div className="bg-gradient-to-r from-[#0c2e28] to-[#0c2e28] text-white text-center rounded-3xl p-10 shadow-md">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           Headquartered in Nashville, Tennessee
         </h2>
