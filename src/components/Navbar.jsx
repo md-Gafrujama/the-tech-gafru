@@ -27,12 +27,12 @@ const Navbar = () => {
   // Software Reviews dropdown data
   const softwareReviews = {
     categories: [
-      { name: 'Human Resources Software', href: '/Software-reviews/HR-software' },
-      { name: 'Payroll Software', href: '/Software-reviews/Payroll-software' },
-      { name: 'CRM Software', href: '/Software-reviews/CRM-software' },
-      { name: 'Sales Software', href: '/Software-reviews/Sales-software' },
-      { name: 'Project Management Software', href: '/Software-reviews/Project-management' },
-      { name: 'Business Intelligence Software', href: '/Software-reviews/Business-Intelligence-Software' }
+      { name: 'Human Resources Software', href: '/Software-evaluation/HR-software' },
+      { name: 'Payroll Software', href: '/Software-evaluation/Payroll-software' },
+      { name: 'CRM Software', href: '/Software-evaluation/CRM-software' },
+      { name: 'Sales Software', href: '/Software-evaluation/Sales-software' },
+      { name: 'Project Management Software', href: '/Software-evaluation/Project-management' },
+      { name: 'Business Intelligence Software', href: '/Software-evaluation/Business-Intelligence-Software' }
     ]
   };
 
@@ -289,7 +289,7 @@ const Navbar = () => {
         onMouseLeave={handleDropdownLeave}
       >
         <Link href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
-          <span>Software Reviews</span>
+          <span>Software Evaluation</span>
           <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'software' ? 'rotate-180' : ''}`} />
         </Link>
         
@@ -526,7 +526,7 @@ const Navbar = () => {
                   className="flex items-center justify-between w-full py-2 text-[#1E2E2B] border-b border-gray-200"
                 >
                   <Link href="/" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
-                    Software Reviews
+                    Software Evaluation
                   </Link>
                   <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.software ? 'rotate-180' : ''}`} />
                 </button>
