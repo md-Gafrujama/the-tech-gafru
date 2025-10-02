@@ -359,135 +359,379 @@ export default function Page() {
 
   return (
     <>
-      <Head>
-        <title>B2B Martechbiz From Industry Experts</title>
-        <meta 
-          name="description" 
-          content="Get the latest B2B technology and software advice, trends, and guidance from experts who work with it every day." 
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="B2B Martechbiz From Industry Experts" />
-        <meta 
-          property="og:description" 
-          content="Expert advice on B2B technology and software from professionals who use it daily." 
-        />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="/" />
-      </Head>
+     
 
-      {/* Hero Section */}
-      <section className="bg-[#0E1F1C] text-white px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8">
-          {/* Text Content */}
-          <motion.div 
-            className="order-2 md:order-1"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-              B2B Martechbiz <br className="hidden sm:block" />
-              From <span className="text-[#8BC34A]">Experts Who Use It</span>
-            </h1>
-            <p className="text-base sm:text-lg mt-4 text-gray-300 max-w-xl">
-              The latest B2B technology and software advice, trend, and guidance coming to you from the experts who work with it every day.
-            </p>
+    
+{/* Ultra-Professional Hero Section with Advanced Design */}
+<section className="relative bg-gradient-to-br from-[#0A1612] via-[#0E1F1C] to-[#0A1815] text-white min-h-screen flex items-center overflow-hidden">
+  {/* Animated Mesh Background */}
+  <div className="absolute inset-0">
+    <motion.div 
+      className="absolute inset-0 opacity-30"
+      animate={{
+        background: [
+          'radial-gradient(circle at 20% 30%, #00d9a6 0%, transparent 50%), radial-gradient(circle at 80% 70%, #8BC34A 0%, transparent 50%)',
+          'radial-gradient(circle at 80% 30%, #00d9a6 0%, transparent 50%), radial-gradient(circle at 20% 70%, #8BC34A 0%, transparent 50%)',
+          'radial-gradient(circle at 20% 30%, #00d9a6 0%, transparent 50%), radial-gradient(circle at 80% 70%, #8BC34A 0%, transparent 50%)',
+        ]
+      }}
+      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+    />
+    
+    {/* Geometric Grid Overlay */}
+    <div className="absolute inset-0 opacity-20"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px'
+      }}
+    />
+  </div>
 
-            {/* Email Subscribe */}
-            <form
-              onSubmit={handleSubmit}
-              className="mt-8 flex flex-col sm:flex-row items-center max-w-xl bg-white rounded-full shadow-md overflow-hidden"
+  {/* Floating Ambient Particles */}
+  <div className="absolute inset-0 overflow-hidden">
+    {[...Array(12)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute rounded-full blur-sm"
+        style={{
+          width: `${Math.random() * 4 + 2}px`,
+          height: `${Math.random() * 4 + 2}px`,
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          background: i % 3 === 0 ? '#00d9a6' : i % 3 === 1 ? '#8BC34A' : '#ffd800',
+        }}
+        animate={{
+          y: [0, -40, 0],
+          opacity: [0.2, 0.8, 0.2],
+          scale: [1, 1.8, 1],
+        }}
+        transition={{
+          duration: 4 + Math.random() * 3,
+          repeat: Infinity,
+          delay: i * 0.3,
+          ease: "easeInOut"
+        }}
+      />
+    ))}
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      {/* Left Content Column */}
+      <div className="lg:col-span-7 space-y-10">
+        
+        
+
+        {/* Hero Headline with Premium Typography */}
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="space-y-2">
+            <motion.h1 
+              className="text-6xl sm:text-7xl lg:text-8xl font-black leading-none tracking-tighter"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Enter your email address"
-                className="flex-1 px-4 sm:px-5 py-2 sm:py-3 text-gray-700 focus:outline-none text-sm sm:text-base"
-                aria-label="Email address"
-              />
-              <button
+              <span className="block text-white mb-2">B2B</span>
+              <span className="block">
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] via-[#8BC34A] to-[#ffd800] blur-2xl opacity-50" />
+                  <span className="relative bg-gradient-to-r from-[#00d9a6] via-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent">
+                    Martech
+                  </span>
+                </span>
+                <span className="text-white">biz</span>
+              </span>
+            </motion.h1>
+          </div>
+          
+          {/* Elegant Subtitle */}
+          <motion.div 
+            className="flex items-center gap-4 mt-8"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <motion.div 
+              className="h-px w-16 bg-gradient-to-r from-[#00d9a6] to-transparent"
+              initial={{ width: 0 }}
+              animate={{ width: 64 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            />
+            <span className="text-2xl text-white/90 font-light tracking-wide">
+              From Experts Who Use It
+            </span>
+          </motion.div>
+        </motion.div>
+
+        {/* Premium Description */}
+        <motion.p
+          className="text-xl sm:text-2xl text-white/60 max-w-2xl leading-relaxed font-light"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          Unlock cutting-edge B2B technology insights and software recommendations from industry professionals who implement these solutions daily.
+        </motion.p>
+
+        {/* Enhanced Email Form */}
+        <motion.div
+          className="space-y-6 pt-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
+          <form onSubmit={handleSubmit} className="relative">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-3xl">
+              <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd56-ab7a0f817bff" />
+              
+              <div className="relative flex-1">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6]/20 to-[#8BC34A]/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Enter your professional email"
+                  className="relative w-full px-8 py-5 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl text-white text-lg placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#00d9a6] focus:border-transparent focus:bg-white/10 transition-all duration-300 shadow-2xl"
+                />
+              </div>
+              
+              <motion.button
                 type="submit"
                 disabled={loading}
-                className="bg-[#ffd800] px-4 sm:px-6 py-2 sm:py-3 text-black font-semibold transition-colors text-sm sm:text-base disabled:opacity-50"
+                className="relative px-10 py-5 bg-gradient-to-r from-[#00d9a6] via-[#00d9a6] to-[#8BC34A] text-black text-lg font-bold rounded-3xl shadow-2xl overflow-hidden group disabled:opacity-50"
+                whileHover={{ scale: 1.03, boxShadow: "0 25px 50px -12px rgba(0, 217, 166, 0.5)" }}
+                whileTap={{ scale: 0.97 }}
               >
-                {loading ? 'Submitting...' : 'Subscribe'}
-              </button>
-            </form>
-
-            {submitted && (
-              <motion.p 
-                className="text-green-400 text-sm mt-4 font-medium"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                ✅ Thank you for subscribing!
-              </motion.p>
-            )}
-
-            {/* Example Tags */}
-            <div className="mt-4 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-white/80">
-              <span className="border border-white/40 rounded-full px-2 sm:px-3 py-1">Best HR Software</span>
-              <span className="border border-white/40 rounded-full px-2 sm:px-3 py-1">Best PM Software</span>
-              <span className="border border-white/40 rounded-full px-2 sm:px-3 py-1">Best CRM Software</span>
+                <span className="relative z-10 whitespace-nowrap">
+                  {loading ? 'Joining...' : 'Get Exclusive Access'}
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#8BC34A] to-[#ffd800]"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
             </div>
-          </motion.div>
+          </form>
 
-          {/* Overlapping Hover-Animated Images */}
-          <motion.div 
-            className="relative w-full h-[350px] sm:h-[400px] md:h-[380px] flex items-center justify-center order-1 md:order-2 overflow-hidden"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          {/* Success Notification */}
+          {submitted && (
+            <motion.div
+              className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#00d9a6]/10 to-[#8BC34A]/10 border border-[#00d9a6]/30 rounded-2xl backdrop-blur-xl shadow-lg"
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="relative flex items-center justify-center w-10 h-10 bg-[#00d9a6] rounded-full">
+                <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <div className="absolute inset-0 bg-[#00d9a6] rounded-full animate-ping opacity-50" />
+              </div>
+              <span className="text-[#00d9a6] font-semibold text-lg">Welcome to the insider community!</span>
+            </motion.div>
+          )}
+
+          {/* Expertise Categories - Horizontal Pills */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            {[
+              { label: 'HR Tech', color: '#00d9a6', delay: 1.2 },
+              { label: 'Project Management', color: '#8BC34A', delay: 1.3 },
+              { label: 'CRM Systems', color: '#ffd800', delay: 1.4 },
+              { label: 'Analytics', color: '#00d9a6', delay: 1.5 },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="group relative px-6 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full overflow-hidden cursor-pointer"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: item.delay }}
+                whileHover={{ scale: 1.05, y: -3 }}
+              >
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `linear-gradient(135deg, ${item.color}40, ${item.color}20)` }}
+                />
+                <span className="relative z-10 text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-300">
+                  {item.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Right Visual Showcase */}
+      <div className="lg:col-span-5">
+        <motion.div
+          className="relative h-[600px] lg:h-[700px]"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+        >
+          {/* Central Rotating Showcase */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 lg:w-96 lg:h-96"
+            animate={{ 
+              rotate: [0, 360],
+            }}
+            transition={{ 
+              rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+            }}
           >
-            {/* Center Image */}
+            {/* Outer Glow Ring */}
             <motion.div 
-              className="absolute top-[75%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm z-30 shadow-md"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00d9a6]/20 via-transparent to-[#8BC34A]/20 blur-2xl"
+              animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            
+            {/* Outer Ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-[#00d9a6]/30 bg-gradient-to-br from-[#00d9a6]/5 to-transparent backdrop-blur-md shadow-2xl" />
+            
+            {/* Middle Ring */}
+            <div className="absolute inset-8 rounded-full border-2 border-[#8BC34A]/40 bg-gradient-to-br from-[#8BC34A]/5 to-transparent backdrop-blur-md" />
+            
+            {/* Inner Core Circle */}
+            <motion.div
+              className="absolute inset-16 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
+              whileHover={{ scale: 1.12, rotate: 8 }}
+              transition={{ duration: 0.4, type: "spring" }}
+              style={{
+                boxShadow: '0 0 60px rgba(0, 217, 166, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.3)'
+              }}
             >
-              <Image 
-                src="/images/group3.png" 
-                alt="Team Meeting" 
-                fill 
-                className="object-cover"
-                sizes="(max-width: 768px) 144px, 192px"
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=400&fit=crop"
+                alt="Team Collaboration"
+                className="w-full h-full object-cover"
               />
-            </motion.div>
-
-            {/* Left Image */}
-            <motion.div 
-              className="absolute top-[30%] left-[33%] transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm z-20 shadow-md"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image 
-                src="/images/group1.png" 
-                alt="Team Collaboration" 
-                fill 
-                className="object-cover"
-                sizes="(max-width: 768px) 128px, 176px"
-              />
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div 
-              className="absolute top-[30%] right-[34%] transform translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm z-20 shadow-md"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image 
-                src="/images/group2.png" 
-                alt="Individual Work" 
-                fill 
-                className="object-cover"
-                sizes="(max-width: 768px) 128px, 176px"
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/30 via-transparent to-[#8BC34A]/30" />
             </motion.div>
           </motion.div>
-        </div>
-      </section>
+
+          {/* Orbiting Satellite Elements */}
+          {[
+            { angle: 0, distance: 200, size: 100, image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=100&h=100&fit=crop', color: '#00d9a6', duration: 16 },
+            { angle: 120, distance: 190, size: 85, image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=85&h=85&fit=crop', color: '#8BC34A', duration: 18 },
+            { angle: 240, distance: 170, size: 70, image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=70&h=70&fit=crop', color: '#ffd800', duration: 20 },
+          ].map((orbit, i) => (
+            <motion.div
+              key={i}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              style={{ width: orbit.size, height: orbit.size }}
+              animate={{
+                rotate: [orbit.angle, orbit.angle + 360],
+                x: [
+                  Math.cos(orbit.angle * Math.PI / 180) * orbit.distance,
+                  Math.cos((orbit.angle + 360) * Math.PI / 180) * orbit.distance
+                ],
+                y: [
+                  Math.sin(orbit.angle * Math.PI / 180) * orbit.distance,
+                  Math.sin((orbit.angle + 360) * Math.PI / 180) * orbit.distance
+                ]
+              }}
+              transition={{
+                duration: orbit.duration,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            >
+              <motion.div
+                className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm"
+                style={{
+                  border: `3px solid ${orbit.color}60`,
+                  boxShadow: `0 0 30px ${orbit.color}40, inset 0 0 20px rgba(0,0,0,0.2)`
+                }}
+                whileHover={{ scale: 1.25, rotate: -15, zIndex: 50 }}
+                animate={{ rotate: [0, -360] }}
+                transition={{
+                  hover: { duration: 0.3 },
+                  rotate: { duration: orbit.duration, repeat: Infinity, ease: "linear" }
+                }}
+              >
+                <img
+                  src={orbit.image}
+                  alt={`Team ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div 
+                  className="absolute inset-0 opacity-40"
+                  style={{ background: `linear-gradient(135deg, ${orbit.color}40, transparent)` }}
+                />
+              </motion.div>
+            </motion.div>
+          ))}
+
+          {/* Floating Stats Cards */}
+          <motion.div
+            className="absolute top-16 right-8 bg-gradient-to-br from-[#00d9a6]/10 to-[#00d9a6]/5 backdrop-blur-xl border border-[#00d9a6]/30 rounded-2xl p-5 shadow-2xl"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
+            <motion.div
+              className="text-3xl font-black bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] bg-clip-text text-transparent"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              98%
+            </motion.div>
+            <div className="text-xs text-white/70 font-medium mt-1 tracking-wide">Success Rate</div>
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-20 left-8 bg-gradient-to-br from-[#8BC34A]/10 to-[#8BC34A]/5 backdrop-blur-xl border border-[#8BC34A]/30 rounded-2xl p-5 shadow-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.7 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
+            <motion.div
+              className="text-3xl font-black bg-gradient-to-r from-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+            >
+              24/7
+            </motion.div>
+            <div className="text-xs text-white/70 font-medium mt-1 tracking-wide">Expert Support</div>
+          </motion.div>
+
+          {/* Connection Lines Effect */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+            <motion.line
+              x1="50%" y1="50%" x2="70%" y2="20%"
+              stroke="#00d9a6"
+              strokeWidth="1"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            />
+            <motion.line
+              x1="50%" y1="50%" x2="30%" y2="80%"
+              stroke="#8BC34A"
+              strokeWidth="1"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse", delay: 0.5 }}
+            />
+          </svg>
+        </motion.div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
 
    
 {/* Categories Section */}
