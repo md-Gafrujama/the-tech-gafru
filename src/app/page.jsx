@@ -1492,64 +1492,76 @@ export default function Page() {
 `}</style>
 
       {/* Email Signup Section */}
-      <section className="py-16 bg-white">
-        <div className="bg-[#0E1F1C] rounded-[2rem] w-full max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 items-center py-12 gap-8 px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+    
+<section className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+  <div className="relative bg-gradient-to-br from-[#0E1F1C] via-[#0E1F1C] to-[#1a2f2b] rounded-3xl sm:rounded-[2.5rem] w-full max-w-7xl mx-auto overflow-hidden shadow-2xl">
+    <div className="absolute top-0 right-0 w-64 h-64 bg-[#ffd800] rounded-full blur-[120px] opacity-10"></div>
+    <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#ffd800] rounded-full blur-[100px] opacity-10"></div>
+    
+    <div className="relative grid md:grid-cols-2 items-center gap-8 lg:gap-12 py-12 sm:py-16 lg:py-20 px-6 sm:px-8 lg:px-12">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-4"
+      >
+        <div className="inline-block px-4 py-2 bg-[#ffd800] bg-opacity-10 rounded-full mb-4">
+          <span className="text-[#ffd800] text-sm font-semibold tracking-wide">NEWSLETTER</span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold leading-tight text-white">
+          Join Tech Insider readers for weekly tech news and resources.
+        </h2>
+       
+      </motion.div>
+
+      <motion.form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-5"
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
+
+        <div className="relative group">
+          <div className="flex flex-col sm:flex-row overflow-hidden rounded-2xl shadow-xl border-2 border-transparent group-hover:border-[#ffd800] transition-all duration-300">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email address"
+              className="w-full bg-white text-black px-6 py-4 sm:py-5 text-base outline-none placeholder:text-gray-400"
+              aria-label="Email address"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-[#ffd800] hover:bg-[#ffed4e] text-black font-bold px-8 py-4 sm:py-5 transition-all duration-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-white">
-            Join Tech Insider readers for weekly tech news and resources.
-              </h2>
-            </motion.div>
-
-            <motion.form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-4"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd58-ab7a0f817bff" />
-
-              <div className="flex flex-col sm:flex-row overflow-hidden rounded-full shadow-md">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Enter an email"
-                  className="w-full bg-white text-black px-6 py-4 text-base outline-none"
-                  aria-label="Email address"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="bg-[#ffd800] text-black font-semibold px-8 py-4 transition whitespace-nowrap disabled:opacity-50"
-                >
-                  {loading ? 'Signing Up...' : 'Sign Up'}
-                </button>
-              </div>
-
-              <label className="flex items-center text-sm text-white gap-2">
-                <input
-                  type="checkbox"
-                  name="terms"
-                  required
-                  className="w-4 h-4 rounded focus:ring-0 accent-[#ffd800]"
-                />
-                By checking this box you agree to our{" "}
-                <Link href="/terms" className="underline hover:text-lime-300">Terms of Use</Link> and{" "}
-                <Link href="/privacy" className="underline hover:text-lime-300">Privacy Policy</Link>.
-              </label>
-            </motion.form>
+              {loading ? 'Signing Up...' : 'Sign Up'}
+            </button>
           </div>
         </div>
-      </section>
 
+        <label className="flex items-start text-sm text-gray-300 gap-3 cursor-pointer hover:text-white transition-colors">
+          <input
+            type="checkbox"
+            name="terms"
+            required
+            className="w-5 h-5 rounded mt-0.5 focus:ring-2 focus:ring-[#ffd800] accent-[#ffd800] cursor-pointer"
+          />
+          <span className="leading-relaxed">
+            By checking this box you agree to our{" "}
+            <Link href="/terms" className="underline hover:text-[#ffd800] transition-colors font-medium">Terms of Use</Link> and{" "}
+            <Link href="/privacy" className="underline hover:text-[#ffd800] transition-colors font-medium">Privacy Policy</Link>.
+          </span>
+        </label>
+      </motion.form>
+    </div>
+  </div>
+</section>
       <style jsx>{`
         .hide-scrollbar {
           -ms-overflow-style: none;
