@@ -362,12 +362,12 @@ export default function Page() {
      
 
     
-{/* Ultra-Professional Hero Section with Advanced Design */}
+{/* Ultra-Professional Responsive Hero Section */}
 <section className="relative bg-gradient-to-br from-[#0A1612] via-[#0E1F1C] to-[#0A1815] text-white min-h-screen flex items-center overflow-hidden">
   {/* Animated Mesh Background */}
   <div className="absolute inset-0">
     <motion.div 
-      className="absolute inset-0 opacity-30"
+      className="absolute inset-0 opacity-20 md:opacity-30"
       animate={{
         background: [
           'radial-gradient(circle at 20% 30%, #00d9a6 0%, transparent 50%), radial-gradient(circle at 80% 70%, #8BC34A 0%, transparent 50%)',
@@ -379,32 +379,32 @@ export default function Page() {
     />
     
     {/* Geometric Grid Overlay */}
-    <div className="absolute inset-0 opacity-20"
+    <div className="absolute inset-0 opacity-10 md:opacity-20"
       style={{
         backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
                          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px'
+        backgroundSize: '30px 30px'
       }}
     />
   </div>
 
   {/* Floating Ambient Particles */}
   <div className="absolute inset-0 overflow-hidden">
-    {[...Array(12)].map((_, i) => (
+    {[...Array(8)].map((_, i) => (
       <motion.div
         key={i}
         className="absolute rounded-full blur-sm"
         style={{
-          width: `${Math.random() * 4 + 2}px`,
-          height: `${Math.random() * 4 + 2}px`,
+          width: `${Math.random() * 3 + 2}px`,
+          height: `${Math.random() * 3 + 2}px`,
           top: `${Math.random() * 100}%`,
           left: `${Math.random() * 100}%`,
           background: i % 3 === 0 ? '#00d9a6' : i % 3 === 1 ? '#8BC34A' : '#ffd800',
         }}
         animate={{
-          y: [0, -40, 0],
+          y: [0, -30, 0],
           opacity: [0.2, 0.8, 0.2],
-          scale: [1, 1.8, 1],
+          scale: [1, 1.5, 1],
         }}
         transition={{
           duration: 4 + Math.random() * 3,
@@ -416,32 +416,30 @@ export default function Page() {
     ))}
   </div>
 
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       
       {/* Left Content Column */}
-      <div className="lg:col-span-7 space-y-10">
+      <div className="lg:col-span-7 space-y-6 sm:space-y-8 lg:space-y-10 text-center lg:text-left">
         
-        
-
         {/* Hero Headline with Premium Typography */}
         <motion.div
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="space-y-2">
             <motion.h1 
-              className="text-6xl sm:text-7xl lg:text-8xl font-black leading-none tracking-tighter"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none tracking-tighter"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <span className="block text-white mb-2">B2B</span>
+              <span className="block text-white mb-1 sm:mb-2">B2B</span>
               <span className="block">
                 <span className="relative inline-block">
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] via-[#8BC34A] to-[#ffd800] blur-2xl opacity-50" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] via-[#8BC34A] to-[#ffd800] blur-xl sm:blur-2xl opacity-50" />
                   <span className="relative bg-gradient-to-r from-[#00d9a6] via-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent">
                     Martech
                   </span>
@@ -453,18 +451,18 @@ export default function Page() {
           
           {/* Elegant Subtitle */}
           <motion.div 
-            className="flex items-center gap-4 mt-8"
+            className="flex items-center gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center lg:justify-start"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <motion.div 
-              className="h-px w-16 bg-gradient-to-r from-[#00d9a6] to-transparent"
+              className="h-px w-12 sm:w-16 bg-gradient-to-r from-[#00d9a6] to-transparent"
               initial={{ width: 0 }}
               animate={{ width: 64 }}
               transition={{ duration: 1, delay: 0.8 }}
             />
-            <span className="text-2xl text-white/90 font-light tracking-wide">
+            <span className="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wide">
               From Experts Who Use It
             </span>
           </motion.div>
@@ -472,7 +470,7 @@ export default function Page() {
 
         {/* Premium Description */}
         <motion.p
-          className="text-xl sm:text-2xl text-white/60 max-w-2xl leading-relaxed font-light"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -482,35 +480,35 @@ export default function Page() {
 
         {/* Enhanced Email Form */}
         <motion.div
-          className="space-y-6 pt-4"
+          className="space-y-4 sm:space-y-6 pt-2 sm:pt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
           <form onSubmit={handleSubmit} className="relative">
-            <div className="flex flex-col sm:flex-row gap-4 max-w-3xl">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-3xl mx-auto lg:mx-0">
               <input type="hidden" name="access_key" value="c9f66eb3-7bae-487c-bd56-ab7a0f817bff" />
               
               <div className="relative flex-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6]/20 to-[#8BC34A]/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6]/20 to-[#8BC34A]/20 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="Enter your professional email"
-                  className="relative w-full px-8 py-5 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl text-white text-lg placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#00d9a6] focus:border-transparent focus:bg-white/10 transition-all duration-300 shadow-2xl"
+                  className="relative w-full px-5 sm:px-8 py-4 sm:py-5 bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-3xl text-white text-base sm:text-lg placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#00d9a6] focus:border-transparent focus:bg-white/10 transition-all duration-300 shadow-2xl"
                 />
               </div>
               
               <motion.button
                 type="submit"
                 disabled={loading}
-                className="relative px-10 py-5 bg-gradient-to-r from-[#00d9a6] via-[#00d9a6] to-[#8BC34A] text-black text-lg font-bold rounded-3xl shadow-2xl overflow-hidden group disabled:opacity-50"
+                className="relative px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#00d9a6] via-[#00d9a6] to-[#8BC34A] text-black text-base sm:text-lg font-bold rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden group disabled:opacity-50"
                 whileHover={{ scale: 1.03, boxShadow: "0 25px 50px -12px rgba(0, 217, 166, 0.5)" }}
                 whileTap={{ scale: 0.97 }}
               >
                 <span className="relative z-10 whitespace-nowrap">
-                  {loading ? 'Joining...' : 'Get Exclusive Access'}
+                  {loading ? 'Joining...' : 'Get Access'}
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#8BC34A] to-[#ffd800]"
@@ -525,23 +523,23 @@ export default function Page() {
           {/* Success Notification */}
           {submitted && (
             <motion.div
-              className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#00d9a6]/10 to-[#8BC34A]/10 border border-[#00d9a6]/30 rounded-2xl backdrop-blur-xl shadow-lg"
+              className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gradient-to-r from-[#00d9a6]/10 to-[#8BC34A]/10 border border-[#00d9a6]/30 rounded-xl sm:rounded-2xl backdrop-blur-xl shadow-lg max-w-3xl mx-auto lg:mx-0"
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
-              <div className="relative flex items-center justify-center w-10 h-10 bg-[#00d9a6] rounded-full">
-                <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+              <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#00d9a6] rounded-full flex-shrink-0">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 <div className="absolute inset-0 bg-[#00d9a6] rounded-full animate-ping opacity-50" />
               </div>
-              <span className="text-[#00d9a6] font-semibold text-lg">Welcome to the insider community!</span>
+              <span className="text-[#00d9a6] font-semibold text-sm sm:text-base lg:text-lg">Welcome to the insider community!</span>
             </motion.div>
           )}
 
           {/* Expertise Categories - Horizontal Pills */}
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-2 sm:gap-3 pt-2 justify-center lg:justify-start">
             {[
               { label: 'HR Tech', color: '#00d9a6', delay: 1.2 },
               { label: 'Project Management', color: '#8BC34A', delay: 1.3 },
@@ -550,7 +548,7 @@ export default function Page() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="group relative px-6 py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full overflow-hidden cursor-pointer"
+                className="group relative px-4 sm:px-6 py-2 sm:py-2.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full overflow-hidden cursor-pointer"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: item.delay }}
@@ -560,7 +558,7 @@ export default function Page() {
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: `linear-gradient(135deg, ${item.color}40, ${item.color}20)` }}
                 />
-                <span className="relative z-10 text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-300">
+                <span className="relative z-10 text-xs sm:text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-300">
                   {item.label}
                 </span>
               </motion.div>
@@ -569,17 +567,17 @@ export default function Page() {
         </motion.div>
       </div>
 
-      {/* Right Visual Showcase */}
-      <div className="lg:col-span-5">
+      {/* Right Visual Showcase - Hidden on Mobile, Visible on Large Screens */}
+      <div className="hidden lg:block lg:col-span-5">
         <motion.div
-          className="relative h-[600px] lg:h-[700px]"
+          className="relative h-[500px] xl:h-[700px]"
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.4 }}
         >
           {/* Central Rotating Showcase */}
           <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 lg:w-96 lg:h-96"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 xl:w-96 xl:h-96"
             animate={{ 
               rotate: [0, 360],
             }}
@@ -620,9 +618,9 @@ export default function Page() {
 
           {/* Orbiting Satellite Elements */}
           {[
-            { angle: 0, distance: 200, size: 100, image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=100&h=100&fit=crop', color: '#00d9a6', duration: 16 },
-            { angle: 120, distance: 190, size: 85, image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=85&h=85&fit=crop', color: '#8BC34A', duration: 18 },
-            { angle: 240, distance: 170, size: 70, image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=70&h=70&fit=crop', color: '#ffd800', duration: 20 },
+            { angle: 0, distance: 180, size: 90, image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=100&h=100&fit=crop', color: '#00d9a6', duration: 16 },
+            { angle: 120, distance: 170, size: 75, image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=85&h=85&fit=crop', color: '#8BC34A', duration: 18 },
+            { angle: 240, distance: 150, size: 65, image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=70&h=70&fit=crop', color: '#ffd800', duration: 20 },
           ].map((orbit, i) => (
             <motion.div
               key={i}
@@ -673,14 +671,14 @@ export default function Page() {
 
           {/* Floating Stats Cards */}
           <motion.div
-            className="absolute top-16 right-8 bg-gradient-to-br from-[#00d9a6]/10 to-[#00d9a6]/5 backdrop-blur-xl border border-[#00d9a6]/30 rounded-2xl p-5 shadow-2xl"
+            className="absolute top-12 xl:top-16 right-4 xl:right-8 bg-gradient-to-br from-[#00d9a6]/10 to-[#00d9a6]/5 backdrop-blur-xl border border-[#00d9a6]/30 rounded-xl xl:rounded-2xl p-4 xl:p-5 shadow-2xl"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
             whileHover={{ scale: 1.05, y: -5 }}
           >
             <motion.div
-              className="text-3xl font-black bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] bg-clip-text text-transparent"
+              className="text-2xl xl:text-3xl font-black bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] bg-clip-text text-transparent"
               animate={{ scale: [1, 1.08, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -690,14 +688,14 @@ export default function Page() {
           </motion.div>
 
           <motion.div
-            className="absolute bottom-20 left-8 bg-gradient-to-br from-[#8BC34A]/10 to-[#8BC34A]/5 backdrop-blur-xl border border-[#8BC34A]/30 rounded-2xl p-5 shadow-2xl"
+            className="absolute bottom-16 xl:bottom-20 left-4 xl:left-8 bg-gradient-to-br from-[#8BC34A]/10 to-[#8BC34A]/5 backdrop-blur-xl border border-[#8BC34A]/30 rounded-xl xl:rounded-2xl p-4 xl:p-5 shadow-2xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.7 }}
             whileHover={{ scale: 1.05, y: -5 }}
           >
             <motion.div
-              className="text-3xl font-black bg-gradient-to-r from-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent"
+              className="text-2xl xl:text-3xl font-black bg-gradient-to-r from-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent"
               animate={{ scale: [1, 1.08, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
             >
@@ -727,10 +725,53 @@ export default function Page() {
           </svg>
         </motion.div>
       </div>
+
+      {/* Mobile Visual Accent - Visible only on Mobile */}
+      <div className="lg:hidden flex justify-center mt-8">
+        <motion.div
+          className="relative w-64 h-64 sm:w-80 sm:h-80"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          {/* Simplified Mobile Visual */}
+          <motion.div
+            className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#00d9a6]/30 shadow-2xl"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=400&fit=crop"
+              alt="Team Collaboration"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/40 via-transparent to-[#8BC34A]/40" />
+          </motion.div>
+
+          {/* Floating Stats for Mobile */}
+          <motion.div
+            className="absolute -top-4 -right-4 bg-gradient-to-br from-[#00d9a6]/10 to-[#00d9a6]/5 backdrop-blur-xl border border-[#00d9a6]/30 rounded-xl p-3 shadow-2xl"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <div className="text-2xl font-black bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] bg-clip-text text-transparent">98%</div>
+            <div className="text-xs text-white/70 font-medium">Success</div>
+          </motion.div>
+
+          <motion.div
+            className="absolute -bottom-4 -left-4 bg-gradient-to-br from-[#8BC34A]/10 to-[#8BC34A]/5 backdrop-blur-xl border border-[#8BC34A]/30 rounded-xl p-3 shadow-2xl"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+          >
+            <div className="text-2xl font-black bg-gradient-to-r from-[#8BC34A] to-[#ffd800] bg-clip-text text-transparent">24/7</div>
+            <div className="text-xs text-white/70 font-medium">Support</div>
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   </div>
-
-
 </section>
 
    
