@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { FaQuoteLeft, FaChevronDown, FaSearch, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { FaQuoteLeft, FaChevronDown, FaSearch, FaMapMarkerAlt, FaBriefcase, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CareersPage() {
@@ -12,6 +12,9 @@ export default function CareersPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('');
+  // New state for JD functionality
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [showJobDetails, setShowJobDetails] = useState(false);
 
   const toggleSection = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -26,9 +29,11 @@ export default function CareersPage() {
     setShowFAQs(false);
   };
 
-  const handleOpportunitiesClick = () => {
+  // Updated unified handler for Apply and Opportunities
+  const handleApplyOrOpportunitiesClick = () => {
     setShowOpportunities(true);
     setShowFAQs(false);
+    setShowJobDetails(false);
     const element = document.getElementById("opportunities-section");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -38,13 +43,41 @@ export default function CareersPage() {
   const handleFAQsClick = () => {
     setShowFAQs(true);
     setShowOpportunities(false);
+    setShowJobDetails(false);
     const element = document.getElementById("faqs-section");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  // Define modern color palette with your preferred #0E1F1C
+  // Job description handler
+  const handleViewJobDetails = (job) => {
+    setSelectedJob(job);
+    setShowJobDetails(true);
+    setShowOpportunities(false);
+    setShowFAQs(false);
+    const element = document.getElementById("job-details-section");
+    setTimeout(() => {
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  const closeJobDetails = () => {
+    setShowJobDetails(false);
+    setSelectedJob(null);
+    // Return to opportunities section
+    setShowOpportunities(true);
+    setTimeout(() => {
+      const element = document.getElementById("opportunities-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  // Define modern color palette
   const GLOBAL_BG_COLOR = 'white';
   const TEXT_COLOR = '#0E1F1C';
   const PRIMARY_COLOR = '#0E1F1C';
@@ -52,6 +85,88 @@ export default function CareersPage() {
   const BENEFITS_BACKGROUND_COLOR = '#0E1F1C';
   const BENEFITS_ITEM_BG_COLOR = '#1A2A28';
   const CARD_BG = '#f8fafc';
+
+  // Job descriptions data
+  const jobDescriptions = {
+    "President, Agency": {
+      summary: "Lead our agency division with strategic vision and operational excellence, driving growth and client satisfaction across all verticals.",
+      responsibilities: [
+        "Develop and execute strategic plans for agency growth and market expansion",
+        "Lead cross-functional teams to deliver exceptional client results and exceed expectations",
+        "Build and maintain relationships with key stakeholders, clients, and industry partners",
+        "Drive revenue growth, operational efficiency, and team development initiatives",
+        "Oversee budget management and resource allocation for optimal performance",
+        "Establish and monitor KPIs to ensure continuous improvement and goal achievement"
+      ],
+      requirements: [
+        "10+ years of agency leadership experience in B2B marketing or related field",
+        "Proven track record in business development and client relationship management",
+        "Strong communication, leadership, and strategic thinking abilities",
+        "Experience managing large teams and complex client portfolios",
+        "Bachelor's degree in Marketing, Business, or related field; MBA preferred",
+        "Deep understanding of digital marketing trends and industry best practices"
+      ],
+      benefits: [
+        "Competitive executive compensation package with performance bonuses",
+        "Comprehensive health, dental, and vision insurance",
+        "Flexible PTO and remote work opportunities",
+        "Professional development budget and conference attendance",
+        "Equity participation and retirement planning options"
+      ]
+    },
+    "Cybersecurity Newsletter Writer": {
+      summary: "Create compelling cybersecurity content for our growing newsletter audience, translating complex technical concepts into accessible insights.",
+      responsibilities: [
+        "Research and write engaging cybersecurity newsletter content daily",
+        "Interview industry experts and thought leaders for exclusive insights",
+        "Analyze cybersecurity trends and translate them into readable content",
+        "Collaborate with editorial team to maintain content quality and consistency",
+        "Engage with cybersecurity community to build relationships and gather insights",
+        "Track newsletter performance metrics and optimize content strategy"
+      ],
+      requirements: [
+        "3+ years of cybersecurity or technology writing experience",
+        "Strong understanding of cybersecurity concepts, threats, and solutions",
+        "Excellent writing and communication skills with attention to detail",
+        "Experience with newsletter platforms and email marketing tools",
+        "Bachelor's degree in Journalism, Communications, or related field",
+        "Ability to work in fast-paced environment and meet daily deadlines"
+      ],
+      benefits: [
+        "Competitive salary with performance-based bonuses",
+        "Remote work flexibility with home office stipend",
+        "Health, dental, and vision insurance coverage",
+        "Professional development opportunities and conference attendance",
+        "Paid time off and flexible working hours"
+      ]
+    },
+    "Social Media Specialist": {
+      summary: "Drive social media strategy and engagement across multiple platforms, building community and amplifying our brand presence.",
+      responsibilities: [
+        "Develop and execute social media strategies across all major platforms",
+        "Create engaging content including graphics, videos, and written posts",
+        "Monitor social media metrics and optimize campaigns for maximum reach",
+        "Engage with community members and respond to comments and messages",
+        "Collaborate with content team to align social strategy with overall brand goals",
+        "Stay current with social media trends and platform algorithm changes"
+      ],
+      requirements: [
+        "2+ years of social media marketing experience, preferably in B2B",
+        "Proficiency in social media management tools (Hootsuite, Buffer, etc.)",
+        "Strong visual design skills and experience with graphic design software",
+        "Excellent written communication and community management skills",
+        "Analytics-driven mindset with experience in social media reporting",
+        "Bachelor's degree in Marketing, Communications, or related field"
+      ],
+      benefits: [
+        "Competitive salary with growth opportunities",
+        "Remote work options with flexible scheduling",
+        "Health insurance and wellness benefits",
+        "Creative freedom and access to design tools",
+        "Team collaboration and professional development support"
+      ]
+    }
+  };
 
   const sections = [
     {
@@ -327,64 +442,64 @@ We recognize that diversity extends beyond the color of our skin to include ethn
     {
       category: "Agency",
       jobs: [
-        { title: "President, Agency", department: "Agency", location: "United States" },
+        { title: "President, Agency", department: "Agency", location: "United States", type: "Full-time", experience: "Senior Level" },
       ],
     },
     {
       category: "Audience Development",
       jobs: [
-        { title: "Cybersecurity Newsletter Writer", department: "Audience Development", location: "United States" },
-        { title: "Social Media Specialist", department: "Audience Development", location: "India" },
-        { title: "Technology Content Strategist", department: "Audience Development", location: "India" },
+        { title: "Cybersecurity Newsletter Writer", department: "Audience Development", location: "United States", type: "Full-time", experience: "Mid Level" },
+        { title: "Social Media Specialist", department: "Audience Development", location: "India", type: "Full-time", experience: "Entry Level" },
+        { title: "Technology Content Strategist", department: "Audience Development", location: "India", type: "Full-time", experience: "Mid Level" },
       ],
     },
     {
       category: "Content",
       jobs: [
-        { title: "Staff Writer, Channel", department: "Content", location: "India" },
+        { title: "Staff Writer, Channel", department: "Content", location: "India", type: "Full-time", experience: "Mid Level" },
       ],
     },
     {
       category: "Finance",
       jobs: [
-        { title: "Bookkeeper", department: "Finance", location: "United States" },
-        { title: "Staff Accountant", department: "Finance", location: "United States" },
+        { title: "Bookkeeper", department: "Finance", location: "United States", type: "Full-time", experience: "Entry Level" },
+        { title: "Staff Accountant", department: "Finance", location: "United States", type: "Full-time", experience: "Mid Level" },
       ],
     },
     {
       category: "People Operations",
       jobs: [
-        { title: "Learning and Development Specialist", department: "Human Resources", location: "United States" },
+        { title: "Learning and Development Specialist", department: "Human Resources", location: "United States", type: "Full-time", experience: "Mid Level" },
       ],
     },
     {
       category: "Product",
       jobs: [
-        { title: "Commercial Content Editor and Strategist", department: "Client Delivery", location: "United States" },
+        { title: "Commercial Content Editor and Strategist", department: "Client Delivery", location: "United States", type: "Full-time", experience: "Senior Level" },
       ],
     },
     {
       category: "Revenue",
       jobs: [
-        { title: "Affiliate Growth Specialist", department: "Revenue", location: "United States" },
+        { title: "Affiliate Growth Specialist", department: "Revenue", location: "United States", type: "Full-time", experience: "Mid Level" },
       ],
     },
     {
       category: "Client Success",
       jobs: [
-        { title: "Client Success Coordinator", department: "Client Success", location: "United States" },
-        { title: "Client Success Manager", department: "Client Success", location: "United States" },
-        { title: "Client Success Manager, Boston Area", department: "Client Success", location: "United States" },
-        { title: "Client Success Operations Coordinator", department: "Client Success", location: "India" },
-        { title: "Client Success Coordinator", department: "Client Success", location: "India" },
+        { title: "Client Success Coordinator", department: "Client Success", location: "United States", type: "Full-time", experience: "Entry Level" },
+        { title: "Client Success Manager", department: "Client Success", location: "United States", type: "Full-time", experience: "Mid Level" },
+        { title: "Client Success Manager, Boston Area", department: "Client Success", location: "United States", type: "Full-time", experience: "Mid Level" },
+        { title: "Client Success Operations Coordinator", department: "Client Success", location: "India", type: "Full-time", experience: "Entry Level" },
+        { title: "Client Success Coordinator", department: "Client Success", location: "India", type: "Full-time", experience: "Entry Level" },
       ],
     },
     {
       category: "Sales",
       jobs: [
-        { title: "Account Director", department: "Sales", location: "United States" },
-        { title: "Account Manager", department: "Sales", location: "India" },
-        { title: "Newsletter Sales Account Executive", department: "Sales", location: "United States" },
+        { title: "Account Director", department: "Sales", location: "United States", type: "Full-time", experience: "Senior Level" },
+        { title: "Account Manager", department: "Sales", location: "India", type: "Full-time", experience: "Mid Level" },
+        { title: "Newsletter Sales Account Executive", department: "Sales", location: "United States", type: "Full-time", experience: "Mid Level" },
       ],
     },
   ];
@@ -404,14 +519,14 @@ We recognize that diversity extends beyond the color of our skin to include ethn
 
   return (
     <div className="bg-white">
-      {/* Hero Section - Enhanced with gradient and animations */}
+      {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="relative bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C] min-h-screen text-white px-8 md:px-16 py-12 overflow-hidden"
       >
-        {/* Background geometric shapes for modern look */}
+        {/* Background geometric shapes */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-[#0E1F1C] opacity-10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
@@ -444,20 +559,15 @@ We recognize that diversity extends beyond the color of our skin to include ethn
               and contribute to the best group you'll ever work with.
             </p>
 
-           
-
-            <motion.a 
-              href="https://quoreit.com/contact" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
+            {/* Updated Apply Now button using unified handler */}
+            <motion.button
+              onClick={handleApplyOrOpportunitiesClick}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-10 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <button className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-10 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                Apply Now
-              </button>
-            </motion.a>
+              Apply Now
+            </motion.button>
           </motion.div>
 
           <motion.div 
@@ -478,7 +588,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           </motion.div>
         </div>
 
-        {/* Enhanced Navigation */}
+        {/* Enhanced Navigation - Updated to use unified handlers */}
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -486,12 +596,12 @@ We recognize that diversity extends beyond the color of our skin to include ethn
           className="flex flex-wrap gap-8 mt-16 text-white font-semibold text-xl relative z-10"
         >
           <button onClick={scrollToCulture} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">Culture</button>
-          <button onClick={handleOpportunitiesClick} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">Opportunities</button>
+          <button onClick={handleApplyOrOpportunitiesClick} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">Opportunities</button>
           <button onClick={handleFAQsClick} className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:scale-110">FAQs</button>
         </motion.div>
       </motion.div>
 
-      {/* Culture Compass Section - Enhanced with better styling */}
+      {/* Culture Compass Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -554,7 +664,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.div>
 
-      {/* Testimonials - Enhanced design */}
+      {/* Testimonials Section */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -577,7 +687,6 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="bg-gradient-to-br from-[#0E1F1C] to-[#0E1F1C] text-white p-8 rounded-3xl shadow-xl h-full min-h-[330px] flex flex-col justify-between relative overflow-hidden"
               >
-                {/* Background accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-[#0E1F1C] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
                 
                 <div className="flex items-start gap-3 mb-6">
@@ -594,7 +703,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.section>
 
-      {/* Awards Section - Enhanced with modern grid */}
+      {/* Awards Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -629,7 +738,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.div>
 
-      {/* Benefits Section - Enhanced with better cards */}
+      {/* Benefits Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -638,7 +747,6 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         className="relative sm:px-6 lg:px-8 mx-auto px-4 py-20 overflow-hidden" 
         style={{ backgroundColor: BENEFITS_BACKGROUND_COLOR, color: 'white' }}
       >
-        {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C]"></div>
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
@@ -672,7 +780,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.div>
 
-      {/* Core Values Section - Enhanced with modern cards */}
+      {/* Core Values Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -709,6 +817,173 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.div>
 
+      {/* Job Details Section - NEW JD SECTION */}
+      <AnimatePresence>
+        {showJobDetails && selectedJob && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            id="job-details-section" 
+            className="bg-gradient-to-br from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8"
+          >
+            <div className="max-w-4xl mx-auto">
+              {/* Header with back button */}
+              <div className="flex items-center justify-between mb-8">
+                <motion.button
+                  onClick={closeJobDetails}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 text-[#0E1F1C] hover:text-[#00b894] transition-colors duration-300"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Back to Jobs
+                </motion.button>
+                
+                <motion.button
+                  onClick={closeJobDetails}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="text-gray-400 hover:text-gray-600 transition-colors duration-300"
+                >
+                  <FaTimes size={20} />
+                </motion.button>
+              </div>
+
+              {/* Job Details Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100"
+              >
+                {/* Job Header */}
+                <div className="bg-gradient-to-r from-[#0E1F1C] to-[#1a2f2c] text-white p-8">
+                  <h1 className="text-4xl font-bold mb-4">{selectedJob.title}</h1>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <span className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
+                      <FaBriefcase />
+                      {selectedJob.department}
+                    </span>
+                    <span className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full">
+                      <FaMapMarkerAlt />
+                      {selectedJob.location}
+                    </span>
+                    <span className="bg-white/20 px-3 py-1 rounded-full">
+                      {selectedJob.type || 'Full-time'}
+                    </span>
+                    <span className="bg-white/20 px-3 py-1 rounded-full">
+                      {selectedJob.experience || 'All Levels'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Job Content */}
+                <div className="p-8">
+                  {/* Job Summary */}
+                  {jobDescriptions[selectedJob.title] && (
+                    <>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="mb-8"
+                      >
+                        <h2 className="text-2xl font-bold text-[#0E1F1C] mb-4">About This Role</h2>
+                        <p className="text-gray-700 leading-relaxed text-lg">
+                          {jobDescriptions[selectedJob.title].summary}
+                        </p>
+                      </motion.div>
+
+                      {/* Responsibilities */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="mb-8"
+                      >
+                        <h2 className="text-2xl font-bold text-[#0E1F1C] mb-4">Key Responsibilities</h2>
+                        <ul className="space-y-3">
+                          {jobDescriptions[selectedJob.title].responsibilities.map((responsibility, index) => (
+                            <li key={index} className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-[#0E1F1C] rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700 leading-relaxed">{responsibility}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+
+                      {/* Requirements */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="mb-8"
+                      >
+                        <h2 className="text-2xl font-bold text-[#0E1F1C] mb-4">Requirements</h2>
+                        <ul className="space-y-3">
+                          {jobDescriptions[selectedJob.title].requirements.map((requirement, index) => (
+                            <li key={index} className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-[#0E1F1C] rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700 leading-relaxed">{requirement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+
+                      {/* Benefits */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="mb-8"
+                      >
+                        <h2 className="text-2xl font-bold text-[#0E1F1C] mb-4">What We Offer</h2>
+                        <ul className="space-y-3">
+                          {jobDescriptions[selectedJob.title].benefits.map((benefit, index) => (
+                            <li key={index} className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-[#0E1F1C] rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700 leading-relaxed">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    </>
+                  )}
+
+                  {/* Apply Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-gray-200"
+                  >
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                      Apply for This Position
+                    </motion.button>
+                    
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-6 py-4 border-2 border-[#0E1F1C] text-[#0E1F1C] rounded-2xl font-semibold hover:bg-[#0E1F1C] hover:text-white transition-all duration-300"
+                    >
+                      Share Job <FaExternalLinkAlt className="inline ml-2" />
+                    </motion.button>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Enhanced Jobs Section */}
       <AnimatePresence>
         {showOpportunities && (
@@ -732,7 +1007,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                   whileHover={{ scale: 1.02 }}
                   className="relative w-full lg:w-auto"
                 >
-                                  <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   <select
                     value={selectedLocation}
                     onChange={(e) => setSelectedLocation(e.target.value)}
@@ -779,7 +1054,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                 </motion.div>
               </div>
 
-              {/* Job Listings */}
+              {/* Job Listings - Updated with JD functionality */}
               <div className="space-y-8">
                 {filteredJobCategories.length === 0 ? (
                   <motion.div
@@ -830,13 +1105,26 @@ We recognize that diversity extends beyond the color of our skin to include ethn
                                   </span>
                                 </div>
                               </div>
-                              <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="mt-4 sm:mt-0 sm:ml-6 bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                              >
-                                Apply Now
-                              </motion.button>
+                              <div className="flex gap-3 mt-4 sm:mt-0 sm:ml-6">
+                                {/* View Details Button */}
+                                <motion.button
+                                  onClick={() => handleViewJobDetails(job)}
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className="bg-white border-2 border-[#0E1F1C] text-[#0E1F1C] px-6 py-3 rounded-full font-semibold hover:bg-[#0E1F1C] hover:text-white transition-all duration-300"
+                                >
+                                  View Details
+                                </motion.button>
+                                
+                                {/* Apply Now Button */}
+                                <motion.button
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                                >
+                                  Apply Now
+                                </motion.button>
+                              </div>
                             </motion.div>
                           ))}
                         </div>
@@ -934,7 +1222,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         )}
       </AnimatePresence>
 
-      {/* Enhanced Call-to-Action Section */}
+      {/* Enhanced Call-to-Action Section - Updated Apply button */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -942,7 +1230,6 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         viewport={{ once: true }}
         className="relative bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2c] to-[#0E1F1C] text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
-        {/* Background decorative elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#0E1F1C] opacity-10 rounded-full blur-2xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#0E1F1C] opacity-5 rounded-full blur-3xl"></div>
@@ -973,18 +1260,15 @@ We recognize that diversity extends beyond the color of our skin to include ethn
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.a 
-              href="https://quoreit.com/contact" 
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Updated to use unified handler */}
+            <motion.button
+              onClick={handleApplyOrOpportunitiesClick}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-[#0E1F1C] to-[#00b894] text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform"
             >
               Browse Open Positions
-            </motion.a>
-            
-           
+            </motion.button>
           </motion.div>
 
           <motion.p 
@@ -1000,4 +1284,3 @@ We recognize that diversity extends beyond the color of our skin to include ethn
     </div>
   );
 }
-
