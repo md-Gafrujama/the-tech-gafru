@@ -228,21 +228,8 @@ export default function Footer() {
             </p>
             
             <div className="flex gap-6">
-              <a 
-                href="#" 
-                className="relative w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#1877f2] to-[#1460d1] hover:from-[#00d9a6] hover:to-[#00f5b8] hover:shadow-2xl hover:shadow-[#00d9a6]/50 transform hover:scale-110 hover:-rotate-6 transition-all duration-500 group"
-              >
-                <FaFacebookF size={24} className="group-hover:text-black text-white transition-colors duration-500 relative z-10" />
-                <div className="absolute inset-0 rounded-2xl bg-[#00d9a6] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-              </a>
+             
               
-              <a 
-                href="#" 
-                className="relative w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] hover:from-[#00d9a6] hover:via-[#00f5b8] hover:to-[#00d9a6] hover:shadow-2xl hover:shadow-[#00d9a6]/50 transform hover:scale-110 hover:rotate-6 transition-all duration-500 group"
-              >
-                <FaInstagram size={24} className="group-hover:text-black text-white transition-colors duration-500 relative z-10" />
-                <div className="absolute inset-0 rounded-2xl bg-[#00d9a6] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-              </a>
               
               <a 
                 href="#" 
