@@ -1214,115 +1214,282 @@ export default function Page() {
   </div>
 </section>
 
-      {/* How We Analyze Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl top-0 right-0" />
-          <div className="absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl bottom-0 left-0" />
-        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* How We Analyze Section with #0E1F1C */}
+<section className="py-20 bg-gradient-to-br from-[#0E1F1C] via-[#1a2e2a] to-[#0E1F1C] text-white relative overflow-hidden">
+  <div className="absolute inset-0">
+    <div className="absolute w-96 h-96 bg-[#00d9a6]/15 rounded-full blur-3xl top-0 right-0 animate-pulse" />
+    <div className="absolute w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl bottom-0 left-0 animate-pulse" style={{ animationDelay: '1s' }} />
+    <div className="absolute w-64 h-64 bg-[#00d9a6]/10 rounded-full blur-2xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-bounce" />
+    {/* Subtle pattern overlay */}
+    <div className="absolute inset-0 opacity-5" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d9a6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+    }} />
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Enhanced Header with Badge */}
+      <motion.div 
+        className="inline-flex items-center px-4 py-2 bg-[#00d9a6]/20 border border-[#00d9a6]/30 rounded-full mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
+        <span className="w-2 h-2 bg-[#00d9a6] rounded-full mr-2 animate-pulse" />
+        <span className="text-[#00d9a6] text-sm font-medium">Our Analysis Process</span>
+      </motion.div>
+
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        How We Analyze 
+        <span className="bg-gradient-to-r from-[#00d9a6] to-emerald-400 bg-clip-text text-transparent"> Technology</span>
+      </h2>
+      <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Our rigorous process ensures you get the most accurate recommendations through comprehensive evaluation and expert analysis
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {steps.map((step, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+          className="relative group"
+        >
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full hover:bg-white/10 hover:border-[#00d9a6]/30 transition-all duration-300 hover:transform hover:scale-105">
+            {/* Enhanced Icon Container */}
+            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00d9a6] to-emerald-500 flex items-center justify-center text-white mb-6 group-hover:shadow-lg group-hover:shadow-[#00d9a6]/25 transition-all duration-300">
+              {step.icon}
+            </div>
+            
+            {/* Step Number with Enhanced Styling */}
+            <div className="text-4xl font-bold bg-gradient-to-r from-[#00d9a6] to-emerald-400 bg-clip-text text-transparent mb-2">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+            
+            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#00d9a6] transition-colors duration-300">
+              {step.title}
+            </h3>
+            
+            <p className="text-gray-300 leading-relaxed">
+              {step.description}
+            </p>
+
+            {/* Enhanced Progress Indicator */}
+            <div className="mt-6 w-full h-1 bg-white/10 rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-gradient-to-r from-[#00d9a6] to-emerald-400 rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: index * 0.3 + 0.5 }}
+              />
+            </div>
+          </div>
+
+          {/* Enhanced Connection Line */}
+          {index < steps.length - 1 && (
+            <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#00d9a6] to-transparent opacity-60">
+              <motion.div
+                className="absolute top-0 right-0 w-2 h-2 bg-[#00d9a6] rounded-full transform translate-x-1 -translate-y-0.5"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  opacity: [0.6, 1, 0.6]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: index * 0.5
+                }}
+              />
+            </div>
+          )}
+
+          {/* Hover Effect Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/5 to-emerald-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Enhanced Bottom Section */}
+    <motion.div 
+      className="mt-16 text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.8 }}
+    >
+      <div className="inline-flex items-center space-x-2 text-gray-400">
+        <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-[#00d9a6]" />
+        <span className="text-sm font-medium">Trusted by industry experts</span>
+        <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-[#00d9a6]" />
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+{/* Enhanced Marketers Section with */}
+<section className="py-20 bg-white relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-br from-[#0E1F1C] via-[#1a2e2a] to-[#0E1F1C] rounded-3xl overflow-hidden shadow-2xl relative">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute w-96 h-96 bg-[#00d9a6]/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse" />
+        <div className="absolute w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute w-64 h-64 bg-[#00d9a6]/15 rounded-full blur-2xl top-1/2 right-1/4 animate-bounce" />
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d9a6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+      </div>
+
+      <div className="relative z-10 p-8 md:p-12 lg:p-16">
+        <motion.div 
+          className="max-w-4xl"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Enhanced Header with Badge */}
           <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
+            className="inline-flex items-center px-4 py-2 bg-[#00d9a6]/20 border border-[#00d9a6]/30 rounded-full mb-6"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How We Analyze Technology
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Our rigorous process ensures you get the most accurate recommendations
-            </p>
+            <span className="w-2 h-2 bg-[#00d9a6] rounded-full mr-2 animate-pulse" />
+            <span className="text-[#00d9a6] text-sm font-medium">For Marketing Professionals</span>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Marketers: Reach a 
+            <span className="bg-gradient-to-r from-[#00d9a6] to-emerald-400 bg-clip-text text-transparent"> Highly Engaged</span> Audience
+          </h2>
+          
+          <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl">
+            100 million business technology and software buyers worldwide trust us to reduce
+            complexity and risk in the purchase process. Meet your buyers on their terms.
+          </p>
+
+          {/* Enhanced Stats Section */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#00d9a6]/30 transition-all duration-300">
+              <div className="text-3xl font-bold text-emerald-400 mb-2">95%</div>
+              <div className="text-gray-300 text-sm">Trust & Reliability</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#00d9a6]/30 transition-all duration-300">
+              <div className="text-3xl font-bold text-green-400 mb-2">24/7</div>
+              <div className="text-gray-300 text-sm">Expert Support</div>
+            </div>
+          </motion.div>
+
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <motion.button 
+              className="group px-8 py-4 bg-[#00d9a6] text-white rounded-full font-semibold hover:bg-[#00c396] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#00d9a6]/25 transform hover:scale-105 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/contact-us'}
+            >
+              <span className="relative z-10 flex items-center justify-center">
+                Explore Solutions
+                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
+            
+            
+          </div>
+        </motion.div>
+
+        {/* Enhanced Partner Logos Section */}
+        <motion.div 
+          className="relative"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="mb-6">
+            <h3 className="text-white/80 text-sm font-medium mb-4 tracking-wider uppercase">Trusted by Industry Leaders</h3>
+          </div>
+          
+          <div className="flex justify-start items-center gap-10 flex-nowrap overflow-x-auto pb-10 z-10 relative hide-scrollbar">
+            {logos.map((src, index) => (
+              <motion.div 
+                key={index} 
+                className="w-40 h-26 relative flex-shrink-0 group"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.1 }}
               >
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 h-full hover:bg-white/15 transition-all">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white mb-6">
-                    {step.icon}
-                  </div>
-                  <div className="text-4xl font-bold text-green-400 mb-2">{index + 1}</div>
-                  <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                  <p className="text-gray-300">{step.description}</p>
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-green-400 to-transparent" />
-                )}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6]/20 to-emerald-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                <Image
+                  src={src}
+                  alt={`Partner ${index + 1}`}
+                  fill
+                  className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 relative z-10"
+                  sizes="160px"
+                />
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Marketers Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
-            <div className="absolute inset-0">
-              <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -top-48 -left-48" />
-              <div className="absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -bottom-48 -right-48" />
-            </div>
+        {/* Floating Contact Button for Mobile */}
+        <motion.div 
+          className="fixed bottom-6 right-6 z-50 md:hidden"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <button 
+            className="bg-[#00d9a6] text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:shadow-[#00d9a6]/30"
+            onClick={() => window.location.href = '/contact-us'}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </button>
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div className="relative z-10 p-8 md:p-12 lg:p-16">
-              <motion.div 
-                className="max-w-3xl"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                  Marketers: Reach a Highly Engaged Audience
-                </h2>
-                <p className="text-lg text-gray-300 mb-8">
-                  100 million business technology and software buyers worldwide trust us to reduce
-                  complexity and risk in the purchase process. Meet your buyers on their terms.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                  <button className="px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
-                    Explore Solutions
-                  </button>
-                  <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all">
-                    Chat with Sales
-                  </button>
-                </div>
-              </motion.div>
-
-              {/* Partner Logos */}
-              <div className="flex justify-start items-center gap-10 flex-nowrap overflow-x-auto pb-10 z-10 relative hide-scrollbar">
-                {logos.map((src, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="w-40 h-26 relative flex-shrink-0"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Image
-                      src={src}
-                      alt={`Partner ${index + 1}`}
-                      fill
-                      className="object-contain"
-                      sizes="160px"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+{/* CSS Styles */}
+<style jsx>{`
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+`}</style>
 
       {/* Email Signup Section */}
       <section className="py-16 bg-white">
