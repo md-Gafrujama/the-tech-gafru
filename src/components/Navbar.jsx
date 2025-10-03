@@ -268,7 +268,7 @@ const Navbar = () => {
                 onMouseEnter={() => handleDropdownEnter('about')}
                 onMouseLeave={handleDropdownLeave}
               >
-                <a href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
+                <a href="/About-Us/about-us" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
                   <span>About Us</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
                 </a>
