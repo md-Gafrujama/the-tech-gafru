@@ -894,7 +894,7 @@ export default function Page() {
               <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
                 <div className="aspect-[16/9] w-full">
                   <img 
-                    src="/images/pay1.png"
+                    src="/images/payroll.png"
                     alt="Payroll Management System"
                     className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
