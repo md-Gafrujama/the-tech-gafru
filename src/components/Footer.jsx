@@ -32,7 +32,7 @@ export default function Footer() {
                   Martechbiz
                 </h3>
               </div>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#00d9a6] via-[#00f5b8] to-transparent rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-[#00d9a6] via-[#00f5b8] to-transparent rounded-full mt-[-2]"></div>
             </div>
             
             <div className="flex-grow">
