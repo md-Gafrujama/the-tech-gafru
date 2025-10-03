@@ -46,148 +46,102 @@ const PrivacyPolicy = () => {
     {
       icon: <FileText className="text-[#386861]" size={22} />,
       title: "Introduction",
-      content: `Martechbiz ("we," "us," or "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our websites, including TechRepublic, eWeek, Datamation, Channel Insider, and other affiliated properties.
+      content: `THE FOLLOWING DESCRIBES THE INFORMATION THAT MARTECHBIZ MARKETING COLLECTS AND HOW IT USES SUCH INFORMATION. PLEASE READ THIS PRIVACY POLICY CAREFULLY BEFORE USING THIS WEBSITE. BY USING THE SERVICES OR SUBMITTING PERSONAL INFORMATION THROUGH THE SERVICES, YOU EXPRESSLY CONSENT TO THE PROCESSING AND USE OF YOUR PERSONAL INFORMATION ACCORDING TO THIS PRIVACY POLICY.
 
-This policy applies to all information collected through our services and any related services, sales, marketing, or events. Please read this privacy policy carefully to understand our views and practices regarding your personal data.`
+Privacy Statement
+Martechbiz Marketing, LLC and its subsidiaries (collectively "Martechbiz Marketing") are committed to safeguarding your privacy online. This privacy policy applies to Your information that Martechbiz Marketing collects and receives. By using this website ("Website") You agree to the terms of this Privacy Policy. Please read the following policy to understand how Your Personal Information will be treated as You use Martechbiz Marketing's Services. All capitalized terms not defined in this Privacy Policy have the same meaning as defined in Martechbiz Marketing's Terms of use.`
     },
     {
       icon: <Eye className="text-[#386861]" size={22} />,
-      title: "Information We Collect",
-      content: `We collect several types of information from and about users of our services:
-
-Personal Information: Name, email address, phone number, job title, company name, mailing address, and other contact details you provide when registering for our services, subscribing to newsletters, or filling out forms.
-
-Technical Data: IP address, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access our services.
-
-Usage Data: Information about how you use our websites, products, and services, including page views, clicks, time spent on pages, and navigation paths.
-
-Marketing and Communications Data: Your preferences in receiving marketing from us and your communication preferences.
-
-Cookies and Tracking Technologies: We use cookies, web beacons, and similar technologies to enhance your experience and collect data about your browsing activities.`
+      title: "Personal Information Defined",
+      content: `For this Privacy Policy, "Personal Information" means information that is personally identifiable such as names, addresses, e-mail addresses, or phone numbers, as well as other non-public information that is associated with a User. Martechbiz Marketing collects and uses Personal Information as described in this Privacy Policy from the Users of our Services.`
     },
     {
       icon: <Shield className="text-[#386861]" size={22} />,
-      title: "How We Use Your Information",
-      content: `We use the information we collect for various purposes, including:
+      title: "Personal Information Martechbiz Marketing Collects",
+      content: `Martechbiz Marketing collects Personal Information upon Your consent. This information might be used to send you product recommendations, articles via a newsletter, or more information about particular products, depending on the form you fill out and the consent you provide at the time you fill out that form.
 
-Service Delivery: To provide, maintain, and improve our services, process transactions, and deliver content and information you request.
+Product Recommendations: Martechbiz Marketing collects Personal Information from You in order to connect You with sellers of products that You are searching for. When You give Martechbiz Marketing access to Personal Information for this purpose, You consent to receive product recommendations and buying advice from Martechbiz Marketing via email or phone call.
 
-Personalization: To personalize your experience and deliver tailored content, recommendations, and advertisements based on your interests and browsing behavior.
+Email Newsletters: Martechbiz Marketing collects email addresses to provide readers with updates via email newsletters. These email newsletters contain links to blog posts, product recommendations, and research materials that match your interests.
 
-Communication: To send you newsletters, marketing materials, and other information that may be of interest to you, as well as respond to your inquiries and provide customer support.
+Get Pricing: Should You request pricing details for a particular product listed on the site, Martechbiz Marketing will collect Personal Information such as:
 
-Analytics and Research: To analyze usage patterns, understand user preferences, and conduct research to improve our services and develop new offerings.
+Email address
+Name
+Phone Number
+Industry
+Company demographics
+Martechbiz Marketing collects the following Personal Information that You submit voluntarily. You may provide Martechbiz Marketing with additional information about You as You use the Services such as:
 
-Legal Compliance: To comply with applicable laws, regulations, legal processes, and enforce our terms and conditions.
-
-Security: To detect, prevent, and address technical issues, fraud, and other harmful or illegal activities.`
+Physical addresses
+Telephone numbers
+Information regarding Your business
+Information regarding Your product needs and requirements
+Other personally identifiable information You affirmatively provide`
     },
     {
       icon: <Users className="text-[#386861]" size={22} />,
-      title: "Information Sharing and Disclosure",
-      content: `We may share your information in the following circumstances:
-
-Service Providers: We share data with third-party vendors, consultants, and service providers who perform services on our behalf, such as hosting, data analysis, payment processing, and marketing assistance.
-
-Business Partners: We may share information with our technology vendors and partners to facilitate connections between buyers and sellers of business technology solutions.
-
-Advertising Partners: We work with advertising networks and partners to deliver targeted advertisements. These partners may use cookies and similar technologies to collect information about your browsing activities.
-
-Legal Requirements: We may disclose your information if required by law, court order, or other legal process, or if we believe disclosure is necessary to protect our rights, your safety, or the safety of others.
-
-Business Transfers: In connection with any merger, sale of company assets, financing, or acquisition of all or a portion of our business, your information may be transferred to the acquiring entity.
-
-With Your Consent: We may share your information with third parties when you give us explicit consent to do so.`
+      title: "Cookies",
+      content: `Martechbiz Marketing may place "cookies" on Your personal computer. "Cookies" are small identifiers sent from a web server and stored on Your computer's hard drive that help Martechbiz Marketing to recognize You if You visit the Website again. Martechbiz Marketing uses cookies to record session information, such as record user-specific information on what pages You access or visit, record past activity in order to provide better service when You return to the Website, ensure that You are not repeatedly sent the same banner ads, to customize Website content based on Your browser type, and to track how You found the Website.`
     },
     {
       icon: <Cookie className="text-[#386861]" size={22} />,
-      title: "Cookies and Tracking Technologies",
-      content: `We use cookies and similar tracking technologies to track activity on our services and hold certain information. Cookies are files with small amounts of data that are sent to your browser from a website and stored on your device.
-
-Types of Cookies We Use:
-
-Essential Cookies: Required for the operation of our services, enabling core functionality such as security, network management, and accessibility.
-
-Performance Cookies: Help us understand how visitors interact with our services by collecting and reporting anonymous information.
-
-Functionality Cookies: Enable enhanced functionality and personalization, such as remembering your preferences and settings.
-
-Targeting Cookies: Used to deliver advertisements relevant to you and your interests, and to measure the effectiveness of advertising campaigns.
-
-You can control cookie settings through your browser preferences. However, disabling cookies may limit your ability to use certain features of our services.`
+      title: "Minors",
+      content: `Martechbiz Marketing does not knowingly collect personally identifiable information by anyone under the age of 18. Do not fill out any forms on the site if You are under the age of 18 and do not provide Martechbiz Marketing with any information regarding any individual under the age of 18.`
     },
     {
       icon: <Lock className="text-[#386861]" size={22} />,
-      title: "Data Security",
-      content: `We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
+      title: "Use of Personal Information",
+      content: `Martechbiz Marketing uses the Personal Information that it gathers about You for the following purposes:
 
-Encryption: We use SSL/TLS encryption to protect data transmitted between your device and our servers.
-
-Access Controls: We restrict access to personal information to employees, contractors, and agents who need to know that information to process it on our behalf.
-
-Security Audits: We regularly review and update our security practices and conduct security assessments to identify and address potential vulnerabilities.
-
-Incident Response: We have procedures in place to detect, respond to, and recover from security incidents.
-
-Despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against interception or misuse. We cannot guarantee the absolute security of your information.`
+To provide our Services to You and respond to Your inquiries
+To tailor the content and information that we may send or display to You
+For marketing and promotional purposes
+To better understand how users access and use the Website`
     },
     {
       icon: <FileText className="text-[#386861]" size={22} />,
-      title: "Your Rights and Choices",
-      content: `Depending on your location, you may have certain rights regarding your personal information:
+      title: "Data Compliance",
+      content: `GDPR (General Data Protection Regulation)
 
-Access: You have the right to request access to the personal information we hold about you.
+Martechbiz Marketing adheres to rights of data subjects set out by the GDPR standards. Under these standards individual citizens of the European Union (EU) and the European Economic Area (EEA) have rights regarding their personal data.
 
-Correction: You can request that we correct inaccurate or incomplete information.
+CCPA (California Consumer Privacy Act)
 
-Deletion: You may request deletion of your personal information, subject to certain legal exceptions.
+Martechbiz Marketing adheres to rights of data subjects set out by CCPA. Residents of California upon verification have specific rights regarding their personal information.
 
-Opt-Out: You can opt out of receiving marketing communications by clicking the unsubscribe link in our emails or contacting us directly.
-
-Cookie Management: You can manage cookie preferences through your browser settings.
-
-Data Portability: You may have the right to receive your personal information in a structured, commonly used format.
-
-Restriction: You can request that we restrict processing of your personal information in certain circumstances.
-
-To exercise these rights, please contact us using the information provided in the "Contact Us" section below.`
+To exercise these rights you can contact us by:
+Email us at datacontroller@martechbiz.com`
     },
     {
       icon: <Users className="text-[#386861]" size={22} />,
-      title: "Children's Privacy",
-      content: `Our services are not intended for children under the age of 16. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us immediately.
-
-If we become aware that we have collected personal information from a child under 16 without verification of parental consent, we will take steps to remove that information from our servers.`
+      title: "Security",
+      content: `Martechbiz Marketing works hard to protect Information You provide from loss, misuse, and unauthorized access or disclosure. These steps take into account the sensitivity of the information we collect, process and store, and the current state of technology.`
     },
     {
       icon: <Shield className="text-[#386861]" size={22} />,
-      title: "International Data Transfers",
-      content: `Martechbiz operates globally with team members and servers in multiple countries, including the United States, United Kingdom, Singapore, Australia, India, Germany, Canada, and the Philippines.
-
-Your information may be transferred to, stored, and processed in countries other than your country of residence. These countries may have data protection laws that differ from the laws of your country.
-
-When we transfer personal information internationally, we implement appropriate safeguards to ensure your data remains protected in accordance with this privacy policy and applicable laws. These safeguards may include standard contractual clauses, Privacy Shield certification (where applicable), or other legally approved mechanisms.`
+      title: "Notification of Privacy Statement Changes",
+      content: `From time to time, Martechbiz Marketing may use Personal Information for new, unanticipated uses not previously disclosed in this Privacy Policy. If our information practices change at some time in the future we will post the policy changes to this Website to notify You of these changes.`
     },
     {
       icon: <FileText className="text-[#386861]" size={22} />,
-      title: "Changes to This Privacy Policy",
-      content: `We may update this privacy policy from time to time to reflect changes in our practices, technologies, legal requirements, or other factors. We will notify you of any material changes by posting the new privacy policy on this page and updating the "Last Updated" date.
-
-We encourage you to review this privacy policy periodically to stay informed about how we are protecting your information. Your continued use of our services after any changes to this privacy policy constitutes your acceptance of those changes.`
+      title: "Contacting the Martechbiz Marketing Data Protection Team",
+      content: `If You have any questions about this Privacy Policy, the practices of this Website, or Your dealings with this Website, please contact the Martechbiz Marketing Data Protection Officer at datacontroller@martechbiz.com.`
     }
   ];
 
   const quickLinks = [
     { title: "Introduction", index: 0 },
-    { title: "Information We Collect", index: 1 },
-    { title: "How We Use Your Information", index: 2 },
-    { title: "Information Sharing", index: 3 },
-    { title: "Cookies & Tracking", index: 4 },
-    { title: "Data Security", index: 5 },
-    { title: "Your Rights", index: 6 },
-    { title: "Children's Privacy", index: 7 },
-    { title: "International Transfers", index: 8 },
-    { title: "Policy Changes", index: 9 }
+    { title: "Personal Information Defined", index: 1 },
+    { title: "Information We Collect", index: 2 },
+    { title: "Cookies", index: 3 },
+    { title: "Minors", index: 4 },
+    { title: "Use of Information", index: 5 },
+    { title: "Data Compliance", index: 6 },
+    { title: "Security", index: 7 },
+    { title: "Policy Changes", index: 8 },
+    { title: "Contact Us", index: 9 }
   ];
 
   return (
@@ -260,7 +214,7 @@ We encourage you to review this privacy policy periodically to stay informed abo
               <div>
                 <h2 className="text-3xl font-bold mb-4">Your Privacy is Protected</h2>
                 <p className="text-gray-200 leading-relaxed text-base">
-                  At Martechbiz, we are committed to transparency and protecting your personal information. 
+                  At Martechbiz Marketing, we are committed to transparency and protecting your personal information. 
                   This privacy policy outlines our practices regarding data collection, usage, and your rights as a user. 
                   We encourage you to read through this policy to understand how we handle your data.
                 </p>
@@ -347,11 +301,11 @@ We encourage you to review this privacy policy periodically to stay informed abo
                     please don't hesitate to contact us:
                   </p>
                   <div className="space-y-2 text-gray-700 text-[15px]">
-                    <p className="font-bold text-lg text-gray-900">Martechbiz</p>
+                    <p className="font-bold text-lg text-gray-900">Martechbiz Marketing</p>
                     <p>3343 Perimeter Hill Dr Suite 100</p>
                     <p>Nashville, TN 37211</p>
                     <p>Phone: <a href="tel:8777022082" className="text-[#386861] hover:underline font-medium">877-702-2082</a></p>
-                    <p>Email: <a href="mailto:privacy@Martechbiz.com" className="text-[#386861] hover:underline font-medium">privacy@Martechbiz.com</a></p>
+                    <p>Email: <a href="mailto:datacontroller@martechbiz.com" className="text-[#386861] hover:underline font-medium">datacontroller@martechbiz.com</a></p>
                   </div>
                 </div>
               </div>

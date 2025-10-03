@@ -1530,8 +1530,8 @@ export default function Page() {
           />
           <span className="leading-relaxed">
             By checking this box you agree to our{" "}
-            <Link href="/terms" className="underline hover:text-[#ffd800] transition-colors font-medium">Terms of Use</Link> and{" "}
-            <Link href="/privacy" className="underline hover:text-[#ffd800] transition-colors font-medium">Privacy Policy</Link>.
+            <Link href="/Terms-of-use" className="underline hover:text-[#ffd800] transition-colors font-medium">Terms of Use</Link> and{""}
+            <Link href="/Privacy-policy" className="underline hover:text-[#ffd800] transition-colors font-medium">Privacy Policy</Link>.
           </span>
         </label>
       </motion.form>
