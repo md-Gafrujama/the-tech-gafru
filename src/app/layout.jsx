@@ -18,12 +18,26 @@ export const metadata = {
   title: "Martechbiz",
   description: "Get the latest tech advice and insights",
   icons: {
-    icon: '/images/logo2.png',
-    apple: '/images/logo2.png',
+    icon: [
+      { url: '/images/logo2.png' },
+      { url: '/images/logo2.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo2.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/logo2.png' },
+      { url: '/images/logo2.png', sizes: '180x180', type: 'image/png' },
+    ],
     shortcut: '/images/logo2.png',
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/images/logo2.png',
+      },
+    ],
   },
   themeColor: '#ffffff',
   metadataBase: new URL('https://martechbiz.com'),
+  manifest: '/manifest.json', // Optional: if you have a manifest file
 };
 
 export default function RootLayout({ children }) {
