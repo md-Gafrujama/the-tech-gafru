@@ -6,129 +6,144 @@ const termsData = [
   {
     id: 1,
     icon: <FileText className="text-[#386861]" size={24} />,
-    title: "Use of Website and Services",
+    title: "Access Eligibility",
     content: [
-      "You may use our website and services solely for lawful purposes and in compliance with these Terms.",
-      "You agree not to misuse our website, attempt to gain unauthorized access, or engage in any activity that could disrupt or damage our systems.",
-      "Any content provided on this website is for informational purposes only and should not be considered professional advice."
+      "You must be at least eighteen (18) years of age to register and use the Website and Services.",
+      "Martechbiz Marketing's Services are available only to individuals who can form legally binding contracts under applicable law.",
+      "Martechbiz Marketing reserves the right to refuse access to, or use of our Website or Services to anyone not complying with this Agreement, at any time, in its sole discretion."
     ]
   },
   {
     id: 2,
     icon: <Shield className="text-[#386861]" size={24} />,
-    title: "Intellectual Property",
+    title: "Registration/Your Account",
     content: [
-      "All content on this website—including text, graphics, logos, images, and software—is the property of Quore IT LLC or its licensors and is protected by intellectual property laws.",
-      "You may not reproduce, distribute, modify, or create derivative works from any content without our prior written consent.",
-      "You are granted a limited, non-exclusive, non-transferable license to access and use the website for personal or business informational purposes only."
+      "You may browse the Website without registering. However, You must register on the Website in order to use all of the Services.",
+      "During Registration, You will be asked to provide information such as Your name, address, telephone number and email address.",
+      "It is YOUR responsibility to maintain the confidentiality of Your User ID and password and You agree to accept responsibility for all activities that occur under Your Account.",
+      "You may not transfer, assign or sell Your Account to any third party.",
+      "You must provide accurate and current information. If you provide any information that is false, misleading, inaccurate, not current, or incomplete, Martechbiz Marketing reserves the right to suspend or terminate your account."
     ]
   },
   {
     id: 3,
     icon: <Users className="text-[#386861]" size={24} />,
-    title: "User Contributions",
+    title: "Electronic Communications",
     content: [
-      "If you submit information, materials, or feedback to Quore IT (for example, through a form, job application, or email), you grant us the right to use that information for business purposes, consistent with our Privacy Policy.",
-      "You are responsible for ensuring that any content you provide is accurate, lawful, and does not infringe the rights of third parties."
+      "When You send e-mails to Martechbiz Marketing or visit the Website, You are communicating with Martechbiz Marketing electronically.",
+      "You consent to receive e-mail or other electronic communications from Martechbiz Marketing.",
+      "If You request a demo, a price quote, or request more information about a particular vendor, You consent to Martechbiz Marketing contacting You by phone and recording or monitoring Your phone call for quality assurance or training purposes.",
+      "Martechbiz Marketing makes no guarantees regarding the actual response time to a request and cannot guarantee that You will receive a response to Your request."
     ]
   },
   {
     id: 4,
     icon: <Users className="text-[#386861]" size={24} />,
-    title: "Career and Job Application Services",
+    title: "Term",
     content: [
-      "Quore IT may provide job listings, career resources, and online application tools through this website.",
-      "By submitting your resume, application, or other job-related information, you authorize Quore IT to use, process, store, and share your information for recruitment and placement purposes.",
-      "We may share your application details with our clients and partners in connection with potential job opportunities, in accordance with our Privacy Policy.",
-      "Quore IT does not guarantee job placement or continued employment for candidates using our career services.",
-      "You are responsible for ensuring the accuracy of all information you submit. False, misleading, or incomplete applications may result in rejection or termination of employment opportunities."
+      "This Agreement shall remain in full force and effect while You are using the Website or Services whether You are a visitor or a registered User.",
+      "You may delete Your Account at any time, for any or no reason, by sending Your request to marketing@martechbiz.com.",
+      "Martechbiz Marketing may terminate Your Account or rights to use the Services for any or no reason at any time by ceasing to provide the Services to You.",
+      "Martechbiz Marketing will not have any liability whatsoever to You for any termination of Your Account or related deletion of Your information."
     ]
   },
   {
     id: 5,
     icon: <Shield className="text-[#386861]" size={24} />,
-    title: "Privacy",
+    title: "Ownership of Services",
     content: [
-      "Your use of our website and services is also governed by our Privacy Policy. Please review it to understand how we collect, use, and safeguard your information."
+      "You acknowledge that all the intellectual property rights in the Website and Services (excluding any User Provided Content) are owned by Martechbiz Marketing or its partners.",
+      "You agree not to reproduce, modify, publish, transmit, distribute, publicly perform or display, sell, or create derivative works based on the Website or Services.",
+      "You agree not to rent, lease, loan, or sell access to the Services."
     ]
   },
   {
     id: 6,
     icon: <AlertCircle className="text-[#386861]" size={24} />,
-    title: "Disclaimer of Warranties",
+    title: "User Provided Content",
     content: [
-      "The website and its content are provided on an 'as-is' and 'as-available' basis.",
-      "Quore IT makes no warranties, express or implied, regarding the accuracy, reliability, or availability of the website or its content.",
-      "We disclaim all warranties of merchantability, fitness for a particular purpose, and non-infringement to the maximum extent permitted by law."
+      "Users may upload or provide Content to the Website. Martechbiz Marketing does not claim ownership in any User Provided Content.",
+      "By providing User Provided Content, You grant to Martechbiz Marketing an unrestricted, irrevocable, perpetual, non-exclusive, fully-paid and royalty-free license to use, copy, perform, display, create derivative works of, and distribute such User Provided Content.",
+      "Martechbiz Marketing may modify or adapt User Provided Content to transmit, display or distribute it over computer networks and in various media.",
+      "No compensation will be paid with respect to You for the User Provided Content that You post through the Services."
     ]
   },
   {
     id: 7,
     icon: <AlertCircle className="text-[#386861]" size={24} />,
-    title: "Limitation of Liability",
+    title: "Third Party Content and Links",
     content: [
-      "To the fullest extent permitted by law, Quore IT shall not be liable for any damages arising out of or related to your use of the website or services, including but not limited to direct, indirect, incidental, consequential, or punitive damages.",
-      "This includes damages resulting from errors, interruptions, loss of data, or unauthorized access."
+      "The Website and Services contains Content provided by Users and third parties, and Martechbiz Marketing does not control such Content.",
+      "Martechbiz Marketing is not responsible for any such Content and makes no guarantees about the accuracy, currency, suitability, or quality of the information in such Content.",
+      "This Website may be linked to other websites that are not Martechbiz Marketing sites. Your use of such Third Party Sites is governed by their respective privacy policies and terms.",
+      "Martechbiz Marketing does not verify, make any representations or take responsibility for such Third Party Sites."
     ]
   },
   {
     id: 8,
     icon: <Globe className="text-[#386861]" size={24} />,
-    title: "Third-Party Links",
+    title: "Interactions and Use of User Information",
     content: [
-      "Our website may contain links to third-party websites or services for your convenience.",
-      "Quore IT does not endorse and is not responsible for the content, policies, or practices of any third-party sites. Accessing them is at your own risk."
+      "Your interactions with other Users on the Services or with advertisers are solely between You and the other User or advertiser.",
+      "Martechbiz Marketing is not responsible for any loss or damage incurred as the result of any such dealings.",
+      "You will not use any information obtained from the Services in order to harass, abuse, or harm another person, or in order to contact, advertise to, solicit, or sell to any User without their prior explicit consent.",
+      "Martechbiz Marketing reserves the right to restrict the number of communications which a User may send to other Users."
     ]
   },
   {
     id: 9,
     icon: <FileText className="text-[#386861]" size={24} />,
-    title: "Changes to Terms",
+    title: "Responsibilities Regarding User Provided Content",
     content: [
-      "Quore IT may update these Terms of Use from time to time. Updates will be effective immediately upon posting on this page.",
-      "Continued use of our website after changes are posted constitutes your acceptance of the revised Terms."
+      "You are responsible for the information, opinions, evaluations, reviews, ratings, messages, comments, photos, videos, graphics, sounds and other content or material that You submit.",
+      "You represent and warrant that You are the sole author of the User Provided Content and owner of the intellectual property rights thereto.",
+      "If You provided a review, evaluation or opinion of a product or service, You are not an employee, contractor, agent, channel partner or director of the vendor.",
+      "Your submission is accurate to the best of Your knowledge and You are not violating any confidentiality, non-disclosure, or contractual obligations."
     ]
   },
   {
     id: 10,
     icon: <Scale className="text-[#386861]" size={24} />,
-    title: "Governing Law",
+    title: "Prohibited Content",
     content: [
-      "These Terms shall be governed by and construed in accordance with the laws of the Commonwealth of Virginia, without regard to conflict of law principles.",
-      "Any disputes arising from your use of the website or services shall be subject to the exclusive jurisdiction of the state and federal courts located in Virginia."
+      "You agree that You will not post any Prohibited Content including content that is offensive, promotes racism, bigotry, hatred or physical harm of any kind.",
+      "Content that bullies, harasses or advocates stalking, bullying, or harassment of another person.",
+      "Content that involves the transmission of 'junk mail,' 'chain letters,' unsolicited mass mailing, or 'spamming'.",
+      "Content that is false or misleading or promotes illegal activities or conduct that is abusive, threatening, obscene, defamatory or libelous.",
+      "Content that promotes unauthorized copies of copyrighted material or involves exploitation of persons under the age of eighteen."
     ]
   }
 ];
 
-const candidateDisclaimer = [
+const additionalTerms = [
   {
-    title: "Use of Information",
-    text: "Your information may be collected, stored, processed, and shared with Quore IT clients and partners strictly for recruitment and placement purposes.",
-    icon: <Shield className="text-white" size={20} />
-  },
-  {
-    title: "No Employment Guarantee",
-    text: "Submitting an application or resume does not guarantee a job offer, interview, or continued employment.",
+    title: "Disclaimer of Warranties",
+    text: "The website and services are provided on an 'as-is' and 'as-available' basis. Martechbiz Marketing disclaims all warranties of any kind, whether express or implied.",
     icon: <AlertCircle className="text-white" size={20} />
   },
   {
-    title: "Accuracy of Information",
-    text: "You are responsible for ensuring all information you provide is accurate, complete, and not misleading. False or incomplete information may result in rejection of your application.",
+    title: "Limitation of Liability",
+    text: "Martechbiz Marketing shall not be liable for any damages arising from your use of the website or services. Your sole remedy for any dispute shall be termination of such service.",
+    icon: <Shield className="text-white" size={20} />
+  },
+  {
+    title: "Indemnification",
+    text: "You agree to indemnify and hold harmless Martechbiz Marketing from any losses arising from your use of the Services in violation of this Agreement or any laws.",
     icon: <FileText className="text-white" size={20} />
   },
   {
-    title: "Data Privacy",
-    text: "Your data will be handled in accordance with our Privacy Policy. Quore IT will not sell or rent your personal information to third parties.",
+    title: "Governing Law and Venue",
+    text: "Your use of the Website and this Agreement shall be governed by the laws of the State of Tennessee. Disputes shall be brought in Williamson County, Tennessee.",
+    icon: <Scale className="text-white" size={20} />
+  },
+  {
+    title: "Intellectual Property Infringement",
+    text: "Martechbiz Marketing respects intellectual property rights. To report infringement, contact our designated agent at legal@martechbiz.com.",
     icon: <Users className="text-white" size={20} />
   },
   {
-    title: "Withdrawal of Consent",
-    text: "You may request at any time that we stop using your information by contacting us at contactus@quoreit.com. However, this may affect our ability to consider you for opportunities.",
-    icon: <Mail className="text-white" size={20} />
-  },
-  {
-    title: "Application Timeline",
-    text: "Applications are processed within 5-7 business days. You will be contacted only if selected for the next stage of the recruitment process.",
+    title: "Changes to Terms",
+    text: "Martechbiz Marketing may amend this Agreement by posting new Terms of Use. Your continued use after changes are posted constitutes acceptance.",
     icon: <Clock className="text-white" size={20} />
   }
 ];
@@ -144,7 +159,7 @@ const TermsOfUse = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#386861]/10">
-      {/* Hero Section - Updated to match Privacy Policy */}
+      {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0E1F1C] via-[#1a2f2a] to-[#0E1F1C] text-white px-6 md:px-12 lg:px-20 py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-[#386861] rounded-full blur-3xl"></div>
@@ -169,19 +184,17 @@ const TermsOfUse = () => {
               Terms of Use
             </h1>
             <p className="text-gray-300 text-xl leading-relaxed">
-              Welcome to Quore IT LLC. By accessing or using our website, services, or content, 
-              you agree to be bound by these Terms of Use. Please read them carefully.
+              THE FOLLOWING DESCRIBES THE TERMS AND CONDITIONS ON WHICH MARTECHBIZ MARKETING OFFERS YOU ACCESS TO ITS SERVICES. 
+              PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THIS WEBSITE.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Rest of the page remains exactly the same */}
       {/* Introduction */}
       <section className="px-6 md:px-12 lg:px-32 py-20 bg-transparent">
         <div className="max-w-6xl mx-auto">
           <div className="bg-gradient-to-r from-white to-[#386861]/5 rounded-3xl p-10 shadow-2xl border border-[#386861]/10 relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
-            {/* Background Effect */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#386861]/10 to-transparent rounded-full blur-xl"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#386861]/10 rounded-full blur-lg"></div>
             
@@ -191,8 +204,10 @@ const TermsOfUse = () => {
                 <h3 className="text-2xl font-bold text-gray-800">Important Notice</h3>
               </div>
               <p className="text-gray-700 text-xl leading-relaxed font-medium pl-11">
-                If you do not agree to these Terms, you should not use our website or services. 
-                These terms govern your access to and use of Quore IT's website and services.
+                Martechbiz Marketing is owned and published by Martechbiz Marketing Private Limited (collectively "Martechbiz Marketing") 
+                provides this website ("Website") and the related services ("Services") to You the user. As a condition of Your use of the Services, 
+                You agree to these Terms of Use without limitation or qualification along with the Martechbiz Marketing Privacy Policy. 
+                Should You not agree to the terms of this Agreement, please do not use this Website or the related Services.
               </p>
             </div>
           </div>
@@ -217,7 +232,6 @@ const TermsOfUse = () => {
                 key={item.id}
                 className="bg-white rounded-3xl border border-gray-200/60 shadow-2xl hover:shadow-3xl transition-all duration-500 backdrop-blur-sm group relative overflow-hidden"
               >
-                {/* Gradient Border Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#386861]/5 to-[#386861]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
@@ -272,9 +286,8 @@ const TermsOfUse = () => {
         </div>
       </section>
 
-      {/* Candidate Disclaimer Section */}
+      {/* Additional Terms Section */}
       <section className="px-6 md:px-12 lg:px-32 py-24 bg-white relative overflow-hidden">
-        {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 via-transparent to-gray-100/50"></div>
           <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200/30 rounded-full blur-3xl animate-pulse"></div>
@@ -287,31 +300,29 @@ const TermsOfUse = () => {
               {/* Header */}
               <div className="flex items-center gap-6 mb-12">
                 <div className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-3xl p-4 border border-gray-300 shadow-2xl">
-                  <AlertCircle className="text-white" size={36} />
+                  <FileText className="text-white" size={36} />
                 </div>
                 <div>
                   <h2 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-3">
-                    Candidate Disclaimer
+                    Additional Terms & Conditions
                   </h2>
                   <p className="text-gray-600 text-xl font-light leading-relaxed">
-                    Important information for job applicants and candidates
+                    Important legal provisions governing your use of our services
                   </p>
                 </div>
               </div>
               
               <p className="text-gray-700 mb-14 text-xl font-medium leading-relaxed max-w-4xl bg-gray-50 p-6 rounded-2xl border border-gray-200">
-                By submitting your application, resume, or any related information to Quore IT LLC, 
-                you acknowledge and agree to the following terms and conditions:
+                By using Martechbiz Marketing's website and services, you acknowledge and agree to the following additional terms and conditions:
               </p>
 
               {/* 6-Card Grid */}
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {candidateDisclaimer.map((item, index) => (
+                {additionalTerms.map((item, index) => (
                   <div 
                     key={index} 
                     className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 group hover:scale-105 relative overflow-hidden"
                   >
-                    {/* Card Background Effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div className="relative z-10">
@@ -358,10 +369,10 @@ const TermsOfUse = () => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
               <a
-                href="mailto:contactus@quoreit.com"
+                href="mailto:legal@martechbiz.com"
                 className="text-[#386861] text-lg font-semibold hover:text-[#386861] transition-colors duration-300 block"
               >
-                contactus@quoreit.com
+                legal@martechbiz.com
               </a>
             </div>
             
@@ -371,7 +382,7 @@ const TermsOfUse = () => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
               <p className="text-[#386861] text-lg font-semibold">
-                +1 (555) 123-4567
+                877-702-2082
               </p>
             </div>
             
@@ -387,8 +398,6 @@ const TermsOfUse = () => {
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };
