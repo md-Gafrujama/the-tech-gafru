@@ -1,6 +1,8 @@
  "use client";
 
 import React, { useState, useEffect } from "react";
+    import { useRouter } from 'next/router'; // For Next.js routing
+// OR for React Router DOM use: import { useNavigate } from 'react-router-dom';
 import {
   Home,
   CheckCircle2,
@@ -20,7 +22,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-
+import PayrollForm from '../../../components/PayrollForm';
 export default function Payroll() {
   const [searchTerm, setSearchTerm] = useState("");
   const [productSearch, setProductSearch] = useState("");
@@ -930,73 +932,91 @@ patriot: {
         />
       </Head>
 
-      <div className="min-h-screen bg-[#0E1F1C] text-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-20 right-10 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 border border-white/10 rounded-full"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 border border-white/5 rounded-full"></div>
-        <div className="absolute bottom-20 left-10 w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 border border-white/5 rounded-full"></div>
+     <div className="min-h-screen bg-[#0E1F1C] text-white relative overflow-hidden">
+  {/* Background decorative elements */}
+  <div className="absolute top-20 right-10 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 border border-white/10 rounded-full"></div>
+  <div className="absolute top-40 right-20 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 border border-white/5 rounded-full"></div>
+  <div className="absolute bottom-20 left-10 w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 border border-white/5 rounded-full"></div>
 
-        {/* Main content container */}
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          {/* Breadcrumb Navigation */}
-          <nav
-            className="pt-6 pb-8 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
-            aria-label="Breadcrumb"
-          >
-            <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base lg:text-lg">
-              <Link
-                href="/"
-                className="text-white/80 hover:text-white transition-colors group"
-                aria-label="Go to homepage"
-              >
-                <Home className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform" />
-              </Link>
-              <Link
-                href="/"
-                className="text-white/80 hover:text-white transition-colors cursor-pointer"
-                aria-label="Go to homepage"
-              >
-                <span>Home</span>
-              </Link>
-              <span className="text-white/60">›</span>
-              <span className="text-white font-medium">
-                Best Payroll Software for Small Business
-              </span>
-            </div>
-          </nav>
+  {/* Main content container */}
+  <div className="relative z-10 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+    {/* Breadcrumb Navigation */}
+    <nav
+      className="pt-6 pb-8 sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-16"
+      aria-label="Breadcrumb"
+    >
+      <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base lg:text-lg">
+        <Link
+          href="/"
+          className="text-white/80 hover:text-white transition-colors group"
+          aria-label="Go to homepage"
+        >
+          <Home className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform" />
+        </Link>
+        <Link
+          href="/"
+          className="text-white/80 hover:text-white transition-colors cursor-pointer"
+          aria-label="Go to homepage"
+        >
+          <span>Home</span>
+        </Link>
+        <span className="text-white/60">›</span>
+        <span className="text-white font-medium">
+          Best Payroll Software for Small Business
+        </span>
+      </div>
+    </nav>
 
-          {/* Main Heading */}
-          <div className="max-w-6xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12 lg:mb-16">
-              Best Payroll Software for 
-              <span className="block mt-2 sm:mt-4">Small Business</span>
-            </h1>
-          </div>
+    {/* Main Heading */}
+    <div className="max-w-6xl">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12 lg:mb-16">
+        Best Payroll Software for 
+        <span className="block mt-2 sm:mt-4">Small Business</span>
+      </h1>
+    </div>
 
-          
+    {/* CTA Button Section */}
 
-          {/* Disclaimer Section */}
-          <div className="max-w-4xl xl:max-w-5xl">
-            <div className="flex items-start space-x-3 sm:space-x-4 bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 border border-white/10">
-              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-green-400 flex-shrink-0 mt-0.5 sm:mt-1" />
-              <div className="text-sm sm:text-base lg:text-lg leading-relaxed text-white/90">
-                <p>
-                  <span className="font-semibold text-white">
-                    Martechbiz
-                  </span>{" "}
-                  is able to offer our services for free because some vendors
-                  may pay us for web traffic or other sales opportunities. Our
-                  mission is to help technology buyers make better purchasing
-                  decisions, so we provide you with information for all vendors
-                  — even those that don't pay us.
-                </p>
-              </div>
-            </div>
-          </div>
 
-          
+<div className="max-w-4xl xl:max-w-5xl mb-8 sm:mb-12 lg:mb-16">
+  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+    <button 
+      onClick={() => router.push('/PayrollForm')} // Navigate to payroll form page
+      className="group relative inline-flex items-center justify-center px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-[#00d9a6] hover:bg-[#00c496] text-white font-semibold text-base sm:text-lg lg:text-xl rounded-lg sm:rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/25 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/30 active:scale-95"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10">Get Free Quotes</span>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl"></div>
+    </button>
+    
+    <div className="text-sm sm:text-base lg:text-lg text-white/70">
+      <span className="font-medium text-white">No commitment required</span> • Compare top solutions
+    </div>
+  </div>
+</div>
+
+
+    {/* Disclaimer Section */}
+    <div className="max-w-4xl xl:max-w-5xl">
+      <div className="flex items-start space-x-3 sm:space-x-4 bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 border border-white/10">
+        <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-green-400 flex-shrink-0 mt-0.5 sm:mt-1" />
+        <div className="text-sm sm:text-base lg:text-lg leading-relaxed text-white/90">
+          <p>
+            <span className="font-semibold text-white">
+              Martechbiz
+            </span>{" "}
+            is able to offer our services for free because some vendors
+            may pay us for web traffic or other sales opportunities. Our
+            mission is to help technology buyers make better purchasing
+            decisions, so we provide you with information for all vendors
+            — even those that don't pay us.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Table of Contents - Left Sidebar */}
 
