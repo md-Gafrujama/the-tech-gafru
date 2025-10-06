@@ -1,8 +1,8 @@
  "use client";
 
 import React, { useState, useEffect } from "react";
-    import { useRouter } from 'next/router'; // For Next.js routing
-// OR for React Router DOM use: import { useNavigate } from 'react-router-dom';
+    import { useRouter } from 'next/router'; 
+    
 import {
   Home,
   CheckCircle2,
@@ -35,6 +35,7 @@ export default function Payroll() {
  const [openSections, setOpenSections] = useState({});
   const [openItems, setOpenItems] = useState({});
   const [tableOfContents, setTableOfContents] = useState([
+    
     {
       id: "what-is-payroll-software?",
       title: "What is payroll software?",
@@ -781,7 +782,15 @@ patriot: {
     id: key,
     ...value
   }));
+//  for form 
+ const [isFormOpen, setIsFormOpen] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormOpen(true);
+    }, 3000);
 
+    return () => clearTimeout(timer);
+  }, []);
 
   const faqData = [
     {
@@ -976,24 +985,73 @@ patriot: {
     </div>
 
     {/* CTA Button Section */}
-
-
 <div className="max-w-4xl xl:max-w-5xl mb-8 sm:mb-12 lg:mb-16">
   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
     <button 
-      onClick={() => router.push('/PayrollForm')} // Navigate to payroll form page
-      className="group relative inline-flex items-center justify-center px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-[#00d9a6] hover:bg-[#00c496] text-white font-semibold text-base sm:text-lg lg:text-xl rounded-lg sm:rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/25 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/30 active:scale-95"
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
       aria-label="Get free quotes for payroll software"
     >
-      <span className="relative z-10">Get Free Quotes</span>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl"></div>
+      <span className="relative z-10 flex items-center gap-3">
+        Get Free Quotes
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
     </button>
     
-    <div className="text-sm sm:text-base lg:text-lg text-white/70">
-      <span className="font-medium text-white">No commitment required</span> • Compare top solutions
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-2 text-sm sm:text-base lg:text-lg">
+        <svg className="w-5 h-5 text-[#00d9a6]" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        </svg>
+        <span className="font-semibold text-white">100% Free</span>
+        <span className="text-white/60">•</span>
+        <span className="text-white/80">No Commitment</span>
+      </div>
+      <div className="text-xs sm:text-sm text-white/60 pl-7">
+        Compare top payroll solutions in 60 seconds
+      </div>
     </div>
   </div>
+  
+  <style jsx>{`
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    .animate-shimmer {
+      animation: shimmer 3s infinite;
+    }
+  `}</style>
 </div>
+
+{/* Popup Modal */}
+{isFormOpen && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <button
+        onClick={() => setIsFormOpen(false)}
+        className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all"
+        aria-label="Close form"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div className="p-6 sm:p-8">
+        <PayrollForm onClose={() => setIsFormOpen(false)} />
+      </div>
+    </div>
+  </div>
+)}
 
 
     {/* Disclaimer Section */}

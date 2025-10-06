@@ -28,22 +28,37 @@ const PayrollForm = ({ onClose }) => {
 
     // Load reCAPTCHA script
     useEffect(() => {
+        // Set up callback for reCAPTCHA
+        window.onRecaptchaSuccess = (token) => {
+            setCaptchaToken(token);
+        };
+
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/api.js';
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);
 
-        // Set up callback for reCAPTCHA
-        window.onRecaptchaSuccess = (token) => {
-            setCaptchaToken(token);
-        };
-
         return () => {
-            document.body.removeChild(script);
+            if (document.body.contains(script)) {
+                document.body.removeChild(script);
+            }
             delete window.onRecaptchaSuccess;
         };
     }, []);
+
+    // Render reCAPTCHA when on step 6
+    useEffect(() => {
+        if (currentStep === 6 && window.grecaptcha && recaptchaRef.current) {
+            // Check if already rendered
+            if (!recaptchaRef.current.hasChildNodes()) {
+                window.grecaptcha.render(recaptchaRef.current, {
+                    'sitekey': '6LfMoeArAAAAAKqt8RPmhs-f8uq0TY51EqN4K7Gw',
+                    'callback': window.onRecaptchaSuccess
+                });
+            }
+        }
+    }, [currentStep]);
 
     // Auto-hide success message after 10 seconds
     useEffect(() => {
@@ -112,23 +127,24 @@ const PayrollForm = ({ onClose }) => {
         setIsSubmitting(true);
 
         try {
-            // Prepare data for Web3Forms
+            // Prepare data for Web3Forms (without captcha token - handle captcha separately)
             const web3formsData = {
                 access_key: "2c1b7668-e873-404a-9759-f85af53e550b",
                 subject: "New Payroll Form Submission",
                 from_name: `${formData.firstName} ${formData.lastName}`,
                 email: formData.email,
-                // Add all form fields
-                payrollSolution: formData.payrollSolution,
-                payrollEmployee: formData.payrollEmployee,
-                zipCode: formData.zipCode,
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                companyName: formData.companyName,
-                phoneNumber: formData.phoneNumber,
-                // Add reCAPTCHA token
-                "g-recaptcha-response": captchaToken
+                // Add all form fields with readable labels
+                "Payroll Solution": formData.payrollSolution,
+                "Number of Employees": formData.payrollEmployee,
+                "Zip Code": formData.zipCode,
+                "First Name": formData.firstName,
+                "Last Name": formData.lastName,
+                "Company Name": formData.companyName,
+                "Phone Number": formData.phoneNumber,
+                "Captcha Verified": captchaToken ? "Yes" : "No"
             };
+
+            console.log('Submitting data:', web3formsData);
 
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
@@ -140,17 +156,19 @@ const PayrollForm = ({ onClose }) => {
             });
 
             const result = await response.json();
+            console.log('API Response:', result);
 
             if (result.success) {
                 console.log('Form submitted successfully:', result);
                 setShowSuccess(true);
                 resetForm();
             } else {
-                throw new Error(result.message || 'Submission failed');
+                console.error('Submission failed:', result);
+                alert(`Submission failed: ${result.message || 'Unknown error'}. Please check console for details.`);
             }
         } catch (error) {
-            console.error('Form submission failed:', error);
-            alert('Sorry, there was a problem submitting your information. Please try again later.');
+            console.error('Form submission error:', error);
+            alert('Sorry, there was a problem submitting your information. Please check your internet connection and try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -161,23 +179,27 @@ const PayrollForm = ({ onClose }) => {
             case 1:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">What payroll solution are you looking for?</h2>
+                        <h2 className="text-base font-semibold mb-3 text-black">What payroll solution are you looking for?</h2>
                         <div className="space-y-2">
                             {['Payroll software only', 'Both payroll software and service', 'Payroll service only'].map((option) => (
                                 <div
                                     key={option}
-                                    className={`p-3 rounded-md bg-blue-50 cursor-pointer ${formData.payrollSolution === option ? 'border-2 border-orange-500' : ''}`}
+                                    className={`p-3 rounded-md bg-blue-50 cursor-pointer ${formData.payrollSolution === option ? 'border-2' : ''}`}
+                                    style={formData.payrollSolution === option ? { borderColor: '#FFFF00' } : {}}
                                     onClick={() => handleRadioChange('payrollSolution', option)}
                                 >
                                     <label className="flex items-center cursor-pointer">
                                         <div className="relative flex items-center justify-center">
-                                            <div className={`w-4 h-4 border rounded-full flex items-center justify-center ${formData.payrollSolution === option ? 'bg-orange-500 border-orange-500' : 'border-gray-400 bg-white'}`}>
+                                            <div 
+                                                className={`w-4 h-4 border rounded-full flex items-center justify-center ${formData.payrollSolution === option ? '' : 'border-gray-400 bg-white'}`}
+                                                style={formData.payrollSolution === option ? { backgroundColor: '#FFFF00', borderColor: '#FFFF00' } : {}}
+                                            >
                                                 {formData.payrollSolution === option && (
                                                     <div className="w-2 h-2 rounded-full bg-white"></div>
                                                 )}
                                             </div>
                                         </div>
-                                        <span className="ml-2 text-sm">{option}</span>
+                                        <span className="ml-2 text-sm text-black">{option}</span>
                                     </label>
                                 </div>
                             ))}
@@ -188,23 +210,27 @@ const PayrollForm = ({ onClose }) => {
             case 2:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">How many employees do you have?</h2>
+                        <h2 className="text-base font-semibold mb-3 text-black">How many employees do you have?</h2>
                         <div className="space-y-2">
                             {['Less than 10', '10 to 49', '50 to 99', '100 to 250', 'More than 250'].map((option) => (
                                 <div
                                     key={option}
-                                    className={`p-3 rounded-md bg-blue-50 cursor-pointer ${formData.payrollEmployee === option ? 'border-2 border-orange-500' : ''}`}
+                                    className={`p-3 rounded-md bg-blue-50 cursor-pointer ${formData.payrollEmployee === option ? 'border-2' : ''}`}
+                                    style={formData.payrollEmployee === option ? { borderColor: '#FFFF00' } : {}}
                                     onClick={() => handleRadioChange('payrollEmployee', option)}
                                 >
                                     <label className="flex items-center cursor-pointer">
                                         <div className="relative flex items-center justify-center">
-                                            <div className={`w-4 h-4 border rounded-full flex items-center justify-center ${formData.payrollEmployee === option ? 'bg-orange-500 border-orange-500' : 'border-gray-400 bg-white'}`}>
+                                            <div 
+                                                className={`w-4 h-4 border rounded-full flex items-center justify-center ${formData.payrollEmployee === option ? '' : 'border-gray-400 bg-white'}`}
+                                                style={formData.payrollEmployee === option ? { backgroundColor: '#FFFF00', borderColor: '#FFFF00' } : {}}
+                                            >
                                                 {formData.payrollEmployee === option && (
                                                     <div className="w-2 h-2 rounded-full bg-white"></div>
                                                 )}
                                             </div>
                                         </div>
-                                        <span className="ml-2 text-sm">{option}</span>
+                                        <span className="ml-2 text-sm text-black">{option}</span>
                                     </label>
                                 </div>
                             ))}
@@ -215,7 +241,7 @@ const PayrollForm = ({ onClose }) => {
             case 3:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">What's your zip code?</h2>
+                        <h2 className="text-base font-semibold mb-3 text-black">What's your zip code?</h2>
                         <input
                             type="text"
                             name="zipCode"
@@ -225,10 +251,8 @@ const PayrollForm = ({ onClose }) => {
                             className={`w-full p-2 border ${formData.zipCode && formData.zipCode.length < 5
                                 ? 'border-red-500'
                                 : 'border-gray-300'
-                                } rounded-md focus:outline-none focus:ring-2 ${formData.zipCode && formData.zipCode.length < 5
-                                    ? 'focus:ring-red-500'
-                                    : 'focus:ring-orange-500'
-                                }`}
+                                } rounded-md focus:outline-none focus:ring-2 text-black`}
+                            style={formData.zipCode && formData.zipCode.length >= 5 ? { '--tw-ring-color': '#FFFF00' } : formData.zipCode && formData.zipCode.length < 5 ? {} : { '--tw-ring-color': '#FFFF00' }}
                             maxLength="5"
                         />
                         {formData.zipCode && formData.zipCode.length < 5 && (
@@ -242,14 +266,15 @@ const PayrollForm = ({ onClose }) => {
             case 4:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">What's your email address?</h2>
+                        <h2 className="text-base font-semibold mb-3 text-black">What's your email address?</h2>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="Email Address"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 text-black"
+                            style={{ '--tw-ring-color': '#FFFF00' }}
                         />
                         <p className="text-xs text-gray-500 mt-2">By entering your email above, you consent to receive marketing emails from Compare-Bazaar.</p>
                     </div>
@@ -258,7 +283,7 @@ const PayrollForm = ({ onClose }) => {
             case 5:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">Last step! Who do we have the pleasure of working with?</h2>
+                        <h2 className="text-base font-semibold mb-3 text-black">Last step! Who do we have the pleasure of working with?</h2>
                         <div className="grid grid-cols-2 gap-3 mb-3">
                             <input
                                 type="text"
@@ -266,7 +291,8 @@ const PayrollForm = ({ onClose }) => {
                                 value={formData.firstName}
                                 onChange={handleInputChange}
                                 placeholder="First Name"
-                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 text-black"
+                                style={{ '--tw-ring-color': '#FFFF00' }}
                             />
                             <input
                                 type="text"
@@ -274,7 +300,8 @@ const PayrollForm = ({ onClose }) => {
                                 value={formData.lastName}
                                 onChange={handleInputChange}
                                 placeholder="Last Name"
-                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 text-black"
+                                style={{ '--tw-ring-color': '#FFFF00' }}
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-3">
@@ -284,7 +311,8 @@ const PayrollForm = ({ onClose }) => {
                                 value={formData.companyName}
                                 onChange={handleInputChange}
                                 placeholder="Company Name"
-                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 text-black"
+                                style={{ '--tw-ring-color': '#FFFF00' }}
                             />
                             <div className="relative">
                                 <input
@@ -296,10 +324,8 @@ const PayrollForm = ({ onClose }) => {
                                     className={`w-full p-2 border ${formData.phoneNumber && !/^\+[0-9]{2} [0-9]{10}$/.test(formData.phoneNumber)
                                         ? 'border-red-500'
                                         : 'border-gray-300'
-                                        } rounded-md focus:outline-none focus:ring-2 ${formData.phoneNumber && !/^\+[0-9]{2} [0-9]{10}$/.test(formData.phoneNumber)
-                                            ? 'focus:ring-red-500'
-                                            : 'focus:ring-orange-500'
-                                        }`}
+                                        } rounded-md focus:outline-none focus:ring-2 text-black`}
+                                    style={formData.phoneNumber && !/^\+[0-9]{2} [0-9]{10}$/.test(formData.phoneNumber) ? {} : { '--tw-ring-color': '#FFFF00' }}
                                 />
                                 {formData.phoneNumber && !/^\+[0-9]{2} [0-9]{10}$/.test(formData.phoneNumber) && (
                                     <p className="text-red-500 text-xs mt-1">
@@ -320,13 +346,8 @@ const PayrollForm = ({ onClose }) => {
             case 6:
                 return (
                     <div>
-                        <h2 className="text-base font-semibold mb-3">Please verify that you're not a robot</h2>
-                        <div 
-                            ref={recaptchaRef}
-                            className="g-recaptcha" 
-                            data-sitekey="6LfrmSgrAAAAAGhs0-kgqJkRnFECkHTvrRY-4dMQ"
-                            data-callback="onRecaptchaSuccess"
-                        ></div>
+                        <h2 className="text-base font-semibold mb-3 text-black">Please verify that you're not a robot</h2>
+                        <div ref={recaptchaRef}></div>
                     </div>
                 );
 
@@ -341,7 +362,8 @@ const PayrollForm = ({ onClose }) => {
             dots.push(
                 <div
                     key={i}
-                    className={`h-2 w-2 rounded-full ${currentStep === i ? 'bg-orange-500' : 'bg-gray-300'}`}
+                    className={`h-2 w-2 rounded-full ${currentStep === i ? '' : 'bg-gray-300'}`}
+                    style={currentStep === i ? { backgroundColor: '#FFFF00' } : {}}
                 ></div>
             );
         }
@@ -374,10 +396,10 @@ const PayrollForm = ({ onClose }) => {
     return (
         <div className="w-full bg-white relative p-6">
             {showSuccess && (
-                <div className="fixed top-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm w-full border-l-4 border-orange-500 z-50 slide-in-right">
+                <div className="fixed top-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm w-full border-l-4 z-50 slide-in-right" style={{ borderLeftColor: '#FFFF00' }}>
                     <div className="flex items-start">
                         <div className="flex-shrink-0">
-                            <svg className="h-5 w-5 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-5 w-5" style={{ color: '#FFFF00' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
@@ -426,9 +448,10 @@ const PayrollForm = ({ onClose }) => {
                         type="button"
                         onClick={currentStep === 6 ? handleSubmit : nextStep}
                         className={`ml-auto px-6 py-2 rounded-md font-medium text-sm ${isStepValid()
-                            ? 'bg-orange-400 hover:bg-orange-500 text-white'
+                            ? 'text-black'
                             : 'bg-gray-300 cursor-not-allowed text-gray-500'
                             }`}
+                        style={isStepValid() ? { backgroundColor: '#FFFF00' } : {}}
                         disabled={!isStepValid() || isSubmitting}
                     >
                         {isSubmitting
