@@ -33,13 +33,16 @@ export const metadata = {
     shortcut: '/images/logo2.png',
   },
   themeColor: '#ffffff',
-  metadataBase: new URL('https://martechbiz.com'),
+  metadataBase: new URL('https://the-tech-gafru.vercel.app'),
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Prevent Vercel default favicon */}
+        <link rel="icon" href="/images/logo2.png" type="image/png" sizes="any" />
+        
         {/* Standard favicon */}
         <link rel="icon" type="image/png" sizes="16x16" href="/images/logo2.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/logo2.png" />
