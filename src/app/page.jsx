@@ -818,72 +818,61 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-200/50 overflow-hidden h-full flex flex-col">
-          {/* Animated Border */}
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            {/* Image Container */}
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/HR.png"
-                  alt="Human Resources Management"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/HR-software" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            {/* Animated Border */}
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            {/* Content - Fixed Height Distribution */}
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                Human Resources Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Comprehensive HR solutions for employee management, payroll, recruitment, and performance tracking.
-              </p>
-              
-              {/* Tools and Buttons - Fixed at Bottom */}
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['BambooHR', 'Workday', 'ADP'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-blue-500/30 group-hover:bg-gradient-to-r group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              {/* Image Container */}
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/HR.png"
+                    alt="Human Resources Management"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
                 
-                {/* Two Button Layout */}
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/HR-software" className="block w-full">
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+              </div>
+
+              {/* Content - Fixed Height Distribution */}
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  Human Resources Software
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Comprehensive HR solutions for employee management, payroll, recruitment, and performance tracking.
+                </p>
+                
+                {/* Tools and Button - Fixed at Bottom */}
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['BambooHR', 'Workday', 'ADP'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-blue-500/30 group-hover:bg-gradient-to-r group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-blue-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-blue-50">
-                    <div className="flex items-center justify-center text-blue-600 font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore HR Solutions</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
       {/* Payroll Software */}
@@ -895,67 +884,57 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-green-200/50 overflow-hidden h-full flex flex-col">
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#00d9a6] to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/payroll.png"
-                  alt="Payroll Management System"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/Payroll-software" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-green-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#00d9a6] to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                Payroll Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Automated payroll processing, tax calculations, compliance management, and employee payment solutions.
-              </p>
-              
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['QuickBooks', 'Gusto', 'Paychex'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-green-500/30 group-hover:bg-gradient-to-r group-hover:from-green-50/50 group-hover:to-emerald-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/payroll.png"
+                    alt="Payroll Management System"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
                 
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/Payroll-software" className="block w-full">
-                    <div className="bg-gradient-to-r from-[#00d9a6] to-green-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+              </div>
+
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  Payroll Software
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Automated payroll processing, tax calculations, compliance management, and employee payment solutions.
+                </p>
+                
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['QuickBooks', 'Gusto', 'Paychex'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-green-500/30 group-hover:bg-gradient-to-r group-hover:from-green-50/50 group-hover:to-emerald-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-[#00d9a6] rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-green-50">
-                    <div className="flex items-center justify-center text-[#00d9a6] font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-[#00d9a6] to-green-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore Payroll Tools</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
       {/* CRM Software */}
@@ -967,67 +946,57 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-200/50 overflow-hidden h-full flex flex-col">
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/crm.png"
-                  alt="Customer Relationship Management"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/CRM-software" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                CRM Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Customer relationship management tools for sales, marketing automation, and customer service excellence.
-              </p>
-              
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['Salesforce', 'HubSpot', 'Pipedrive'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-orange-500/30 group-hover:bg-gradient-to-r group-hover:from-orange-50/50 group-hover:to-red-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/crm.png"
+                    alt="Customer Relationship Management"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
                 
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/CRM-software" className="block w-full">
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+              </div>
+
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  CRM Software
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Customer relationship management tools for sales, marketing automation, and customer service excellence.
+                </p>
+                
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['Salesforce', 'HubSpot', 'Pipedrive'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-orange-500/30 group-hover:bg-gradient-to-r group-hover:from-orange-50/50 group-hover:to-red-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-orange-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-orange-50">
-                    <div className="flex items-center justify-center text-orange-600 font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore CRM Solutions</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
       {/* Sales Software */}
@@ -1039,70 +1008,60 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-200/50 overflow-hidden h-full flex flex-col">
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/sales.png"
-                  alt="Sales Analytics Dashboard"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/Sales-software" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                Sales Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Sales automation, lead generation, pipeline management, and performance analytics for revenue growth.
-              </p>
-              
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['Outreach', 'SalesLoft', 'ZoomInfo'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-purple-500/30 group-hover:bg-gradient-to-r group-hover:from-purple-50/50 group-hover:to-pink-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/sales.png"
+                    alt="Sales Analytics Dashboard"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+               
+              </div>
+
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  Sales Software
+                </h3>
                 
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/Sales-software" className="block w-full">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Sales automation, lead generation, pipeline management, and performance analytics for revenue growth.
+                </p>
+                
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['Outreach', 'SalesLoft', 'ZoomInfo'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-purple-500/30 group-hover:bg-gradient-to-r group-hover:from-purple-50/50 group-hover:to-pink-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-purple-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-purple-50">
-                    <div className="flex items-center justify-center text-purple-600 font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore Sales Tools</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
-      {/* Project Management Software */}
+      {/* Project Management Software - Fixed Size */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -1111,67 +1070,57 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-indigo-200/50 overflow-hidden h-full flex flex-col">
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/project.png"
-                  alt="Project Management Dashboard"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/Project-management" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-indigo-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                Project Management Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Task management, team collaboration, resource planning, and project tracking solutions.
-              </p>
-              
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['Asana', 'Monday.com', 'Trello'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-indigo-500/30 group-hover:bg-gradient-to-r group-hover:from-indigo-50/50 group-hover:to-cyan-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/project.png"
+                    alt="Project Management Dashboard"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
                 
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/Project-management" className="block w-full">
-                    <div className="bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+              </div>
+
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  Project Management Software
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Task management, team collaboration, resource planning, and project tracking solutions.
+                </p>
+                
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['Asana', 'Monday.com', 'Trello'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-indigo-500/30 group-hover:bg-gradient-to-r group-hover:from-indigo-50/50 group-hover:to-cyan-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-indigo-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-indigo-50">
-                    <div className="flex items-center justify-center text-indigo-600 font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore PM Tools</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
       {/* Business Intelligence Software */}
@@ -1183,72 +1132,63 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-amber-200/50 overflow-hidden h-full flex flex-col">
-          <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-            <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col h-full">
-            <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-              <div className="aspect-[16/9] w-full">
-                <img 
-                  src="/images/business.png"
-                  alt="Business Intelligence Analytics"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+        <Link href="/Software-evaluation/Business-Intelligence-Software" className="block h-full">
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-amber-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                Business Intelligence Software
-              </h3>
-              
-              <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                Data analytics, reporting dashboards, business insights, and intelligence tools for data-driven decisions.
-              </p>
-              
-              <div className="mt-auto space-y-3 sm:space-y-4">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {['Tableau', 'Power BI', 'Looker'].map((tool) => (
-                    <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-amber-500/30 group-hover:bg-gradient-to-r group-hover:from-amber-50/50 group-hover:to-yellow-50/50 transition-all duration-300 whitespace-nowrap">
-                      {tool}
-                    </span>
-                  ))}
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
+                <div className="aspect-[16/9] w-full">
+                  <img 
+                    src="/images/business.png"
+                    alt="Business Intelligence Analytics"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
                 
-                <div className="grid grid-cols-1 gap-2 sm:gap-3">
-                  <Link href="/Software-evaluation/Business-Intelligence-Software" className="block w-full">
-                    <div className="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer">
-                      <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                        <span className="truncate mr-2">Explore Solutions</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
+              </div>
+
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
+                  Business Intelligence Software
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
+                  Data analytics, reporting dashboards, business insights, and intelligence tools for data-driven decisions.
+                </p>
+                
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {['Tableau', 'Power BI', 'Looker'].map((tool) => (
+                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-amber-500/30 group-hover:bg-gradient-to-r group-hover:from-amber-50/50 group-hover:to-yellow-50/50 transition-all duration-300 whitespace-nowrap">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                   
-                  <button className="bg-white border-2 border-amber-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full cursor-pointer hover:bg-amber-50">
-                    <div className="flex items-center justify-center text-amber-600 font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Get Free Quotes</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <div className="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
+                      <span className="truncate mr-2">Explore BI Solutions</span>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
     </div>
+    
+   
   </div>
 </section>
-
 
 
 {/* How We Analyze Section with #0E1F1C */}
