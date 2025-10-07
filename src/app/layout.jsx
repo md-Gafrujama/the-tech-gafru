@@ -70,6 +70,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
         <ArrowNavigation />
+     
         <Footer />
       </body>
     </html>

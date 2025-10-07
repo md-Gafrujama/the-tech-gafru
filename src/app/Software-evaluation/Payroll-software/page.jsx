@@ -45,6 +45,7 @@ export default function Payroll() {
       id: "need-help",
       title: "Need Help? Talk to an HR Software Advisor",
       active: false,
+
     },
     {
       id: "best-payroll-software",
@@ -248,8 +249,8 @@ const payrollData = [
     title: " Gusto: Best overall project management software",
     logo: "/images/gusto.png",
     button: {
-      text: "Visit Website",
-      link: "#",
+      // text: "Visit Website",
+      // link: "#",
     },
     scores: [
       { label: "User reviews", score: "4.64/5" },
@@ -382,8 +383,8 @@ const payrollData = [
     title: " OnPay: Best for ease of use",
     logo: "/images/onpay.png",
     button: {
-      text: "Visit Website",
-      link: "#",
+      // text: "Visit Website",
+      // link: "#",
     },
     scores: [
         { label: "Overall Score", score: "4.11/5" },
@@ -484,8 +485,8 @@ const payrollData = [
     title: "QuickBooks Payroll: Best for its accounting integration",
     logo: "/images/quickbooks.png",
     button: {
-      text: "Visit Website",
-      link: "#",
+      // text: "Visit Website",
+      // link: "#",
     },
     scores: [
        { label: "Overall Score", score: "4.08/5" },
@@ -584,8 +585,8 @@ paycor: {
     title: "Paycor: Best for growing businesses",
     logo: "/images/paycor.jpg",
     button: {
-      text: "Visit Website",
-      link: "#",
+      // text: "Visit Website",
+      // link: "#",
     },
     scores: [
        { label: "Overall Score", score: "3.77/5" },
@@ -671,8 +672,8 @@ patriot: {
     title: "Patriot Payroll: Best budget-friendly payroll software",
     logo: "/images/quickbooks.png",
     button: {
-      text: "Visit Website",
-      link: "#",
+      // text: "Visit Website",
+      // link: "#",
     },
     scores: [
        { label: "Overall Score", score: "3.67/5" },
@@ -1398,10 +1399,20 @@ patriot: {
                       </div>
                     </div>
                     <div className="w-full sm:w-auto">
-                      <button className="w-full sm:w-auto bg-[#386861] hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
-                        <span>Visit Website</span>
-                        <ExternalLink className="w-4 h-4" />
-                      </button>
+                     <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website 
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                     </div>
                   </div>
 
@@ -1467,14 +1478,20 @@ patriot: {
                       {item.learnmore ? item.learnmore : "N/A"}
                     </td>
                     <td className="py-4 px-6 text-center">
-                      <a
-                        href={item.visitUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white bg-[#386861] hover:bg-green-700 px-4 py-2 rounded text-sm"
-                      >
-                        Visit 
-                      </a>
+                      <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                     </td>
                   </tr>
                 ))}
@@ -1689,15 +1706,20 @@ patriot: {
 
                   {/* Visit Website Button */}
                   <div className="flex justify-end">
-                    <Link
-                      href="/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
+                    <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                   </div>
                 </div>
               </div>
@@ -1773,17 +1795,20 @@ patriot: {
                   </div>
 
                   {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href=""
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
+                  <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                 </div>
               </div>
               {/* third product */}
@@ -1857,17 +1882,20 @@ patriot: {
                   </div>
 
                   {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href=""
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861]hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
+                 <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
 
                 </div>
               </div>
@@ -1941,7 +1969,7 @@ patriot: {
                   </div>
 
                   {/* Visit Website Button */}
-                  <div className="flex justify-end">
+                  {/* <div className="flex justify-end">
                     <Link
                       href=""
                       target="_blank"
@@ -1951,7 +1979,21 @@ patriot: {
                       Visit Website
                       <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
                     </Link>
-                  </div>
+                  </div> */}
+                  <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                 </div>
               </div>
               {/* fifth product */}
@@ -2024,17 +2066,20 @@ patriot: {
                   </div>
 
                   {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href=""
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
+                  <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Visit Website
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
                 </div>
               </div>
               
