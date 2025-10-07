@@ -23,6 +23,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 
+import CRMForm from '../../../components/CRMForm';
 export default function ProjectManagementPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [productSearch, setProductSearch] = useState("");
@@ -62,6 +63,8 @@ export default function ProjectManagementPage() {
       active: false,
     },
   ]);
+
+  //  form popup
 
   const toggleSection = (sectionKey, labelKey = null) => {
     setExpandedSections((prev) => ({
@@ -126,6 +129,19 @@ export default function ProjectManagementPage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Form popup
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
 
   const toolsContent = {
     HubSpot: {
@@ -1403,6 +1419,7 @@ extras: {
         },
       },
     },
+    
 //Copper CRM – Best for security
  Copper: {
       title: "Copper CRM – Best for security",
@@ -2058,6 +2075,7 @@ ClickUp: {
         <div className="absolute bottom-20 left-10 w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40 border border-white/5 rounded-full"></div>
 
         {/* Main content container */}
+        
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           {/* Breadcrumb Navigation */}
           <nav
@@ -2090,6 +2108,91 @@ ClickUp: {
               Best CRM Software
               <span className="block mt-2 sm:mt-4">2025</span>
             </h1>
+            
+    {/* CTA Button Section */}
+<div className="max-w-4xl xl:max-w-5xl mb-8 sm:mb-12 lg:mb-16">
+  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+    <button 
+      onClick={() => setIsFormOpen(true)}
+      className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#00f4b8] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+      aria-label="Get free quotes for payroll software"
+    >
+      <span className="relative z-10 flex items-center gap-3">
+        Get Free Quotes
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+    </button>
+    
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-2 text-sm sm:text-base lg:text-lg">
+        <svg className="w-5 h-5 text-[#00d9a6]" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        </svg>
+        <span className="font-semibold text-white">100% Free</span>
+        <span className="text-white/60">•</span>
+        <span className="text-white/80">No Commitment</span>
+      </div>
+      <div className="text-xs sm:text-sm text-white/60 pl-7">
+        Compare top payroll solutions in 60 seconds
+      </div>
+    </div>
+  </div>
+  
+  {/* Modal Integration */}
+  {isFormOpen && (
+    <div 
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          setIsFormOpen(false);
+        }
+      }}
+    >
+      <div className="relative bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        {/* Close Button */}
+        <button
+          onClick={() => setIsFormOpen(false)}
+          className="absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 transition-all duration-200 group"
+          aria-label="Close form"
+        >
+          <svg 
+            className="w-5 h-5 group-hover:scale-110 transition-transform" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M6 18L18 6M6 6l12 12" 
+            />
+          </svg>
+        </button>
+        
+        <CRMForm onClose={() => setIsFormOpen(false)} />
+      </div>
+    </div>
+  )}
+  
+  <style jsx>{`
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    .animate-shimmer {
+      animation: shimmer 3s infinite;
+    }
+  `}</style>
+</div>
           </div>
 
           
@@ -2115,6 +2218,8 @@ ClickUp: {
           
           
         </div>
+
+        
       </div>
 
       {/* Table of Contents - Left Sidebar */}
