@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import Image from "next/image";
 import { FaCheckCircle, FaCalendarAlt, FaPlus, FaMinus, FaClock, FaChevronDown } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
@@ -6,70 +6,53 @@ import { FaFacebookF, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown } from 'lucide-react';
- import Head from "next/head";
+import Head from "next/head";
 
-export default function BusinessIntelligencePage() {
- const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+export default function VoIPSoftwarePage() {
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
-const shareOnFacebook = () => {
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
-};
+  const shareOnFacebook = () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+  };
 
-const shareOnLinkedIn = () => {
-  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
-};
+  const shareOnLinkedIn = () => {
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+  };
 
-const shareOnTwitter = () => {
-  window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`, '_blank');
-};
+  const shareOnTwitter = () => {
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`, '_blank');
+  };
 
-const faqs = [
-  {
-    question: "What does business intelligence software do?",
-    answer:
-      "Business intelligence software collects, analyzes, and visualizes data from various sources to help businesses make data-driven decisions, optimize operations, and identify trends and insights.",
-  },
-  {
-    question: "Is SQL a business intelligence tool?",
-    answer:
-      "SQL itself is not a BI tool, but it is a foundational language used within many BI tools to query databases and extract relevant data for analysis.",
-  },
-  {
-    question: "Is Microsoft Excel a business intelligence tool?",
-    answer:
-      "Microsoft Excel is not a full BI tool but is widely used for data analysis and visualization. It integrates with BI platforms like Power BI to enhance reporting capabilities.",
-  },
-  {
-    question: "What is the main purpose of business intelligence?",
-    answer:
-      "The primary goal of BI is to help organizations make better strategic, tactical, and operational decisions through data insights and performance monitoring.",
-  },
-];
-  const tocItems = [
-    "What is business intelligence software?",
-    "My top picks for business intelligence software",
-    "Find your new BI software",
-    "Business intelligence software benefits",
-    "What is the business impact of business intelligence software?",
-    "Choosing the best software for business intelligence platform",
-    "Frequently Asked Questions (FAQ)",
-    "More business intelligence resources",
+  const faqs = [
+    {
+      question: "Which VoIP brand is best?",
+      answer: "The best VoIP brand depends on your business size, budget, and communication needs. If you're looking for industry leaders, Nextiva, RingCentral, and Vonage are among the most reliable and feature-rich options."
+    },
+    {
+      question: "How to choose a VoIP provider?",
+      answer: "Choose a VoIP provider by evaluating call management tools, user interface simplicity, integration capabilities, collaboration features, security compliance, and AI features that meet your specific business needs and budget."
+    },
+    {
+      question: "Which VoIP is best for home use?",
+      answer: "For home use, consider simple solutions like Grasshopper for a dedicated business line, or Ooma for basic calling features. These providers offer affordable plans without complex enterprise features."
+    }
   ];
-const [openTableauDetails, setOpenTableauDetails] = useState(false);
-  const [openTableauFeatures, setOpenTableauFeatures] = useState(false);
-  const [openTableauPricing, setOpenTableauPricing] = useState(false);
-  const [openSisenseDetails, setOpenSisenseDetails] = useState(false);
-const [openSisenseFeatures, setOpenSisenseFeatures] = useState(false);
-const [openSisensePricing, setOpenSisensePricing] = useState(false);
-const [openQlikDetails, setOpenQlikDetails] = useState(false);
-const [openQlikFeatures, setOpenQlikFeatures] = useState(false);
-const [openQlikPricing, setOpenQlikPricing] = useState(false);
-const [openZohoDetails, setOpenZohoDetails] = useState(false);
-const [openZohoFeatures, setOpenZohoFeatures] = useState(false);
-const [openZohoPricing, setOpenZohoPricing] = useState(false);
-const [openIBMCognosDetails, setOpenIBMCognosDetails] = useState(false);
-const [openIBMCognosFeatures, setOpenIBMCognosFeatures] = useState(false);
-const [openIBMCognosPricing, setOpenIBMCognosPricing] = useState(false);
+
+  const tocItems = [
+    "How VoIP software works",
+    "Top VoIP software at a glance", 
+    "6 Best VoIP Software & Providers",
+    "Nextiva: Best omnichannel customer platform",
+    "Zoom Phone: Best low-cost VoIP plans",
+    "RingCentral: Best AI-powered unified communications",
+    "Vonage: Best build-your-own VoIP",
+    "Ooma: Best entry-level VoIP for small business",
+    "Grasshopper: Best for setting up a dedicated business line",
+    "CallHippo: Best for call center management",
+    "Buyer's checklist: How to choose the best VoIP software",
+    "FAQs"
+  ];
+
   const contentRef = useRef(null);
   const [activeSection, setActiveSection] = useState(0);
 
@@ -94,1582 +77,1440 @@ const [openIBMCognosPricing, setOpenIBMCognosPricing] = useState(false);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [openSection, setOpenSection] = useState(null);
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
-  };
- const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [expandedSections, setExpandedSections] = useState({});
 
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
+  const toggleSection = (provider, section) => {
+    const key = `${provider}-${section}`;
+    setExpandedSections(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
+  // Logo component with fallback
+  const LogoImage = ({ src, alt, width = 120, height = 40, className = "" }) => {
+    const [imageError, setImageError] = useState(false);
+
+    return (
+      <div className={`flex items-center justify-center ${className}`}>
+        {!imageError ? (
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className="object-contain"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="flex items-center justify-center text-lg font-bold text-[#386861]">
+            {alt}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Updated Rating Bar Component - matching your design exactly
+  const RatingBar = ({ label, score, maxScore = 5 }) => {
+    const percentage = (score / maxScore) * 100;
+    return (
+      <div className="mb-4">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm text-gray-900 font-medium">{label}</span>
+          <span className="text-sm font-semibold text-gray-700">{score}/{maxScore}</span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div 
+            className="bg-[#386861] h-2 rounded-full transition-all duration-500" 
+            style={{ width: `${percentage}%` }}
+          ></div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
-    <Head>
-  <title>Business Intelligence Software Guide 2025 | Martechbiz</title>
-  <meta name="description" content="Explore the best business intelligence software tools of 2025. Compare top BI platforms, features, pricing, and implementation strategies for data-driven decision making." />  
-</Head>
+      <Head>
+        <title>6 Best VoIP Software & Providers for Business 2025 | Martechbiz</title>
+        <meta name="description" content="Compare the top VoIP software and providers for business communications. Find the best VoIP solution for your company with features, pricing, and expert reviews." />  
+      </Head>
 
       {/* Hero Section */}
-      <section className="bg-[#0E1F1C] text-white py-12 px-4 sm:px-8 lg:px-16 xl:px-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center text-sm text-white/80 mb-6 gap-2">
-            <HiHome className="text-lg" />
-            <span>/</span>
-            <span className="font-semibold text-white">Business Intelligence</span>
-          </div>
+     <section className="relative bg-gradient-to-br from-[#0A1612] via-[#0E1F1C] to-[#0A1612] text-white py-16 px-4 sm:px-8 lg:px-16 xl:px-32 overflow-hidden">
+  {/* Subtle background pattern */}
+  <div className="absolute inset-0 opacity-5">
+    <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+  </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Business Intelligence (BI) Software Guide 2025
-          </h1>
+  <div className="max-w-7xl mx-auto relative z-10">
+    {/* Breadcrumb */}
+    <div className="flex items-center text-sm text-white/60 mb-8 gap-2 hover:text-white/80 transition-colors">
+      <HiHome className="text-base" />
+      <span className="text-white/40">/</span>
+      <span className="font-medium text-emerald-400">VoIP Software</span>
+    </div>
 
-         
+    {/* Main heading with gradient accent */}
+    <div className="mb-8">
+      <div className="inline-block">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 leading-tight">
+          6 Best VoIP Software & Providers
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mt-2">
+            for Business 2025
+          </span>
+        </h1>
+      </div>
+      
+      {/* Tagline */}
+      <p className="text-lg sm:text-xl text-white/70 mt-4 font-light max-w-3xl">
+        Expert-tested communication solutions to transform how your team connects, collaborates, and grows.
+      </p>
+    </div>
 
-         
+    {/* Stats badges */}
+    <div className="flex flex-wrap gap-4 mb-10">
+      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
+        <FaCheckCircle className="text-emerald-400 text-sm" />
+        <span className="text-sm font-medium">Expert Reviewed</span>
+      </div>
+      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
+        <FaCheckCircle className="text-teal-400 text-sm" />
+        <span className="text-sm font-medium">5+ Years Testing</span>
+      </div>
+    </div>
 
-          <div className="flex items-start gap-4 text-white/90 text-sm mb-8">
-            <FaCheckCircle className="text-green-400 mt-1 text-xl" />
-            <p className="leading-relaxed">
-              Martechbiz is able to offer our services for free because some vendors may pay us
-              for web traffic or other sales opportunities. Our mission is to help technology buyers make
-              better purchasing decisions, so we provide you with information for all vendors — even those
-              that don't pay us.
-            </p>
-          </div>
-
-          
+    {/* Enhanced author note */}
+    <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 sm:p-8 max-w-4xl">
+      <div className="flex items-start gap-4">
+        <FaCheckCircle className="text-emerald-400 mt-1 text-2xl flex-shrink-0" />
+        <div>
+          <h3 className="text-lg font-semibold mb-3 text-white">Why Trust This Guide?</h3>
+          <p className="text-white/80 leading-relaxed">
+            Working in business communications and marketing, part of my role is to explore solutions that make it easier for teams and customers to stay connected. Over the past five years, I've tested many of the best VoIP providers and want to share practical insights to guide you toward making the right choice for your company.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Main Content Section */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-4 sm:px-8 lg:px-16 py-8">
           {/* TOC Sidebar - Fixed Position */}
-           <aside className="lg:w-80 lg:sticky lg:top-24 lg:self-start">
-  <div className="bg-white rounded-4xl shadow-sm border border-gray-200 p-6" style={{ scrollBehavior: "smooth" }}>
-    <h2 className="text-lg font-semibold text-gray-900 mb-4">Table of contents</h2>
+          <aside className="lg:w-80 lg:sticky lg:top-24 lg:self-start">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">Table of contents</h2>
 
-    <nav className="space-y-2">
-      {tocItems.map((item, i) => (
-        <div
-          key={i}
-          onClick={() => {
-            const section = document.getElementById(`section-${i}`);
-            if (section) {
-              window.scrollTo({
-                top: section.offsetTop - 120,
-                behavior: "smooth"
-              });
-            }
-          }}
-          className={`block py-2 px-3 rounded-md text-sm cursor-pointer transition-colors duration-200 ${
-            activeSection === i
-              ? "bg-[#386861] text-white border-l-4 border-[#386861] font-medium"
-              : "text-gray-600 hover:text-black hover:bg-gray-100"
-          }`}
-        >
-          {item}
-        </div>
-      ))}
-    </nav>
+              <nav className="space-y-2">
+                {tocItems.map((item, i) => (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      const section = document.getElementById(`section-${i}`);
+                      if (section) {
+                        window.scrollTo({
+                          top: section.offsetTop - 120,
+                          behavior: "smooth"
+                        });
+                      }
+                    }}
+                    className={`block py-2 px-3 rounded-md text-sm cursor-pointer transition-colors duration-200 ${
+                      activeSection === i
+                        ? "bg-[#386861] text-white font-medium"
+                        : "text-gray-600 hover:text-black hover:bg-gray-100"
+                    }`}
+                  >
+                    {item}
+                  </div>
+                ))}
+              </nav>
 
-    {/* Share Section */}
-    <div className="mt-8 pt-6 border-t border-gray-200">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this article</h3>
-      <div className="flex space-x-3">
-        <button
-          onClick={shareOnFacebook}
-          className="w-12 h-12 rounded-full bg-[#386861]text-white flex items-center justify-center hover:bg-blue-700 transition-colors duration-200"
-          aria-label="Share on Facebook"
-        >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-          </svg>
-        </button>
-        <button
-          onClick={shareOnLinkedIn}
-          className="w-12 h-12 rounded-full bg-[#386861] text-white flex items-center justify-center hover:bg-blue-800 transition-colors duration-200"
-          aria-label="Share on LinkedIn"
-        >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-        </button>
-        <button
-          onClick={shareOnTwitter}
-          className="w-12 h-12 rounded-full bg-[#386861] text-white flex items-center justify-center hover:bg-blue-800 transition-colors duration-200"
-          aria-label="Share on Twitter"
-        >
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</aside>
-
+              {/* Share Section */}
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this article</h3>
+                <div className="flex space-x-3">
+                  <button
+                    onClick={shareOnFacebook}
+                    className="w-12 h-12 rounded-full bg-[#386861] text-white flex items-center justify-center hover:bg-[#2d5249] transition-colors duration-200"
+                    aria-label="Share on Facebook"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={shareOnLinkedIn}
+                    className="w-12 h-12 rounded-full bg-[#386861] text-white flex items-center justify-center hover:bg-[#2d5249] transition-colors duration-200"
+                    aria-label="Share on LinkedIn"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={shareOnTwitter}
+                    className="w-12 h-12 rounded-full bg-[#386861] text-white flex items-center justify-center hover:bg-[#2d5249] transition-colors duration-200"
+                    aria-label="Share on Twitter"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
 
           {/* Main Article - Scrollable Content */}
           <div className="lg:w-3/4" ref={contentRef}>
-            {/* Section 1 */}
-            <section id="1" className="mb-16">
+            {/* Section 1: How VoIP software works */}
+            <section id="section-0" className="mb-16">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                What is business intelligence software?
+                How VoIP software works
               </h2>
 
               <div className="space-y-4 text-gray-700">
                 <p>
-                  <Link href="#" className="text-[#386861] font-medium underline">
-                    Business intelligence (BI) software
-                  </Link>{" "}
-                  is any application that collects and processes large amounts of unstructured data from
-                  internal and external systems and prepares data for analysis...
+                  VoIP, or voice-over-internet protocol, works by transmitting phone calls through the internet instead of traditional landlines. In a business setting, this means employees can make and receive calls on desktops, laptops, or mobile devices as long as they are connected to the internet. Calls are converted into digital signals, routed through secure servers, and delivered to the recipient's phone number, just like a standard call.
                 </p>
 
                 <p>
-                  Business intelligence tools gather data from various sources, such as databases, spreadsheets...
+                  The shift to cloud-based VoIP calling is part of a broader industry trend, where 96% of North American organizations are expected to adopt cloud or mobile private branch exchange (PBX) solutions by the end of 2026.
                 </p>
 
-                <p>Check out my picks for the top business intelligence software below.</p>
-
-                <ul className="list-disc ml-5 space-y-2">
-                  <li>
-                    <Link href="#" className="text-[#386861] font-medium">Tableau</Link>: Best for data visualization
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#386861] font-medium">Sisense</Link>: Best for embedded analytics
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#386861] font-medium">Qlik Sense</Link>: Best mobile BI software
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#386861] font-medium">Zoho Analytics</Link>: Best self-service BI software
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#386861] font-medium">IBM Cognos Analytics</Link>: Best for reporting
-                  </li>
-                </ul>
-                  {/* Collapsible Sections */}
-            <div className="mt-12 space-y-6">
-              <div className="border-b">
-                <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection('updates')}>
-                  <div className="flex items-center gap-2 text-gray-700 font-semibold text-base">
-                    <FaClock className="text-gray-500" />
-                    Update notes
-                  </div>
-                  <button className="w-6 h-6 flex items-center justify-center rounded bg-[#386861] text-white text-sm">
-                    {openSection === 'updates' ? <FaMinus /> : <FaPlus />}
-                  </button>
-                </div>
-                {openSection === 'updates' && (
-                  <div className="pt-6 text-sm text-gray-800 space-y-2">
-                    <p><strong>December 23, 2024:</strong> A few minor updates...</p>
-                    <p><strong>November 13, 2024:</strong> Updated all vendors...</p>
-                  </div>
-                )}
-              </div>
-
-              <div className="border-b">
-                <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleSection('methodology')}>
-                  <div className="flex items-center gap-2 text-gray-700 font-semibold text-base">
-                    <FaClock className="text-gray-500" />
-                    Methodology
-                  </div>
-                  <button className="w-6 h-6 flex items-center justify-center rounded bg-[#386861] text-white text-sm">
-                    {openSection === 'methodology' ? <FaMinus /> : <FaPlus />}
-                  </button>
-                </div>
-                {openSection === 'methodology' && (
-                  <div className="pt-6 text-sm text-gray-800 space-y-3">
-                    <p>At Martechbiz, we assess a wide range of factors before selecting our top choices...</p>
-                  </div>
-                )}
-              </div>
-            </div>
+                <p>
+                  For businesses, VoIP provides a centralized communication system that supports calling, messaging, and even video conferencing under one platform. Businesses can scale easily by adding virtual phone numbers or features like call forwarding and voicemail-to-email without new hardware. This flexibility allows teams to stay connected from any location, while reducing costs compared to maintaining traditional phone lines.
+                </p>
               </div>
             </section>
 
-            {/* Section 2 - Tableau Pick Card */}
+            {/* Section 2: Top VoIP software at a glance */}
+            <section id="section-1" className="mb-16">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                Top VoIP software at a glance
+              </h2>
+
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300 text-sm">
+                  <thead>
+                    <tr className="bg-gray-50">
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Best VoIP software</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Monthly starting price</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Free trial</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Key features</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">My rating</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/nextiva-logo.png" alt="Nextiva" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$23</td>
+                      <td className="border border-gray-300 px-4 py-3">❌</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Shared SMS inbox<br/>
+                        Custom call routing rules<br/>
+                        Local & toll-free numbers
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.9</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/zoom-logo.png" alt="Zoom Phone" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$10</td>
+                      <td className="border border-gray-300 px-4 py-3">❌</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Voicemail task extraction<br/>
+                        Online faxing<br/>
+                        Post-call summaries
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.86</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/ringcentral-logo.png" alt="RingCentral" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$30</td>
+                      <td className="border border-gray-300 px-4 py-3">14 days</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        24/7 AI answering<br/>
+                        In-depth call analytics<br/>
+                        Multi-level phone menus
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.56</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/vonage-logo.png" alt="Vonage" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$19.99</td>
+                      <td className="border border-gray-300 px-4 py-3">14 days</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Unlimited SMS<br/>
+                        40+ phone features<br/>
+                        Visual voicemail
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.48</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/ooma-logo.png" alt="Ooma" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$19.95</td>
+                      <td className="border border-gray-300 px-4 py-3">❌</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Toll-free minutes<br/>
+                        Company directory<br/>
+                        Custom caller ID
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.31</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/grasshopper-logo.png" alt="Grasshopper" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">$18</td>
+                      <td className="border border-gray-300 px-4 py-3">7 days</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Vanity phone numbers<br/>
+                        Unlimited extensions<br/>
+                        Custom phone greetings
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.25</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <LogoImage src="/logos/callhippo-logo.png" alt="CallHippo" width={80} height={24} />
+                        </div>
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">Free or $25</td>
+                      <td className="border border-gray-300 px-4 py-3">10 days</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Free VoIP plan<br/>
+                        Unlimited landline/mobile calls<br/>
+                        Omnichannel inbox
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3">4.16</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* Section 3: 6 Best VoIP Software & Providers */}
             <section id="section-2" className="mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                My top picks for business intelligence software
+                6 Best VoIP Software & Providers
               </h2>
-              
-        
-       <div className="bg-white rounded-xl shadow-md border overflow-hidden mt-12">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b bg-[#F5F8F7]">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-              Tableau: Best for data visualization
-            </h3>
-          </div>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 md:mt-0 inline-block bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded hover:bg-green-700 transition"
-          >
-            Visit Website
-          </a>
-        </div>
 
-        <div className="px-6 py-4 border-b">
-          <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
-            <span>Overall Score</span>
-            <span className="font-semibold text-lg text-gray-800">4.3/5</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-[#386861] h-2 rounded-full" style={{ width: "86%" }}></div>
-          </div>
-        </div>
-
-        <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Pros</h4>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">+</span>
-                Quick, attractive data visualization
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">+</span>
-                Drag-and-drop interface good for beginners
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">+</span>
-                Real-time data reflection
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Cons</h4>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">–</span>
-                Can be expensive
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">–</span>
-                Experience needed to fully leverage capabilities
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="px-6 pb-6">
-          <h4 className="font-semibold text-gray-800 text-base mb-2">Why I picked Tableau</h4>
-          <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-            <p>
-              Tableau's data visualization capabilities and easy-to-use interface have always been this software's greatest strengths.
-            </p>
-            
-            <p>
-              With the recent 2024.3 update, I'm seeing Tableau reinforce its position as a top player in the analytics space. The update introduces Tableau Cloud Manager, which allows me to manage licenses centrally without needing to license each user individually. This is a significant time-saver for enterprise clients, especially with data governance requirements. New features like the table viz extension, spatial parameters, and integration with Microsoft Teams further streamline Tableau's usability.
-            </p>
-            
-            <p>
-              The 'Embedding Playground' is a nice addition, giving greater flexibility and creativity when embedding analytics—something I haven't found in other BI tools like Microsoft Power BI or Qlik. I also appreciate the new 'Custom Data Labels,' which improve data management with advanced categorization and discovery options that stand out compared to competitors.
-            </p>
-            
-            <p>
-              Tableau's 'Dynamic Axis Ranges' bring impressive customization to visualizations, allowing me to adapt views to different datasets with ease—a level of flexibility that many other platforms don't match. Integration with Salesforce through the 'Native Lightning Web Component for Tableau' and the 'Tableau Cloud add-on for Google Workspace' enhances the analytics experience across platforms. This level of seamless integration is particularly valuable, especially when compared to Power BI, which, while strong within Microsoft's ecosystem, may not offer the same flexibility across different platforms.
-            </p>
-            
-            <p>
-              The software's focus on enhancing user experience and customization, coupled with strategic integrations, positions it as a comprehensive tool for data-driven decision-making. In comparison to its key competitors, Tableau offers a unique combination of versatility, innovation, and user-centric design, making it an strong asset in any data-driven organization's toolkit.
-            </p>
-            
-            <a href="#" className="text-[#386861] font-medium inline-block mt-4">
-              Also read: Top Tableau Alternatives For Visualizing & Analyzing Data
-            </a>
-          </div>
-
-          {/* About Tableau Collapsible Section */}
-          <div className="mt-8 border-t pt-6">
-            <button 
-              className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-              onClick={() => setOpenTableauDetails(!openTableauDetails)}
-            >
-              <span>About Tableau</span>
-              <ChevronDown className={`transition-transform ${openTableauDetails ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {openTableauDetails && (
-              <div className="mt-4 text-sm text-gray-700 space-y-4">
+              <div className="space-y-4 text-gray-700 mb-8">
                 <p>
-                  Tableau, a leading data visualization BI tool, is designed to help businesses turn raw data into actionable insights. Its standout features include an intuitive drag-and-drop interface, real-time data analytics, and interactive dashboards that empower users to explore data in a user-friendly environment. Tableau's Data Blending and Cross-Database Joins enable the combination of data from multiple sources, and its Tableau Public allows the sharing of data visualizations to a wider audience.
+                  Below, you'll find my top six best VoIP providers, each with its own use case to fit different business needs:
                 </p>
-                <p>
-                  Users can present data in the form of charts, graphs, and other visual representations with dashboards and visualization tools. It also allows users to identify trends and patterns in data and make more informed decisions.
-                </p>
+                
+                <ul className="list-disc ml-5 space-y-2">
+                  <li><Link href="#" className="text-[#386861] font-medium">Nextiva</Link>: Best omnichannel customer platform</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">Zoom Phone</Link>: Best low-cost VoIP plans</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">RingCentral</Link>: Best AI-powered unified communications</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">Vonage</Link>: Best build-your-own VoIP</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">Ooma</Link>: Best entry-level VoIP for small business</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">Grasshopper</Link>: Best for setting up a dedicated business line</li>
+                  <li><Link href="#" className="text-[#386861] font-medium">CallHippo</Link>: Best for call center management</li>
+                </ul>
               </div>
-            )}
-          </div>
+            </section>
 
-          {/* Key Features Collapsible Section */}
-          <div className="mt-6 border-t pt-6">
-            <button 
-              className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-              onClick={() => setOpenTableauFeatures(!openTableauFeatures)}
-            >
-              <span>Key Features</span>
-              <ChevronDown className={`transition-transform ${openTableauFeatures ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {openTableauFeatures && (
-              <div className="mt-4 text-sm text-gray-700 space-y-6">
-                <div>
-                  <h5 className="font-medium mb-1">Tableau Public</h5>
-                  <p>
-                    This proprietary feature allows users to publish their data visualizations to the public, providing a platform for sharing and collaboration. It promotes transparency and broadens the reach of your insights, making data storytelling accessible to a wide audience.
-                  </p>
+            {/* Nextiva Card */}
+            <section id="section-3" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">N</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">Nextiva: Best omnichannel customer platform</h3>
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors"
+                  >
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Tableau Pulse AI Insights</h5>
-                  <p>
-                    This system allows for AI insights garnered from your data appearing throughout the Tableau system. Being tied to Salesforce, a leader in AI among B2B software vendors, has undoubtedly benefited Tableau as it brings forward its own AI tools.
-                  </p>
-                </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Data Blending</h5>
-                  <p>
-                    Data blending allows users to combine data from multiple sources without the need for complex data warehouse solutions. This feature simplifies the process of analyzing disparate data, providing a comprehensive view of insights.
-                  </p>
-                </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Hyper Engine</h5>
-                  <p>
-                    Tableau's Hyper Engine is a high-performance in-memory data engine technology that helps businesses analyze large datasets at impressive speed. This feature ensures efficient data exploration and rapid extraction of insights, enhancing the overall user experience.
-                  </p>
-                </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Mobile Optimized</h5>
-                  <p>
-                    Tableau offers robust mobile support, allowing users to access, interact with, and explore their data visualizations on mobile devices. The platform provides a seamless experience across desktop and mobile, enabling decision-makers to access insights anywhere and anytime.
-                  </p>
-                </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Advanced Analytics</h5>
-                  <p>
-                    Tableau includes advanced analytics capabilities, such as predictive modeling and statistical analysis. Users can leverage these tools to delve deeper into their data, identify trends, and make predictions based on historical data, enhancing strategic decision-making.
-                  </p>
-                </div>
-                
-                <div>
-                  <h5 className="font-medium mb-1">Extensive Customization Options</h5>
-                  <p>
-                    Tableau allows extensive customization of dashboards and reports with its powerful scripting capabilities using Tableau's Calculation Language. Users can manipulate data, customize visualizations, and fine-tune analytics to meet specific business requirements, enabling precise and meaningful data representation.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
 
-          {/* Pricing & Ratings Collapsible Section */}
-          <div className="mt-6 border-t pt-6">
-            <button 
-              className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-              onClick={() => setOpenTableauPricing(!openTableauPricing)}
-            >
-              <span>Pricing & Ratings</span>
-              <ChevronDown className={`transition-transform ${openTableauPricing ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {openTableauPricing && (
-              <div className="mt-4 text-sm text-gray-700 space-y-6">
-                <div>
-                  <h5 className="font-medium mb-2">Pricing</h5>
-                  <ul className="space-y-2">
-                    <li>Free trial available</li>
-                    <li>Free version available</li>
-                    <li>Tableau Viewer: $15/user/month</li>
-                    <li>Tableau Explorer: $40/user/month</li>
-                    <li>Tableau Creator: $70/user/month</li>
-                  </ul>
+                {/* Overall Rating */}
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.9/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "98%" }}></div>
+                  </div>
                 </div>
-                
-                <div>
-                  <h5 className="font-medium mb-2">Our Ratings</h5>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Pricing:</span>
-                      <span>4.2/5</span>
+
+                {/* Detailed Ratings */}
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={5} />
+                    <RatingBar label="General features" score={5} />
+                    <RatingBar label="Advanced features" score={4.63} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={3.81} />
+                    <RatingBar label="Expert score" score={5} />
+                  </div>
+                </div>
+
+                {/* Pros and Cons */}
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Supports voice and other digital channels</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Intuitive mobile and desktop app</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Customizable call routing rules</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Very responsive customer support</span>
+                        </li>
+                      </ul>
                     </div>
-                    <div className="flex justify-between">
-                      <span>General features and interface:</span>
-                      <span>4.3/5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Core features:</span>
-                      <span>5/5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Advanced features:</span>
-                      <span>4.5/5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Integration and compatibility:</span>
-                      <span>4.7/5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>UX:</span>
-                      <span>3.6/5</span>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">No interface previews available; users must sign up for a demo</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Requires a 12-month contract to avail of Small Business pricing</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-            
-           
-          </div>
-            <a 
-                href="#" 
-                className="inline-block mt-4 px-4 py-2 bg-[#386861] text-white rounded hover:bg-green-700 transition-colors text-sm font-medium"
-              >
-                Read our full review
-              </a>
-        </div>
-         
-      </div>
-           
-    
-                              {/* Sisense Card */}
-  <div className="bg-white rounded-xl shadow-md border overflow-hidden mt-12">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b bg-[#F5F8F7]">
-      <div>
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-          Sisense: Best for embedded analytics
-        </h3>
-      </div>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 md:mt-0 inline-block bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded hover:bg-green-700 transition"
-      >
-        Visit Website
-      </a>
-    </div>
 
-    {/* Overall Score */}
-    <div className="px-6 py-4 border-b">
-      <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
-        <span>Overall Score</span>
-        <span className="font-semibold text-lg text-gray-800">4.1/5</span>
-      </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
-        <div className="bg-[#386861] h-2 rounded-full" style={{ width: "82%" }}></div>
-      </div>
-    </div>
-
-    {/* Pros & Cons */}
-    <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      {/* Pros */}
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Pros</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Embedded analytics
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            AI-powered Ask Data feature
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            In-Chip technology
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Good customer support
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Handles large datasets well
-          </li>
-        </ul>
-      </div>
-
-      {/* Cons */}
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Cons</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Learning curve
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Resource intensive
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Why I picked Sisense */}
-    <div className="px-6 pb-6">
-      <h4 className="font-semibold text-gray-800 text-base mb-2">Why I picked Sisense</h4>
-      <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Sisense's recent updates and features, particularly in embedded analytics, make it a compelling choice for businesses seeking a BI solution that offers deep integration capabilities, efficient data handling, and user-friendly interfaces. Unlike Power BI, Sisense provides distinct advantages in embedded analytics and data manipulation, although it may require stronger IT support for implementation and advanced analytics setup.
-        </p>
-        
-        <p>
-          In Sisense's 2024.3 update, I found several enhancements that make it stand out as an embedded analytics solution. The new AI-powered "Ask Data" feature allows me to interact with data using natural language, instantly generating visualizations and making data exploration incredibly intuitive. The improved dashboard customization options also let me tailor views to specific needs, offering a flexible and personalized experience. Additionally, the expanded data connectivity means I can seamlessly pull data from more sources, which simplifies integrations. With faster load times and enhanced security measures, Sisense has proven to be both powerful and secure, making it an ideal choice for our analytics needs.
-        </p>
-        
-        <p>
-          In a head-to-head comparison with Microsoft Power BI, Sisense stands out for its ability to "infuse analytics everywhere", including within customer and employee applications and workflows. While both platforms offer robust data visualization and AI analytics, Sisense's Elasticube technology is notable for its fast query returns on large datasets. In my opinion, that's a critical feature for businesses handling vast amounts of data.
-        </p>
-        
-        <p>
-          Sisense also fares well in its data integration capabilities, offering over 100 data connectors. While Power BI surpasses this with over 500 connectors, Sisense's Elasticube technology compensates by enabling efficient manipulation of diverse data sources. Sisense's drag-and-drop interface and interactive visualizations provide an easy-to-use platform for building custom BI dashboards, a feature well-received by its users.
-        </p>
-        
-        <p>
-          The software's 'Fusion Embed' solution is designed specifically for building white-labeled analytic experiences in apps, a testament to its strong embedded analytics capabilities. This feature, along with Sisense's scalability and customization options with minimal coding, makes it an ideal choice for businesses looking to integrate analytics seamlessly into their products or services.
-        </p>
-        
-        <Link href="#" className="text-[#386861] font-medium inline-block mt-4">
-          Also read: Top Sisense Alternatives For Embedded Analytics
-        </Link>
-      </div>
-
-      {/* About Sisense Collapsible Section */}
-      <div className="mt-8 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenSisenseDetails(!openSisenseDetails)}
-        >
-          <span>About Sisense</span>
-          <FaChevronDown className={`transition-transform ${openSisenseDetails ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openSisenseDetails && (
-          <div className="mt-4 text-sm text-gray-700 space-y-4">
-            <p>
-              Sisense is a business intelligence platform specializing in embedded analytics. It enables organizations to integrate analytics into their applications and products, providing end-users with data insights directly within their workflow. Known for its powerful data processing capabilities and intuitive interface, Sisense helps businesses transform complex data into actionable insights.
-            </p>
-            <p>
-              The platform is particularly strong in handling large datasets and offers a unique In-Chip technology that accelerates data processing. Sisense serves a wide range of industries including healthcare, finance, retail, and technology, helping them make data-driven decisions.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Key Features Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenSisenseFeatures(!openSisenseFeatures)}
-        >
-          <span>Key Features</span>
-          <FaChevronDown className={`transition-transform ${openSisenseFeatures ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openSisenseFeatures && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-1">Embedded Analytics</h5>
-              <p>
-                Sisense's core strength lies in its ability to embed analytics directly into applications and workflows, enabling seamless data experiences for end-users without leaving their primary applications.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Elasticube Technology</h5>
-              <p>
-                This proprietary technology enables fast querying of large datasets by creating optimized data models that can be shared across an organization.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">AI-Powered Ask Data</h5>
-              <p>
-                Natural language processing allows users to query data using everyday language, with the system automatically generating relevant visualizations.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">In-Chip Technology</h5>
-              <p>
-                Accelerates data processing by leveraging CPU cache memory rather than traditional RAM, resulting in faster performance with large datasets.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Fusion Embed</h5>
-              <p>
-                A comprehensive solution for building white-labeled analytic experiences within applications with minimal coding requirements.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Extensive Data Connectivity</h5>
-              <p>
-                Supports connections to over 100 data sources including databases, cloud services, and spreadsheets.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Pricing & Ratings Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenSisensePricing(!openSisensePricing)}
-        >
-          <span>Pricing & Ratings</span>
-          <FaChevronDown className={`transition-transform ${openSisensePricing ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openSisensePricing && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-2">Pricing</h5>
-              <ul className="space-y-2">
-                <li>Custom pricing based on deployment needs</li>
-                <li>Free trial available</li>
-                <li>Contact sales for specific pricing tiers</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-2">Our Ratings</h5>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Pricing:</span>
-                  <span>3.9/5</span>
+                {/* Why I chose section */}
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose Nextiva</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      Businesses with client-facing teams often adopt VoIP to improve customer interactions, and if that's your main goal, Nextiva stands out as a strong choice. In my years of testing VoIP platforms, I've noticed that most providers limit you to just three customer channels: phone, SMS, and chat. Nextiva goes further by adding social media, web chat, and even review sites, giving your team a true omnichannel experience.
+                    </p>
+                    
+                    <p>
+                      Although VoIP is its foundation, Nextiva positions itself more as a customer experience management platform. It unifies every customer touchpoint and integrates tightly with CRM systems (e.g., HubSpot, Zendesk, Zoho), allowing you to place calls directly within the platform or pull up customer data in real time.
+                    </p>
+                    
+                    <p>
+                      That said, I don't recommend Nextiva for startups with only basic communication needs. If you mainly connect with customers through phone and SMS, a simpler and more affordable option like Grasshopper will give you better value for your money.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span>Embedded Analytics:</span>
-                  <span>4.8/5</span>
+
+                {/* Expandable sections */}
+                <div className="border-b border-gray-200">
+                  <button
+                    onClick={() => toggleSection('nextiva', 'features')}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="font-semibold text-gray-900">Key features</span>
+                    <div className="w-6 h-6 bg-[#386861] rounded flex items-center justify-center">
+                      {expandedSections['nextiva-features'] ? (
+                        <FaMinus className="text-white text-xs" />
+                      ) : (
+                        <FaPlus className="text-white text-xs" />
+                      )}
+                    </div>
+                  </button>
+                  {expandedSections['nextiva-features'] && (
+                    <div className="px-6 pb-6 border-t border-gray-100">
+                      <ul className="space-y-2 mt-4">
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#386861] rounded-full"></span>
+                          <span className="text-gray-700">Shared SMS inbox for team collaboration</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#386861] rounded-full"></span>
+                          <span className="text-gray-700">Custom call routing rules and workflows</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#386861] rounded-full"></span>
+                          <span className="text-gray-700">Local & toll-free numbers in 100+ countries</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-[#386861] rounded-full"></span>
+                          <span className="text-gray-700">CRM integrations with HubSpot, Salesforce, and more</span>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                <div className="flex justify-between">
-                  <span>Data Processing:</span>
-                  <span>4.6/5</span>
+
+                <div className="border-b border-gray-200">
+                  <button
+                    onClick={() => toggleSection('nextiva', 'gallery')}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="font-semibold text-gray-900">Gallery</span>
+                    <div className="w-6 h-6 bg-[#386861] rounded flex items-center justify-center">
+                      {expandedSections['nextiva-gallery'] ? (
+                        <FaMinus className="text-white text-xs" />
+                      ) : (
+                        <FaPlus className="text-white text-xs" />
+                      )}
+                    </div>
+                  </button>
+                  {expandedSections['nextiva-gallery'] && (
+                    <div className="px-6 pb-6 border-t border-gray-100">
+                      <p className="text-gray-700 mt-4">Screenshots and product images would be displayed here.</p>
+                    </div>
+                  )}
                 </div>
-                <div className="flex justify-between">
-                  <span>Customization:</span>
-                  <span>4.4/5</span>
+
+                <div className="border-b border-gray-200">
+                  <button
+                    onClick={() => toggleSection('nextiva', 'pricing')}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="font-semibold text-gray-900">Nextiva pricing</span>
+                    <div className="w-6 h-6 bg-[#386861] rounded flex items-center justify-center">
+                      {expandedSections['nextiva-pricing'] ? (
+                        <FaMinus className="text-white text-xs" />
+                      ) : (
+                        <FaPlus className="text-white text-xs" />
+                      )}
+                    </div>
+                  </button>
+                  {expandedSections['nextiva-pricing'] && (
+                    <div className="px-6 pb-6 border-t border-gray-100">
+                      <div className="mt-4 space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700 font-medium">Essential Plan</span>
+                          <span className="text-gray-900 font-bold">$23/user/month</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700 font-medium">Professional Plan</span>
+                          <span className="text-gray-900 font-bold">$33/user/month</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700 font-medium">Enterprise Plan</span>
+                          <span className="text-gray-900 font-bold">$43/user/month</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="flex justify-between">
-                  <span>Integration:</span>
-                  <span>4.3/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>UX:</span>
-                  <span>3.8/5</span>
+
+                {/* Footer buttons */}
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link 
+                    href="#" 
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium"
+                  >
+                    Read our Nextiva review
+                  </Link>
+                  <Link 
+                    href="#" 
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium"
+                  >
+                    Submit your review
+                  </Link>
                 </div>
               </div>
-            </div>
-            
-            
-                   </div>
-        )}
-         <Link 
-              href="#" 
-              className="inline-block mt-4 px-4 py-2 bg-[#386861] text-white rounded hover:bg-green-700 transition-colors text-sm font-medium"
-            >
-              Read our full review
-            </Link>
-      </div>
-    </div>
-  </div>
-   <div className="bg-white rounded-xl shadow-md border overflow-hidden mt-12">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b bg-[#F5F8F7]">
-      <div>
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-          Qlik Sense: Best mobile BI software
-        </h3>
-      </div>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 md:mt-0 inline-block bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded hover:bg-green-700 transition"
-      >
-        Visit Website
-      </a>
-    </div>
-
-    {/* Overall Score */}
-    <div className="px-6 py-4 border-b">
-      <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
-        <span>Overall Score</span>
-        <span className="font-semibold text-lg text-gray-800">4.0/5</span>
-      </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
-        <div className="bg-[#386861] h-2 rounded-full" style={{ width: "80%" }}></div>
-      </div>
-    </div>
-
-    {/* Pros & Cons */}
-    <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Pros</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Lower entry price
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Powerful visualization tools
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Associative data model
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Self-service analytics
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Quality Mobile BI
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Cons</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Slower with larger data sets
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Extra cost for add-ons
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Why I picked Qlik Sense */}
-    <div className="px-6 pb-6">
-      <h4 className="font-semibold text-gray-800 text-base mb-2">Why I picked Qlik Sense</h4>
-      <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-        <p>
-          One of the key upgrades includes the introduction of a flexible text object in the Dashboard bundle, allowing advanced styling of text, the addition of measures, and the incorporation of tables. This flexibility is vital for mobile users who need to tailor their dashboards on-the-go. Additionally, the Natural Language Insights object has been updated for better functionality and insights, with native support for all Qlik Cloud features. This enhancement significantly boosts data literacy, a crucial aspect for mobile users who often require quick and comprehensible data insights.
-        </p>
-        
-        <p>
-          The updates also encompass improved font handling, ensuring consistent rendering across devices, which is critical for mobile interfaces, and a new line object that adds customization and detail to sheets, enhancing the mobile user experience. Moreover, the introduction of complex calculations in data tables and the ability to download images for straight table visualization in the Nebula-based straight table are particularly beneficial for mobile users who work with large datasets and require efficient data manipulation and reporting capabilities.
-        </p>
-        
-        <p>
-          In comparison to its major competitors, Microsoft Power BI and Tableau, Qlik Sense holds its ground well. While Power BI is lauded for its integration with Microsoft solutions and dynamic report creation, it faces challenges with user accessibility and training. Similarly, Tableau, known for its powerful data visualization and flexibility, struggles with functionality and user-friendliness. In contrast, Qlik Sense's recent enhancements, particularly in mobile capabilities such as responsive design, a mobile application, and interactive dashboards, provide it with a competitive edge.
-        </p>
-        
-        <p>
-          When considering Qlik Sense's comprehensive updates and its standing against Power BI and Tableau, it's evident that Qlik Sense offers a well-rounded and increasingly user-friendly experience for mobile users.
-        </p>
-        
-        <Link href="#" className="text-[#386861] font-medium inline-block mt-4">
-          Also read: Top Qlik Sense Alternatives For Mobile BI
-        </Link>
-      </div>
-
-      {/* About Qlik Sense Collapsible Section */}
-      <div className="mt-8 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenQlikDetails(!openQlikDetails)}
-        >
-          <span>About Qlik Sense</span>
-          <FaChevronDown className={`transition-transform ${openQlikDetails ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openQlikDetails && (
-          <div className="mt-4 text-sm text-gray-700 space-y-4">
-            <p>
-              Qlik Sense is a modern business intelligence platform known for its associative analytics engine and mobile-first approach. It enables users to explore data freely across all devices while maintaining enterprise-grade security and governance.
-            </p>
-            <p>
-              The platform is designed with a strong focus on self-service visualization and discovery, allowing users to create personalized, interactive dashboards that work seamlessly on mobile devices.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Key Features Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenQlikFeatures(!openQlikFeatures)}
-        >
-          <span>Key Features</span>
-          <FaChevronDown className={`transition-transform ${openQlikFeatures ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openQlikFeatures && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-1">Associative Analytics Engine</h5>
-              <p>
-                Unique data indexing technology that reveals hidden insights by maintaining all possible data relationships.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Mobile-First Design</h5>
-              <p>
-                Responsive interfaces and dedicated mobile apps that provide full functionality on smartphones and tablets.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Natural Language Processing</h5>
-              <p>
-                AI-powered insights through conversational queries in plain language.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Augmented Analytics</h5>
-              <p>
-                Automated insights and suggestions that highlight important trends and outliers.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Multi-Cloud Architecture</h5>
-              <p>
-                Flexible deployment options across public and private clouds with centralized management.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Pricing & Ratings Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenQlikPricing(!openQlikPricing)}
-        >
-          <span>Pricing & Ratings</span>
-          <FaChevronDown className={`transition-transform ${openQlikPricing ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openQlikPricing && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-2">Pricing</h5>
-              <ul className="space-y-2">
-                <li>Business: $30/user/month</li>
-                <li>Enterprise: Custom pricing</li>
-                <li>Free trial available</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-2">Our Ratings</h5>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Mobile Experience:</span>
-                  <span>4.7/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Visualization:</span>
-                  <span>4.5/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Performance:</span>
-                  <span>4.0/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Ease of Use:</span>
-                  <span>3.9/5</span>
-                </div>
-              </div>
-            </div>
-            
-            <Link 
-              href="#" 
-              className="inline-block mt-4 px-4 py-2 bg-[#386861] text-white rounded hover:bg-green-700 transition-colors text-sm font-medium"
-            >
-              Read our full review
-            </Link>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-  {/* Section 5 - Zoho Analytics Pick Card */}
-  <div className="bg-white rounded-xl shadow-md border overflow-hidden mt-12">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b bg-[#F5F8F7]">
-      <div>
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-          Zoho Analytics: Best self-service BI software
-        </h3>
-      </div>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 md:mt-0 inline-block bg- [#386861]text-white text-sm font-medium px-4 py-2 rounded hover:bg-green-700 transition"
-      >
-        Visit Website
-      </a>
-    </div>
-
-    {/* Overall Score */}
-    <div className="px-6 py-4 border-b">
-      <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
-        <span>Overall Score</span>
-        <span className="font-semibold text-lg text-gray-800">4.0/5</span>
-      </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
-        <div className="bg-[#386861] h-2 rounded-full" style={{ width: "80%" }}></div>
-      </div>
-    </div>
-
-    {/* Pros & Cons */}
-    <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Pros</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Generative AI-Infused BI
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Top-notch collaboration tools
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Advanced analytics
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Scalability
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Competitive pricing
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Cons</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Bit of a learning curve
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Inconsistencies in reporting
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Why I picked Zoho Analytics */}
-    <div className="px-6 pb-6">
-      <h4 className="font-semibold text-gray-800 text-base mb-2">Why I picked Zoho Analytics</h4>
-      <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Zoho Analytics makes it easy for non-technical users to analyze complex data and create insightful reports without needing assistance from IT or data experts.
-        </p>
-        
-        <p>
-          The platform's AI assistant, Zia, allows users to ask data-related questions in natural language, making data analysis more accessible. In my opinion, it's one of the better assistants available right now within BI applications. Its capabilities alongside their Generative AI-Infused BI approach and a constantly improving platform, make it one of my favorite choices.
-        </p>
-        
-        <p>
-          Additionally, features like data blending, smart data alerts, and the ability to merge data from various sources further enhance its self-service functionality, making it an excellent choice for businesses looking for a comprehensive, easy-to-use BI solution. It's not the most simple, but I'd argue it's a good substitution for someone who considers a Sisense or IBM option to be a bit too daunting.
-        </p>
-        
-        <p>
-          In a September 2024 product update, Zoho Analytics added a variety of new features including unified metrics to eliminate duplication, audit and sync history for data import, and multi-server architecture. The latter will allow for better load distribution, and addresses past user concerns surrounding struggles with larger data sets.
-        </p>
-        
-        <p>
-          Zoho Analytics has recently enhanced its capabilities with Advanced Analytics for Jotform, allowing deeper insights into audience preferences and engagement. The integration of the "Notes" modules from multiple CRM modules in the Advanced Analytics Connector for Zoho CRM is a significant upgrade, offering users richer customer interaction insights.
-        </p>
-        
-        <Link href="#" className="text-[#386861] font-medium inline-block mt-4">
-          Also read: Top Zoho Analytics Alternatives For Self-Service BI
-        </Link>
-      </div>
-
-      {/* About Zoho Analytics Collapsible Section */}
-      <div className="mt-8 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenZohoDetails(!openZohoDetails)}
-        >
-          <span>About Zoho Analytics</span>
-          <FaChevronDown className={`transition-transform ${openZohoDetails ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openZohoDetails && (
-          <div className="mt-4 text-sm text-gray-700 space-y-4">
-            <p>
-              Zoho Analytics is part of the Zoho suite of business applications, offering powerful yet affordable business intelligence and analytics capabilities. It's particularly strong in self-service analytics for small to medium businesses.
-            </p>
-            <p>
-              The platform integrates seamlessly with other Zoho applications as well as numerous third-party services, making it ideal for organizations already using Zoho's ecosystem.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Key Features Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenZohoFeatures(!openZohoFeatures)}
-        >
-          <span>Key Features</span>
-          <FaChevronDown className={`transition-transform ${openZohoFeatures ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openZohoFeatures && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-1">Zia AI Assistant</h5>
-              <p>
-                Advanced natural language processing that allows users to query data conversationally and get automated insights.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Unified Business Analytics</h5>
-              <p>
-                Combine data from multiple Zoho apps and external sources into a single analytics platform.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Collaborative Analytics</h5>
-              <p>
-                Share reports and dashboards with team members and collaborate in real-time with comments and annotations.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">White Labeling</h5>
-              <p>
-                Custom branding options for agencies and consultants who want to offer analytics as part of their services.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Data Alerting</h5>
-              <p>
-                Set up automated alerts when data meets certain conditions or thresholds.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Pricing & Ratings Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenZohoPricing(!openZohoPricing)}
-        >
-          <span>Pricing & Ratings</span>
-          <FaChevronDown className={`transition-transform ${openZohoPricing ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openZohoPricing && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-2">Pricing</h5>
-              <ul className="space-y-2">
-                <li>Basic: $24/month (2 users)</li>
-                <li>Standard: $48/month (5 users)</li>
-                <li>Premium: $115/month (15 users)</li>
-                <li>Enterprise: $455/month (50 users)</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-2">Our Ratings</h5>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Self-Service Capabilities:</span>
-                  <span>4.8/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>AI Features:</span>
-                  <span>4.5/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Value for Money:</span>
-                  <span>4.7/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Integration:</span>
-                  <span>4.3/5</span>
-                </div>
-              </div>
-            </div>
-            
-            <Link 
-              href="#" 
-              className="inline-block mt-4 px-4 py-2 bg-[#386861] text-white rounded hover:bg-green-700 transition-colors text-sm font-medium"
-            >
-              Read our full review
-            </Link>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-  {/* Section 6 - IBM Cognos Analytics Pick Card */}
-   <div className="bg-white rounded-xl shadow-md border overflow-hidden mt-12">
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border-b bg-[#F5F8F7]">
-      <div>
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-          IBM Cognos Analytics: Best for reporting
-        </h3>
-      </div>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 md:mt-0 inline-block bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded hover:bg-green-700 transition"
-      >
-        Visit Website
-      </a>
-    </div>
-
-    {/* Overall Score */}
-    <div className="px-6 py-4 border-b">
-      <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
-        <span>Overall Score</span>
-        <span className="font-semibold text-lg text-gray-800">4.0/5</span>
-      </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
-        <div className="bg-[#386861] h-2 rounded-full" style={{ width: "80%" }}></div>
-      </div>
-    </div>
-
-    {/* Pros & Cons */}
-    <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Pros</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Full-featured BI suite
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Effective dashboards and reports
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            AI-enabled exploration
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">+</span>
-            Top-notch customer support
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-2">Cons</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Complexity of use
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-500 font-bold">–</span>
-            Expensive compared to competitors
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Why I picked IBM Cognos Analytics */}
-    <div className="px-6 pb-6">
-      <h4 className="font-semibold text-gray-800 text-base mb-2">Why I picked IBM Cognos Analytics</h4>
-      <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-        <p>
-          IBM Cognos Analytics offers a powerful AI Assistant that simplifies data querying through natural language processing, enabling users to easily retrieve information and discover data patterns.
-        </p>
-        
-        <p>
-          A key strength of Cognos Analytics is its self-service capabilities, which are emphasized through features such as AI-assisted data arrangement and automated dashboards. These tools empower users to build their own reports and scorecards in an intuitive manner, facilitating both basic and advanced data analysis. The platform's AI assistant enhances this experience by allowing users to ask questions in natural language and receive suggested visualizations, making it accessible to users of varying skill levels.
-        </p>
-        
-        <p>
-          In the latest IBM Cognos Analytics release (11.2.4 FP4), I noticed several improvements that make my workflow smoother and more efficient. The update enhances dashboard functionality with new customization options and a more responsive layout, which helps me create visually appealing and informative dashboards faster. The data module editor has also been improved, making data prep easier with enhanced navigation and editing capabilities. Additionally, the performance boost in loading times and overall system responsiveness means I can access my insights more quickly, helping me make data-driven decisions without delay. These updates collectively make IBM Cognos Analytics a more powerful and user-friendly tool for my analytics needs.
-        </p>
-        
-        <p>
-          Data security and quality are other critical aspects where Cognos Analytics excels. It provides an environment with multiple levels of administrative permissions, enabling tailored access control and improving individual performance across different departments. This focus on security is a significant consideration for organizations dealing with sensitive or proprietary data.
-        </p>
-        
-        <p>
-          Compared to alternatives like Sisense and Zoho Analytics, which focus on ease of use through natural language querying and conversational interfaces, I find that IBM Cognos offers more depth for complex data modeling and advanced visual customization. This makes Cognos a better fit for organizations with skilled data teams or those, like us, who need high customization and control over data processes. The recent enhancements to data module editing and faster loading are especially valuable to me when managing large datasets, as I rely on both reliability and performance—something that some lighter, more user-friendly BI tools may not fully provide.
-        </p>
-        
-        <Link href="#" className="text-[#386861] font-medium inline-block mt-4">
-          Also read: What Is Data Governance?
-        </Link>
-      </div>
-
-      {/* About IBM Cognos Analytics Collapsible Section */}
-      <div className="mt-8 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenIBMCognosDetails(!openIBMCognosDetails)}
-        >
-          <span>About IBM Cognos Analytics</span>
-          <FaChevronDown className={`transition-transform ${openIBMCognosDetails ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openIBMCognosDetails && (
-          <div className="mt-4 text-sm text-gray-700 space-y-4">
-            <p>
-              IBM Cognos Analytics is an enterprise-grade business intelligence platform that combines AI-powered automation with robust reporting capabilities. It's designed for large organizations that need to deliver consistent, governed reporting across multiple departments.
-            </p>
-            <p>
-              The platform is known for its deep integration with IBM's data and AI ecosystem, making it particularly strong for organizations invested in IBM's technology stack.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Key Features Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenIBMCognosFeatures(!openIBMCognosFeatures)}
-        >
-          <span>Key Features</span>
-          <FaChevronDown className={`transition-transform ${openIBMCognosFeatures ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openIBMCognosFeatures && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-1">AI-Powered Reporting</h5>
-              <p>
-                Automated report generation with natural language explanations of key insights and trends.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Enterprise Governance</h5>
-              <p>
-                Robust security and data governance features for large organizations with complex compliance requirements.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Dynamic Dashboards</h5>
-              <p>
-                Interactive dashboards that can be personalized by end-users while maintaining data governance.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Advanced Data Modules</h5>
-              <p>
-                Powerful data modeling capabilities that allow business users to create sophisticated data models without IT assistance.
-              </p>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-1">Multi-Cloud Deployment</h5>
-              <p>
-                Flexible deployment options including IBM Cloud, AWS, Azure, and on-premises installations.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Pricing & Ratings Collapsible Section */}
-      <div className="mt-6 border-t pt-6">
-        <button 
-          className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-          onClick={() => setOpenIBMCognosPricing(!openIBMCognosPricing)}
-        >
-          <span>Pricing & Ratings</span>
-          <FaChevronDown className={`transition-transform ${openIBMCognosPricing ? 'rotate-180' : ''}`} />
-        </button>
-        
-        {openIBMCognosPricing && (
-          <div className="mt-4 text-sm text-gray-700 space-y-6">
-            <div>
-              <h5 className="font-medium mb-2">Pricing</h5>
-              <ul className="space-y-2">
-                <li>Starts at $10.60/user/month (annual billing)</li>
-                <li>Enterprise pricing available</li>
-                <li>Free trial available</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h5 className="font-medium mb-2">Our Ratings</h5>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Reporting Capabilities:</span>
-                  <span>4.9/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Enterprise Features:</span>
-                  <span>4.7/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>AI Integration:</span>
-                  <span>4.5/5</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Ease of Use:</span>
-                  <span>3.8/5</span>
-                </div>
-              </div>
-            </div>
-            
-            <Link 
-              href="#" 
-              className="inline-block mt-4 px-4 py-2 bg-[#386861] text-white rounded hover:bg-green-700 transition-colors text-sm font-medium"
-            >
-              Read our full review
-            </Link>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-     {/* Reporting and Querying Tools Section */}
-          <div className="mt-8 pt-6 ">
-            <div className="text-sm text-gray-700 leading-relaxed space-y-4">
-              <p>
-                <a href="#" className="text-[#386861] font-medium underline">Reporting tools</a> let businesses generate reports and run queries on data. Users can access data from multiple sources, including databases and spreadsheets, to analyze and summarize data through these tools. Reporting tools give users pre-designed report templates for quicker report generation. These templates are often customizable. Users can add or remove fields, change the layout, or modify the formatting to suit their needs.
-              </p>
-              
-              <p>
-                Querying tools, on the other hand, enable users to extract specific data from a database or spreadsheet by running SQL queries. These tools offer users a way to construct queries without writing code.
-              </p>
-            </div>
-          </div>
             </section>
 
-            
-           
-            {/*Business intelligence software benefits*/} 
-         <section id="4" className="mb-12">
-  <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-      Business intelligence software benefits
-    </h2>
+            {/* Zoom Phone Card */}
+            <section id="section-4" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">Z</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">Zoom Phone: Best low-cost VoIP plans</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
 
-    {/* Benefit: Improved data quality */}
-    <div className="mb-8">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-        Improved data quality
-      </h3>
-      <p className="text-gray-700">
-        The best BI tools automatically identifies and cleans up inaccurate, incomplete, or duplicated data,
-        ensuring that only high-quality data is used for analysis. Additionally, it enforces data standards and rules
-        across different systems, ensuring data consistency and accuracy while reducing the risk of errors that can
-        arise from manual data entry. Moreover, companies can gain a fuller picture of what is happening with
-        their business by aggregating different data sources through business intelligence solutions.
-      </p>
-    </div>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.86/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "97%" }}></div>
+                  </div>
+                </div>
 
-    {/* Benefit: Greater transparency */}
-    <div className="mb-8">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-        Greater transparency
-      </h3>
-      <p className="text-gray-700">
-        Business intelligence tools give real-time visibility into business operations and performance. This enables
-        organizations to monitor progress and identify potential issues in real time. By providing a thorough view of
-        key metrics, BI software empowers businesses to identify areas for improvement and take corrective action
-        when necessary.
-      </p>
-    </div>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={5} />
+                    <RatingBar label="General features" score={5} />
+                    <RatingBar label="Advanced features" score={4.25} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={4.63} />
+                    <RatingBar label="Expert score" score={4.69} />
+                  </div>
+                </div>
 
-    {/* Benefit: Better decision-making */}
-    <div className="mb-8">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-        Better decision-making
-      </h3>
-      <p className="text-gray-700 mb-3">
-        The software equips organizations with valuable insights into their operations, informing strategic decisions
-        across product development, marketing, sales, and other critical areas. Business intelligence tools also
-        show useful information on employee productivity, revenue, and department-specific performance,
-        allowing organizations to understand their strengths and weaknesses.
-      </p>
-      <p className="text-gray-700">
-        By analyzing large volumes of data from different sources, BI software can identify trends and patterns and
-        uncover opportunities. With competitors moving quickly, companies must expedite making accurate
-        decisions to avoid losing customers and revenue.
-      </p>
-    </div>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Turn ongoing calls into Zoom Meetings</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Metered and prepaid plans for domestic and international calls</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Relatively simple to use</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">AI-powered calls at no extra cost</span>
+                        </li>
+                      </ul>
+                    </div>
 
-    {/* Benefit: Increased efficiency */}
-    <div className="mb-8">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-        Increased efficiency
-      </h3>
-      <p className="text-gray-700">
-        Companies can optimize resources and streamline processes with business intelligence software,
-        decreasing costs and increasing efficiency. The software lets businesses make data-driven decisions to
-        reduce waste by providing information on inventory management, supply chain optimization, and
-        production planning.
-      </p>
-    </div>
-    {/* Enhanced business margins */}
-    <div className="mb-10">
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-        Enhanced business margins
-      </h3>
-      <p className="text-gray-700">
-        Business intelligence software improves business margins by identifying areas where costs can be
-        reduced, such as streamlining supply chains and optimizing inventory management. It can also determine
-        opportunities for revenue growth, like finding high-value customers, analyzing sales trends, and developing
-        marketing strategies. BI software enables organizations to better understand their competitors, market
-        trends, and customer preferences, so they can promptly respond to changing market conditions.
-      </p>
-    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Occasional audio lags</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Call analytics isn't robust enough for detailed insights</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-    {/* Integration */}
-    <div>
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">Integration</h3>
-      <p className="text-gray-700">
-        It’s important to note many BI software solutions integrate with other software systems, including{" "}
-        <a href="#" className="text-[#386861] font-medium underline">
-          customer relationship management (CRM)
-        </a>
-        ,{" "}
-        <a href="#" className="text-[#386861]font-medium underline">
-          enterprise resource planning (ERP)
-        </a>
-        , and{" "}
-        <a href="#" className="text-[#386861] font-medium underline">
-          accounting software
-        </a>
-        . By doing so, companies obtain a more comprehensive view of their operations and performance by combining data
-        from multiple sources. Business intelligence software is crucial for those seeking competitive advantage by
-        utilizing data-driven insights to make better-informed decisions and adapt to shifting market conditions.
-      </p>
-    </div>
-  </div>
-</section>
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose Zoom Phone</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      If you're an individual or running a small team on a budget, I know that price is often the biggest factor when choosing a business VoIP service provider. Most basic VoIP plans cost around $20 to $30 per user monthly, but Zoom Phone stands out with plans starting at just $10 per user per month.
+                    </p>
+                    
+                    <p>
+                      At this entry price, you still get access to core call management features like call recording, business-hour routing, and even faxing. Domestic calls follow a pay-as-you-go model, making it a smart option if you only make occasional calls. You can also upgrade to unlimited calling for just $5 more per month, which remains affordable compared to most prepaid VoIP plans at $20 per user.
+                    </p>
+                    
+                    <p>
+                      That said, Zoom Phone falls short when it comes to advanced call analytics. For teams handling high call volumes that need detailed performance insights, RingCentral is a stronger option, thanks to its built-in business analytics and customizable reporting tools.
+                    </p>
+                  </div>
+                </div>
 
- 
-{/*  What is the business impact of business intelligence software?*/}
-<section id="5" className ="mb-12">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-      What is the business impact of business intelligence software?
-    </h2>
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full Zoom Phone review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
 
-    <p className="mb-4 text-gray-700">
-      <a href="#" className="text-[#386861] font-medium underline">
-        Business intelligence software
-      </a>{" "}
-      has a significant impact on businesses by providing valuable insights into customer behavior, market trends,
-      and operational inefficiencies, which directly affect a company’s bottom line. It assists organizations
-      in increasing revenue, reducing costs, and improving overall performance.
-    </p>
+            {/* RingCentral Card */}
+            <section id="section-5" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">R</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">RingCentral: Best AI-powered unified communications</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
 
-    <p className="mb-4 text-gray-700">
-      Today, investing in business intelligence software rather than relying solely on spreadsheets is a logical
-      decision for companies of any kind. BI software handles large volumes of data more efficiently, minimizes
-      the risk of errors, offers a range of analytical tools and visualizations, and brings real-time data updates,
-      which are crucial in fast-paced business environments.
-    </p>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.56/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "91%" }}></div>
+                  </div>
+                </div>
 
-    <p className="mb-4 text-gray-700">
-      BI software supports businesses better understanding their clients by analyzing customer data to identify
-      trends and preferences. This, in turn, allows organizations to tailor their products and services to meet
-      customer needs, leading to greater customer satisfaction, loyalty, sales, and revenue.
-    </p>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={4} />
+                    <RatingBar label="General features" score={4.5} />
+                    <RatingBar label="Advanced features" score={4.63} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={4.63} />
+                    <RatingBar label="Expert score" score={4.06} />
+                  </div>
+                </div>
 
-    <p className="mb-4 text-gray-700">
-      The software also helps businesses uncover operational inefficiencies and bottlenecks by analyzing
-      production processes, supply chains, and employee performance data. Such analysis helps to determine
-      underutilized resources and streamline operations, boosting efficiency and decreasing costs, eventually
-      resulting in higher profitability.
-    </p>
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Extensive suite of call management features</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Connects with 300+ third-party apps</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Strong variety of support options</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">AI capabilities across all plans</span>
+                        </li>
+                      </ul>
+                    </div>
 
-    <p className="mb-4 text-gray-700">
-      Business intelligence tools facilitate more effective decision-making by presenting accurate and timely
-      data on sales trends, supply chain performance, and other key business metrics. This data allows business
-      leaders to make informed decisions, driving growth and keeping the business ahead of its competition. As
-      a result, companies will respond to constantly changing market conditions and have better chances of
-      achieving financial success.
-    </p>
-  </div>
-</section>
-<section id="6" className="mb-12">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-      Choosing the best software for business intelligence platform
-    </h2>
-    <p className="text-gray-700 text-base">
-      Ready to start your business intelligence software comparison? Our Technology Advisors are here to help
-      you find the perfect tool for your company’s projects. Call for a free 5-minute consultation, or complete
-      the form at the bottom of this page for fast, free recommendations based on your needs.
-    </p>
-  </div>
-</section>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Customization can be overwhelming at first</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Extensive feature set makes it hard to navigate</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-{/*   Frequently Asked Questions (FAQ)*/}
-   <section id="7" className ="mb-12">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-          Frequently Asked Questions (FAQ)
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b pb-4">
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="flex items-center justify-between w-full text-left font-semibold text-gray-800"
-              >
-                <span>{faq.question}</span>
-                {activeIndex === index ? (
-                  <FaMinus className="text-[#386861]" />
-                ) : (
-                  <FaPlus className="text-[#386861]" />
-                )}
-              </button>
-              {activeIndex === index && (
-                <div className="mt-2 text-gray-700 text-sm">{faq.answer}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div> 
-    </section>  
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose RingCentral</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      If you've been researching the best VoIP providers, chances are you've come across RingCentral more than once, and for good reason. RingCentral is a leading name in business communications, offering everything from complete call management and collaborative meetings to AI-powered team chat. I've seen how it equips teams with all the essential tools to stay connected with colleagues and customers, all supported by AI.
+                    </p>
+                    
+                    <p>
+                      RingCentral also stands out for reliability. It maintains a 99.999% uptime record over five years across 46 countries, backed by global security and privacy certifications. Switching between phone, text, video, and chat is seamless from the navigation bar. Plus, every plan includes a personal AI assistant at no extra cost, giving you call notes, real-time transcription, translations, and even a writing editor.
+                    </p>
+                    
+                    <p>
+                      That said, these feature-rich capabilities come with a higher price point, making RingCentral less practical for individual users or small businesses just getting started. I usually recommend it for companies planning to scale quickly and needing a robust, future-ready solution.
+                    </p>
+                  </div>
+                </div>
 
- 
- 
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full RingCentral review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
 
-            {/* Collapsible Sections */}
-            
+            {/* Vonage Card */}
+            <section id="section-6" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">V</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">Vonage: Best build-your-own VoIP</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.48/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "90%" }}></div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={5} />
+                    <RatingBar label="General features" score={4.13} />
+                    <RatingBar label="Advanced features" score={4.06} />
+                    <RatingBar label="Support" score={4.25} />
+                    <RatingBar label="Ease of use" score={5} />
+                    <RatingBar label="Expert score" score={4.38} />
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Unlimited text messaging in the US</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">99.999% uptime reliability</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">40+ standard phone features at the base plan</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Modern and user-friendly app</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Chat and video calls locked at second tier</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Limited app integrations</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose Vonage</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      Like RingCentral, Vonage is a well-established name in the VoIP space, especially for businesses that want custom communication solutions. It offers extensive developer resources (code snippets, guides, and documentation) that make it possible to embed calling, messaging, and video features directly into your company's website or app.
+                    </p>
+                    
+                    <p>
+                      When integrated, Vonage allows agents to place and receive calls, send texts, or join video meetings without leaving the platform they're working in. For example, a sales rep can connect with a lead directly from the page they're visiting, while call notes and recordings are automatically logged into the system.
+                    </p>
+                    
+                    <p>
+                      Vonage offers pre-built plans starting at $19.99 per month, but many advanced features are sold as add-ons. If you're just starting out with VoIP and want everything bundled into a single plan, Nextiva may be a better fit since its packages include multiple communication channels upfront.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full Vonage review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Ooma Card */}
+            <section id="section-7" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">O</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">Ooma: Best entry-level VoIP for small business</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.31/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "86%" }}></div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={2} />
+                    <RatingBar label="General features" score={4.5} />
+                    <RatingBar label="Advanced features" score={4} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={5} />
+                    <RatingBar label="Expert score" score={5} />
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">800 numbers include 500 toll-free minutes</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Unlimited calling includes the US, CA, Puerto Rico, and Mexico</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">50+ phone features come standard with all plans</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Residential plan available for homepreneurs</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Comes with a $49.95 activation fee</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Interface feels dated compared to competitors</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose Ooma</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      If you're shopping for a VoIP-focused system without the AI frills, Ooma is a solid choice. While it was first known for home phone services, Ooma offers a business phone system that covers all the essentials, including unlimited calls to the US, Canada, Mexico, and Puerto Rico, more countries than many competitors cover in their local calling plans.
+                    </p>
+                    
+                    <p>
+                      Advanced features like video conferencing, team chat, and CRM integrations are reserved for higher tiers, so you won't feel overloaded with tools you don't need if your focus is simply phone calling. Its interface is simple to navigate, with accessible options for adding contacts, configuring calls, and checking voicemail.
+                    </p>
+                    
+                    <p>
+                      That said, Ooma can be too basic for teams that rely heavily on advanced customization. If your business requires a more comprehensive communication platform, I recommend RingCentral, which combines calling, messaging, video, and AI-powered tools in a single solution.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full Ooma review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Grasshopper Card */}
+            <section id="section-8" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">G</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">Grasshopper: Best for setting up a dedicated business line</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.25/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "85%" }}></div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={5} />
+                    <RatingBar label="General features" score={5} />
+                    <RatingBar label="Advanced features" score={1.5} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={4.63} />
+                    <RatingBar label="Expert score" score={4.38} />
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Vanity number included at no extra charge</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Consistent UX for desktop and mobile apps</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Unlimited user capacity for higher plan tiers</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Works as a second phone number app</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Doesn't offer the same built-in collaboration tools competitors offer</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">No app integrations</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose Grasshopper</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      Grasshopper is another strong recommendation for those who still find Ooma too feature-heavy. As a virtual phone system, Grasshopper gives you a dedicated business number (local, toll-free, or vanity number), which you can use to separate work calls and create a professional image. It doesn't include video, chat, or app integrations, making it perfect if you simply want a phone number for business calls.
+                    </p>
+                    
+                    <p>
+                      One standout feature I appreciate is that Grasshopper lets you secure a vanity number during sign-up without extra charges on your monthly subscription. As you upgrade to higher tiers, you can also add unlimited users without paying per-user fees, something unique compared to most VoIP providers that bill individually per seat.
+                    </p>
+                    
+                    <p>
+                      Of course, Grasshopper has limitations. It lacks the advanced features needed to handle high call volumes, so it isn't the best fit for customer support teams. If you're looking for a more complete VoIP platform for client interactions, I recommend Nextiva, which provides a full suite of tools for sales and support communications.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full Grasshopper review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* CallHippo Card */}
+            <section id="section-9" className="mb-12">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-[#386861] rounded flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">C</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">CallHippo: Best for call center management</h3>
+                    </div>
+                  </div>
+                  <a href="#" className="inline-flex items-center gap-2 bg-[#386861] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#2d5249] transition-colors">
+                    Visit Website
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-semibold text-gray-900">Overall Reviewer Score</span>
+                    <span className="text-2xl font-bold text-gray-900">4.16/5</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="bg-[#386861] h-3 rounded-full" style={{ width: "83%" }}></div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="space-y-4">
+                    <RatingBar label="Pricing" score={2} />
+                    <RatingBar label="General features" score={4.13} />
+                    <RatingBar label="Advanced features" score={4.38} />
+                    <RatingBar label="Support" score={5} />
+                    <RatingBar label="Ease of use" score={3.75} />
+                    <RatingBar label="Expert score" score={5} />
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Pros</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Free plan for basic phone usage</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Monthly plan options for low or high call volumes</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Unlimited minutes for landline and mobile calling</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-[#386861] rounded-sm flex items-center justify-center mt-0.5">
+                            <FaCheckCircle className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Real-time chat support for customers</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Cons</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Dashboard users come with an added fee</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center mt-0.5">
+                            <FaMinus className="text-white text-xs" />
+                          </div>
+                          <span className="text-gray-700">Spam monitoring includes a $2 fee per number</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 border-b border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Why I chose CallHippo</h4>
+                  <div className="text-gray-700 space-y-4">
+                    <p>
+                      One thing worth noting when shopping for VoIP is that many providers also offer call center plans for high-volume users, usually at a higher price point. You might wonder if there's a budget-friendly option, and the answer is yes. CallHippo includes agent productivity tools in its business phone plans starting at just $25 per user, making it one of the most affordable ways to access call center features.
+                    </p>
+                    
+                    <p>
+                      What I like is that CallHippo offers two versions of its phone system for both low- and high-volume usage. This flexibility lets you choose a plan that matches your call center's traffic instead of paying for features you don't need. As your call center grows, you can add outbound campaign tools like power dialers and automatic machine detection to support sales teams.
+                    </p>
+                    
+                    <p>
+                      That said, while CallHippo includes unlimited minutes for both mobile and landline calls, there are restrictions. Certain countries and number types aren't included in unlimited calling. If you need more flexible options, I recommend Zoom Phone, which provides customizable call plans.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50 flex gap-4">
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#386861] border border-[#386861] px-4 py-3 rounded-lg hover:bg-[#f8fffe] transition-colors text-sm font-medium">
+                    Read our full CallHippo review
+                  </Link>
+                  <Link href="#" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#386861] text-white px-4 py-3 rounded-lg hover:bg-[#2d5249] transition-colors text-sm font-medium">
+                    Submit your review
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Buyer's checklist: How to choose the best VoIP software */}
+            <section id="section-10" className="mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                Buyer's checklist: How to choose the best VoIP software
+              </h2>
+
+              <div className="space-y-6 text-gray-700">
+                <p>
+                  Choosing the right VoIP platform means asking the right questions about your business needs. The questions below will help you compare VoIP providers and ensure you're investing in a solution that fits both your budget and workflow.
+                </p>
+
+                <div className="space-y-6">
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Does it have the call management tools I need?
+                    </h3>
+                    <p>
+                      Strong call management ensures your team can route calls, set business hours, record conversations, and manage voicemail without disruptions. These features directly affect how smoothly customer and internal communications are handled.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Is the interface simple for my team to use?
+                    </h3>
+                    <p>
+                      A user-friendly interface shortens the learning curve and helps your team adopt the system quickly. The easier it is to navigate, the less time you'll spend on training and troubleshooting.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Can it connect with my existing business apps?
+                    </h3>
+                    <p>
+                      Integration with tools like CRMs, helpdesks, and productivity software allows your team to work from one hub. This eliminates manual data entry and gives you a more complete view of customer interactions.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Does it include collaboration tools like video and chat?
+                    </h3>
+                    <p>
+                      Some business VoIP providers go beyond calling by offering video meetings and messaging. These features allow teams to communicate in real time without switching between multiple apps.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Does it meet my security and compliance needs?
+                    </h3>
+                    <p>
+                      Security compliance ensures sensitive business and customer data is protected from breaches or misuse. Look for providers with certifications like HIPAA, GDPR, and end-to-end encryption to safeguard your communications.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                      <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
+                      Do I need AI features in my VoIP system?
+                    </h3>
+                    <p>
+                      AI-powered tools help with tasks like call transcription and conversation summaries. With 85% of customer service leaders set to pilot conversational Gen AI in 2025, voice bots are expected to shift from a nice-to-have feature to a core requirement.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-lg border border-gray-200">
+                  <p className="text-gray-700 leading-relaxed">
+                    The best VoIP phone providers give you more than just phone service, as they streamline communication and keep your business flexible as it grows. By focusing on call management, ease of use, and security, you'll be able to narrow down providers that truly fit your needs.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* FAQs Section */}
+            <section id="section-11" className="mb-12">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">FAQs</h2>
+                <div className="space-y-4">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className="flex items-center justify-between w-full text-left p-6 hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        <span className="font-semibold text-gray-800">{faq.question}</span>
+                        <div className={`transform transition-transform duration-200 ${activeIndex === index ? 'rotate-180' : ''}`}>
+                          {activeIndex === index ? (
+                            <FaMinus className="text-[#386861]" />
+                          ) : (
+                            <FaPlus className="text-[#386861]" />
+                          )}
+                        </div>
+                      </button>
+                      {activeIndex === index && (
+                        <div className="px-6 pb-6 text-gray-700 text-sm leading-relaxed border-t border-gray-100">
+                          {faq.answer}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
