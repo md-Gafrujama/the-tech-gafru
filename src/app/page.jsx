@@ -360,8 +360,6 @@ export default function Page() {
   return (
     <>
      
-
-    
 {/* Ultra-Professional Responsive Hero Section */}
 <section className="relative bg-gradient-to-b from-[#0A1612] to-[#0E1F1C] text-white min-h-screen flex items-center overflow-hidden">
   {/* Enhanced Grid Pattern with Floating Effect */}
@@ -383,37 +381,6 @@ export default function Page() {
       }}
     />
   </motion.div>
-
-  {/* Advanced Ambient Particles */}
-  <div className="absolute inset-0">
-    {[...Array(12)].map((_, i) => (
-      <motion.div
-        key={i}
-        className="absolute rounded-full"
-        style={{
-          width: `${Math.random() * 4 + 2}px`,
-          height: `${Math.random() * 4 + 2}px`,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          background: i % 3 === 0 ? '#00d9a6' : i % 3 === 1 ? '#8BC34A' : '#00d9a6',
-          filter: 'blur(0.5px)',
-        }}
-        animate={{
-          y: [0, -50, 0],
-          x: [0, Math.sin(i) * 20, 0],
-          opacity: [0.2, 0.8, 0.2],
-          scale: [1, 1.8, 1],
-          rotate: [0, 360, 0],
-        }}
-        transition={{
-          duration: 6 + Math.random() * 4,
-          repeat: Infinity,
-          delay: i * 0.4,
-          ease: [0.4, 0, 0.2, 1],
-        }}
-      />
-    ))}
-  </div>
 
   {/* Floating Geometric Shapes */}
   <motion.div
@@ -529,59 +496,6 @@ export default function Page() {
           >
             Get vetted software recommendations and implementation strategies from industry experts who've scaled successful B2B operations.
           </motion.p>
-        </motion.div>
-
-        {/* Software Categories Grid */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.8 }}
-        >
-          {[
-            { name: 'Human Resources ', color: '#00d9a6' },
-            { name: 'Payroll Software', color: '#8BC34A' },
-            { name: 'CRM Software', color: '#00d9a6' },
-            { name: 'Sales Compression Software', color: '#8BC34A' },
-            { name: 'Project Management Software', color: '#00d9a6' },
-            { name: 'VoIP & Business Phone Systems', color: '#8BC34A' }
-          ].map((category, index) => (
-            <motion.div
-              key={index}
-              className="relative group cursor-pointer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.6 + index * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-            >
-              <div className="p-4 bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300 group-hover:bg-white/[0.08] group-hover:border-white/20 relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ 
-                    background: `linear-gradient(135deg, ${category.color}15, transparent)` 
-                  }}
-                />
-                <div className="relative z-10">
-                  <motion.div 
-                    className="w-3 h-3 rounded-full mb-2"
-                    style={{ backgroundColor: category.color }}
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7] 
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: index * 0.2 
-                    }}
-                  />
-                  <p className="text-sm text-white/80 font-medium leading-tight group-hover:text-white transition-colors duration-300">
-                    {category.name}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Enhanced Email Form with Advanced Animations */}
@@ -710,6 +624,59 @@ export default function Page() {
             </motion.div>
           )}
 
+          {/* Software Categories Grid */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+          >
+            {[
+              { name: 'Human Resources', color: '#00d9a6' },
+              { name: 'Payroll Software', color: '#8BC34A' },
+              { name: 'CRM Software', color: '#00d9a6' },
+              { name: 'Sales Compression Software', color: '#8BC34A' },
+              { name: 'Project Management Software', color: '#00d9a6' },
+              { name: 'VoIP & Business Phone Systems', color: '#8BC34A' }
+            ].map((category, index) => (
+              <motion.div
+                key={index}
+                className="relative group cursor-pointer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.6 + index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+              >
+                <div className="p-4 bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300 group-hover:bg-white/[0.08] group-hover:border-white/20 relative overflow-hidden">
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ 
+                      background: `linear-gradient(135deg, ${category.color}15, transparent)` 
+                    }}
+                  />
+                  <div className="relative z-10">
+                    <motion.div 
+                      className="w-3 h-3 rounded-full mb-2"
+                      style={{ backgroundColor: category.color }}
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.7, 1, 0.7] 
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity, 
+                        delay: index * 0.2 
+                      }}
+                    />
+                    <p className="text-sm text-white/80 font-medium leading-tight group-hover:text-white transition-colors duration-300">
+                      {category.name}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
           {/* Enhanced Trust Indicators */}
           <motion.div 
             className="flex flex-wrap items-center gap-6 pt-6 justify-center lg:justify-start text-sm text-white/60"
@@ -823,62 +790,52 @@ export default function Page() {
             />
           </motion.div>
 
-          {/* Enhanced Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          {/* Software Categories Grid (replacing Enhanced Stats Grid) */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
             {[
-              { value: '142%', color: '#00d9a6', delay: 0 },
-              { value: '89%', color: '#8BC34A', delay: 0.5 }
-            ].map((stat, index) => (
+              { name: 'Human Resources', color: '#00d9a6', delay: 0 },
+              { name: 'Payroll Software', color: '#8BC34A', delay: 0.1 },
+              { name: 'CRM Software', color: '#00d9a6', delay: 0.2 },
+              { name: 'Sales Compression Software', color: '#8BC34A', delay: 0.3 },
+              { name: 'Project Management Software', color: '#00d9a6', delay: 0.4 },
+              { name: 'VoIP & Business Phone Systems', color: '#8BC34A', delay: 0.5 }
+            ].map((category, index) => (
               <motion.div 
                 key={index}
-                className="p-4 bg-white/[0.05] rounded-xl relative overflow-hidden group cursor-pointer"
-                animate={{ 
-                  scale: [1, 1.02, 1],
-                  rotateZ: [0, 1, 0, -1, 0],
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity, 
-                  delay: stat.delay,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
+                className="p-3 bg-white/[0.05] rounded-lg relative overflow-hidden group cursor-pointer border border-white/10"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2 + category.delay, duration: 0.5 }}
                 whileHover={{ 
                   scale: 1.05, 
-                  rotateY: 5,
-                  boxShadow: `0 10px 20px ${stat.color}20`,
+                  backgroundColor: 'rgba(255,255,255,0.08)',
+                  borderColor: 'rgba(255,255,255,0.2)',
                 }}
               >
-                <motion.div 
-                  className="text-2xl font-bold mb-1"
-                  style={{ color: stat.color }}
-                  animate={{ 
-                    textShadow: [
-                      `0 0 5px ${stat.color}40`,
-                      `0 0 15px ${stat.color}60`,
-                      `0 0 5px ${stat.color}40`
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  {stat.value}
-                </motion.div>
-                <motion.div 
-                  className="w-12 h-2 bg-white/20 rounded"
-                  animate={{ 
-                    width: [48, 64, 48],
-                    opacity: [0.5, 0.8, 0.5] 
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity, delay: stat.delay }}
-                />
-                
-                {/* Hover Glow Effect */}
                 <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none rounded-xl"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
                   style={{ 
-                    background: `linear-gradient(135deg, ${stat.color}20, transparent)` 
+                    background: `linear-gradient(135deg, ${category.color}15, transparent)` 
                   }}
-                  transition={{ duration: 0.3 }}
                 />
+                <div className="relative z-10">
+                  <motion.div 
+                    className="w-2 h-2 rounded-full mb-2"
+                    style={{ backgroundColor: category.color }}
+                    animate={{ 
+                      scale: [1, 1.3, 1],
+                      opacity: [0.7, 1, 0.7] 
+                    }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity, 
+                      delay: category.delay 
+                    }}
+                  />
+                  <p className="text-xs text-white/80 font-medium leading-tight group-hover:text-white transition-colors duration-300">
+                    {category.name}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -1089,6 +1046,9 @@ export default function Page() {
     </motion.div>
   </div>
 </section>
+
+    
+
 
 
    
