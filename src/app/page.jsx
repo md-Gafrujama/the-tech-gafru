@@ -818,7 +818,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/HR-software" className="block h-full">
+        <Link href="/Software-comparison/HR-software" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             {/* Animated Border */}
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
@@ -884,7 +884,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/Payroll-software" className="block h-full">
+        <Link href="/Software-comparison/Payroll-software" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-green-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#00d9a6] to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
@@ -946,7 +946,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/CRM-software" className="block h-full">
+        <Link href="/Software-comparison/CRM-software" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
@@ -1008,7 +1008,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/Sales-software" className="block h-full">
+        <Link href="/Software-comparison/Sales-software" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
@@ -1070,7 +1070,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/Project-management" className="block h-full">
+        <Link href="/Software-comparison/Project-management" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-indigo-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
@@ -1132,7 +1132,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-evaluation/Business-Intelligence-Software" className="block h-full">
+        <Link href="/Software-comparison/VoIP-&-Business-Phone-systems" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-amber-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>

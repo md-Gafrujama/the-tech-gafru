@@ -202,6 +202,7 @@ export default function VoIPSoftwarePage() {
   </div>
 </section>
 
+
       {/* Main Content Section */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-4 sm:px-8 lg:px-16 py-8">

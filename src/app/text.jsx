@@ -116,7 +116,7 @@ const SoftwareCategoriesSection = () => {
       description: "Data analytics, reporting dashboards, business insights, and intelligence tools for data-driven decisions.",
       image: "/images/business.png",
       tools: ['Tableau', 'Power BI', 'Looker'],
-      link: "/Software-evaluation/Business-Intelligence-Software",
+      link: "/Software-evaluation/VoIP-&-Business-Phone-systems",
       colors: {
         gradient: "from-amber-500 to-yellow-500",
         border: "border-amber-500",

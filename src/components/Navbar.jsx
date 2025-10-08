@@ -24,12 +24,12 @@ const Navbar = () => {
   // Software Reviews dropdown data
   const softwareReviews = {
     categories: [
-      { name: 'Human Resources Software', href: '/Software-evaluation/HR-software' },
-      { name: 'Payroll Software', href: '/Software-evaluation/Payroll-software' },
-      { name: 'CRM Software', href: '/Software-evaluation/CRM-software' },
-      { name: 'Sales Software', href: '/Software-evaluation/Sales-software' },
-      { name: 'Project Management Software', href: '/Software-evaluation/Project-management' },
-      { name: 'Business Intelligence Software', href: '/Software-evaluation/Business-Intelligence-Software' }
+      { name: 'Human Resources Software', href: '/Software-comparison/HR-software' },
+      { name: 'Payroll Software', href: '/Software-comparison/Payroll-software' },
+      { name: 'CRM Software', href: '/Software-comparison/CRM-software' },
+      { name: 'Sales Software', href: '/Software-comparison/Sales-software' },
+      { name: 'Project Management Software', href: '/Software-comparison/Project-management' },
+      { name: 'VoIP & Business Phone systems', href: '/Software-comparison/VoIP-&-Business-Phone-systems' }
     ]
   };
 
@@ -213,7 +213,7 @@ const Navbar = () => {
                 onMouseLeave={handleDropdownLeave}
               >
                 <a href="/" className="flex items-center space-x-1 text-white hover:text-[#FFFF00] transition-colors duration-200">
-                  <span>Software Evaluation</span>
+                  <span>Software Comparison</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'software' ? 'rotate-180' : ''}`} />
                 </a>
                 
@@ -422,7 +422,7 @@ const Navbar = () => {
                   onClick={() => toggleMobileDropdown('software')}
                   className="flex items-center justify-between w-full py-2 text-[#1E2E2B] border-b border-gray-200"
                 >
-                  <span className="text-lg font-medium">Software Evaluation</span>
+                  <span className="text-lg font-medium">Software Comparison</span>
                   <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdowns.software ? 'rotate-180' : ''}`} />
                 </button>
                 <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
