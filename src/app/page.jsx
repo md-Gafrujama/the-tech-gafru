@@ -508,7 +508,7 @@ export default function Page() {
                 whileTap={{ scale: 0.97 }}
               >
                 <span className="relative z-10 whitespace-nowrap">
-                  {loading ? 'Joining...' : 'Get Access'}
+                  {loading ? 'Joining...' : 'Subscribe Now'}
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#8BC34A] to-[#ffd800]"
