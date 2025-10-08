@@ -2042,7 +2042,7 @@ ClickUp: {
         <meta property="og:image:height" content="627" />
         <meta
           property="og:url"
-          content="https://technology-advice.vercel.app/software-reviews/project-management"
+          content="https://technology-advice.vercel.app/software-reviews/Accounting-management-software"
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Martechbiz" />
@@ -2064,7 +2064,7 @@ ClickUp: {
 
         <link
           rel="canonical"
-          href="https://technology-advice.vercel.app/software-reviews/project-management"
+          href="https://technology-advice.vercel.app/software-reviews/Accounting-management-software"
         />
       </Head>
 
@@ -3881,7 +3881,7 @@ ClickUp: {
                       consider when shopping around to help them find a tool
                       that aligns with their needs.{" "}
                       <Link
-                        href="/enterprise-project-management"
+                        href="/enterprise-Accounting-management-software"
                         className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
                       >
                         The Different Types of Roles & Responsibilities in a CRM

@@ -102,7 +102,7 @@ const SoftwareCategoriesSection = () => {
       description: "Task management, team collaboration, resource planning, and project tracking solutions.",
       image: "/images/project.png",
       tools: ['Asana', 'Monday.com', 'Trello'],
-      link: "/Software-evaluation/Project-management",
+      link: "/Software-evaluation/Accounting-management-software",
       colors: {
         gradient: "from-indigo-500 to-cyan-500",
         border: "border-indigo-500",

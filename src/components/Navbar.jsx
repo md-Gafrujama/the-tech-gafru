@@ -28,7 +28,7 @@ const Navbar = () => {
       { name: 'Payroll Software', href: '/Software-comparison/Payroll-software' },
       { name: 'CRM Software', href: '/Software-comparison/CRM-software' },
       // { name: 'Sales Software', href: '/Software-comparison/Sales-software' },
-      { name: 'Project Management Software', href: '/Software-comparison/Project-management' },
+      { name: 'Accounting Management-e', href: '/Software-comparison/Accounting-management-software' },
       { name: 'VoIP & Business Phone systems', href: '/Software-comparison/VoIP-&-Business-Phone-systems' }
     ]
   };

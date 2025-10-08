@@ -1426,7 +1426,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
         <meta property="og:image:height" content="627" />
         <meta
           property="og:url"
-          content="https://technology-advice.vercel.app/software-reviews/project-management"
+          content="https://technology-advice.vercel.app/software-reviews/Accounting-management-software"
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Martechbiz" />
@@ -1448,7 +1448,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
 
         <link
           rel="canonical"
-          href="https://technology-advice.vercel.app/software-reviews/project-management"
+          href="https://technology-advice.vercel.app/software-reviews/Accounting-management-software"
         />
       </Head>
 
@@ -2306,7 +2306,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
                       that optimizes for smaller displays and touch navigation.
                       According to {" "}
                        <Link
-                      href="/enterprise-project-management"
+                      href="/enterprise-Accounting-management-software"
                       className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
                     >
                       Forbes
@@ -2334,7 +2334,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
                        <p className="text-base sm:text-sm md:text-lg lg:text-lg text-black leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
                       A recent {" "}
                         <Link
-                      href="/enterprise-project-management"
+                      href="/enterprise-Accounting-management-software"
                       className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
                     >
                       Statista study
@@ -2345,7 +2345,7 @@ When contrasting LevelEleven with other gamification choices like Pointagram, Am
                       customer assistance on social media.Sales software that
                       integrates with social media (such as {" "}
                        <Link
-                      href="/enterprise-project-management"
+                      href="/enterprise-Accounting-management-software"
                       className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
                     >
                      Social CRM

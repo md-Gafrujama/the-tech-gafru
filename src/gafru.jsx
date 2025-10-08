@@ -53,7 +53,7 @@ const posts = [
     title: 'Asana vs monday: Top Project Management...',
     date: 'September 19, 2024',
     image: '/images/monday-asana.jpeg',
-    href: '/blog/project-management/asana-vs-monday',
+    href: '/blog/Accounting-management-software/asana-vs-monday',
     bg: 'bg-gray-100',
   },
   {
@@ -200,7 +200,7 @@ const categories = [
     popular: ['Monday.com', 'Asana', 'Wrike', 'Trello', 'Jira'],
     logos: ['monday', 'asana', 'wrike', 'trello', 'jira'],
     links: ['/tools/monday', '/tools/asana', '/tools/wrike', '/tools/trello', '/tools/jira'],
-    cardLink: '/categories/project-management',
+    cardLink: '/categories/Accounting-management-software',
   },
   {
     title: 'CRM Software',
@@ -1070,7 +1070,7 @@ export default function Page() {
         whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
         className="group relative h-full"
       >
-        <Link href="/Software-comparison/Project-management" className="block h-full">
+        <Link href="/Software-comparison/Accounting-management-software" className="block h-full">
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-indigo-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
             <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
               <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
