@@ -330,18 +330,6 @@ export default function VoIPSoftwarePage() {
       </div>
     </div>
 
-    {/* Stats badges */}
-    <div className="flex flex-wrap gap-4 mb-10">
-      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-        <FaCheckCircle className="text-emerald-400 text-sm" />
-        <span className="text-sm font-medium">Expert Reviewed</span>
-      </div>
-      <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-        <FaCheckCircle className="text-teal-400 text-sm" />
-        <span className="text-sm font-medium">5+ Years Testing</span>
-      </div>
-    </div>
-
     {/* Enhanced author note */}
     <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 sm:p-8 max-w-4xl">
       <div className="flex items-start gap-4">
@@ -448,132 +436,133 @@ export default function VoIPSoftwarePage() {
             </section>
 
             {/* Section 2: Top VoIP software at a glance */}
-            <section id="section-1" className="mb-16">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                Top VoIP software at a glance
-              </h2>
+         <section id="section-1" className="mb-16">
+  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+    Top VoIP software at a glance
+  </h2>
 
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-300 text-sm">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Best VoIP software</th>
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Monthly starting price</th>
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Free trial</th>
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Key features</th>
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">My rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/nextiva-logo.png" alt="Nextiva" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$23</td>
-                      <td className="border border-gray-300 px-4 py-3">❌</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Shared SMS inbox<br/>
-                        Custom call routing rules<br/>
-                        Local & toll-free numbers
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.9</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/zoom-logo.png" alt="Zoom Phone" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$10</td>
-                      <td className="border border-gray-300 px-4 py-3">❌</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Voicemail task extraction<br/>
-                        Online faxing<br/>
-                        Post-call summaries
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.86</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/ringcentral-logo.png" alt="RingCentral" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$30</td>
-                      <td className="border border-gray-300 px-4 py-3">14 days</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        24/7 AI answering<br/>
-                        In-depth call analytics<br/>
-                        Multi-level phone menus
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.56</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/vonage-logo.png" alt="Vonage" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$19.99</td>
-                      <td className="border border-gray-300 px-4 py-3">14 days</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Unlimited SMS<br/>
-                        40+ phone features<br/>
-                        Visual voicemail
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.48</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/ooma-logo.png" alt="Ooma" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$19.95</td>
-                      <td className="border border-gray-300 px-4 py-3">❌</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Toll-free minutes<br/>
-                        Company directory<br/>
-                        Custom caller ID
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.31</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/grasshopper-logo.png" alt="Grasshopper" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">$18</td>
-                      <td className="border border-gray-300 px-4 py-3">7 days</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Vanity phone numbers<br/>
-                        Unlimited extensions<br/>
-                        Custom phone greetings
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.25</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <LogoImage src="/logos/callhippo-logo.png" alt="CallHippo" width={80} height={24} />
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">Free or $25</td>
-                      <td className="border border-gray-300 px-4 py-3">10 days</td>
-                      <td className="border border-gray-300 px-4 py-3">
-                        Free VoIP plan<br/>
-                        Unlimited landline/mobile calls<br/>
-                        Omnichannel inbox
-                      </td>
-                      <td className="border border-gray-300 px-4 py-3">4.16</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
+  <div className="overflow-x-auto">
+    <table className="w-full border-collapse border border-gray-300 text-sm">
+      <thead>
+        <tr className="bg-gray-50">
+          <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Best VoIP software</th>
+          <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Monthly starting price</th>
+          <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Free trial</th>
+          <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Key features</th>
+          <th className="border border-gray-300 px-4 py-3 text-left font-semibold">My rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/nextiva.png" alt="Nextiva" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$23</td>
+          <td className="border border-gray-300 px-4 py-3">❌</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Shared SMS inbox<br/>
+            Custom call routing rules<br/>
+            Local & toll-free numbers
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.9</td>
+        </tr>
+        <tr className="bg-gray-50">
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/zoom.png" alt="Zoom Phone" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$10</td>
+          <td className="border border-gray-300 px-4 py-3">❌</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Voicemail task extraction<br/>
+            Online faxing<br/>
+            Post-call summaries
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.86</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/ring.png" alt="RingCentral" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$30</td>
+          <td className="border border-gray-300 px-4 py-3">14 days</td>
+          <td className="border border-gray-300 px-4 py-3">
+            24/7 AI answering<br/>
+            In-depth call analytics<br/>
+            Multi-level phone menus
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.56</td>
+        </tr>
+        <tr className="bg-gray-50">
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/vonoge.png" alt="Vonage" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$19.99</td>
+          <td className="border border-gray-300 px-4 py-3">14 days</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Unlimited SMS<br/>
+            40+ phone features<br/>
+            Visual voicemail
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.48</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/ooma.png" alt="Ooma" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$19.95</td>
+          <td className="border border-gray-300 px-4 py-3">❌</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Toll-free minutes<br/>
+            Company directory<br/>
+            Custom caller ID
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.31</td>
+        </tr>
+        <tr className="bg-gray-50">
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/gros.png" alt="Grasshopper" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">$18</td>
+          <td className="border border-gray-300 px-4 py-3">7 days</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Vanity phone numbers<br/>
+            Unlimited extensions<br/>
+            Custom phone greetings
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.25</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 px-4 py-3">
+            <div className="flex items-center justify-center">
+              <LogoImage src="/images/call.png" alt="CallHippo" width={120} height={40} />
+            </div>
+          </td>
+          <td className="border border-gray-300 px-4 py-3">Free or $25</td>
+          <td className="border border-gray-300 px-4 py-3">10 days</td>
+          <td className="border border-gray-300 px-4 py-3">
+            Free VoIP plan<br/>
+            Unlimited landline/mobile calls<br/>
+            Omnichannel inbox
+          </td>
+          <td className="border border-gray-300 px-4 py-3">4.16</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
             {/* Section 3: 6 Best VoIP Software & Providers */}
             <section id="section-2" className="mb-12">
