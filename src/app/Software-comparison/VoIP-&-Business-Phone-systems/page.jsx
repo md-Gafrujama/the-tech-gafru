@@ -45,14 +45,22 @@ export default function VoIPSoftwarePage() {
   const [openSection, setOpenSection] = useState(null);
   const [openSections, setOpenSections] = useState({});
   const [isFormOpen, setIsFormOpen] = useState(false);
+  
+  // Add success message state and auto-hide functionality
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  // Handle success message with 3-second auto-hide
+  // Function to show success popup for 3 seconds
   const showSuccessPopup = () => {
     setShowSuccessMessage(true);
     setTimeout(() => {
       setShowSuccessMessage(false);
-    }, 3000);
+    }, 3000); // Auto-hide after 3 seconds
+  };
+
+  // Handle form success submission
+  const handleFormSuccess = () => {
+    setIsFormOpen(false);
+    showSuccessPopup();
   };
 
   const toggleSection = (sectionKey, labelKey = null) => {
@@ -111,14 +119,17 @@ export default function VoIPSoftwarePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // NEW: Auto-open form popup after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
-  };
-
-  // Handle form submission success
-  const handleFormSuccess = () => {
-    setIsFormOpen(false);
-    showSuccessPopup();
   };
 
   // Logo component with fallback
@@ -281,7 +292,11 @@ export default function VoIPSoftwarePage() {
                 </svg>
               </button>
               
-              <CBusinessPhoneSystemForm onClose={() => setIsFormOpen(false)} onSuccess={handleFormSuccess} />
+              {/* Form component with success handler */}
+              <CBusinessPhoneSystemForm 
+                onClose={() => setIsFormOpen(false)} 
+                onSuccess={handleFormSuccess}
+              />
             </div>
           </div>
         )}
@@ -341,8 +356,7 @@ export default function VoIPSoftwarePage() {
     </div>
   </div>
 </section>
-
-      {/* Main Content Section */}
+{/* Main Content Section */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-4 sm:px-8 lg:px-16 py-8">
           {/* TOC Sidebar - Fixed Position */}
@@ -1585,8 +1599,7 @@ export default function VoIPSoftwarePage() {
                   <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                     <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
                       <span className="w-3 h-3 bg-[#386861] rounded-full"></span>
-                      Does it include collaboration tools like
-                      video and messaging?
+                      Does it include collaboration tools like video and messaging?
                     </h3>
                     <p>
                       Some business VoIP providers go beyond calling by offering video meetings and messaging. These features allow teams to communicate in real time without switching between multiple apps.
@@ -1658,6 +1671,7 @@ export default function VoIPSoftwarePage() {
           </div>
         </div>
       </div>
+      
     </>
   );
 }
