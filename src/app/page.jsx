@@ -1262,67 +1262,6 @@ export default function Page() {
         </Link>
       </motion.div>
 
-      {/* Sales Software */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-        whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
-        className="group relative h-full"
-      >
-        <Link href="/Software-comparison/Sales-software" className="block h-full">
-          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg border border-white/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-200/50 overflow-hidden h-full flex flex-col cursor-pointer">
-            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '2px' }}>
-              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl"></div>
-            </div>
-            
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100">
-                <div className="aspect-[16/9] w-full">
-                  <img 
-                    src="/images/sales.png"
-                    alt="Sales Analytics Dashboard"
-                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
-               
-              </div>
-
-              <div className="flex-1 flex flex-col">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 leading-tight mb-3">
-                  Sales Software
-                </h3>
-                
-                <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed flex-1 mb-4">
-                  Sales automation, lead generation, pipeline management, and performance analytics for revenue growth.
-                </p>
-                
-                <div className="mt-auto space-y-3 sm:space-y-4">
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {['Outreach', 'SalesLoft', 'ZoomInfo'].map((tool) => (
-                      <span key={tool} className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-gray-100 to-gray-50 rounded-md sm:rounded-lg text-xs sm:text-sm text-gray-700 border border-gray-200/50 group-hover:border-purple-500/30 group-hover:bg-gradient-to-r group-hover:from-purple-50/50 group-hover:to-pink-50/50 transition-all duration-300 whitespace-nowrap">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg sm:rounded-xl p-3 sm:p-4 transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl min-h-[44px] sm:min-h-[52px] flex items-center justify-center w-full">
-                    <div className="flex items-center justify-center text-white font-semibold text-xs sm:text-sm lg:text-base w-full">
-                      <span className="truncate mr-2">Explore Sales Tools</span>
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </motion.div>
 
       {/* Project Management Software - Fixed Size */}
       <motion.div
