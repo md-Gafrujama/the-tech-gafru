@@ -74,6 +74,16 @@ export default function AccountingSoftwarePage() {
       title: "Choosing the best accounting software",
       active: false,
     },
+    {
+      id: "implementation-guide",
+      title: "Implementation guide for accounting software",
+      active: false,
+    },
+    {
+      id: "cost-analysis",
+      title: "Cost analysis and ROI considerations",
+      active: false,
+    },
   ]);
 
   // Form modal state
@@ -173,11 +183,14 @@ export default function AccountingSoftwarePage() {
         "Excellent value for money with comprehensive features",
         "User-friendly interface suitable for non-accountants", 
         "Strong integration with other Zoho products",
+        "Advanced inventory management capabilities",
+        "Multi-currency support for international businesses",
       ],
       cons: [
         "Limited customization options compared to enterprise solutions",
         "Customer support can be slow during peak times",
         "Advanced features locked behind higher-tier plans",
+        "Learning curve for complex reporting features",
       ],
       why: {
         intro: `Zoho Books stands out as the best accounting software for small businesses due to its perfect balance of comprehensive features and affordability. The software offers everything a growing business needs without the complexity of enterprise solutions.`,
@@ -186,6 +199,8 @@ export default function AccountingSoftwarePage() {
           "Seamless integration with banking and payment systems",
           "Project time tracking and inventory management features",
           "Regular feature updates and continuous improvement",
+          "Advanced workflow automation for repetitive tasks",
+          "Real-time collaboration tools for teams and accountants",
         ],
         outro: `With its continuous evolution and regular feature rollouts, Zoho Books demonstrates a commitment to meeting the changing needs of small businesses in today's digital landscape.`,
         extras: {
@@ -225,6 +240,12 @@ export default function AccountingSoftwarePage() {
               <p className="text-black mb-4">
                 Built-in time tracking allows businesses to monitor project hours, track employee productivity, and bill clients accurately for time-based services. This feature is particularly valuable for service-based businesses and consultancies.
               </p>
+              <h4 className="text-lg font-bold mb-2">
+                Advanced Inventory Management
+              </h4>
+              <p className="text-black mb-4">
+                Comprehensive inventory tracking with support for serial numbers, batch tracking, and warehouse management. Perfect for businesses that need to track stock levels and manage complex inventory workflows.
+              </p>
             </>
           ),
           Pricing: (
@@ -258,6 +279,15 @@ export default function AccountingSoftwarePage() {
                 <li>Budgeting and forecasting</li>
                 <li>Custom fields and workflows</li>
               </ul>
+
+              <h4 className="text-lg font-bold mb-2">Premium plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$80 per month (billed annually)</li>
+                <li>Up to 25 users</li>
+                <li>Advanced analytics and reporting</li>
+                <li>Workflow automation</li>
+                <li>Priority customer support</li>
+              </ul>
             </>
           ),
         },
@@ -286,11 +316,14 @@ export default function AccountingSoftwarePage() {
         "Extremely user-friendly interface designed for non-accountants",
         "Excellent time tracking and project management features",
         "Outstanding customer support and onboarding",
+        "Beautiful, professional invoice templates",
+        "Automated late payment reminders",
       ],
       cons: [
         "More expensive than competitors for similar features",
         "Limited inventory management capabilities",
         "Fewer integrations compared to other platforms",
+        "No double-entry bookkeeping system",
       ],
       why: {
         intro: `FreshBooks excels as the best accounting software for freelancers due to its intuitive design and focus on the specific needs of independent professionals. Since 2003, it has been dedicated to making billing easier for small business owners and freelancers.`,
@@ -299,6 +332,8 @@ export default function AccountingSoftwarePage() {
           "Built-in time tracking for accurate client billing",
           "Expense tracking with receipt capture via mobile app",
           "Client portal for easy communication and payments",
+          "Project management tools integrated with billing",
+          "Automated workflow features to save time",
         ],
         outro: `With millions of users across 120+ countries, FreshBooks continues to innovate with features like time zone adjustments for global teams, making it ideal for today's distributed workforce.`,
         extras: {
@@ -312,6 +347,25 @@ export default function AccountingSoftwarePage() {
                   FreshBooks
                 </Link>{" "}
                 was founded in 2003 with a simple mission: make billing easier for small business owners and freelancers. Today, it serves millions of businesses in over 120 countries with features designed specifically for service-based businesses.
+              </p>
+              <p className="text-black mb-4">
+                The platform has evolved from a simple invoicing tool to a comprehensive business management solution that includes project management, team collaboration, and advanced reporting capabilities.
+              </p>
+            </>
+          ),
+          "Key Features": (
+            <>
+              <h4 className="text-lg font-bold mb-2">
+                Professional Invoicing
+              </h4>
+              <p className="text-black mb-4">
+                Create stunning, professional invoices with customizable templates. Accept online payments, set up recurring invoices, and track payment status in real-time.
+              </p>
+              <h4 className="text-lg font-bold mb-2">
+                Time Tracking & Project Management
+              </h4>
+              <p className="text-black mb-4">
+                Track time across multiple projects and clients with built-in timers. Generate detailed reports and bill clients accurately based on actual time worked.
               </p>
             </>
           ),
@@ -333,6 +387,15 @@ export default function AccountingSoftwarePage() {
                 <li>Proposals and contracts</li>
                 <li>Project management</li>
                 <li>Advanced reporting</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Premium plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$55 per month</li>
+                <li>Up to 500 clients</li>
+                <li>Advanced features</li>
+                <li>Client retainers</li>
+                <li>Priority support</li>
               </ul>
             </>
           ),
@@ -362,11 +425,14 @@ export default function AccountingSoftwarePage() {
         "Excellent integration ecosystem with 1000+ apps",
         "Strong multi-currency and international features",
         "Real-time collaboration with accountants and team members",
+        "Comprehensive financial reporting capabilities",
+        "Advanced bank reconciliation features",
       ],
       cons: [
         "Limited customer support on lower-tier plans",
         "Phone support not available on all plans",
         "Some advanced features require third-party apps",
+        "Can be complex for very small businesses",
       ],
       why: {
         intro: `Xero is the ideal choice for growing businesses due to its scalable cloud-based architecture and extensive integration capabilities. Founded in 2006, it has become a favorite among businesses that need to collaborate with accountants and manage complex financial processes.`,
@@ -375,6 +441,8 @@ export default function AccountingSoftwarePage() {
           "Comprehensive financial management tools",
           "Strong integration marketplace with specialized apps",
           "Real-time collaboration features for teams and advisors",
+          "Advanced reporting and analytics capabilities",
+          "Multi-currency support for international operations",
         ],
         outro: `Recent additions like bulk transaction reconciliation, cash flow projections, and project tracking capabilities make Xero even more valuable for businesses seeking streamlined financial management.`,
         extras: {
@@ -388,6 +456,9 @@ export default function AccountingSoftwarePage() {
                   Xero
                 </Link>{" "}
                 is a cloud-based accounting software designed for small to medium-sized businesses. Its comprehensive suite of financial management tools, including invoicing, bill payment, and bank reconciliation, are accessible from any device with internet connection.
+              </p>
+              <p className="text-black mb-4">
+                With over 3 million subscribers worldwide, Xero has established itself as a leader in cloud accounting, particularly known for its strong ecosystem of third-party integrations and collaborative features.
               </p>
             </>
           ),
@@ -408,6 +479,15 @@ export default function AccountingSoftwarePage() {
                 <li>Bulk reconcile transactions</li>
                 <li>Advanced reporting</li>
                 <li>Multi-currency support</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Established plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$70 per month</li>
+                <li>All Growing features</li>
+                <li>Multiple currencies</li>
+                <li>Project tracking</li>
+                <li>Advanced analytics</li>
               </ul>
             </>
           ),
@@ -437,11 +517,14 @@ export default function AccountingSoftwarePage() {
         "Superior receipt scanning and document management",
         "Automated expense categorization and tracking",
         "Strong integration with banking systems",
+        "AI-powered data extraction from receipts",
+        "Comprehensive mileage tracking features",
       ],
       cons: [
         "Limited full accounting features compared to competitors",
         "More expensive for comprehensive accounting needs",
         "Smaller feature set for invoicing and billing",
+        "Less suitable for businesses needing complex reporting",
       ],
       why: {
         intro: `Neat specializes in receipt and expense tracking, making it the perfect solution for businesses that need robust expense management. Its evolution from desktop software to cloud-based automated bookkeeping reflects its commitment to innovation.`,
@@ -450,6 +533,8 @@ export default function AccountingSoftwarePage() {
           "Automatic bank and credit card transaction syncing",
           "Intelligent expense categorization and reporting",
           "Full-service bookkeeping capabilities with NeatBooks",
+          "Mobile-first approach to expense capture",
+          "Integration with popular accounting platforms",
         ],
         outro: `The 2021 introduction of NeatBooks and NeatInvoices transformed Neat into a comprehensive bookkeeping solution while maintaining its strength in expense management.`,
         extras: {
@@ -492,11 +577,14 @@ export default function AccountingSoftwarePage() {
         "Simple, user-friendly interface perfect for beginners",
         "Affordable pricing ideal for startups and small businesses",
         "Focus on automation and simplicity",
+        "Excellent customer onboarding process",
+        "Strong mobile app functionality",
       ],
       cons: [
         "Limited advanced features compared to enterprise solutions",
         "Fewer integrations than larger competitors",
         "Basic reporting capabilities",
+        "Limited customization options",
       ],
       why: {
         intro: `Kashoo excels as the best accounting software for startups due to its focus on simplicity and automation. This Vancouver-based company has been simplifying accounting for small businesses for over a decade, with their cloud-based software popular in over 180 countries.`,
@@ -505,6 +593,8 @@ export default function AccountingSoftwarePage() {
           "Automatic matching and reconciliation features",
           "Customizable invoice design and templates",
           "User-friendly interface that doesn't require accounting knowledge",
+          "Affordable pricing structure for growing businesses",
+          "Strong focus on customer success and support",
         ],
         outro: `Kashoo's team uses their own software for their business, ensuring they understand the real-world needs of small business owners and continuously improve the product based on user feedback.`,
         extras: {
@@ -518,6 +608,213 @@ export default function AccountingSoftwarePage() {
                   Kashoo
                 </Link>{" "}
                 is a Vancouver-based company that has been simplifying accounting for small businesses for over a decade. Their cloud-based software, popular in over 180 countries, focuses on automation and simplicity.
+              </p>
+            </>
+          ),
+        },
+      },
+    },
+    quickbooks: {
+      title: "QuickBooks Online: Best for established businesses",
+      logo: "/images/quickbooks.png",
+      button: {
+        text: "Visit Website",
+        link: "https://quickbooks.intuit.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.3/5" },
+        { label: "General features", score: "4.8/5" },
+        { label: "Pricing", score: "4.1/5" },
+        { label: "Interface", score: "4.5/5" },
+        { label: "Invoicing", score: "4.7/5" },
+        { label: "Payroll integration", score: "4.9/5" },
+        { label: "Tax features", score: "4.8/5" },
+        { label: "Reporting", score: "4.7/5" },
+        { label: "Mobile app", score: "4.4/5" },
+        { label: "Customer support", score: "4.2/5" },
+      ],
+      pros: [
+        "Comprehensive feature set for all business sizes",
+        "Excellent payroll and tax integration",
+        "Strong ecosystem of third-party apps",
+        "Advanced inventory management capabilities",
+        "Robust reporting and analytics tools",
+      ],
+      cons: [
+        "Higher pricing compared to competitors",
+        "Can be overwhelming for small businesses",
+        "Some features require additional subscriptions",
+        "Customer support quality can vary",
+      ],
+      why: {
+        intro: `QuickBooks Online dominates the accounting software market with its comprehensive feature set and deep integration capabilities. It's particularly well-suited for established businesses that need advanced functionality and seamless payroll integration.`,
+        bullets: [
+          "Industry-leading payroll and tax management features",
+          "Extensive third-party app marketplace",
+          "Advanced inventory and project tracking capabilities",
+          "Comprehensive financial reporting and analytics",
+          "Strong multi-user collaboration features",
+          "Scalable from small businesses to enterprises",
+        ],
+        outro: `With over 7 million customers worldwide, QuickBooks continues to be the go-to choice for businesses that need comprehensive accounting functionality with proven reliability.`,
+        extras: {
+          "About QuickBooks": (
+            <>
+              <p className="text-black mb-4">
+                <Link
+                  href="https://quickbooks.intuit.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  QuickBooks Online
+                </Link>{" "}
+                is developed by Intuit and has been a market leader in accounting software for over 30 years. The online version provides cloud-based access to comprehensive accounting tools used by millions of businesses globally.
+              </p>
+            </>
+          ),
+          Pricing: (
+            <>
+              <h4 className="text-lg font-bold mb-2">Simple Start</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$30 per month</li>
+                <li>1 user</li>
+                <li>Basic invoicing and expense tracking</li>
+                <li>Bank reconciliation</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Essentials</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$55 per month</li>
+                <li>Up to 3 users</li>
+                <li>Bill management</li>
+                <li>Time tracking</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Plus</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$85 per month</li>
+                <li>Up to 5 users</li>
+                <li>Inventory tracking</li>
+                <li>Project profitability</li>
+              </ul>
+            </>
+          ),
+        },
+      },
+    },
+    wave: {
+      title: "Wave: Best free accounting software",
+      logo: "/images/wave1.png",
+      button: {
+        text: "Visit Website",
+        link: "https://www.waveapps.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.4/5" },
+        { label: "Pricing", score: "5.0/5" },
+        { label: "Features", score: "4.1/5" },
+        { label: "Interface", score: "4.3/5" },
+        { label: "Invoicing", score: "4.5/5" },
+        { label: "Expense tracking", score: "4.2/5" },
+        { label: "Reporting", score: "4.0/5" },
+        { label: "Mobile app", score: "4.1/5" },
+        { label: "Customer support", score: "3.8/5" },
+        { label: "Bank connections", score: "4.3/5" },
+      ],
+      pros: [
+        "Completely free core accounting features",
+        "No limits on users, invoices, or transactions",
+        "Easy-to-use interface for beginners",
+        "Good integration with banks and payment processors",
+        "Solid invoicing and expense tracking capabilities",
+      ],
+      cons: [
+        "Limited advanced features compared to paid solutions",
+        "Customer support primarily through help center",
+        "No phone support available",
+        "Limited reporting customization options",
+      ],
+      why: {
+        intro: `Wave stands out as the best free accounting software by offering core accounting features at no cost. It's perfect for freelancers, consultants, and small businesses that need professional accounting tools without the monthly fees.`,
+        bullets: [
+          "100% free accounting software with no hidden fees",
+          "Professional invoicing with online payment acceptance",
+          "Automatic expense tracking and receipt scanning",
+          "Bank and credit card connection capabilities",
+          "Basic financial reporting and analytics",
+          "Multi-currency support for international businesses",
+        ],
+        outro: `Wave's business model is supported by optional paid services like payment processing and payroll, making it sustainable while keeping core features free for users.`,
+        extras: {
+          "About Wave": (
+            <>
+              <p className="text-black mb-4">
+                <Link
+                  href="https://www.waveapps.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  Wave
+                </Link>{" "}
+                was founded in 2010 with the mission to provide free financial software for small businesses. The company has helped over 6 million users manage their finances without charging for core accounting features.
+              </p>
+            </>
+          ),
+        },
+      },
+    },
+    sage: {
+      title: "Sage Business Cloud: Best for mid-size businesses",
+      logo: "/images/sage.png",
+      button: {
+        text: "Visit Website",
+        link: "https://www.sage.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.2/5" },
+        { label: "General features", score: "4.6/5" },
+        { label: "Scalability", score: "4.8/5" },
+        { label: "Interface", score: "4.3/5" },
+        { label: "Reporting", score: "4.7/5" },
+        { label: "Multi-currency", score: "4.8/5" },
+        { label: "Integrations", score: "4.5/5" },
+        { label: "Customer support", score: "4.4/5" },
+        { label: "Mobile access", score: "4.2/5" },
+        { label: "Security", score: "4.9/5" },
+      ],
+      pros: [
+        "Excellent scalability for growing businesses",
+        "Strong international and multi-currency capabilities",
+        "Advanced reporting and analytics features",
+        "Robust security and compliance features",
+        "Comprehensive inventory management",
+      ],
+      cons: [
+        "Higher learning curve for new users",
+        "More expensive than basic accounting solutions",
+        "Some features may be overkill for small businesses",
+        "Complex setup process for advanced features",
+      ],
+      why: {
+        intro: `Sage Business Cloud excels as the best accounting software for mid-size businesses due to its scalability and comprehensive feature set. With decades of experience in business software, Sage provides enterprise-grade capabilities in a cloud-based solution.`,
+        bullets: [
+          "Scalable architecture that grows with your business",
+          "Advanced financial reporting and business intelligence",
+          "Multi-company and multi-currency management",
+          "Comprehensive inventory and supply chain features",
+          "Strong compliance and audit trail capabilities",
+          "Professional services and implementation support",
+        ],
+        outro: `Sage's long history in business software and commitment to innovation makes it a trusted choice for businesses that need professional-grade accounting capabilities with room to grow.`,
+        extras: {
+          "About Sage": (
+            <>
+              <p className="text-black mb-4">
+                <Link
+                  href="https://www.sage.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  Sage
+                </Link>{" "}
+                has been providing business software solutions for over 40 years, serving millions of customers worldwide. Their cloud-based accounting platform combines traditional accounting strength with modern cloud capabilities.
               </p>
             </>
           ),
@@ -832,7 +1129,7 @@ export default function AccountingSoftwarePage() {
                     </p>
 
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      We reviewed 25 top accounting software solutions and narrowed it down to the best of the best:
+                      We reviewed 25+ top accounting software solutions and narrowed it down to the best of the best:
                     </p>
 
                     {/* Recommendations List */}
@@ -927,6 +1224,60 @@ export default function AccountingSoftwarePage() {
                           <strong>Kashoo:</strong> Best for startups
                         </p>
                       </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-[#386861]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">
+                          <strong>QuickBooks Online:</strong> Best for established businesses
+                        </p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-[#386861]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">
+                          <strong>Wave:</strong> Best free accounting software
+                        </p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-[#386861]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">
+                          <strong>Sage Business Cloud:</strong> Best for mid-size businesses
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -947,12 +1298,12 @@ export default function AccountingSoftwarePage() {
                     {/* Tool Header */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
                           <Image
                             src={tool.logo}
                             alt={`${tool.title} logo`}
-                            width={48}
-                            height={48}
+                            width={64}
+                            height={64}
                             className="object-contain"
                           />
                         </div>
@@ -1118,6 +1469,20 @@ export default function AccountingSoftwarePage() {
                         Project accounting software streamlines complex, interdepartmental or inter-company projects with sensitive resource and capital allocations. Providing time and expense tools, human and material resource management, and billing and invoicing features alongside project management task management and analysis.
                       </p>
                     </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Cloud-based accounting</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Cloud accounting software provides real-time access to financial data from any location with internet connectivity. These solutions offer automatic backups, enhanced security, and seamless collaboration between team members and external accountants.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Industry-specific accounting</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Specialized accounting software designed for specific industries like construction, healthcare, retail, or manufacturing. These solutions include industry-specific features, compliance requirements, and reporting standards tailored to particular business sectors.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -1168,6 +1533,27 @@ export default function AccountingSoftwarePage() {
                         Critical to the forward-thinking company, budgeting and forecasting tools give companies insight into their past revenue and spending habits to help them better use their resources and plan for future financial success.
                       </p>
                     </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Invoicing and billing</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Professional invoicing capabilities allow businesses to create custom invoices, track payment status, send automated reminders, and accept online payments. Advanced features include recurring billing, multi-currency support, and invoice customization.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Expense tracking</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Comprehensive expense management includes receipt capture, automatic categorization, mileage tracking, and integration with corporate credit cards. Mobile apps enable real-time expense recording and approval workflows.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Inventory management</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        For businesses that sell physical products, inventory tracking features monitor stock levels, track cost of goods sold, manage purchase orders, and provide low-stock alerts. Advanced systems support multiple locations and warehouse management.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -1186,36 +1572,44 @@ export default function AccountingSoftwarePage() {
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-3">Time savings</h3>
+                               <h3 className="text-xl font-semibold text-gray-900 mb-3">Time savings</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        The most immediate change many companies notice when they move from paper ledgers or spreadsheets to accounting software is a major reduction in the time spent entering and balancing ledgers.
+                        Automation features significantly reduce the time spent on manual bookkeeping tasks. Bank reconciliation, invoice generation, and expense categorization that once took hours can now be completed in minutes with the right software.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Reduction in manual data entry errors</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Accuracy improvements</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        When using tools like MS Excel, the risk of human error when working with spreadsheet formulas is much greater compared to using accounting software specialized for a client or industry.
+                        Digital systems eliminate human calculation errors and provide built-in validation checks. Automated bank feeds and transaction matching ensure that your books reflect actual financial activity without manual data entry mistakes.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Greater account visibility</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Real-time financial insights</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Top accounting features and tools provide visibility into the balance sheet and the financial workings of a company for accountants, executives, and management teams.
+                        Access to up-to-date financial information enables better decision-making. Dashboard views and real-time reporting provide immediate visibility into cash flow, profitability, and financial health without waiting for month-end reports.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-device access</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Scalability</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        As a business owner, you can't always be in the office. Accounting software can make this easy by offering mobile-friendly formats and applications.
+                        Cloud-based accounting solutions grow with your business, handling increased transaction volumes and additional users without requiring new infrastructure. Most systems offer tiered pricing to accommodate business growth.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Real-time engagement</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Compliance and audit trails</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Every business owner wants to know what their bottom line looks like. They should have the ability to see where they're at in real time so they have the option to correct course immediately.
+                        Automated compliance features help ensure adherence to tax regulations and accounting standards. Complete audit trails track all changes and transactions, making it easier to satisfy regulatory requirements and prepare for audits.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Cost reduction</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        By automating routine tasks and improving efficiency, businesses often reduce their accounting-related costs. This includes savings on bookkeeping services, reduced error correction costs, and better cash flow management.
                       </p>
                     </div>
                   </div>
@@ -1230,28 +1624,49 @@ export default function AccountingSoftwarePage() {
                   </h2>
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    These are challenges you might run into if you choose accounting software that isn't the right fit for your company. Consider these as you compare accounting software.
+                    While accounting software offers numerous benefits, businesses should be aware of potential challenges when implementing these systems.
                   </p>
 
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-currency and multi-country support</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Learning curve and training</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Some accounting systems are only built to manage finances within a specific country or in a select few currencies. Companies that often do business across two or more countries should look for an accounting tool that meets those requirements.
+                        Transitioning from manual processes or legacy systems requires staff training and adjustment periods. Even user-friendly software may require significant time investment to master all features and workflows.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Data security</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Data migration complexity</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Your accounting records are precious data and need to be protected. Cloud computing provides more security for accounting software than paper ledgers because they can be password protected and teams can assign granular user roles.
+                        Moving historical financial data from existing systems can be complex and time-consuming. Ensuring data accuracy during migration is critical and may require professional assistance or extensive validation processes.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Reporting and analytics</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Integration challenges</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Without the right data, it can be difficult to know exactly where your accounts stand and even tougher to make budgeting decisions and predictions. When looking for accounting software, you need to look for tools that offer in-depth reporting and analytics features.
+                        Connecting accounting software with existing business systems (CRM, inventory, payroll) may require technical expertise or additional software investments. Poor integration can create data silos and workflow inefficiencies.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Security and data privacy concerns</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Cloud-based systems require trust in third-party security measures. Businesses must evaluate vendor security practices and ensure compliance with data protection regulations while maintaining appropriate access controls.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Ongoing costs and feature limitations</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Subscription-based pricing models can accumulate significant costs over time. Additional features, integrations, or user licenses may require upgraded plans, potentially increasing total cost of ownership beyond initial estimates.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Customization constraints</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Many accounting solutions have limited customization options, requiring businesses to adapt their processes to fit the software rather than tailoring the system to unique business needs.
                       </p>
                     </div>
                   </div>
@@ -1266,35 +1681,56 @@ export default function AccountingSoftwarePage() {
                   </h2>
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Accounting software is available in nearly as many shapes and sizes as there are company types. These are the main types of businesses that use accounting tools to manage their financial accounts.
+                    Accounting software benefits businesses of all sizes and across various industries. Here are the primary categories of businesses that rely on accounting solutions:
                   </p>
 
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Small businesses and nonprofits</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Small businesses and startups</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Small businesses will find increased financial visibility and easier records reconciliation when they switch from spreadsheets to a general ledger or core accounting software.
+                        Small businesses use accounting software to manage basic financial operations without hiring full-time bookkeepers. Features like invoicing, expense tracking, and tax preparation are essential for maintaining compliance and cash flow management.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Growing and mid-size businesses</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Freelancers and independent contractors</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        A growing business has potential and hopes for future expansion, which can be confusing when buying accounting software. These teams need increased functionality and the ability to upgrade quickly.
+                        Solo entrepreneurs benefit from simplified invoicing, time tracking, and expense management features. Many solutions offer specialized tools for project-based billing and client management that are perfect for consultants and service providers.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Enterprise and multinational businesses</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">E-commerce businesses</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        The specific requirements of enterprise and multinational organizations include multi-currency and multinational regulatory requirements, supply chain, manufacturing, and business intelligence needs.
+                        Online retailers require inventory management, multi-channel sales tracking, and integration with payment processors. Advanced features like cost of goods sold calculation and automated sales tax management are crucial for e-commerce operations.
                       </p>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Accounting firms</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Service-based companies</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Accounting firms provide outsourced financial services to small businesses as well as those of all sizes that don't have an in-house accounting department.
+                        Professional services firms, agencies, and consultancies use accounting software for project accounting, time tracking, and client billing. Features like retainer management and progress billing are particularly valuable for service businesses.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Manufacturing companies</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Manufacturers need sophisticated inventory management, job costing, and work-in-progress tracking. Advanced accounting systems help manage complex supply chains, material costs, and production reporting requirements.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Retail businesses</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Brick-and-mortar and multi-location retailers benefit from point-of-sale integration, inventory tracking across locations, and comprehensive sales reporting. Features like seasonal analysis and vendor management are particularly valuable.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Non-profit organizations</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Non-profits require specialized features like fund accounting, grant tracking, and donor management. Compliance reporting and audit trails are essential for maintaining transparency and meeting regulatory requirements.
                       </p>
                     </div>
                   </div>
@@ -1307,46 +1743,223 @@ export default function AccountingSoftwarePage() {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Choosing the best accounting software
                   </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Selecting the right accounting software requires careful consideration of your business needs, budget, and growth plans. Follow this comprehensive guide to make an informed decision.
+                  </p>
 
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Trial</h3>
-                      <p className="text-gray-700 leading-relaxed">
-                        To truly understand which accounting software is best for your company before you buy, you'll want to look for software vendors who are willing to let you peek behind the curtain with a free trial. With an application as complicated as accounting software, you'll want to look for a trial that provides enough time to test major features.
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Assess your business requirements</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Start by evaluating your current accounting processes and identifying pain points. Consider the following factors:
                       </p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Case studies and referrals</h3>
-                      <p className="text-gray-700 leading-relaxed">
-                        Accounting software sales reps and marketing websites can tell you all about the benefits their software provides, but where's the proof? The best accounting software vendors will be able to show their worth via case studies and referrals to current power users.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">RFP</h3>
-                      <p className="text-gray-700 leading-relaxed mb-4">
-                        Your software selection team should formulate a request for proposals (RFP) early in the selection process. A good software RFP should contain:
-                      </p>
-                      <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Specific business goals your team would like to reach with this software</li>
-                        <li>A list of must-have and nice-to-have features you're looking for</li>
-                        <li>A list of specialized industry or regulatory requirements that this software will need to fit</li>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>Business size and number of transactions per month</li>
+                        <li>Industry-specific requirements and compliance needs</li>
+                        <li>Integration requirements with existing business systems</li>
+                        <li>Number of users who need system access</li>
+                        <li>Mobile access requirements for remote work</li>
+                        <li>Multi-currency or international business needs</li>
                       </ul>
                     </div>
-                  </div>
 
-                  {/* Conclusion */}
-                  <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Finding the right accounting software for your business
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Accounting software is a vital tool for businesses of all sizes, offering a range of features from core accounting to payroll, ERP, billing and invoicing, and project accounting. The choice of accounting software should be based on the specific needs of the business, the complexity of financial records, and feature requirements. Remember to consider challenges like multi-currency support, data security, and reporting capabilities when making your decision.
-                    </p>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Evaluate core features</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Ensure the software includes essential accounting features:
+                      </p>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>General ledger and chart of accounts management</li>
+                        <li>Accounts payable and receivable tracking</li>
+                        <li>Bank reconciliation and transaction matching</li>
+                        <li>Financial reporting and custom report creation</li>
+                        <li>Tax preparation and compliance features</li>
+                        <li>Invoice creation and payment processing</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Consider scalability and growth</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Choose software that can grow with your business. Look for solutions that offer multiple pricing tiers, additional user licenses, and advanced features that you may need as your company expands. Cloud-based solutions typically offer better scalability than desktop software.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Budget considerations</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Factor in both initial and ongoing costs including subscription fees, implementation costs, training expenses, and potential integration costs. Consider the total cost of ownership over several years rather than just the monthly subscription price.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Test before you commit</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Take advantage of free trials and demos to test the software with your actual business data. Pay attention to ease of use, speed of data entry, and how well the software handles your specific business processes.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Support and training resources</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Evaluate the quality of customer support, available training resources, and implementation assistance. Good vendor support is crucial for smooth adoption and ongoing success with your accounting software.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
+
+              {/* Implementation guide section */}
+              <section id="implementation-guide">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Implementation guide for accounting software
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Successful accounting software implementation requires careful planning and execution. Follow this step-by-step guide to ensure a smooth transition.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Pre-implementation planning</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Proper preparation is essential for successful implementation:
+                      </p>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>Document current accounting processes and workflows</li>
+                        <li>Clean up existing financial data and resolve discrepancies</li>
+                        <li>Identify key stakeholders and assign implementation roles</li>
+                        <li>Set realistic timelines and milestones</li>
+                        <li>Plan for staff training and change management</li>
+                        <li>Backup existing financial data before migration</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Data migration process</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Careful data migration ensures historical information is preserved:
+                      </p>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>Export data from existing systems in compatible formats</li>
+                        <li>Set up chart of accounts structure in new system</li>
+                        <li>Import historical transactions and customer/vendor data</li>
+                        <li>Verify data accuracy through reconciliation reports</li>
+                        <li>Test all imported data before going live</li>
+                        <li>Maintain parallel systems during transition period</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">System configuration</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Configure the software to match your business processes including user permissions, approval workflows, automatic categorization rules, and integration with other business systems. Set up templates for invoices, reports, and other frequently used documents.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Training and adoption</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Comprehensive training ensures successful adoption across your organization. Provide role-specific training for different user types, create internal documentation and procedures, and establish ongoing support processes for questions and issues.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Testing and validation</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Thoroughly test all functionality before full deployment including transaction processing, reporting accuracy, integration functionality, and backup/recovery procedures. Validate results against known benchmarks from your previous system.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Go-live and monitoring</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Execute your go-live plan with proper monitoring and support. Monitor system performance and user adoption, provide immediate support for any issues, and conduct regular check-ins with users to address concerns and optimize processes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Cost analysis section */}
+              <section id="cost-analysis">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Cost analysis and ROI considerations
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Understanding the true cost and return on investment of accounting software helps justify the purchase and set realistic expectations for your implementation.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Direct costs</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Consider all direct costs associated with accounting software:
+                      </p>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>Monthly or annual subscription fees</li>
+                        <li>Setup and implementation costs</li>
+                        <li>Data migration and integration expenses</li>
+                        <li>Training costs for staff</li>
+                        <li>Additional user licenses as you grow</li>
+                        <li>Add-on features and premium modules</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Indirect costs and savings</h3>
+                      <p className="text-gray-700 leading-relaxed mb-3">
+                        Factor in indirect costs and potential savings:
+                      </p>
+                      <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                        <li>Reduced bookkeeping and accounting service costs</li>
+                        <li>Time savings from automation and efficiency gains</li>
+                        <li>Reduced error correction and audit costs</li>
+                        <li>Improved cash flow from better invoicing and collections</li>
+                        <li>Better financial insights leading to improved decision-making</li>
+                        <li>Compliance cost reductions through automated reporting</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">ROI calculation methods</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Calculate return on investment by comparing the total cost of the software against quantifiable benefits such as time savings, reduced labor costs, error prevention, and improved financial management. Most businesses see ROI within 6-12 months of implementation.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Long-term value considerations</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Consider long-term benefits including scalability as your business grows, improved financial controls and compliance, better business intelligence and reporting capabilities, and enhanced collaboration with accountants and stakeholders.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Final CTA Section */}
+              <div className="bg-gradient-to-r from-[#0E1F1C] to-[#386861] rounded-2xl sm:rounded-3xl p-8 mt-8 text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  Ready to find your perfect accounting solution?
+                </h2>
+                <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+                  Compare top accounting software options and get personalized recommendations based on your business needs.
+                </p>
+                <button 
+                  onClick={() => setIsFormOpen(true)}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0E1F1C] font-bold text-lg rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                >
+                  Get Free Quotes Now
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1355,17 +1968,33 @@ export default function AccountingSoftwarePage() {
       {/* Form Modal */}
      {/* Form Modal */}
 {isFormOpen && (
-  <div className="fixed inset-0 backdrop-blur-md bg-white/20 flex items-center justify-center z-50 p-4">
-    <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div 
+      className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      onClick={() => setIsFormOpen(false)}
+    ></div>
+    <div className="relative z-10 w-full max-w-2xl">
+      {/* Close Button (X) */}
       <button
         onClick={() => setIsFormOpen(false)}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
+        className="absolute -top-4 -right-4 z-20 w-10 h-10 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center shadow-lg transition-colors duration-200 group"
         aria-label="Close modal"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <svg 
+          className="w-5 h-5 text-gray-600 group-hover:text-gray-800" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M6 18L18 6M6 6l12 12" 
+          />
         </svg>
       </button>
+      
       <AccountingFrom onClose={() => setIsFormOpen(false)} />
     </div>
   </div>
@@ -1374,3 +2003,5 @@ export default function AccountingSoftwarePage() {
     </>
   );
 }
+
+                      
