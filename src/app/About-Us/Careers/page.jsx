@@ -170,7 +170,7 @@ export default function CareersPage() {
 
   const sections = [
     {
-      title: "What are TA's core values?",
+      title: "What are Martechbiz's core values?",
       content: `These are not just words on our website. Our core values are foundational to who we are as a company and the success of our team. We strive to achieve our highest potential and are dedicated to making a consistent effort to grow in these areas.
 
 Be transparent
@@ -210,7 +210,7 @@ Valuing each other is doing something to make someone else's day more productive
 This results in our team being friendly, genuine, welcoming, helpful, attentive, and willing to roll up our sleeves for the greater good.`,
     },
     {
-      title: "What makes someone thrive at TA?",
+      title: "What makes someone thrive at Martechbiz?",
       content: `A growth mindset
 Our team is dedicated to growth and actively seeks opportunities to learn and develop. We see failure as lessons learned. We stay curious and expand our knowledge and skill sets beyond our current capabilities.
 
@@ -230,7 +230,7 @@ Proactivity
 We go beyond the immediate tasks at hand to push our goals forward. We expect everyone to be proactive, take initiative to make the most of their work week, spot opportunities for improvement, and take it upon themselves to enact change or make something better.`,
     },
     {
-      title: "What is TA's work environment like?",
+      title: "What is Martechbiz's work environment like?",
       content: `Engaging
 We believe work is more fun when you know and are known by the people you work with. This can look like being a mentor, directly messaging a colleague to tell them they did a good job, sharing in a meeting, or helping someone out when they need it most. With events like an annual company talent show and virtual happy hours, we don't take ourselves too seriously and encourage one another through life's ups and downs.
 
@@ -254,13 +254,13 @@ We recognize that diversity extends beyond the color of our skin to include ethn
 
   const testimonials = [
     {
-      text: `There are endless opportunities to explore and advance your career at Martechbiz. The company invests a lot of training and time into it's team members and it's apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, TA is the right place for you.`,
+      text: `There are endless opportunities to explore and advance your career at Martechbiz. The company invests a lot of training and time into it's team members and it's apparent that you get what you put in. If you want growth, opportunity, and an exciting fast-paced environment, Martechbiz is the right place for you.`,
     },
     {
-      text: `You will grow really fast at TA and learn a lot quickly. You will learn how to challenge yourself and stretch your capabilities. The organization is goal driven and focused. The team is fun and my colleagues are great to work with and people are friendly.`,
+      text: `You will grow really fast at Martechbiz and learn a lot quickly. You will learn how to challenge yourself and stretch your capabilities. The organization is goal driven and focused. The team is fun and my colleagues are great to work with and people are friendly.`,
     },
     {
-      text: `I have never been a part of a company that is as positive as Martechbiz. TA's management lives by the 5 core values, and this trickles down throughout the entire organization.`,
+      text: `I have never been a part of a company that is as positive as Martechbiz. Martechbiz's management lives by the 5 core values, and this trickles down throughout the entire organization.`,
     },
   ];
 
@@ -407,7 +407,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </svg>
       ),
       title: 'Be Transparent',
-      description: 'As stakeholders of TA, we deserve to have honest, open, & consistent information about our business. Every employee, no matter the level on the org chart, practices transparency about their work.',
+      description: 'As stakeholders of Martechbiz, we deserve to have honest, open, & consistent information about our business. Every employee, no matter the level on the org chart, practices transparency about their work.',
     },
     {
       icon: (
@@ -619,7 +619,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
             At Martechbiz we believe our success starts with attracting, hiring, and developing amazing people for our team. In sharing who we are and how we work, we're giving you insight into our culture so you can make sure it's a match for you. Our Culture Compass was created to be remarkably explicit and transparent about our unique culture to give you the best opportunity to thrive in our environment and reach your full potential.
           </p>
           <p>
-            We want TA to be the place for you and hope our culture resonates with you! If not, that's okay. We believe in ensuring that everyone understands and aligns with our team's goals, fostering a collective sense of purpose that drives our actions and dedication.
+            We want Martechbiz to be the place for you and hope our culture resonates with you! If not, that's okay. We believe in ensuring that everyone understands and aligns with our team's goals, fostering a collective sense of purpose that drives our actions and dedication.
           </p>
         </div>
 
