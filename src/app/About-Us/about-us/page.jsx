@@ -58,7 +58,7 @@ const values = [
     icon: <LucideSearchCheck className="text-[#386861]" size={28} />,
     title: "Be transparent",
     description:
-      "As stakeholders of TA, we deserve to have honest, open, and consistent information about our business. Every employee, no matter the level on the org chart, practices transparency about their work.",
+      "As stakeholders of Martechbiz, we deserve to have honest, open, and consistent information about our business. Every employee, no matter the level on the org chart, practices transparency about their work.",
   },
   {
     icon: <LucideRocket className="text-[#386861]" size={28} />,
@@ -107,7 +107,7 @@ const faqData = [
     {
       question: "How do you describe Martechbiz culture?",
       answer:
-        "In our Culture Compass, we describe TA’s work environment as engaging, fast-paced, supportive, global, and committed to DE&I.",
+        "In our Culture Compass, we describe Martechbiz’s work environment as engaging, fast-paced, supportive, global, and committed to DE&I.",
     },
    
     
@@ -147,7 +147,7 @@ const AboutUsPage = () => {
                         <span className="text-green-300">Martechbiz</span>
                     </h1>
                     <p className="text-gray-200 mt-4 text-lg sm:text-xl max-w-lg animate-fade-in-up delay-200">
-                        Get to know TA’s purpose, core values, and culture.
+                        Get to know Martechbiz’s purpose, core values, and culture.
                     </p>
 
                     {/* Added Feature: Call to Action Button */}
