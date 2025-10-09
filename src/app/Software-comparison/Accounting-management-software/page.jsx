@@ -152,7 +152,7 @@ export default function AccountingSoftwarePage() {
   const toolsContent = {
     zohoBooks: {
       title: "Zoho Books: Best for small businesses",
-      logo: "/images/zoho-books.png",
+      logo: "/images/zohobook.png",
       button: {
         text: "Visit Website",
         link: "https://www.zoho.com/books/",
@@ -265,7 +265,7 @@ export default function AccountingSoftwarePage() {
     },
     freshBooks: {
       title: "FreshBooks: Best for freelancers",
-      logo: "/images/freshbooks.png",
+      logo: "/images/freshbook.png",
       button: {
         text: "Visit Website",
         link: "https://www.freshbooks.com/",

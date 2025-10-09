@@ -603,7 +603,7 @@ const CRMForm = ({ onClose }) => {
     };
 
     return (
-        <div className="w-full bg-white relative">
+        <div className="w-full max-w-4xl bg-white relative mx-auto">
             {/* Success notification */}
             {showSuccess && (
                 <div className="fixed top-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm w-full border-l-4 border-[#ff8633] z-900 slide-in-right">
