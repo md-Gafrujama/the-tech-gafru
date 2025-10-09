@@ -1,5 +1,5 @@
 "use client";
-
+import AccountingFrom from '../../../components/AccountingFrom';
 import React, { useState, useEffect } from "react";
 import {
   Home,
@@ -21,7 +21,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 
-export default function ProjectManagementPage() {
+export default function AccountingSoftwarePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [productSearch, setProductSearch] = useState("");
   const [filterBy, setFilterBy] = useState("Reviews");
@@ -32,35 +32,52 @@ export default function ProjectManagementPage() {
   const [activeSection, setActiveSection] = useState(null);
   const [openSections, setOpenSections] = useState({});
   const [openItems, setOpenItems] = useState({});
- 
+
   const [tableOfContents, setTableOfContents] = useState([
     {
-      id: "what-is-pm-software",
-      title: "What is project management software?",
+      id: "what-is-accounting-software",
+      title: "What is accounting software?",
       active: false,
     },
     {
-      id: "best-pm-software",
-      title: "What is the best project management software?",
+      id: "best-accounting-software",
+      title: "Our picks for the best accounting software",
       active: false,
     },
     {
       id: "find-new-software",
-      title: "Find your new project management software",
+      title: "Find your new accounting software",
       active: false,
     },
     {
-      id: "common-features",
-      title: "Common project management software features",
+      id: "key-features",
+      title: "What are the key features of accounting software?",
       active: false,
     },
     {
-      id: "how-to-choose",
-      title: "How to choose the right PM software for your project",
+      id: "benefits",
+      title: "What are the benefits of accounting software?",
       active: false,
     },
-    { id: "pm-faqs", title: "Project management software FAQs", active: false },
+    {
+      id: "challenges",
+      title: "What are some accounting software challenges?",
+      active: false,
+    },
+    {
+      id: "business-types",
+      title: "What kinds of businesses use accounting software?",
+      active: false,
+    },
+    {
+      id: "choosing-software",
+      title: "Choosing the best accounting software",
+      active: false,
+    },
   ]);
+
+  // Form modal state
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const toggleSection = (sectionKey, labelKey = null) => {
     setExpandedSections((prev) => ({
@@ -70,7 +87,6 @@ export default function ProjectManagementPage() {
 
     if (labelKey) {
       setActiveSection((prev) => (prev === sectionKey ? null : sectionKey));
-      setOpenSection((prev) => (prev === labelKey ? null : labelKey));
     }
 
     setOpenSections((prev) => ({
@@ -119,982 +135,389 @@ export default function ProjectManagementPage() {
       });
     };
 
-    // Set initial active state
     handleScroll();
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- 
-const toolsContent = {
-    monday: {
-      title: "monday.com: Best overall project management software",
-      logo: "/images/monday.png",
+  // Auto-open form after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const toolsContent = {
+    zohoBooks: {
+      title: "Zoho Books: Best for small businesses",
+      logo: "/images/zoho-books.png",
       button: {
         text: "Visit Website",
-        link: "#",
+        link: "https://www.zoho.com/books/",
       },
       scores: [
-        { label: "User reviews", score: "4.62/5" },
-        { label: "General features", score: "4.38/5" },
-        { label: "Pricing", score: "4.01/5" },
-        { label: "Interface", score: "4.52/5" },
-        { label: "Task management", score: "4.5/5" },
+        { label: "User reviews", score: "4.5/5" },
+        { label: "General features", score: "4.6/5" },
+        { label: "Pricing", score: "4.8/5" },
+        { label: "Interface", score: "4.7/5" },
+        { label: "Invoicing", score: "4.8/5" },
         { label: "Integrations", score: "4.5/5" },
-        { label: "Automation", score: "4.9/5" },
-        { label: "Project planning and scheduling", score: "4.9/5" },
-        { label: "Collaboration tools", score: "4.25/5" },
-        { label: "Resource management", score: "3.75/5" },
-        { label: "Reporting and analytics", score: "4.9/5" },
-        { label: "User security and permissions", score: "4.9/5" },
+        { label: "Automation", score: "4.4/5" },
+        { label: "Reporting", score: "4.6/5" },
+        { label: "Mobile app", score: "4.3/5" },
+        { label: "Customer support", score: "4.2/5" },
       ],
       pros: [
-        "Can accommodate large-scale organizations.",
-        "Straightforward communication and collaboration features.",
-        "Advanced automation capabilities.",
+        "Excellent value for money with comprehensive features",
+        "User-friendly interface suitable for non-accountants", 
+        "Strong integration with other Zoho products",
       ],
       cons: [
-        "May not be ideal for small teams due to its cost and complexity.",
-        "Steep learning curve.",
-        "Mobile app's limitations on generating and viewing reports.",
+        "Limited customization options compared to enterprise solutions",
+        "Customer support can be slow during peak times",
+        "Advanced features locked behind higher-tier plans",
       ],
       why: {
-        intro: `I chose monday.com for its essential features that efficiently support project management. It offers functionalities that streamline processes and help secure effective project oversight and coordination. Its highly customizable workflow will allow you to tailor the software to your needs:`,
+        intro: `Zoho Books stands out as the best accounting software for small businesses due to its perfect balance of comprehensive features and affordability. The software offers everything a growing business needs without the complexity of enterprise solutions.`,
         bullets: [
-          "Make informed decisions by leveraging its powerful visualization, with which you can view real-time data in ten different ways.",
-          "Save time and avoid human error by automating tasks.",
-          "Collaborate, share files, and update stakeholders through its neat cards and tagging system.",
+          "Comprehensive invoicing and expense tracking capabilities",
+          "Seamless integration with banking and payment systems",
+          "Project time tracking and inventory management features",
+          "Regular feature updates and continuous improvement",
         ],
-        outro: `Compared with other project management tools, monday.com has fewer integrations. Despite this minor disadvantage, monday.com is still the best PM software overall because it allows you to perform multiple project management tasks in one platform.`,
+        outro: `With its continuous evolution and regular feature rollouts, Zoho Books demonstrates a commitment to meeting the changing needs of small businesses in today's digital landscape.`,
         extras: {
-          "About monday.com": (
+          "About Zoho Books": (
             <>
               <p className="text-black mb-4">
                 <Link
-                  href="https://monday.com"
+                  href="https://www.zoho.com/books/"
                   className="text-green-600 hover:text-green-700 font-medium underline"
                 >
-                  monday.com{" "}
-                </Link>
-                can help you streamline tasks, deadlines, and deliverables. It
-                was initially created as a collaboration tool and eventually
-                evolved into a comprehensive platform that can perform various
-                project management functions. Nowadays, it is a leading tool for
-                managing workflows, monitoring project progress, and improving
-                communication. monday.com also offers other products including a
-                CRM, making it one of the best CRM and project management
-                software on the market today.
+                  Zoho Books
+                </Link>{" "}
+                has been a trusted name in the accounting software industry since 2011. Designed specifically for small businesses, it offers comprehensive features from invoicing and expense tracking to project time tracking and inventory management.
+              </p>
+              <p className="text-black mb-4">
+                The software continues evolving with regular updates, including recent enhancements like drag-and-drop file importing, new transfer order fields, improved Timesheets calendar view, and advanced webhook creation capabilities.
               </p>
             </>
           ),
           "Key Features": (
             <>
               <h4 className="text-lg font-bold mb-2">
-                Customizable workflows and boards
+                Comprehensive Invoicing System
               </h4>
               <p className="text-black mb-4">
-                With monday.com, you can fine-tune your workflows, views, and
-                boards to align them with your project's needs. This level of
-                adaptability provides a well-organized visual representation of
-                tasks and projects. It also simplifies workflow comprehension
-                for stakeholders and helps project managers to easily identify
-                bottlenecks and track progress.
+                Zoho Books provides a robust invoicing system that allows businesses to create professional invoices, set up recurring billing, and track payment status. The system supports multiple payment gateways and currencies, making it ideal for businesses with international clients.
               </p>
               <h4 className="text-lg font-bold mb-2">
-                Automation capabilities
+                Expense Tracking and Management
               </h4>
               <p className="text-black mb-4">
-                monday.com's no-code automation builder is quite intuitive; even
-                those without technical expertise can easily set up automation
-                rules. The platform also provides a variety of predefined
-                automation recipes that cover common project management needs,
-                such as:
+                Track business expenses effortlessly with automatic bank feeds, receipt scanning, and categorization. The software can automatically match transactions and reconcile accounts, saving significant time in bookkeeping tasks.
               </p>
-              <ul className="list-disc pl-5 text-black space-y-1 mb-4">
-                <li>Sending email notifications.</li>
-                <li>Updating item statuses.</li>
-                <li>
-                  Creating new items based on specific triggers or customized
-                  automation rules.
-                </li>
-              </ul>
+              <h4 className="text-lg font-bold mb-2">
+                Project Time Tracking
+              </h4>
               <p className="text-black mb-4">
-                By automating repetitive tasks, you can focus on the critical
-                aspects of your work, thereby increasing overall productivity.
-                Automation also helps maintain consistency in task management.
-              </p>
-              <h4 className="text-lg font-bold mb-2">Collaborative platform</h4>
-              <p className="text-black">
-                monday.com stands out as a collaboration and communication tool
-                because of functionalities such as shared boards, commenting on
-                tasks, sharing files, and updating statuses. Each task or item
-                has its own conversation thread, allowing members to add
-                updates, ask questions, and provide feedback directly. Having a
-                definitive flow of communication encourages accountability,
-                reduces miscommunication, and enhances team synergy.
+                Built-in time tracking allows businesses to monitor project hours, track employee productivity, and bill clients accurately for time-based services. This feature is particularly valuable for service-based businesses and consultancies.
               </p>
             </>
           ),
           Pricing: (
             <>
               <p className="text-black mb-4">
-                monday.com's pricing can vary to scale with the team's size, and
-                the cost may adjust based on the number of seats required. The
-                pricing structure below (except for the Free plan) is based on a
-                team of three.
+                Zoho Books offers competitive pricing with multiple tiers to accommodate different business sizes and needs. The pricing structure is transparent and provides excellent value for the features offered.
               </p>
-              <p className="text-black mb-4">
-                monday.com has a visually intuitive platform and offers a wide
-                range of features. However, adding more users and requiring more
-                advanced features for your business can become costly.
-                monday.com's pricing is suitable for mid-sized organizations, as
-                its mid-tier plans balance features and usability.
-              </p>
+              
               <h4 className="text-lg font-bold mb-2">Free plan</h4>
               <ul className="list-disc pl-5 text-black mb-4">
-                <li>Free forever with up to two seats.</li>
-                <li>Includes basic features for personal use.</li>
+                <li>Free forever for businesses with revenue up to $50,000</li>
+                <li>3 users maximum</li>
+                <li>Basic invoicing and expense tracking</li>
+                <li>Bank reconciliation</li>
               </ul>
-              <h4 className="text-lg font-bold mb-2">Basic plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>$27 per month (three seats, billed annually).</li>
-                <li>14-day free trial available, no credit card required.</li>
-                <li>Prioritized customer support.</li>
-                <li>5 GB file storage.</li>
-                <li>Create a dashboard based on one board.</li>
-              </ul>
+
               <h4 className="text-lg font-bold mb-2">Standard plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$36 per month (three seats, billed annually).</li>
-                <li>14-day free trial available, no credit card required.</li>
-                <li>
-                  Includes Basic plan features, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Timeline, Calendar, and Gantt views.</li>
-                    <li>Automations (250 actions per month).</li>
-                    <li>Integrations (250 actions per month).</li>
-                    <li>Create a dashboard that combines five boards.</li>
-                  </ul>
-                </li>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$20 per month (billed annually)</li>
+                <li>Up to 3 users</li>
+                <li>Advanced invoicing features</li>
+                <li>Inventory management</li>
+                <li>Purchase order management</li>
               </ul>
-              <h4 className="text-lg font-bold mb-2">Pro plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$57 per month (three seats, billed annually).</li>
-                <li>14-day free trial available, no credit card required.</li>
-                <li>
-                  Includes Standard plan features, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Automations (25,000 actions per month)</li>
-                    <li>Integrations (25,000 actions per month).</li>
-                    <li>Time tracking.</li>
-                    <li>Formula column.</li>
-                    <li>Create a dashboard that combines 10 boards.</li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-                <li>
-                  Includes Pro plan features, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Enterprise-scale automations and integrations.</li>
-                    <li>Enterprise-grade security and governance.</li>
-                    <li>Multi-level permissions.</li>
-                    <li>Enterprise support.</li>
-                    <li>Advanced reporting and analytics.</li>
-                    <li>Create a dashboard that combines 50 boards.</li>
-                  </ul>
-                </li>
+
+              <h4 className="text-lg font-bold mb-2">Professional plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$50 per month (billed annually)</li>
+                <li>Up to 10 users</li>
+                <li>Project time tracking</li>
+                <li>Budgeting and forecasting</li>
+                <li>Custom fields and workflows</li>
               </ul>
             </>
           ),
-          Gallery: (
+        },
+      },
+    },
+    freshBooks: {
+      title: "FreshBooks: Best for freelancers",
+      logo: "/images/freshbooks.png",
+      button: {
+        text: "Visit Website",
+        link: "https://www.freshbooks.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.4/5" },
+        { label: "General features", score: "4.5/5" },
+        { label: "Pricing", score: "4.2/5" },
+        { label: "Interface", score: "4.8/5" },
+        { label: "Invoicing", score: "4.9/5" },
+        { label: "Time tracking", score: "4.7/5" },
+        { label: "Expense tracking", score: "4.6/5" },
+        { label: "Mobile app", score: "4.5/5" },
+        { label: "Customer support", score: "4.7/5" },
+        { label: "Reporting", score: "4.3/5" },
+      ],
+      pros: [
+        "Extremely user-friendly interface designed for non-accountants",
+        "Excellent time tracking and project management features",
+        "Outstanding customer support and onboarding",
+      ],
+      cons: [
+        "More expensive than competitors for similar features",
+        "Limited inventory management capabilities",
+        "Fewer integrations compared to other platforms",
+      ],
+      why: {
+        intro: `FreshBooks excels as the best accounting software for freelancers due to its intuitive design and focus on the specific needs of independent professionals. Since 2003, it has been dedicated to making billing easier for small business owners and freelancers.`,
+        bullets: [
+          "Streamlined invoicing process with professional templates",
+          "Built-in time tracking for accurate client billing",
+          "Expense tracking with receipt capture via mobile app",
+          "Client portal for easy communication and payments",
+        ],
+        outro: `With millions of users across 120+ countries, FreshBooks continues to innovate with features like time zone adjustments for global teams, making it ideal for today's distributed workforce.`,
+        extras: {
+          "About FreshBooks": (
             <>
-              <p>
-                Gallery Lorem ipsum dolor sit, amet consectetur adipisicing
-                elit. Inventore tenetur asperiores facilis, sit dolorum sunt
-                laborum magni quam repellendus adipisci quas fugiat vero
-                consequatur incidunt.
+              <p className="text-black mb-4">
+                <Link
+                  href="https://www.freshbooks.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  FreshBooks
+                </Link>{" "}
+                was founded in 2003 with a simple mission: make billing easier for small business owners and freelancers. Today, it serves millions of businesses in over 120 countries with features designed specifically for service-based businesses.
+              </p>
+            </>
+          ),
+          Pricing: (
+            <>
+              <h4 className="text-lg font-bold mb-2">Lite plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$17 per month</li>
+                <li>Up to 5 clients</li>
+                <li>Unlimited invoicing and estimates</li>
+                <li>Time tracking</li>
+                <li>Basic reporting</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Plus plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$30 per month</li>
+                <li>Up to 50 clients</li>
+                <li>Proposals and contracts</li>
+                <li>Project management</li>
+                <li>Advanced reporting</li>
+              </ul>
+            </>
+          ),
+        },
+      },
+    },
+    xero: {
+      title: "Xero: Best for growing businesses",
+      logo: "/images/xero.png",
+      button: {
+        text: "Visit Website",
+        link: "https://www.xero.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.3/5" },
+        { label: "General features", score: "4.7/5" },
+        { label: "Pricing", score: "4.4/5" },
+        { label: "Interface", score: "4.6/5" },
+        { label: "Bank reconciliation", score: "4.8/5" },
+        { label: "Integrations", score: "4.9/5" },
+        { label: "Multi-currency", score: "4.7/5" },
+        { label: "Reporting", score: "4.6/5" },
+        { label: "Collaboration", score: "4.5/5" },
+        { label: "Mobile access", score: "4.4/5" },
+      ],
+      pros: [
+        "Excellent integration ecosystem with 1000+ apps",
+        "Strong multi-currency and international features",
+        "Real-time collaboration with accountants and team members",
+      ],
+      cons: [
+        "Limited customer support on lower-tier plans",
+        "Phone support not available on all plans",
+        "Some advanced features require third-party apps",
+      ],
+      why: {
+        intro: `Xero is the ideal choice for growing businesses due to its scalable cloud-based architecture and extensive integration capabilities. Founded in 2006, it has become a favorite among businesses that need to collaborate with accountants and manage complex financial processes.`,
+        bullets: [
+          "Cloud-based access from any device with internet connection",
+          "Comprehensive financial management tools",
+          "Strong integration marketplace with specialized apps",
+          "Real-time collaboration features for teams and advisors",
+        ],
+        outro: `Recent additions like bulk transaction reconciliation, cash flow projections, and project tracking capabilities make Xero even more valuable for businesses seeking streamlined financial management.`,
+        extras: {
+          "About Xero": (
+            <>
+              <p className="text-black mb-4">
+                <Link
+                  href="https://www.xero.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  Xero
+                </Link>{" "}
+                is a cloud-based accounting software designed for small to medium-sized businesses. Its comprehensive suite of financial management tools, including invoicing, bill payment, and bank reconciliation, are accessible from any device with internet connection.
+              </p>
+            </>
+          ),
+          Pricing: (
+            <>
+              <h4 className="text-lg font-bold mb-2">Early plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$13 per month</li>
+                <li>Up to 5 bills and 20 invoices</li>
+                <li>Enter 5 bills and reconcile 20 bank transactions</li>
+                <li>Basic reporting</li>
+              </ul>
+
+              <h4 className="text-lg font-bold mb-2">Growing plan</h4>
+              <ul className="list-disc pl-5 text-black mb-4">
+                <li>$37 per month</li>
+                <li>Unlimited bills and invoices</li>
+                <li>Bulk reconcile transactions</li>
+                <li>Advanced reporting</li>
+                <li>Multi-currency support</li>
+              </ul>
+            </>
+          ),
+        },
+      },
+    },
+    neat: {
+      title: "Neat: Best for receipt and expense tracking",
+      logo: "/images/neat.png",
+      button: {
+        text: "Visit Website",
+        link: "https://www.neat.com/",
+      },
+      scores: [
+        { label: "User reviews", score: "4.2/5" },
+        { label: "Receipt scanning", score: "4.8/5" },
+        { label: "Expense tracking", score: "4.7/5" },
+        { label: "Document management", score: "4.6/5" },
+        { label: "Automation", score: "4.5/5" },
+        { label: "Integrations", score: "4.3/5" },
+        { label: "Mobile app", score: "4.4/5" },
+        { label: "Reporting", score: "4.2/5" },
+        { label: "User interface", score: "4.3/5" },
+        { label: "Customer support", score: "4.1/5" },
+      ],
+      pros: [
+        "Superior receipt scanning and document management",
+        "Automated expense categorization and tracking",
+        "Strong integration with banking systems",
+      ],
+      cons: [
+        "Limited full accounting features compared to competitors",
+        "More expensive for comprehensive accounting needs",
+        "Smaller feature set for invoicing and billing",
+      ],
+      why: {
+        intro: `Neat specializes in receipt and expense tracking, making it the perfect solution for businesses that need robust expense management. Its evolution from desktop software to cloud-based automated bookkeeping reflects its commitment to innovation.`,
+        bullets: [
+          "Advanced receipt scanning and OCR technology",
+          "Automatic bank and credit card transaction syncing",
+          "Intelligent expense categorization and reporting",
+          "Full-service bookkeeping capabilities with NeatBooks",
+        ],
+        outro: `The 2021 introduction of NeatBooks and NeatInvoices transformed Neat into a comprehensive bookkeeping solution while maintaining its strength in expense management.`,
+        extras: {
+          "About Neat": (
+            <>
+              <p className="text-black mb-4">
+                <Link
+                  href="https://www.neat.com/"
+                  className="text-green-600 hover:text-green-700 font-medium underline"
+                >
+                  Neat
+                </Link>{" "}
+                started as a desktop application for managing expenses and documents, evolving to focus on cloud-based solutions. In 2021, it expanded with NeatBooks and NeatInvoices, becoming a full-service bookkeeping tool.
               </p>
             </>
           ),
         },
       },
     },
-    asana: {
-      title: "Asana: Best project management software for ease of use",
-      logo: "/images/asana.png",
+    kashoo: {
+      title: "Kashoo: Best for startups",
+      logo: "/images/kashoo.png",
       button: {
         text: "Visit Website",
-        link: "#",
+        link: "https://kashoo.com/",
       },
       scores: [
-        { label: "User reviews", score: "4.38/5" },
-        { label: "General features", score: "4.53/5" },
-        { label: "Pricing", score: "4.9/5" },
-        { label: "Interface", score: "4.9/5" },
-        { label: "Task management", score: "4.5/5" },
-        { label: "Integrations", score: "4.25/5" },
-        { label: "Automation", score: "2.5/5" },
-        { label: "Project planning and scheduling", score: "4.9/5" },
-        { label: "Collaboration tools", score: "4.75/5" },
-        { label: "Resource management", score: "2.5/5" },
-        { label: "Reporting and analytics", score: "4.9/5" },
-        { label: "User security and permissions", score: "4.9/5" },
+        { label: "User reviews", score: "4.3/5" },
+        { label: "Ease of use", score: "4.7/5" },
+        { label: "Pricing", score: "4.6/5" },
+        { label: "Features", score: "4.2/5" },
+        { label: "Mobile app", score: "4.3/5" },
+        { label: "Customer support", score: "4.5/5" },
+        { label: "Automation", score: "4.4/5" },
+        { label: "Invoicing", score: "4.3/5" },
+        { label: "Reporting", score: "4.1/5" },
+        { label: "Integration", score: "4.0/5" },
       ],
       pros: [
-        "Intuitive interface with straightforward navigation.",
-        "Free plan can accommodate up to 10 users.",
+        "Simple, user-friendly interface perfect for beginners",
+        "Affordable pricing ideal for startups and small businesses",
+        "Focus on automation and simplicity",
       ],
       cons: [
-        "Task assignments are limited to one person only, which can lead to bottlenecks.",
-        "Limited exporting and importing functionality for reporting and analysis.",
+        "Limited advanced features compared to enterprise solutions",
+        "Fewer integrations than larger competitors",
+        "Basic reporting capabilities",
       ],
       why: {
-        intro: `I chose Asana for its straightforward yet feature-rich interface that is easy to navigate, even for beginners. With fewer clicks than monday.com and Jira, you can quickly change views from list to board or timeline. Despite some limitations on assigning tasks and exporting functionality, Asana's organized software navigation makes it the go-to choice for businesses seeking to simplify workflow and manage tasks with less fuss and a gentle learning curve.`,
-
+        intro: `Kashoo excels as the best accounting software for startups due to its focus on simplicity and automation. This Vancouver-based company has been simplifying accounting for small businesses for over a decade, with their cloud-based software popular in over 180 countries.`,
+        bullets: [
+          "Designed specifically for small business needs",
+          "Automatic matching and reconciliation features",
+          "Customizable invoice design and templates",
+          "User-friendly interface that doesn't require accounting knowledge",
+        ],
+        outro: `Kashoo's team uses their own software for their business, ensuring they understand the real-world needs of small business owners and continuously improve the product based on user feedback.`,
         extras: {
-          "About Asana": (
+          "About Kashoo": (
             <>
               <p className="text-black mb-4">
                 <Link
-                  href="https://asana.com"
+                  href="https://kashoo.com/"
                   className="text-green-600 hover:text-green-700 font-medium underline"
                 >
-                  Asana{" "}
-                </Link>
-                was initially designed as a tool to improve team collaboration
-                and productivity. After years of development, Asana has become
-                one of the best project management software solutions on the
-                market for small businesses. Asana's key focus is to offer a
-                clean and straightforward interface so that users with varying
-                levels of technical expertise can use it. On top of its neat,
-                user-friendly interface, Asana also provides robust task
-                management capabilities, multiple project views, and
-                collaboration features.
-              </p>
-            </>
-          ),
-          "Key Features": (
-            <>
-              <h4 className="text-lg font-bold mb-2">
-                Multi-homing tasks across projects
-              </h4>
-              <p className="text-black mb-4">
-                Asana lets your team add a single task to multiple projects or
-                to multiple sections within a project, a feature called
-                multi-homing. This feature ensures that all relevant
-                stakeholders have access and visibility to the task and can
-                collaborate on it. It's particularly useful for work with
-                overlapping responsibilities or within integrated workflows.
-              </p>
-              <h4 className="text-lg font-bold mb-2">Task covers</h4>
-              <p className="text-black mb-4">
-                Asana now offers task covers, a.k.a. thumbnail images for tasks,
-                to make project management more intuitive and visually
-                appealing. This picture provides a quick visual preview of what
-                each assignment involves. With task covers, you'll get instant
-                graphic context to recognize tasks more efficiently. This
-                feature sets Asana apart by blending functionality with a
-                personalized touch.
-              </p>
-              <h4 className="text-lg font-bold mb-2">Workload view</h4>
-              <p className="text-black mb-4">
-                Asana's workload reporting feature visually represents the
-                team's capacity and helps a project manager ensure no one is
-                overwhelmed or underutilized. Unlike ClickUp's workload view,
-                which displays data in color-coded bars, Asana presents the data
-                in a neat graph to better understand the team's workload. This
-                feature in Asana is available for Advanced and Enterprise
-                customers.
-              </p>
-            </>
-          ),
-          Pricing: (
-            <>
-              <p className="text-black mb-4">
-                Asana's pricing structure is quite competitive, but if you
-                require advanced features, you'll find them paywalled behind
-                higher-tier plans. For mid-tier companies, Asana provides
-                excellent value for money through its mid-tier plans, as they
-                offer competent functionalities for their price.
-              </p>
-
-              <h4 className="text-lg font-bold mb-2">Personal plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Free forever for up to 10 teammates.</li>
-                <li>Unlimited file storage (100 MB per file).</li>
-                <li>Basic views like list, board, and calendar.</li>
-                <li>Basic search filters and status updates.</li>
-              </ul>
-
-              <h4 className="text-lg font-bold mb-2">Starter plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>$10.99 per user per month (billed annually).</li>
-                <li>30-day free trial available, no credit card required .</li>
-                <li>Includes Personal plan features, plus</li>
-              </ul>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Up to 500 teammates.</li>
-                <li>
-                  <Link href="https://asana.com/ai" className="text-green-600 hover:text-green-700 font-medium underline">
-                    Asana Intelligence{" "}
-                  </Link>
-                  (AI for work and project management).
-                </li>
-                <li>Gantt view.</li>
-                <li>Custom project templates and forms.</li>
-                <li>250 automations per month.</li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Advanced plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$24.99 per user per month (billed annually)..</li>
-                <li>30-day free trial available, no credit card required.</li>
-                <li>
-                  Includes Starter plan features, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Set goals and connect them to work.</li>
-                    <li>
-                      Workload feature to assess team bandwidth and load balance
-                      tasks.
-                    </li>
-                    <li>20 portfolios.</li>
-                    <li>25,000 automations per month. </li>
-                    <li>Time tracking and advanced reporting.</li>
-                    <li>Lock custom fields and scaled security. </li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-
-                <li>
-                  Includes Advanced plan features, plus:
-                  <ul className="list-disc pl-5">
-                    <li>No user limit.</li>
-                    <li>
-                      Advanced integrations with Salesforce, Tableau, and Power
-                      BI.
-                    </li>
-                    <li>Resource management.</li>
-                    <li>Advanced security and admin controls through SAML. </li>
-                    <li>Premium support. </li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise + plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-                <li>
-                  Includes all Enterprise Plan features with additional
-                  customization and support options for large or complex
-                  organizations.
-                </li>
-              </ul>
-            </>
-          ),
-          Gallery: (
-            <>
-              <p>
-                Gallery Lorem ipsum dolor sit, amet consectetur adipisicing
-                elit. Inventore tenetur asperiores facilis, sit dolorum sunt
-                laborum magni quam repellendus adipisci quas fugiat vero
-                consequatur incidunt.
-              </p>
-            </>
-          ),
-        },
-      },
-    },
-    wrike: {
-      title: "Wrike: Most versatile project management software",
-      logo: "/images/wrike-logo.png",
-      button: {
-        text: "Visit Website",
-        link: "#",
-      },
-      scores: [
-        { label: "User reviews", score: "4.16/5" },
-        { label: "General features", score: "4.77/5" },
-        { label: "Pricing", score: "4.41/5" },
-        { label: "Interface", score: "4.05/5" },
-        { label: "Task management", score: "4.5/5" },
-        { label: "Integrations", score: "4.5/5" },
-        { label: "Automation", score: "4/5" },
-        { label: "Project planning and scheduling", score: "4.9/5" },
-        { label: "Collaboration tools", score: "4.75/5" },
-        { label: "Resource management", score: "3.75/5" },
-        { label: "Reporting and analytics", score: "4.9/5" },
-        { label: "User security and permissions", score: "3.75/5" },
-      ],
-      pros: [
-        "Flexible project templates.",
-        "Effortless task management.",
-        "Quick access to customer support through its floating chat icon.",
-      ],
-      cons: [
-        "Can be overwhelming for beginners.",
-        "Some users report slow load times.",
-      ],
-      why: {
-        intro: (
-          <>
-            I chose Wrike because of its ability to adapt to different business
-            models and{" "}
-            <Link
-              href="https://wrike.com/project-management-guide/"
-              className="text-[#386861] hover:text-green-700 font-medium underline"
-            >
-              project management strategies
-            </Link>
-            . This versatility makes it a perfect choice for project managers
-            handling multiple projects simultaneously. Even though some users
-            think the platform's aesthetic is a bit lackluster, Wrike contains
-            features essential for keeping track of tasks, deliverables, and
-            progress.
-          </>
-        ),
-
-        outro: `While Asana offers a streamlined, high-level interface for work management, Wrike provides a granular and detailed way of resource allocation.`,
-
-        extras: {
-          "About Wrike": (
-            <>
-              <p className="text-black mb-4">
-                <Link
-                  href="https://wrike.com"
-                  className="text-green-600 hover:text-green-700 font-medium underline"
-                >
-                  Wrike
+                  Kashoo
                 </Link>{" "}
-                provides robust task management features, real-time analytics,
-                and reports within a simple, neat-looking platform. You can also
-                rename the fields within a project or duplicate an existing
-                project's format as a template. Its flexibility makes it a
-                versatile tool catering to various business needs. It can also
-                support the waterfall PM framework and Agile methodologies such
-                as Scrum and Kanban.
-              </p>
-            </>
-          ),
-          "Key Features": (
-            <>
-              <h4 className="text-lg font-bold mb-2">
-                Interactive Gantt charts
-              </h4>
-              <p className="text-black mb-4">
-                Wrike's Gantt chart feature is highly interactive and allows
-                users to create, adjust, and link tasks directly within the
-                chart. Wrike's interactive Gantt charts can easily identify task
-                durations, dependencies, and milestones through intuitive
-                drag-and-drop actions. Additionally, Wrike's Gantt chart can
-                also perform a{" "}
-                <Link
-                  href="https://wrike.com/project-management-guide/faq/what-is-critical-path-method/"
-                  className="text-green-600 hover:text-green-700 font-medium underline"
-                >
-                  critical path analysis
-                </Link>{" "}
-                and highlight the sequence of tasks that directly impact the
-                project's completion date.
-              </p>
-              <h4 className="text-lg font-bold mb-2">
-                Highly customizable workflows
-              </h4>
-              <p className="text-black mb-4">
-                Wrike stands out for its versatility as project management
-                software. Fields and labels can be adjusted easily to make sure
-                the project meets its requirements. This level of flexibility
-                offers a detailed visual map or representation of the workflow
-                or project stages.
-              </p>
-              <h4 className="text-lg font-bold mb-2">Wrike Lock</h4>
-              <p className="text-black mb-4">
-                While other PM software solutions use third-party integrations
-                for data encryption, Wrike developed Wrike Lock, which is
-                available as a paid add-on feature. Wrike Lock is an additional
-                layer of encryption on top of standard encryption for workspace
-                data and files. It uses AES-256 encryption keys, and it allows
-                project managers to have a clear view of who is accessing the
-                data and when. This feature enables businesses to use cloud
-                applications with fewer worries.
-              </p>
-            </>
-          ),
-          Pricing: (
-            <>
-              <p className="text-black mb-4">
-                Overall, Wrike's pricing and plans can accommodate a wide range
-                of users, from individuals to large organizations. Furthermore,
-                Wrike's Business plan offers a robust set of tools. However, its
-                value for money might be less compelling than ClickUp's
-                offerings at similar or lower price points.
-              </p>
-
-              <h4 className="text-lg font-bold mb-2">Free plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Free forever for unlimited users.</li>
-                <li>Basic project and task management features.</li>
-                <li>Board and table views.</li>
-              </ul>
-
-              <h4 className="text-lg font-bold mb-2">Team plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>$10.00 per user per month (billed annually).</li>
-                <li>14-day free trial available, no credit card required.</li>
-                <li>Everything from the Free plan, plus:</li>
-              </ul>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Unlimited projects, tasks, and subtasks.</li>
-                <li>Unlimited custom fields and request forms.</li>
-                <li>Up to 20 free collaborators.</li>
-                <li>Gantt charts.</li>
-                <li>Automations (50 actions/user/month).</li>
-                <li>Analytics and calendar views.</li>
-                <li>Use case templates..</li>
-                <li>One-click sign-in.</li>
-                <li>2 GB storage per user.</li>
-                <li>Generative AI tool.</li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Business plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$25 per user, per month (billed annually).</li>
-                <li>5–200 users.</li>
-                <li>14-day free trial available, no credit card required. </li>
-                <li>
-                  Everything from the Team plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Automations (200 actions/user/month).</li>
-                    <li>AI risk prediction and work creation.</li>
-                    <li>Resource management: workloads and time tracking.</li>
-                    <li>Reports and unlimited dashboards. </li>
-                    <li>User groups and permissions.</li>
-                    <li>DAM Integrations and Cloud Content Connector. </li>
-                    <li>Adobe Creative Cloud Extensions. </li>
-                    <li>5 GB storage per user. </li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-
-                <li>
-                  Everything from the Business plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Unlimited users; five users minimum</li>
-                    <li>
-                      SAML-based SSO (Users can sign in just once to access both
-                      Wrike and other associated applications).
-                    </li>
-                    <li>Two-factor authentication (2FA).</li>
-                    <li>Custom access roles. </li>
-                    <li>Customizable user types.</li>
-                    <li> Admin permissions.</li>
-                    <li>Automations (1000 actions/user/month).</li>
-                    <li>10 GB storage per user.</li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Pinnacle plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-                <li>Everything from the Enterprise plan, plus:</li>
-                <ul className="list-disc pl-5">
-                  <li>Unlimited users; five users minimum</li>
-                  <li>Locked spaces.</li>
-                  <li>Advanced reporting and BI.</li>
-                  <li>Team utilization and performance dashboard.</li>
-                  <li>Job roles.</li>
-                  <li>Budgeting and billable hours.</li>
-                  <li>Automations (1,500 actions/user/month).</li>
-                </ul>
-              </ul>
-            </>
-          ),
-          Gallery: (
-            <>
-              <p>
-                Gallery Lorem ipsum dolor sit, amet consectetur adipisicing
-                elit. Inventore tenetur asperiores facilis, sit dolorum sunt
-                laborum magni quam repellendus adipisci quas fugiat vero
-                consequatur incidunt.
-              </p>
-            </>
-          ),
-        },
-      },
-    },
-    Jira: {
-      title: "Jira: Best Agile project management software",
-      logo: "/images/Jira.png",
-      button: {
-        text: "Visit Website",
-        link: "#",
-      },
-      scores: [
-        { label: "User reviews", score: "4.67/5" },
-        { label: "General features", score: "4.9/5" },
-        { label: "Pricing", score: "3.7/5" },
-        { label: "Interface", score: "4.3/5" },
-        { label: "Task management", score: "4.5/5" },
-        { label: "Integrations", score: "4.75/5" },
-        { label: "Automation", score: "4/5" },
-        { label: "Project planning and scheduling", score: "4.9/5" },
-        { label: "Collaboration tools", score: "4.75/5" },
-        { label: "Resource management", score: "4.9/5" },
-        { label: "Reporting and analytics", score: "4.9/5" },
-        { label: "User security and permissions", score: "4.9/5" },
-      ],
-      pros: [
-        "Designed to support Agile methodologies.",
-        "Offers 4,000+ integrations through the Atlassian marketplace.",
-        "Real-time tracking capabilities.",
-      ],
-      cons: [
-        "May not align well with the waterfall model.",
-        "Complex initial setup.",
-      ],
-      why: {
-        intro: (
-          <>
-            I chose Jira for its Agile-specific tools and templates. Its
-            features, such as customizable boards, backlogs, sprints, and
-            reports, make it ideal for organizations that follow the{" "}
-            <Link
-              href="https://www.atlassian.com/agile"
-              className="text-[#386861] hover:text-green-700 font-medium underline"
-            >
-              Scrum or Kanban
-            </Link>{" "}
-            framework.
-          </>
-        ),
-
-        outro: `Furthermore, Jira's capacity to integrate into the Atlassian ecosystem and other productivity tools helps teams centralize project details and collaborate across different platforms. Its ability to tailor-fit workflows can help you modify Jira's functionalities to align with your project needs.`,
-
-        extras: {
-          "About Jira": (
-            <>
-              <p className="text-black mb-4">
-                <Link
-                  href="https://www.atlassian.com/software/jira"
-                  className="text-green-600 hover:text-green-700 font-medium underline"
-                >
-                  Jira
-                </Link>{" "}
-                was primarily designed for software development and issue
-                tracking. It has since evolved and developed its capabilities.
-                Nowadays, even non-IT organizations use Jira for progress
-                tracking and project management.
-              </p>
-              <p>
-                Since Jira is part of the Atlassian ecosystem, it also offers a
-                unified user experience for users who work with multiple
-                Atlassian tools. Jira also has advanced capabilities for
-                supporting Agile{" "}
-                <Link
-                  href="https://www.atlassian.com/agile/project-management"
-                  className="text-green-600 hover:text-green-700 font-medium underline"
-                >
-                  project management methodologies
-                </Link>{" "}
-                through better integration with CI/CD and Agile planning tools
-                within the Atlassian suite.
-              </p>
-            </>
-          ),
-          "Key Features": (
-            <>
-              <h4 className="text-lg font-bold mb-2">Agile-focused features</h4>
-              <p className="text-black mb-4">
-                In addition to offering Scrum or Kanban boards and sprint
-                planning tools, Jira stands out as the go-to choice for Agile
-                teams because of its Agile reporting tools. Other PM tools
-                require third-party integrations to generate these charts and
-                graphs, but Jira offers these reporting tools as native
-                features. These reporting tools help provide a detailed view of
-                team performance through Agile-specific reports such as velocity
-                charts, burndown charts, and cumulative flow diagrams.
-              </p>
-              <h4 className="text-lg font-bold mb-2">
-                Extensive integration options
-              </h4>
-              <p className="text-black mb-4">
-                As part of the Atlassian ecosystem, Jira can integrate with
-                other Atlassian products like Confluence, Bitbucket, and Trello.
-                After setting up their Confluence accounts, Agile teams can
-                directly link project documentation, requirements, and decision
-                records to Jira issues and sprints. Additionally, by integrating
-                with Atlassian’s control system, Agile teams can link commits,
-                branches, and pull requests to Jira issues.
-              </p>
-
-              <p className="text-black mb-4">
-                In addition to integrating within the Atlassian ecosystem, Jira
-                can also integrate with other tools outside this suite. These
-                include software development tools, communication platforms,
-                tracking apps, and customer relationship management (CRM)
-                systems.
-              </p>
-            </>
-          ),
-          Pricing: (
-            <>
-              <p className="text-black mb-4">
-                If you manage software development teams or organizations
-                following Agile methodologies, Jira can provide great value for
-                your money. Jira’s features and functionalities suit these Agile
-                frameworks, such as generating detailed Agile reports like
-                burndown charts, velocity charts, and cumulative flow diagrams.
-              </p>
-
-              <h4 className="text-lg font-bold mb-2">Free plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Free forever for up to 10 users.</li>
-                <li>Unlimited project boards and tasks.</li>
-                <li>Automation (100 rule runs per month)</li>
-                <li>100 email notifications per day.</li>
-                <li>2 GB file storage.</li>
-                <li>Community support. </li>
-              </ul>
-
-              <h4 className="text-lg font-bold mb-2">Standard Plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>$875 billed annually for 10 users.</li>
-                <li>Up to 50,000 users.</li>
-                <li>Everything from the Free plan, plus:</li>
-              </ul>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>User roles and permissions.</li>
-                <li>Audit logs.</li>
-                <li>250 GB of storage.</li>
-                <li>Business hour support..</li>
-                <li>Automation (1,700 rule runs per month).</li>
-                <li>Unlimited email notifications.</li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Premium Plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$1,700 billed annually for 10 users.</li>
-                <li>Up to 50,000 users.</li>
-
-                <li>
-                  Everything from the Standard plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>
-                      Automation (1,000 rule runs per month per paid user).
-                    </li>
-                    <li>Unlimited storage.</li>
-                    <li>24/7 premium support.</li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise plan</h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-                <li>Up to 50,000 users.</li>
-                <li>
-                  Everything from the Premium plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Multiple sites, up to 150.</li>
-                    <li>24/7 Enterprise support.</li>
-                    <li>Unlimited automation.</li>
-                    <li>Advanced admin controls and security. </li>
-                  </ul>
-                </li>
-              </ul>
-            </>
-          ),
-          Gallery: (
-            <>
-              <p>
-                Gallery Lorem ipsum dolor sit, amet consectetur adipisicing
-                elit. Inventore tenetur asperiores facilis, sit dolorum sunt
-                laborum magni quam repellendus adipisci quas fugiat vero
-                consequatur incidunt.
-              </p>
-            </>
-          ),
-        },
-      },
-    },
-   ClickUp: {
-      title:
-        "ClickUp: Best project management software for resource management",
-      logo: "/images/clickup.png",
-      button: {
-        text: "Visit Website",
-        link: "#",
-      },
-      scores: [
-        { label: "User reviews", score: "4.67/5" },
-        { label: "General features", score: "4.9/5" },
-        { label: "Pricing", score: "3.7/5" },
-        { label: "Interface", score: "4.29/5" },
-        { label: "Task management", score: "4.5/5" },
-        { label: "Integrations", score: "4.75/5" },
-        { label: "Automation", score: "4/5" },
-        { label: "Project planning and scheduling", score: "4.9/5" },
-        { label: "Collaboration tools", score: "4.75/5" },
-        { label: "Resource management", score: "4.9/5" },
-        { label: "Reporting and analytics", score: "4.9/5" },
-        { label: "User security and permissions", score: "4.9/5" },
-      ],
-      pros: [
-        "Native time-tracking feature is available for all paid plans.",
-        "Competitive pricing structure for mid-sized companies.",
-      ],
-      cons: [
-        "Steep learning curve.",
-        "Some integrations only offer basic connectivity.",
-      ],
-      why: {
-        intro: `I chose ClickUp because it demonstrates strength in resource management, which is integral to project management. Its native time tracking and extensive reporting features help project managers streamline workflow and effectively monitor resource utilization and project progress.`,
-
-        outro: `
-Despite drawbacks, such as the lack of phone support and limited mobile app functionality, ClickUp is still a great contender because of its advanced time-tracking feature that can help you allocate and manage resources efficiently.`,
-
-        extras: {
-          "About ClickUp": (
-            <>
-              <p className="text-black mb-4">
-                <Link
-                  href="#"
-                  className="text-green-600 hover:text-green-700 font-medium underline"
-                >
-                  ClickUp
-                </Link>{" "}
-                is a cloud-based project management software initially developed
-                as a team management platform. After further software
-                development, ClickUp now offers features that enhance work and
-                task management, making it a sound choice for streamlining
-                workflows. With its highly customizable user interface (UI),
-                ClickUp consolidates various work management and collaboration
-                tools into a single interface.
-              </p>
-            </>
-          ),
-          "Key Features": (
-            <>
-              <h4 className="text-lg font-bold mb-2">Native time tracking</h4>
-              <p className="text-black mb-4">
-                ClickUp's native time tracking, which is available on all paid
-                plans, helps teams monitor time spent on specific tasks. While
-                monday.com offers native time tracking with basic
-                functionalities, ClickUp's time tracking is configurable and
-                offers advanced capabilities. It allows users to manually input
-                time entries and create custom statuses, workflows, and
-                time-tracking settings specific to their project needs.
-              </p>
-              <p className="text-black mb-4">
-                This feature is helpful for companies that need to keep track of
-                billable hours. Some examples include creative agencies,
-                software development teams, and legal services. Native time
-                tracking also enhances resource management by helping you
-                accurately allocate resources and monitor ongoing tasks in real
-                time.
-              </p>
-              <h4 className="text-lg font-bold mb-2">
-                Comprehensive reporting
-              </h4>
-              <p className="text-black mb-4">
-                ClickUp offers reporting features that are well-suited to many
-                different types of teams. You can quickly generate detailed
-                reports based on project progress, team performance, and
-                resource allocation. After you generate these reports, ClickUp
-                can export them in PDF, CSV, and Excel formats. Combining this
-                functionality with its native time-tracking feature gives
-                ClickUp an edge in demonstrating distinction over its
-                competitors.
-              </p>
-            </>
-          ),
-          Pricing: (
-            <>
-              <p className="text-black mb-4">
-                Considering the comprehensive features this PM tool offers (even
-                in its free plan), ClickUp stands out for its affordability.
-                Additionally, ClickUp's Enterprise plan is worth considering for
-                its flexibility and comprehensive feature set at potentially
-                lower costs than its competitors.
-              </p>
-
-              <h4 className="text-lg font-bold mb-2">Free plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Free forever, unlimited free plan members.</li>
-                <li>100 MB storage.</li>
-                <li>Unlimited tasks.</li>
-                <li>Collaborative documents and whiteboards.</li>
-                <li>Real-time chat.</li>
-                <li>Kanban board view and calendar view.</li>
-                <li>Sprint management.</li>
-                <li>In-app video recording.</li>
-                <li>24/7 support.</li>
-              </ul>
-
-              <h4 className="text-lg font-bold mb-2">Unlimited plan</h4>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>$7 per user per month (billed annually).</li>
-                <li>14-day free trial; no credit card required.</li>
-                <li>Everything in the Free plan, plus:</li>
-              </ul>
-              <ul className="list-disc pl-5 text-black mb-4">
-                <li>Unlimited storage and integrations.</li>
-                <li>Gantt charts.</li>
-                <li>Unlimited custom fields.</li>
-
-                <li>
-                  Email in ClickUp (send and receive emails directly within a
-                  task).
-                </li>
-                <li>Native time tracking and resource management.</li>
-                <li>Agile reporting.</li>
-                <li>Compatible with AI add-on ($7 per user per month).</li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Business </h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>$12 per user per month (billed annually).</li>
-                <li>14-day free trial; no credit card required.</li>
-
-                <li>
-                  Everything in the Unlimited plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Unlimited teams.</li>
-                    <li>Advanced time tracking.</li>
-                    <li>Timesheet and workload management.</li>
-                    <li>Timelines and mind maps. </li>
-                    <li>Custom exporting.</li>
-                    <li>Advanced automations. </li>
-                  </ul>
-                </li>
-              </ul>
-              <h4 className="text-lg font-bold mb-2">Enterprise </h4>
-              <ul className="list-disc pl-5 text-black">
-                <li>Requires custom pricing.</li>
-
-                <li>
-                  Everything in the Business plan, plus:
-                  <ul className="list-disc pl-5">
-                    <li>Advanced permissions.</li>
-                    <li>Default personal views.</li>
-                    <li>Custom capacity in workload</li>
-                    <li>Enterprise API.</li>
-                    <li>Live onboarding training.</li>
-                  </ul>
-                </li>
-              </ul>
-            </>
-          ),
-          Gallery: (
-            <>
-              <p>
-                Gallery Lorem ipsum dolor sit, amet consectetur adipisicing
-                elit. Inventore tenetur asperiores facilis, sit dolorum sunt
-                laborum magni quam repellendus adipisci quas fugiat vero
-                consequatur incidunt.
+                is a Vancouver-based company that has been simplifying accounting for small businesses for over a decade. Their cloud-based software, popular in over 180 countries, focuses on automation and simplicity.
               </p>
             </>
           ),
@@ -1109,55 +532,8 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
     ...value,
   }));
 
-  const faqData = [
-    {
-      question: "What are the benefits of using project management tools?",
-      answer:
-        "The benefits of using project management tools include improved organization, increased efficiency, enhanced collaboration, and better visibility into project progress.",
-    },
-    {
-      question: "How does project management software improve productivity?",
-      answer:
-        "It streamlines task coordination and resource management, provides real-time data and analytics, and helps complete projects efficiently and within budget.",
-    },
-    {
-      question:
-        "What are the cost considerations when choosing project management software?",
-      answer:
-        "Costs for project management software can vary based on features, the number of users, and the deployment type. It’s essential to consider both upfront costs and long-term value when selecting a tool.",
-    },
-    {
-      question: "What is the job of a project manager?",
-      answer:
-        "Project managers are responsible for the entire project from beginning to end and coordinate between different teams or departments. Project managers handle all aspects of the project, such as setting goals and timelines, creating budgets, delegating tasks, and communicating with stakeholders.",
-    },
-    {
-      question: "What are the five basics of project management?",
-      answer: `
-      There are five basic principles of success that you should follow to avoid project management mistakes:
-      <ol>
-        <li>Address questions and concerns at the beginning of the project.</li>
-        <li>Create project goals that spell out details such as deadlines and deliverables.</li>
-        <li>Define each person’s role(s) and communicate them clearly to your team.</li>
-        <li>Track progress over time and proactively look for risks and roadblocks.</li>
-        <li>Double-check that all deliverables have been met before finalizing the project.</li>
-      </ol>
-    `,
-    },
-    {
-      question: "What tools do project managers use?",
-      answer:
-        "Project managers use many tools to ensure their projects stay on track, such as time trackers, budgeting tools, meeting agendas, calendars, email, and more. The best project management software combines all these tools into one centralized platform so that project managers only have to use one login to access them all.",
-    },
-    {
-      question: "How many phases are there in project management?",
-      answer:
-        "There are five phases in the project management life cycle: initiation, planning, execution, monitoring, and closure five phases of project management.",
-    },
-  ];
-
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const shareTitle = "Best Project Management Software for 2025";
+  const shareTitle = "Best Accounting Software for Business 2025";
 
   const shareOnFacebook = () => {
     window.open(
@@ -1186,52 +562,35 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
     );
   };
 
-  const evaluationCriteria = [
-    { criteria: "User scores", weight: "5%" },
-    { criteria: "General features", weight: "8%" },
-    { criteria: "Pricing", weight: "10.5%" },
-    { criteria: "Interface", weight: "10.5%" },
-    { criteria: "Task management", weight: "10%" },
-    { criteria: "Integrations", weight: "10%" },
-    { criteria: "Automation", weight: "10%" },
-    { criteria: "Project planning and scheduling", weight: "10%" },
-    { criteria: "Collaboration tools", weight: "10%" },
-    { criteria: "Resource management", weight: "7%" },
-    { criteria: "Reporting and analysis", weight: "5%" },
-    { criteria: "User security and permissions", weight: "4%" },
-    { criteria: "TOTAL", weight: "100%" },
-  ];
- 
-
   return (
     <>
       <Head>
         <title>
-          Best Project Management Software for 2025 | Complete Guide
+          Best Accounting Software for Business 2025 | Hand-Picked by Experts
         </title>
         <meta
           name="description"
-          content="Comprehensive guide to choosing the best project management software for your business needs."
+          content="Comprehensive guide to choosing the best accounting software for your business needs. Expert reviews of top accounting solutions including Zoho Books, FreshBooks, Xero, Neat, and Kashoo."
         />
 
         {/* Open Graph (Facebook + LinkedIn) */}
         <meta
           property="og:title"
-          content="Best Project Management Software for 2025"
+          content="Best Accounting Software for Business 2025"
         />
         <meta
           property="og:description"
-          content="Comprehensive guide to choosing the best project management software for your business needs."
+          content="Expert-curated list of the best accounting software solutions for businesses of all sizes."
         />
         <meta
           property="og:image"
-          content="https://blogs.compare-bazaar.com/images/blog3.webp"
+          content="https://blogs.compare-bazaar.com/images/accounting-software.webp"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta
           property="og:url"
-          content="https://technology-advice.vercel.app/software-reviews/project-management"
+          content="https://technology-advice.vercel.app/software-reviews/accounting"
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Martechbiz" />
@@ -1240,20 +599,20 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Best Project Management Software for 2025"
+          content="Best Accounting Software for Business 2025"
         />
         <meta
           name="twitter:description"
-          content="Comprehensive guide to choosing the best project management software for your business needs."
+          content="Expert-curated list of the best accounting software solutions for businesses of all sizes."
         />
         <meta
           name="twitter:image"
-          content="https://blogs.compare-bazaar.com/images/blog3.webp"
+          content="https://blogs.compare-bazaar.com/images/accounting-software.webp"
         />
 
         <link
           rel="canonical"
-          href="https://technology-advice.vercel.app/software-reviews/project-management"
+          href="https://technology-advice.vercel.app/software-reviews/accounting"
         />
       </Head>
 
@@ -1287,7 +646,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
               </Link>
               <span className="text-white/60">›</span>
               <span className="text-white font-medium">
-                Best Project Management Software for 2025
+                Best Accounting Software for Business 2025
               </span>
             </div>
           </nav>
@@ -1295,12 +654,58 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
           {/* Main Heading */}
           <div className="max-w-6xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 sm:mb-12 lg:mb-16">
-              Best Project Management Software for
-              <span className="block mt-2 sm:mt-4">2025</span>
+              Best Accounting Software for
+              <span className="block mt-2 sm:mt-4">Business 2025</span>
             </h1>
-          </div>
 
-          
+            {/* CTA Button Section */}
+            <div className="max-w-4xl xl:max-w-5xl mb-8 sm:mb-12 lg:mb-16">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                <button 
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-gradient-to-r from-[#00d9a6] to-[#386861] hover:from-[#00c496] hover:to-[#00e3a7] text-white font-bold text-base sm:text-lg lg:text-xl rounded-xl sm:rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00d9a6]/40 focus:outline-none focus:ring-4 focus:ring-[#00d9a6]/50 active:scale-95 overflow-hidden"
+                  aria-label="Get free quotes for accounting software"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Get Free Quotes
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                </button>
+                
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2 text-sm sm:text-base lg:text-lg">
+                    <svg className="w-5 h-5 text-[#00d9a6]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-semibold text-white">100% Free</span>
+                    <span className="text-white/60">•</span>
+                    <span className="text-white/80">No Commitment</span>
+                  </div>
+                  <div className="text-xs sm:text-sm text-white/60 pl-7">
+                    Compare top accounting solutions in 60 seconds
+                  </div>
+                </div>
+              </div>
+              
+              <style jsx>{`
+                @keyframes shimmer {
+                  0% {
+                    transform: translateX(-100%);
+                  }
+                  100% {
+                    transform: translateX(100%);
+                  }
+                }
+                .animate-shimmer {
+                  animation: shimmer 3s infinite;
+                }
+              `}</style>
+            </div>
+          </div>
 
           {/* Disclaimer Section */}
           <div className="max-w-4xl xl:max-w-5xl">
@@ -1320,15 +725,12 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
 
       {/* Table of Contents - Left Sidebar */}
-
       <div className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Table of Contents - Left Sidebar */}
             <div className="lg:w-80 lg:sticky lg:top-24 lg:self-start">
@@ -1406,86 +808,31 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
             </div>
 
             {/* Main Content */}
-
             <div className="flex-1 max-w-4xl">
-              <section id="what-is-pm-software">
+              {/* What is accounting software section */}
+              <section id="what-is-accounting-software">
                 <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
-                  {/* Header */}
                   <header className="mb-8">
                     <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                      What is project management software?
+                      What is accounting software?
                     </h1>
                   </header>
 
-                  {/* Main Content */}
                   <div className="prose prose-lg max-w-none">
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      Project management (PM) software helps businesses and
-                      organizations achieve their goals and objectives more
-                      efficiently and effectively. It guides project managers
-                      and stakeholders through different{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        phases of the project management life cycle
-                      </a>
-                      , especially during{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        project planning
-                      </a>
-                      , execution, and monitoring.
-                    </p>
-
-                    <p className="text-gray-700 leading-relaxed mb-8">
-                      With functions that include{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        project planning
-                      </a>
-                      ,{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        scheduling
-                      </a>
-                      ,{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        task management
-                      </a>
-                      , and resource allocation, the right{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        project management
-                      </a>{" "}
-                      tool enables teams to streamline the intricate project
-                      management process. Furthermore, these PM software
-                      solutions help stakeholders stay on the same page through
-                      features that enhance file sharing, communication, and{" "}
-                      <a
-                        href="#"
-                        className="text-[#386861] hover:text-green-700 underline"
-                      >
-                        collaboration
-                      </a>
-                      .
+                      Accounting software is an electronic version of an accountant's general ledger that also keeps your books accurate, organized, and searchable. Revenues, expenses, assets, and liabilities are digitally recorded and tracked to maintain a complete picture of your business's financial health.
                     </p>
 
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      I reviewed seven project management software solutions and
-                      narrowed my list of recommendations to the best of the
-                      best:
+                      This technology can take various forms and offer a myriad of features based on the needs of a particular business or industry. However, most accounting systems share similar features and functionality.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      The best business accounting software assists businesses with processes such as bookkeeping, payroll, accounts payable, and accounts receivable.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      We reviewed 25 top accounting software solutions and narrowed it down to the best of the best:
                     </p>
 
                     {/* Recommendations List */}
@@ -1493,7 +840,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                       <div className="flex items-start space-x-3">
                         <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                           <svg
-                            className="w-3 h-3 text-[#386861] "
+                            className="w-3 h-3 text-[#386861]"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -1505,38 +852,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                           </svg>
                         </div>
                         <p className="text-gray-700">
-                          <a
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            monday.com
-                          </a>{" "}
-                          is the best overall project management software.
-                        </p>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                          <svg
-                            className="w-3 h-3 text-[#386861] "
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <p className="text-gray-700">
-                          <a
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Asana
-                          </a>{" "}
-                          is the best project management software for ease of
-                          use.
+                          <strong>Zoho Books:</strong> Best for small businesses
                         </p>
                       </div>
                       <div className="flex items-start space-x-3">
@@ -1554,37 +870,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                           </svg>
                         </div>
                         <p className="text-gray-700">
-                          <a
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Wrike
-                          </a>{" "}
-                          is the most versatile project management software.
-                        </p>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                          <svg
-                            className="w-3 h-3 text-[#386861] "
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <p className="text-gray-700">
-                          <a
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Jira
-                          </a>{" "}
-                          is the best Agile project management software.
+                          <strong>FreshBooks:</strong> Best for freelancers
                         </p>
                       </div>
                       <div className="flex items-start space-x-3">
@@ -1602,299 +888,61 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                           </svg>
                         </div>
                         <p className="text-gray-700">
-                          <a
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            ClickUp
-                          </a>{" "}
-                          is the best project management software for resource
-                          management.
+                          <strong>Xero:</strong> Best for growing businesses
                         </p>
                       </div>
-                    </div>
-
-                    {/* Expandable Sections */}
-                    <div className="space-y-4">
-                      {/* Update Notes Section */}
-                      <div className="border border-gray-200 rounded-lg">
-                        <button
-                          onClick={() => toggleSection("update-notes")}
-                          className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <h3 className="text-lg font-semibold text-gray-900">
-                            Update notes
-                          </h3>
-                          <div className="text-[#386861]">
-                            {expandedSections["update-notes"] ? (
-                              <Minus className="w-5 h-5" />
-                            ) : (
-                              <Plus className="w-5 h-5" />
-                            )}
-                          </div>
-                        </button>
-                        {expandedSections["update-notes"] && (
-                          <div className="px-4 pb-4 border-t border-gray-200">
-                            <div className="pt-4">
-                              <ul className="space-y-2 text-gray-700">
-                                <li>
-                                  • October 25, 2024: Kara Sherrer revised the
-                                  copy for clarity and accuracy, in addition to
-                                  adding more screenshots of each software.
-                                </li>
-                                <li>
-                                  • February 23, 2024:{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 font-medium underline"
-                                  >
-                                    Irene Casucian​{" "}
-                                  </a>
-                                  ​ reviewed and revised the copy for clarity,
-                                  accuracy, and depth. She added our expert
-                                  recommendations to help project managers make
-                                  informed decisions in selecting the right
-                                  project management software for their needs.
-                                  She also added dynamic design elements to
-                                  improve the visual flow of information.
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        )}
+                      <div className="flex items-start space-x-3">
+                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-[#386861]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">
+                          <strong>Neat:</strong> Best for receipt and expense tracking
+                        </p>
                       </div>
-
-                      {/* Our Methodology Section */}
-                      <div className="border border-gray-200 rounded-lg">
-                        <button
-                          onClick={() => toggleSection("methodology")}
-                          className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <h3 className="text-lg font-semibold text-gray-900">
-                            Our methodology
-                          </h3>
-                          <div className="text-[#386861]">
-                            {expandedSections["methodology"] ? (
-                              <Minus className="w-5 h-5" />
-                            ) : (
-                              <Plus className="w-5 h-5" />
-                            )}
-                          </div>
-                        </button>
-                        {expandedSections["methodology"] && (
-                          <div className="px-4 pb-4 border-t border-gray-200">
-                            <div className="pt-4 space-y-4">
-                              <p className="text-gray-700">
-                                I picked my recommendations with you in mind.
-                              </p>
-                              <p className="text-gray-700">
-                                First, I evaluated seven of the leading project
-                                management software options available today. To
-                                compile my research, I reviewed vendor demos,
-                                technical documentation, and user reviews from
-                                customers like you.
-                              </p>
-                              <p className="text-gray-700">
-                                I then narrowed my selections to the platforms
-                                that best addressed the usual concerns among
-                                project management software users: task
-                                management, automation capabilities,
-                                integration, collaboration, scalability, project
-                                planning, and resource management.
-                              </p>
-                              <p className="text-gray-700 mb-4">
-                                During our research, I evaluated the following
-                                vendors:
-                              </p>
-                              <ol className="space-y-2 text-gray-700">
-                                <li>
-                                  1.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    monday.com
-                                  </a>
-                                </li>
-                                <li>
-                                  2.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    Jira
-                                  </a>
-                                </li>
-                                <li>
-                                  3.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    Trello
-                                  </a>
-                                </li>
-                                <li>
-                                  4.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    Asana
-                                  </a>
-                                </li>
-                                <li>
-                                  5.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    Airtable
-                                  </a>
-                                </li>
-                                <li>
-                                  6.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    Wrike
-                                  </a>
-                                </li>
-                                <li>
-                                  7.{" "}
-                                  <a
-                                    href="#"
-                                    className="text-[#386861] hover:text-green-700 underline"
-                                  >
-                                    ClickUp
-                                  </a>
-                                </li>
-                              </ol>
-                              <p className="text-gray-700 mt-4">
-                                As the market evolves, I continually reevaluate
-                                my choices so you always receive the best
-                                insight for purchasing decisions.
-                              </p>
-
-                              {/* Evaluation Rubric */}
-                              <div className="mt-6">
-                                <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                                  Evaluation rubric
-                                </h4>
-                                <div className="overflow-x-auto">
-                                  <table className="w-full border-collapse border border-gray-300">
-                                    <tbody>
-                                      {evaluationCriteria.map((item, index) => (
-                                        <tr
-                                          key={index}
-                                          className={
-                                            index ===
-                                            evaluationCriteria.length - 1
-                                              ? "bg-gray-50 font-semibold"
-                                              : ""
-                                          }
-                                        >
-                                          <td className="border border-gray-300 px-4 py-3 text-gray-900">
-                                            {item.criteria}
-                                          </td>
-                                          <td className="border border-gray-300 px-4 py-3 text-gray-900">
-                                            {item.weight}
-                                          </td>
-                                        </tr>
-                                      ))}
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
+                      <div className="flex items-start space-x-3">
+                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-[#386861]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-700">
+                          <strong>Kashoo:</strong> Best for startups
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* Featured Partners Section */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    Featured partners
-                  </h2>
-                  <div className="flex items-center space-x-2 text-sm text-gray-500">
-                    <span>Advertisement</span>
-                    <div className="w-4 h-4 rounded-full bg-gray-400 flex items-center justify-center">
-                      <span className="text-white  font-bold">i</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-4">
-      <div className="w-16 h-16 flex-shrink-0">
-        <Image
-          src="/images/project3.jpg"
-          alt="Zoho Logo"
-          width={64}
-          height={64}
-          className="w-full h-full object-contain"
-          priority={false}
-        />
-      </div>
-      <div className="text-xl font-bold text-gray-900">
-        Zoho
-        <br />
-        <span className="text-lg">Projects</span>
-      </div>
-    </div>
-                    </div>
-                    <div className="w-full sm:w-auto">
-                      <button className="w-full sm:w-auto bg-[#386861] hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
-                        <span>Visit Website</span>
-                        <ExternalLink className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div>
-                      <div className="text-gray-600 mb-1">Good For</div>
-                      <div className="font-medium text-gray-900">
-                        Any Company Size
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600 mb-1">Core Features</div>
-                      <div className="font-medium text-gray-900">
-                        Agile Development, Analytics / Reports, API, and 15 more
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-gray-600 mb-1">Integrations</div>
-                      <div className="font-medium text-gray-900">
-                        BitBucket, GitHub, Google Calendar, and 7 more
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* what are best project management tools */}
-              <section id="best-pm-software">
-                {/* Common Heading */}
-
-                <h1 className="text-3xl font-bold mt-4 text-black mb-2">
-                  What is the best project management software?
+              {/* Best accounting software section */}
+              <section id="best-accounting-software">
+                <h1 className="text-3xl font-bold mt-8 text-black mb-2">
+                  Our picks for the best accounting software
                 </h1>
 
                 {/* Map through the tools array */}
                 {toolsArray.map((tool) => (
                   <div
                     key={tool.id}
-                    className="bg-white rounded-2xl sm:rounded-3xl border mt-4  border-gray-200  p-6 mb-8"
+                    className="bg-white rounded-2xl sm:rounded-3xl border mt-4 border-gray-200 p-6 mb-8"
                   >
                     {/* Tool Header */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
@@ -1915,6 +963,8 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                       <a
                         href={tool.button.link}
                         className="bg-[#386861] text-white px-4 py-2 rounded-full text-sm hover:bg-green-700"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {tool.button.text}
                       </a>
@@ -1965,7 +1015,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                     {/* Why I Chose Section */}
                     <div className="mb-6 text-black">
                       <h3 className="text-lg font-semibold mb-2">
-                        Why I chose {tool.title.split(":")[0]}
+                        Why we chose {tool.title.split(":")[0]}
                       </h3>
                       <p className="mb-4">{tool.why.intro}</p>
                       {tool.why.bullets && (
@@ -1975,7 +1025,7 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                           ))}
                         </ul>
                       )}
-                      <p>{tool.why.outro}</p>
+                      {tool.why.outro && <p>{tool.why.outro}</p>}
                     </div>
 
                     {/* Expandable Sections */}
@@ -2018,1600 +1068,309 @@ Despite drawbacks, such as the lack of phone support and limited mobile app func
                 ))}
               </section>
 
-              
-              {/* ZOHO  products details */}
-
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/project3.jpg" // Replace with your actual logo path
-                          alt="Zoho Projects Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          Zoho Projects
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Micro (0-49 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Small (50-249 Employees),
-                        </span>
-                        <span className="text-gray-600">Any Company Size</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      Zoho Projects is an online project management software
-                      that helps teams plan projects and track them efficiently
-                      to the finish line. By intuitive reporting of project
-                      progress and budget health, the solution enables teams to
-                      make quick decisions. Catering to all kinds of teams, Zoho
-                      Projects facilitates automating tasks, workflows, and
-                      project notifications in a bid to improve productivity.
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861]  hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About Zoho Projects
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.zoho.com/projects/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* 2-Plan products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/2-plan.png" // Replace with your actual logo path
-                          alt="2-Plan Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          2-Plan
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      2-plan, a German company, has developed free project
-                      management software with many modules for business owners
-                      to track and manage all aspects of their business with
-                      greater efficacy. Martechbiz can let prospective
-                      users engage with a free online demo, allowing for more
-                      thorough evaluation before they download one of 2-plan's
-                      project management software solutions.
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861]  hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About 2-Plan
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.2-plan.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-          {/* 24SevenOffice  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/24seven.png" // Replace with your actual logo path
-                          alt=" 24SevenOffice Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          24SevenOffice
-                        </h1>
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center">
-                            <span className="text-[#386861] text-lg">★★★★★</span>
-                          </div>
-                          <span className="text-sm sm:text-base font-medium text-gray-700">5</span>
-                          <span className="text-sm text-gray-500">( 1 review )</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text- [#386861]hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      24SevenOffice is optimized for companies that need a
-                      powerful, customizable project management solution.
-                      24SevenOffice is versatile and powerful enough that many
-                      businesses consider the product to be a full enterprise
-                      resource planning (ERP) solution.
-                    </p>
-
-                    <Link
-                      href="/learn-more/24SevenOffice"
-                      className="text-sm sm:text-base md:text-lg text-[#386861]  hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About 24SevenOffice
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.24sevenoffice.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4castplus  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/4cast.png" // Replace with your actual logo path
-                          alt="4castplus Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          4castplus
-                        </h1>
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center">
-                            <span className="text-[#386861] text-lg">★★★★</span>
-                            <span className="text-gray-300 text-lg">★</span>
-                          </div>
-                          <span className="text-sm sm:text-base font-medium text-gray-700">4.8</span>
-                          <span className="text-sm text-gray-500">( 7 reviews )</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      4castplus brings end-to-end project controls, procurement,
-                      and construction management capabilities in a web and
-                      cloud-based platform. It empowers construction, energy,
-                      utilities, and EPC companies to move from difficult
-                      spreadsheet-based management of large complex projects
-                      into an organized solution that keeps projects on budget,
-                      on schedule, and under control.
-                    </p>
-
-                    <Link
-                      href="/learn-more/4castplus"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About 4castplus
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.4castplus.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* 5day.io  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/5day.png" // Replace with your actual logo path
-                          alt="5day.io Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          5day.io
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Micro (0-49 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      Managing projects is tough. And tools out there are
-                      complex beyond reason. 5day.io is a modern work management
-                      tool that makes managing projects, tasks, and
-                      collaboration easy.
-                    </p>
-
-                    <Link
-                      href="/learn-more/5day-io"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About 5day.io
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.zoho.com/projects/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              {/* Section 1: Product Listing */}
-              <div className="relative overflow-hidden rounded-2xl bg-[#386861] mt-4 px-8 py-12">
-                <div className="absolute top-0 left-0 w-32 h-32 border rounded-full opacity-20 -translate-x-16 -translate-y-16"></div>
-                <div className="text-center">
-                  <h2 className="text-white text-2xl font-medium mb-8">
-                    Interested in seeing your product here?
+              {/* Find your new accounting software section */}
+              <section id="find-new-software">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Find your new accounting software
                   </h2>
-                  <Link
-                    href="/list-product"
-                    className="inline-flex items-center bg-[#386861] text-white font-medium px-8 py-4 rounded-full transition-colors duration-200"
-                  >
-                    List Your Product
-                    <svg
-                      className="ml-2 w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
+                  
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    What are the categories of accounting software?
+                  </h3>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Accounting software comes in many forms. The tools listed below will help you understand which type you'll need and give you some information on which features to look for.
+                  </p>
 
-
-
-
-
-<p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-  <Link href="#" className=" hover:underline">
-    Why is Martechbiz Free?
-  </Link>
-</p>
-
-              {/* 5PM-Disarea products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/5pm.jpg" // Replace with your actual logo path
-                          alt="5pm-Disarea Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          5pm-Disarea
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Core accounting</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Core accounting software retains the company's general ledger and performs accounts receivable and payable, basic tax filing functions, payroll, bookkeeping and bank reconciliation. With these functions, companies can improve their organization and move beyond just tracking accounts on paper or in a spreadsheet.
+                      </p>
                     </div>
 
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      5pm is a web-based project management software solution
-                      that helps employees manage projects, tasks, notes, files,
-                      and time through an easily accessible cloud platform.
-                      Accessed through a customizable interface, 5pm also offers
-                      email integration, report generation, and an interactive
-                      drag-and-drop timeline with a Gantt-style view
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About 5pm-Disarea
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.5pmweb.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Accelo  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/accelo.png" // Replace with your actual logo path
-                          alt="Accelo Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          Accelo
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Payroll</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Payroll software can be combined with general accounting tools or run as a standalone system. Teams looking for the best payroll software should look for a system that integrates with or includes time and attendance software, automates payroll for salaried and hourly wage workers, and complies with tax and regulatory statutes for the company's locations.
+                      </p>
                     </div>
 
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Small (50-249 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      Accelo is a comprehensive Professional Services Automation
-                      (PSA) platform designed to help service organizations
-                      streamline operations, manage projects, and improve
-                      profitability. By centralizing business processes, it
-                      provides full visibility, real-time insights, and
-                      automation, helping teams deliver work more efficiently
-                      and detect issues early. Accelo supports scalability and
-                      enables growth with integrated solutions for project,
-                      client, and financial management from quote-to-cash
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About Accelo
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.accelo.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* AccuLynx  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/acculynx.jpg" // Replace with your actual logo path
-                          alt="AccuLynx Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          AccuLynx
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">ERP</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Enterprise resource planning (ERP) software is a feature-rich tool that combines many categories of accounting software including core accounting, inventory, ecommerce, supply chain management, and even business intelligence solutions. Many companies can centralize all of their data in one complete ERP system, providing better organization and greater functionality.
+                      </p>
                     </div>
 
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Micro (0-49 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Small (50-249 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      AccuLynx is a business management cloud-based CRM designed
-                      for the roofing, gutter, siding, windows, and other
-                      exterior construction trades
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About AccuLynx
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.acculynx.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* AceProject  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/aceproject.png" // Replace with your actual logo path
-                          alt="AceProject Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          AceProject
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Billing and invoicing</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Deceptively simple in theory, billing and invoicing can be complicated and frustrating if you don't have the right tools. Billing and invoicing software manages the complex accounting gymnastics that many accounts payable and receivable departments perform.
+                      </p>
                     </div>
 
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Project accounting</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Project accounting software streamlines complex, interdepartmental or inter-company projects with sensitive resource and capital allocations. Providing time and expense tools, human and material resource management, and billing and invoicing features alongside project management task management and analysis.
+                      </p>
                     </div>
                   </div>
-
-                  {/* Good For Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg">
-                      <span className="font-semibold text-gray-700">
-                        Good for:
-                      </span>
-                      <div className="flex flex-wrap items-center gap-1">
-                        <span className="text-gray-600">
-                          Medium (250-999 Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Enterprise (5,000+ Employees),
-                        </span>
-                        <span className="text-gray-600">
-                          Large (1,000-4,999 Employees),
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      AceProject features a simple, intuitive input design and a
-                      visually rich interface, while still offering the
-                      capabilities and powerful features one expects in a
-                      sophisticated project management tool.
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About AceProject
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.aceproject.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Aconex  products details */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-4 sm:p-8 transition-shadow duration-300 overflow-hidden">
-                <div className="p-6  md:p-8 lg:p-10">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      {/* Logo */}
-                      <div className="flex-shrink-0">
-                        <Image
-                          src="/images/aconex.jpg" // Replace with your actual logo path
-                          alt="Aconex Logo"
-                          width={80}
-                          height={80}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-                          priority
-                        />
-                      </div>
-
-                      {/* Title and Review Link */}
-                      <div className="min-w-0 flex-1">
-                        <h1 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
-                          Aconex
-                        </h1>
-                        <Link
-                          href="/reviews/zoho-projects"
-                          className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-blue-800 hover:underline transition-colors duration-200 font-medium"
-                        >
-                          Leave a Review
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Compare Button */}
-                    <div className="flex-shrink-0">
-                      <button className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold text-[#386861] hover:text-blue-800 border border-blue-600 hover:border-blue-800 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-200" />
-                        Compare
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Description Section */}
-                  <div className="mb-6 sm:mb-8">
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-                      Aconex is a construction collaboration software platform
-                      used by field management, construction, and engineering
-                      firms.
-                    </p>
-
-                    <Link
-                      href="/learn-more/zoho-projects"
-                      className="text-sm sm:text-base md:text-lg text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-semibold"
-                    >
-                      Learn More About Aconex
-                    </Link>
-                  </div>
-
-                  {/* Visit Website Button */}
-                  <div className="flex justify-end">
-                    <Link
-                      href="https://www.aconex.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#386861] hover:bg-green-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] group"
-                    >
-                      Visit Website
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Common Features Section */}
-              <section id="common-features" className="mt-8 max-w-7xl mx-auto">
-                {" "}
-                <div className="max-w-none">
-                  {/* Main Heading */}
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-                    Common project management software features
-                  </h1>
-
-                  {/* First Paragraph */}
-                  <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Project management software covers a range of platforms,
-                      each with a slightly different mix of functionality. The
-                      best software for project management offers features that
-                      help the team build a project plan, track tasks through
-                      the different stages of the project, and collaborate on
-                      tasks to ensure on-time completion.
-                    </p>
-                  </div>
-
-                  {/* Second Paragraph with Links */}
-                  <div className="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Not every project management system will include all these
-                      features, but many solutions are designed to help a{" "}
-                      <Link
-                        href="/small-team-project-management"
-                        className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                      >
-                        small team
-                      </Link>{" "}
-                      or{" "}
-                      <Link
-                        href="/enterprise-project-management"
-                        className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                      >
-                        enterprise
-                      </Link>{" "}
-                      corporation equally. When you prioritize the features you
-                      need from your project software, you'll be better equipped
-                      to find the right project management app for the projects
-                      you manage.
-                    </p>
-                  </div>
-
-                  {/* Scheduling Section */}
-                  <div>
-                    {/* Scheduling Heading */}
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Scheduling
-                    </h2>
-
-                    {/* Scheduling Paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Scheduling a project involves constructing a project
-                      timeline, delegating tasks, and outlining the known
-                      checkpoints within the project. Project management
-                      software includes different types of scheduling features
-                      that give teams alternative ways to visualize their
-                      projects. While some project management tools use a
-                      traditional calendar view, more complex solutions like
-                      Gantt charts and horizontal project timelines help teams
-                      break large or complicated projects into manageable tasks.
-                      Scheduling features in a project management tool will help
-                      your team go from a mind map to a project plan quickly by
-                      giving insight into both time and resource management.
-                    </p>
-                  </div>
-                </div>
-                {/* Forecasting Section */}
-                <div>
-                  {/* Forecasting Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Forecasting
-                  </h2>
-
-                  {/* Forecasting Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Forecasting features in PM tools use data from previous
-                    projects to predict the time and resource management
-                    considerations the team will need to complete the project.
-                    This project manager software feature helps project managers
-                    calculate the ROI of a project before significant resources
-                    have been invested. Forecasting takes into account the time
-                    spent on each task and the resources required to complete
-                    each task relative to the organization’s budget constraints
-                    and revenue goals. A forecasting tool can also
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      predict project risks
-                    </Link>{" "}
-                    and limitations that might potentially pose issues down the
-                    line.
-                  </p>
-                </div>
-                {/* Resource management Section */}
-                <div>
-                  {/* Resource management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Resource management
-                  </h2>
-
-                  {/* Resource mangement Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Similar to forecasting, resource management features in
-                    project management software help project managers visualize
-                    where their business invests time, energy, and materials so
-                    the business can assess or change their plan when unforeseen
-                    challenges arise. It can be time-consuming to enter and set
-                    up a detailed inventory of company and human resources, but
-                    doing so allows project managers to anticipate bottlenecks
-                    and allocate resources.
-                  </p>
-                </div>
-                {/* Budgeting and expense tracking Section */}
-                <div>
-                  {/* Budgeting and expense tracking Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Budgeting and expense tracking
-                  </h2>
-
-                  {/* Budgeting and expense tracking Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Although software that budgets for projects and businesses
-                    comes in standalone versions, certain PM software vendors
-                    include budgeting functions and expense tracking. These help
-                    companies run multiple projects at the same time while
-                    staying within budget. While budgeting software is somewhat
-                    self-explanatory, expense and project tracking software can
-                    provide PMs with the added benefit of knowing how team
-                    members accrue expenses throughout the lifespan of the
-                    project. Similar to time tracking, expense tracking provides
-                    valuable data that can be used to forecast future project
-                    costs and build budgets into upcoming project plans.
-                  </p>
-                </div>
-                {/* Project, task, and contractor time management Section */}
-                <div>
-                  {/*Project, task, and contractor time management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Project, task, and contractor time management
-                  </h2>
-
-                  {/* Project, task, and contractor time management Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    As the name implies,{" "}
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text- [#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      time-tracking software
-                    </Link>{" "}
-                    tracks the amount of time each project contributor spends on
-                    their assigned tasks. Besides simply measuring productivity,
-                    time-tracking software also builds an archive of valuable
-                    data that can help businesses forecast completion dates for
-                    similar tasks or projects in the future. Time tracking is
-                    especially helpful when managing a remote team, contract
-                    workers, or part-time employees. In combination with
-                    collaboration features like messaging and alerts that
-                    enhance the project planning and execution experience, time
-                    tracking can keep the entire team on schedule.
-                  </p>
-                </div>
-                {/* Task management Section */}
-                <div>
-                  {/*Task management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Task management
-                  </h2>
-
-                  {/* Task management Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Task management refers to the assignment of different
-                    responsibilities to various members of the project team.
-                    Being able to quickly determine who’s contributed to what
-                    part of the project lets managers better identify
-                    bottlenecks and stay on top of the project’s progress.
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      Task management software
-                    </Link>{" "}
-                    is often used by solopreneurs and small teams, while project
-                    management software can manage hundreds of tasks that roll
-                    up to a larger project or set of projects.
-                  </p>
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Also Read:
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text-[#386861]hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      Choose the Right Task Management Software: Types and
-                      Considerations
-                    </Link>{" "}
-                  </p>
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    While the concept of task management is simple, the software
-                    can be fairly robust. In the case of large, complex projects
-                    or multiple projects that span different departments, tasks
-                    are often interconnected or interdependent. Certain project
-                    management programs geared towards these types of
-                    undertakings feature the ability to assign tasks and
-                    dependencies to tasks, helping managers determine where a
-                    breakdown in productivity is occurring and assign the
-                    necessary resources to fix the problem. These features have
-                    increasingly added automation to speed the transition of
-                    tasks among team members and across the project workflow.
-                  </p>
-                </div>
-                {/*Kanban charts for task management Section */}
-                <div>
-                  {/* Kanban charts for task management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Kanban charts for task management
-                  </h2>
-
-                  {/* Kanban charts for task management Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Some PM tools rely on the
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text-[#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      Kanban
-                    </Link>{" "}
-                    or project board method to visualize the working state of
-                    projects that require separate concurrent tasks. In a Kanban
-                    board project timeline, you organize each task on a digital
-                    card and move those cards across vertical lanes that
-                    represent work states.
-                  </p>
-                </div>
-                {/* Gantt charts for task management Section */}
-                <div>
-                  {/*Gantt charts for task management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Gantt charts for task management
-                  </h2>
-
-                  {/* Gantt charts for task management Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Task dependencies are often represented through
-                    <Link
-                      href="/enterprise-project-management"
-                      className="text- [#386861] hover:text-green-800 hover:underline transition-colors duration-200 font-medium"
-                    >
-                      Gantt charts
-                    </Link>{" "}
-                    that show the estimated amount of time a task will take to
-                    complete. These project planning software charts also show
-                    the next tasks the team should perform, document which team
-                    member is in charge of which task, and facilitate work
-                    hand-offs or approvals. Gantt charts are a useful visual
-                    representation of the entire project plan in a compact
-                    space, and they can often be expanded or condensed to show
-                    more or less context where needed.
-                  </p>
-                </div>
-                {/* Notes, tags, and linking for task management Section */}
-                <div>
-                  {/* Notes, tags, and linking for task management Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Notes, tags, and linking for task management
-                  </h2>
-
-                  {/* Notes, tags, and linking for task management Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Other common features of task management include notes,
-                    tags, and linking between tasks to show dependencies. Adding
-                    notes to a task helps keep track of individual changes to
-                    the project or provide references for the strategy
-                    associated with each task. Adding tags to tasks makes them
-                    easier to filter and find through unlimited projects in the
-                    management tool’s native search functionality. Linking tasks
-                    reminds stakeholders of other dependent tasks, gives further
-                    context to a single task, or provides context to
-                    interdependent tasks in multiple projects.
-                  </p>
-                </div>
-                {/* Permission settings Section */}
-                <div>
-                  {/*Permission settings Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Permission settings
-                  </h2>
-
-                  {/* Permission settings Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Permission settings allow a project manager to decide who
-                    can view, edit, or change tasks and functions within the
-                    project. To manage a project effectively, a PM must
-                    judiciously mete out permissions and access across the
-                    software. Granular software permission settings help project
-                    managers avoid having to track down the sources of
-                    unauthorized changes to tasks or entire phases of the
-                    project. Permission settings are especially important for
-                    teams that administrate multiple projects across many
-                    departments using the same software for project management.
-                    Look for pre-set or role-based permission settings to manage
-                    unlimited users efficiently from a single dashboard.
-                  </p>
-                </div>
-                {/*Automation Section */}
-                <div>
-                  {/* Automation Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Automation
-                  </h2>
-
-                  {/* Automation Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Task and workflow automation helps speed projects to
-                    completion. The software is programmed to respond to a
-                    defined event with an immediate response, saving time across
-                    many areas. For example, project assets may be sent for
-                    approval upon completion or alert notifications will be sent
-                    if budgets exceed a pre-set threshold. Automation features
-                    may also automatically schedule recurring tasks for
-                    completion, which reduces the amount of manual work the
-                    project manager is required to do on any given day.
-                  </p>
-                </div>
-                {/* Analysis and report dashboards Section */}
-                <div>
-                  {/* Analysis and report dashboards Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Analysis and report dashboards
-                  </h2>
-
-                  {/* Analysis and report dashboards Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Analysis and reporting functions let project managers
-                    visualize project data in ways that uncover time, resource,
-                    and work inefficiencies. This type of data can be critical
-                    to making mid-project pivots, especially if it’s presented
-                    in a dashboard that can provide a quick visual reference. If
-                    a task needs additional resources or a department is moving
-                    slower than others, in-depth analysis features will help PMs
-                    rectify or leverage the situation.
-                  </p>
-                </div>
-                {/* Document sharing Section */}
-                <div>
-                  {/* Document sharing Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Document sharing
-                  </h2>
-
-                  {/* Document sharing Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    While email remains a mainstay of the collaboration-focused
-                    work environment, project management and cloud computing
-                    software has enabled teams to share documents in ways that
-                    boost productivity and maximize time efficiency. Many
-                    project management software will allow users to upload
-                    documents and attach them to projects or tasks, making it
-                    easy to locate that project’s resources.
-                  </p>
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    The depth of such functionality varies from the simplicity
-                    of a collaboration system such as Google Drive to
-                    full-fledged wikis that house all of a project’s relevant
-                    materials. Comprehensive sharing solutions often feature
-                    audit trails and version control that record the history of
-                    each task and project. Audit trails let project managers
-                    view task progress and investigate challenges that team
-                    members may be experiencing.
-                  </p>
-                </div>
-                {/* Internal messaging Section */}
-                <div>
-                  {/* Internal messaging Heading */}
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                    Internal messaging
-                  </h2>
-
-                  {/* Internal messaging Paragraph */}
-                  <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                    Messaging and meeting functions that are built into the tool
-                    or integrated with the system strengthen communications
-                    between team members. These features come in standalone
-                    versions such as Slack but can also be found in
-                    comprehensive or all-in-one project management solutions.
-                    In-platform messaging feature lets teammates comment on
-                    documents, send messages directly to one another, and
-                    provide context in full-group documents.
-                  </p>
                 </div>
               </section>
 
-              {/* How-to-choose */}
+              {/* Key features section */}
+              <section id="key-features">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    What are the key features of accounting software?
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    No matter your industry or business model, the top accounting solutions offer the following standard features or functionality.
+                  </p>
 
-              <section id="how-to-choose" className="mt-8 max-w-7xl mx-auto">
-                {" "}
-                <div className="max-w-none">
-                  {/* Main Heading */}
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-                    How to choose the right PM software for your project
-                  </h1>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Accounts payable/receivable</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        As the most commonly used feature of any accounting solution, electronic management and tracking of A/P and A/R is included in every system with varying levels of automation. The accounts payable features track payments to vendors, suppliers, and other financial outlays to ensure your payments are prompt.
+                      </p>
+                    </div>
 
-                  {/* First Paragraph */}
-                  <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Selecting the best software for your project management
-                      needs is crucial because it directly impacts a project’s
-                      efficiency, productivity, and success. Selecting the right
-                      project management tool is all about understanding your
-                      project’s needs, picking out must-have features, knowing
-                      your team, and ensuring it provides excellent value for
-                      your money.
-                    </p>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Asset management</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Electronically tracking and realizing depreciation costs for a company's material fixed assets is a major function of most accounting systems. While less important to small businesses without expensive capital assets, manufacturing businesses especially need these tools.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Bank reconciliation</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        The key to automating many of your accounting functions is to connect your software directly with your financial institution. This allows you to reconcile the accounting transactions you've recorded with your bank's records for your company's accounts.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Reporting</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Besides electronically recording transactions, the most-cited reason for purchasing accounting software is the automated reporting feature. There are templates for income statements, profit and loss, sales tax return, and even outstanding balances.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Budgeting and forecasting</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Critical to the forward-thinking company, budgeting and forecasting tools give companies insight into their past revenue and spending habits to help them better use their resources and plan for future financial success.
+                      </p>
+                    </div>
                   </div>
+                </div>
+              </section>
 
-                  {/* Understand project requirements */}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Understand project requirements
-                    </h2>
+              {/* Benefits section */}
+              <section id="benefits">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    What are the benefits of accounting software?
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    These accounting software benefits can have far-reaching effects across the entire company's financial systems.
+                  </p>
 
-                    {/* Scheduling Paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Clearly define your project’s scope, complexity, and
-                      specific needs. This understanding helps you identify a
-                      tool that aligns with the project’s goals and challenges.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Time savings</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        The most immediate change many companies notice when they move from paper ledgers or spreadsheets to accounting software is a major reduction in the time spent entering and balancing ledgers.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Reduction in manual data entry errors</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        When using tools like MS Excel, the risk of human error when working with spreadsheet formulas is much greater compared to using accounting software specialized for a client or industry.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Greater account visibility</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Top accounting features and tools provide visibility into the balance sheet and the financial workings of a company for accountants, executives, and management teams.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-device access</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        As a business owner, you can't always be in the office. Accounting software can make this easy by offering mobile-friendly formats and applications.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Real-time engagement</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Every business owner wants to know what their bottom line looks like. They should have the ability to see where they're at in real time so they have the option to correct course immediately.
+                      </p>
+                    </div>
                   </div>
+                </div>
+              </section>
 
-                  {/* Identify must-have features*/}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Identify must-have features
-                    </h2>
+              {/* Challenges section */}
+              <section id="challenges">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    What are some accounting software challenges?
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    These are challenges you might run into if you choose accounting software that isn't the right fit for your company. Consider these as you compare accounting software.
+                  </p>
 
-                    {/* Identify must-have features */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Determine the essential features your project cannot do
-                      without. These may include task management, time tracking,
-                      or reporting capabilities, depending on the nature of your
-                      project.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Multi-currency and multi-country support</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Some accounting systems are only built to manage finances within a specific country or in a select few currencies. Companies that often do business across two or more countries should look for an accounting tool that meets those requirements.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Data security</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Your accounting records are precious data and need to be protected. Cloud computing provides more security for accounting software than paper ledgers because they can be password protected and teams can assign granular user roles.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Reporting and analytics</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Without the right data, it can be difficult to know exactly where your accounts stand and even tougher to make budgeting decisions and predictions. When looking for accounting software, you need to look for tools that offer in-depth reporting and analytics features.
+                      </p>
+                    </div>
                   </div>
+                </div>
+              </section>
 
-                  {/* Evaluate team size and collaboration needs */}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Evaluate team size and collaboration needs
-                    </h2>
+              {/* Business types section */}
+              <section id="business-types">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    What kinds of businesses use accounting software?
+                  </h2>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Accounting software is available in nearly as many shapes and sizes as there are company types. These are the main types of businesses that use accounting tools to manage their financial accounts.
+                  </p>
 
-                    {/* Evaluate team size and collaboration needs Paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Consider how your team communicates and collaborates. Look
-                      for tools that support these needs through integrated chat
-                      functions, file sharing, or collaborative workspaces.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Small businesses and nonprofits</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Small businesses will find increased financial visibility and easier records reconciliation when they switch from spreadsheets to a general ledger or core accounting software.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Growing and mid-size businesses</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        A growing business has potential and hopes for future expansion, which can be confusing when buying accounting software. These teams need increased functionality and the ability to upgrade quickly.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Enterprise and multinational businesses</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        The specific requirements of enterprise and multinational organizations include multi-currency and multinational regulatory requirements, supply chain, manufacturing, and business intelligence needs.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Accounting firms</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Accounting firms provide outsourced financial services to small businesses as well as those of all sizes that don't have an in-house accounting department.
+                      </p>
+                    </div>
                   </div>
+                </div>
+              </section>
 
-                  {/* Consider integration capabilities */}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Consider integration capabilities
-                    </h2>
+              {/* Choosing software section */}
+              <section id="choosing-software">
+                <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200 shadow-sm hover:shadow-lg mt-8 transition-shadow duration-300 overflow-hidden p-6 sm:p-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Choosing the best accounting software
+                  </h2>
 
-                    {/* Consider integration capabilities paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Assess the need for the PM tool to integrate with other
-                      software your team uses. Seamless integration can
-                      significantly improve workflow efficiency.
-                    </p>
-                  </div>
-                  {/* Assess user experience */}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Assess user experience
-                    </h2>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Trial</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        To truly understand which accounting software is best for your company before you buy, you'll want to look for software vendors who are willing to let you peek behind the curtain with a free trial. With an application as complicated as accounting software, you'll want to look for a trial that provides enough time to test major features.
+                      </p>
+                    </div>
 
-                    {/* Assess user experience paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Check if the tool is user-friendly and has a gentle
-                      learning curve. A good user experience increases adoption
-                      rates and overall productivity.
-                    </p>
-                  </div>
-                  {/* Determine budget and ROI */}
-                  <div>
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                      Determine budget and ROI
-                    </h2>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Case studies and referrals</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Accounting software sales reps and marketing websites can tell you all about the benefits their software provides, but where's the proof? The best accounting software vendors will be able to show their worth via case studies and referrals to current power users.
+                      </p>
+                    </div>
 
-                    {/* Determine budget and ROI paragraph */}
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      Consider the cost of the tool and weigh it against the
-                      expected return on investment. The tool should be
-                      cost-effective and contribute to the overall financial
-                      health of the project.
-                    </p>
-                    <p className="text-base sm:text-sm md:text-lg lg:text-lg text-gray-700 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                      If you’re looking for specific types of project management
-                      tools, visit our other project management categories for
-                      product overviews, reviews, and to get recommendations:
-                    </p>
-                    <div className="mb-8">
-                      <ul className="space-y-3 list-disc pl-5">
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Agile Project Management Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Bug Tracking Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Enterprise Project Management Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Marketing Project Management Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Project Portfolio Management Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Time Tracking Software
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="#"
-                            className="text-[#386861] hover:text-green-700 font-medium underline"
-                          >
-                            Visual Project Management Software
-                          </Link>
-                        </li>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">RFP</h3>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        Your software selection team should formulate a request for proposals (RFP) early in the selection process. A good software RFP should contain:
+                      </p>
+                      <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Specific business goals your team would like to reach with this software</li>
+                        <li>A list of must-have and nice-to-have features you're looking for</li>
+                        <li>A list of specialized industry or regulatory requirements that this software will need to fit</li>
                       </ul>
                     </div>
                   </div>
-                </div>
-              </section>
 
-              {/* FAQs */}
-              <section id="pm-faqs" className="mt-8 max-w-7xl mx-auto">
-                <div className="max-w-none">
-                  {/* Main Heading */}
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-                    Project management software FAQs
-                  </h1>
-
-                  {/* FAQ Accordion */}
-                  <div className="space-y-0 -mt-8">
-                    {faqData.map((item, index) => (
-                      <div key={index} className="border-b border-gray-200">
-                        {/* Question Button */}
-                        <button
-                          onClick={() => toggleItem(index)}
-                          className="w-full flex items-center justify-between py-6 sm:py-7 md:py-8 lg:py-9 text-left hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <h3 className="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-700 leading-relaxed pr-4 sm:pr-6 md:pr-8">
-                            {item.question}
-                          </h3>
-
-                          {/* Plus/Minus Icon */}
-                          <div
-                            className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 rounded-md flex items-center justify-center transition-all duration-200 ${
-                              openItems[index]
-                                ? "bg-[#386861] hover:bg-green-700"
-                                : "bg-[#386861] hover:bg-green-700"
-                            }`}
-                          >
-                            {openItems[index] ? (
-                              <Minus className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
-                            ) : (
-                              <Plus className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
-                            )}
-                          </div>
-                        </button>
-
-                        {/* Answer Content */}
-                        {openItems[index] && (
-                          <div className="pb-6 sm:pb-7 md:pb-8 lg:pb-9 pr-12 sm:pr-16 md:pr-20 lg:pr-24 animate-in slide-in-from-top-2 duration-300">
-                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                              {item.answer}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                  {/* Conclusion */}
+                  <div className="mt-12 p-6 bg-gray-50 rounded-lg">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Finding the right accounting software for your business
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Accounting software is a vital tool for businesses of all sizes, offering a range of features from core accounting to payroll, ERP, billing and invoicing, and project accounting. The choice of accounting software should be based on the specific needs of the business, the complexity of financial records, and feature requirements. Remember to consider challenges like multi-currency support, data security, and reporting capabilities when making your decision.
+                    </p>
                   </div>
                 </div>
               </section>
             </div>
           </div>
-         
         </div>
-
       </div>
+
+      {/* Form Modal */}
+     {/* Form Modal */}
+{isFormOpen && (
+  <div className="fixed inset-0 backdrop-blur-md bg-white/20 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <button
+        onClick={() => setIsFormOpen(false)}
+        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
+        aria-label="Close modal"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <AccountingFrom onClose={() => setIsFormOpen(false)} />
+    </div>
+  </div>
+)}
+
     </>
   );
 }
