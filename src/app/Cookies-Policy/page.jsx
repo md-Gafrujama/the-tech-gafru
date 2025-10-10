@@ -57,7 +57,7 @@ This cookies policy explains what cookies are, how we use them, the types of coo
       title: "What Are Cookies?",
       content: `Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used by website owners to make their websites work more efficiently and to provide reporting information.
 
-Cookies set by the website owner (in this case, Quore martechbiz marketing) are called "first-party cookies." Cookies set by parties other than the website owner are called "third-party cookies." Third-party cookies enable third-party features or functionality to be provided on or through the website.
+Cookies set by the website owner (in this case,  Martechbiz marketing) are called "first-party cookies." Cookies set by parties other than the website owner are called "third-party cookies." Third-party cookies enable third-party features or functionality to be provided on or through the website.
 
 The cookies we use may be session cookies (which are erased when you close your browser) or persistent cookies (which remain on your device until they expire or you delete them). We use both types to enhance your experience on our website.`
     },
@@ -147,20 +147,20 @@ Grievance Redressal – We have appointed a Data Protection Officer to address c
     {
       icon: <AlertCircle className="text-[#386861]" size={22} />,
       title: "Legal Disclaimer",
-      content: `Information Accuracy – The content on this website is provided for general information purposes only. While Quore martechbiz marketing strives to keep the information accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information contained on the website.
+      content: `Information Accuracy – The content on this website is provided for general information purposes only. While  Martechbiz marketing strives to keep the information accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information contained on the website.
 
-Limitation of Liability – Quore martechbiz marketing shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your use of this website or inability to use the website, even if we have been advised of the possibility of such damages.
+Limitation of Liability – Martechbiz marketing shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your use of this website or inability to use the website, even if we have been advised of the possibility of such damages.
 
-External Links – Our website may contain links to third-party websites that are not owned or controlled by Quore martechbiz marketing. We are not responsible for the content, privacy policies, or practices of any third-party websites. We encourage you to review the privacy policies of any third-party sites you visit.
+External Links – Our website may contain links to third-party websites that are not owned or controlled by  Martechbiz marketing. We are not responsible for the content, privacy policies, or practices of any third-party websites. We encourage you to review the privacy policies of any third-party sites you visit.
 
-Intellectual Property – All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Quore martechbiz marketing or its licensors and is protected by copyright, trademark, and other intellectual property laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
+Intellectual Property – All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of  Martechbiz marketing or its licensors and is protected by copyright, trademark, and other intellectual property laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
 
 Governing Law – These terms and this legal notice are governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the jurisdiction of the courts in India.`
     },
     {
       icon: <CheckCircle className="text-[#386861]" size={22} />,
       title: "Your Privacy Rights at a Glance",
-      content: `At Quore martechbiz marketing, we respect your privacy and comply with global data protection laws. Depending on your location, you may have the following rights:
+      content: `At  Martechbiz marketing, we respect your privacy and comply with global data protection laws. Depending on your location, you may have the following rights:
 
 Access & Portability – Request a copy of the personal data we hold about you and receive it in a portable format.
 
@@ -181,7 +181,7 @@ To exercise any of these rights, please contact us using the information provide
     {
       icon: <Mail className="text-[#386861]" size={22} />,
       title: "Updates and Changes",
-      content: `Quore martechbiz marketing reserves the right to update this Cookies & Legal Notice at any time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes to this policy, we will:
+      content: ` Martechbiz marketing reserves the right to update this Cookies & Legal Notice at any time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes to this policy, we will:
 
 Notification – Post the updated policy on our website with a new "Last Updated" date at the top of the document.
 
@@ -239,7 +239,7 @@ We encourage you to review this Cookies & Legal Notice periodically to stay info
               Cookies & Legal Notice
             </h1>
             <p className="text-gray-300 text-xl leading-relaxed">
-              Understand how Quore martechbiz marketing uses cookies and our legal commitments to protecting your data and privacy rights.
+              Understand how  Martechbiz marketing uses cookies and our legal commitments to protecting your data and privacy rights.
             </p>
           </div>
         </div>
@@ -279,7 +279,7 @@ We encourage you to review this Cookies & Legal Notice periodically to stay info
               <div>
                 <h2 className="text-3xl font-bold mb-4">Transparency in Data Protection</h2>
                 <p className="text-gray-100 leading-relaxed text-base">
-                  Quore martechbiz marketing is committed to transparency about our use of cookies and compliance with global data protection regulations. 
+                   Martechbiz marketing is committed to transparency about our use of cookies and compliance with global data protection regulations. 
                   This comprehensive notice explains our cookie practices, your rights under GDPR, CCPA, and India's DPDP Act, 
                   and our legal commitments to protecting your privacy.
                 </p>
@@ -370,13 +370,13 @@ We encourage you to review this Cookies & Legal Notice periodically to stay info
                   <Mail className="text-white" size={32} />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">Contact Quore martechbiz marketing</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">Contact  Martechbiz marketing</h3>
                   <p className="text-gray-700 mb-6 leading-relaxed text-base">
                     If you have any questions about our cookies policy, privacy practices, or wish to exercise your data protection rights, 
                     please contact us:
                   </p>
                   <div className="space-y-2 text-gray-700 text-[15px]">
-                    <p className="font-bold text-lg text-gray-900">Quore martechbiz marketing</p>
+                    <p className="font-bold text-lg text-gray-900"> Martechbiz marketing</p>
                     <p>Data Protection & Privacy Team</p>
                     <p>Email: <a href="mailto:privacy@martechbiz.com" className="text-[#386861] hover:underline font-medium">privacy@martechbiz.com</a></p>
                     <p>Legal: <a href="mailto:legal@martechbiz.com" className="text-[#386861] hover:underline font-medium">legal@martechbiz.com</a></p>
