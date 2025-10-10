@@ -672,35 +672,7 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         viewport={{ once: true }}
         className="py-20 bg-gradient-to-br from-gray-50 to-white"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
-            What our team members have to say
-          </h2>
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-gradient-to-br from-[#0E1F1C] to-[#0E1F1C] text-white p-8 rounded-3xl shadow-xl h-full min-h-[330px] flex flex-col justify-between relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-20 h-20 bg-[#0E1F1C] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
-                
-                <div className="flex items-start gap-3 mb-6">
-                  <div className="bg-[#0E1F1C] p-2 rounded-full">
-                    <FaQuoteLeft className="text-white text-lg" />
-                  </div>
-                </div>
-                <p className="text-md font-medium leading-relaxed relative z-10">
-                  {t.text}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+    
       </motion.section>
 
       {/* Benefits Section */}
