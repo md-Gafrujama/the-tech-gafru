@@ -703,41 +703,6 @@ We recognize that diversity extends beyond the color of our skin to include ethn
         </div>
       </motion.section>
 
-      {/* Awards Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="py-20 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8" 
-        style={{ color: TEXT_COLOR }}
-      >
-        <h2 className="text-5xl md:text-6xl font-bold mb-16 bg-gradient-to-r from-[#0E1F1C] to-[#0E1F1C] bg-clip-text text-transparent">
-          Awards & Recognition
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {awards.map((award, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center h-48 border border-gray-100"
-            >
-              <Image
-                src={award.src}
-                alt={award.alt}
-                width={200}
-                height={100}
-                className="object-contain max-h-full filter hover:brightness-110 transition-all duration-300"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
       {/* Benefits Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
