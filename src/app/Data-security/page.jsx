@@ -64,7 +64,7 @@ const DataPrivacy = () => {
       icon: <FileText className="text-[#386861]" size={22} />,
       title: "Information We Collect",
       category: "essential",
-      content: `At Quore IT, we believe in being transparent about the data we collect. We gather information to provide you with better services and enhance your experience.
+      content: `At Martechbiz marketing, we believe in being transparent about the data we collect. We gather information to provide you with better services and enhance your experience.
 
 Personal Information:
 • Contact details (name, email, phone number)
@@ -488,10 +488,10 @@ Your continued use of our services after updates constitutes acceptance of the r
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Privacy Team</h3>
               <a
-                href="mailto:privacy@quoreit.com"
+                href="mailto:privacy@martechbiz.com"
                 className="text-[#386861] text-lg font-semibold hover:text-[#386861] transition-colors duration-300 block"
               >
-                privacy@quoreit.com
+                privacy@martechbiz.com
               </a>
             </div>
             
