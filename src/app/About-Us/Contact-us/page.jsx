@@ -1187,8 +1187,8 @@ const locations = [
     name: "United States",
     address: "539 W Commerce St #2577 Dallas, TX 75208",
     city: "Dallas, TX 75208",
-    phone: "+1-442-319-8004",
-    email: "contact@Martechbiz.com",
+
+    email: " contactus@martechbiz.com",
     image: "data:image/jpeg;base64,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",
   },
 ];
@@ -2113,86 +2113,81 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Global Locations */}
-      <div className="bg-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Our Location
-            </h2>
-            <p className="text-gray-600">
-              Connect with us from our headquarters
-            </p>
-          </div>
-          {/* Centered US location card */}
-          <div className="flex justify-center">
-            <div className="max-w-lg w-full">
-              <div
-                onMouseEnter={() => setHoveredLocation(0)}
-                onMouseLeave={() => setHoveredLocation(null)}
-                className="rounded-2xl overflow-hidden relative shadow-lg transition-all duration-300"
-                style={{
-                  transform: hoveredLocation === 0 ? 'translateY(-8px)' : 'translateY(0)',
-                  boxShadow: hoveredLocation === 0 ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)' : ''
-                }}
-              >
-                <div 
-                  className="w-full h-80 bg-cover bg-center transition-transform duration-500"
-                  style={{
-                    backgroundImage: `url(${locations[0].image})`,
-                    transform: hoveredLocation === 0 ? 'scale(1.1)' : 'scale(1)'
-                  }}
-                ></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/50 to-black/30 p-8 text-white flex flex-col justify-end">
-                  <div 
-                    className="p-3 rounded-xl w-fit mb-4 transition-colors duration-300"
+     {/* Global Locations */}
+<div className="bg-white py-12">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="text-center mb-8">
+      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        Our Location
+      </h2>
+      <p className="text-gray-600">
+        Connect with us from our headquarters
+      </p>
+    </div>
+    {/* Centered US location card */}
+    <div className="flex justify-center">
+      <div className="max-w-lg w-full">
+        <div
+          onMouseEnter={() => setHoveredLocation(0)}
+          onMouseLeave={() => setHoveredLocation(null)}
+          className="rounded-2xl overflow-hidden relative shadow-lg transition-all duration-300"
+          style={{
+            transform: hoveredLocation === 0 ? 'translateY(-8px)' : 'translateY(0)',
+            boxShadow: hoveredLocation === 0 ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)' : ''
+          }}
+        >
+          <div 
+            className="w-full h-80 bg-cover bg-center transition-transform duration-500"
+            style={{
+              backgroundImage: `url(${locations[0].image})`,
+              transform: hoveredLocation === 0 ? 'scale(1.1)' : 'scale(1)'
+            }}
+          ></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/50 to-black/30 p-8 text-white flex flex-col justify-end">
+            <div 
+              className="p-3 rounded-xl w-fit mb-4 transition-colors duration-300"
+              style={{
+                backgroundColor: hoveredLocation === 0 ? '#386861' : 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div className="transform transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-3">{locations[0].name}</h3>
+              <div className="space-y-2 text-gray-100">
+                <p className="flex items-start gap-2">
+                  <svg className="w-4 h-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>
+                    {locations[0].address}<br />{locations[0].city}
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  <span 
+                    className="text-sm transition-colors"
                     style={{
-                      backgroundColor: hoveredLocation === 0 ? '#386861' : 'rgba(255, 255, 255, 0.2)',
-                      backdropFilter: 'blur(8px)'
+                      color: hoveredLocation === 0 ? '#86efac' : ''
                     }}
                   >
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                  </div>
-                  <div className="transform transition-all duration-300">
-                    <h3 className="text-2xl font-bold mb-3">{locations[0].name}</h3>
-                    <div className="space-y-2 text-gray-100">
-                      <p className="flex items-start gap-2">
-                        <svg className="w-4 h-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        <span>
-                          {locations[0].address}<br />{locations[0].city}
-                        </span>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                        <span>{locations[0].phone}</span>
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        <span 
-                          className="text-sm transition-colors"
-                          style={{
-                            color: hoveredLocation === 0 ? '#86efac' : ''
-                          }}
-                        >
-                          {locations[0].email}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                    {locations[0].email}
+                  </span>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* FAQ Section */}
       <div className="bg-gradient-to-b from-gray-50 to-white py-12">

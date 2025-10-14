@@ -48,7 +48,7 @@ export default function Footer() {
               <div className="group">
                 <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-[#00d9a6]">Get In Touch</h4>
                 <a 
-                  href="mailto:info@martechbiz.com" 
+                  href="mailto:contactus@martechbiz.com" 
                   className="flex items-center gap-4 text-gray-300 hover:text-[#00d9a6] transition-all duration-500 group"
                 >
                   <span className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#00d9a6]/10 group-hover:bg-[#00d9a6]/20 border border-[#00d9a6]/20 group-hover:border-[#00d9a6]/40 transition-all duration-500 group-hover:scale-110">
@@ -57,14 +57,14 @@ export default function Footer() {
                   <div>
                     <p className="text-sm text-gray-400 mb-1">Email Us</p>
                     <span className="text-lg font-medium group-hover:translate-x-2 transition-transform duration-500 block">
-                      info@martechbiz.com
+                   contactus@martechbiz.com
                     </span>
                   </div>
                 </a>
               </div>
               
               {/* Phone Number Section */}
-              <div className="group">
+              {/* <div className="group">
                 <a 
                   href="tel:+1-555-123-4567" 
                   className="flex items-center gap-4 text-gray-300 hover:text-[#00d9a6] transition-all duration-500 group"
@@ -79,7 +79,7 @@ export default function Footer() {
                     </span>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
