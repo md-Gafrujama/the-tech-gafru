@@ -423,14 +423,14 @@ export default function Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+          <h1 className="text-5xl lg:text-5xl font-bold leading-tight tracking-tight">
             <motion.span 
               className="block text-white mb-2"
               initial={{ opacity: 0, rotateX: 90 }}
               animate={{ opacity: 1, rotateX: 0 }}
               transition={{ delay: 0.7, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              Transform Your
+              Smart comparisons. 
             </motion.span>
             <motion.span 
               className="block relative"
@@ -446,7 +446,7 @@ export default function Page() {
                 style={{ backgroundSize: '200% 200%' }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                Martech Stack
+                Confident decisions.”
                 {/* Glowing effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] opacity-20 blur-xl"
@@ -468,13 +468,15 @@ export default function Page() {
           transition={{ delay: 1.1, duration: 0.8 }}
         >
           <motion.p
-            className="text-xl lg:text-2xl text-white/70 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3, duration: 1 }}
-          >
-            Get vetted software recommendations and implementation strategies from industry experts who've scaled successful B2B operations.
-          </motion.p>
+  className="text-xl lg:text-xl text-white/70 leading-relaxed font-light max-w-3xl mx-auto lg:mx-0"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1.3, duration: 1 }}
+>
+  With <span className="text-white font-medium">Martechbiz</span>, complex purchases become simple. 
+  Get <span className="text-white/90">clear, comparable price quotes</span> from trusted vendors 
+  and make technology decisions <span className="text-white font-medium">faster, easier, and with confidence</span>.
+</motion.p>
         </motion.div>
 
         {/* Software Categories Grid */}
