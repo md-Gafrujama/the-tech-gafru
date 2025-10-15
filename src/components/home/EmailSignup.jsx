@@ -108,11 +108,11 @@ export default function EmailSignup() {
 
             <p className="text-white/60 text-sm">
               By subscribing, you agree to our{' '}
-              <Link href="/privacy" className="text-[#ffd800] hover:underline">
+              <Link href="https://the-tech-gafru.vercel.app/Privacy-policy" className="text-[#ffd800] hover:underline">
                 Privacy Policy
               </Link>{' '}
               and{' '}
-              <Link href="/terms" className="text-[#ffd800] hover:underline">
+              <Link href="https://www.martechbiz.com/Terms-of-use" className="text-[#ffd800] hover:underline">
                 Terms of Service
               </Link>
               .
