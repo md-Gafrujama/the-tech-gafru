@@ -46,7 +46,8 @@ const Navbar = () => {
   // Blog & Resources dropdown data
   const blogResources = {
     items: [
-      { name: 'Blog', href: 'https://martechbiz-blog-ai.vercel.app' },
+      { name: 'Blog', href: 'https://blogs.martechbiz.com/' },
+      
       { name: 'Resources', href: '/resources' }
     ]
   };
@@ -300,7 +301,7 @@ const Navbar = () => {
                 onMouseLeave={handleDropdownLeave}
               >
                 <a 
-                  href="https://martechbiz-blog-ai.vercel.app" 
+                  href="https://blogs.martechbiz.com/" 
                   className={`flex items-center space-x-1 transition-colors duration-200 ${
                     getActiveDropdown() === 'blog' 
                       ? 'text-[#FFFF00]' 
