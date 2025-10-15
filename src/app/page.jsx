@@ -446,7 +446,7 @@ export default function Page() {
                 style={{ backgroundSize: '200% 200%' }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                Confident decisions.”
+                Confident decisions.
                 {/* Glowing effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-[#8BC34A] opacity-20 blur-xl"
