@@ -410,35 +410,7 @@ export default function HeroSection() {
                 transition={{ delay: 1.7, duration: 0.8 }}
                 whileHover={{ scale: 1.1, y: -10 }}
               >
-                <motion.div
-                  className="relative backdrop-blur-2xl bg-white/[0.08] border border-white/30 rounded-2xl p-6 shadow-2xl"
-                  animate={{
-                    borderColor: ['rgba(255,255,255,0.3)', 'rgba(139,195,74,0.5)', 'rgba(255,255,255,0.3)'],
-                    boxShadow: [
-                      '0 8px 32px rgba(139,195,74,0.1)',
-                      '0 8px 32px rgba(139,195,74,0.3)',
-                      '0 8px 32px rgba(139,195,74,0.1)',
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, delay: 0.3 }}
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div 
-                        className="w-3 h-3 rounded-full bg-[#8BC34A]"
-                      />
-                      <span className="text-white/60 text-xs font-semibold">ACTIVE COMPANIES</span>
-                    </div>
-                    <motion.div 
-                      className="text-4xl font-black bg-gradient-to-r from-[#8BC34A] to-[#4FD1C7] bg-clip-text text-transparent"
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                    >
-                      2.5K+
-                    </motion.div>
-                    <div className="text-white/60 text-xs">Growing daily</div>
-                  </div>
-                </motion.div>
+                
               </motion.div>
 
               {/* Bottom Center Premium Stat Card */}
